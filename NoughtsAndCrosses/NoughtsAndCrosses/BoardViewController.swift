@@ -32,19 +32,20 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func buttonTapped(sender: AnyObject) {
-        gameObject.playMove(sender.tag)
-        sender.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
         var gameState = String(gameObject.state())
-        if gameState == "complete_someone_won" {
-            if String(gameObject.whosTurn()) == "X" {
-                print("Congrats O won!")
-            } else if String(gameObject.whosTurn()) == "O" {
-                print ("Congrats X won!")
+        if gameState == "inProgress" {
+            gameObject.playMove(sender.tag)
+            sender.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
+            var newState = String(gameObject.state())
+            if newState == "complete_someone_won" {
+                if String(gameObject.whosTurn()) == "X" {
+                    print("Congrats O won!")
+                } else if String(gameObject.whosTurn()) == "O" {
+                    print ("Congrats X won!")
+                }
+            } else if newState == "complete_no_one_won" {
+                print ("you tied")
             }
-            self.restartGame()
-        } else if gameState == "complete_no_one_won" {
-            print ("you tied")
-            self.restartGame()
         }
     }
 
