@@ -70,8 +70,8 @@ class OXGame {
                 (board[1] == board[4] && board[4] == board[7] && board[1] != CellType.EMPTY) ||
                 (board[2] == board[5] && board[5] == board[8] && board[2] != CellType.EMPTY) ||
                 
-                (board[0] == board[4] && board[1] == board[8] && board[0] != CellType.EMPTY) ||
-                (board[2] == board[4] && board[1] == board[6] && board[2] != CellType.EMPTY))
+                (board[0] == board[4] && board[4] == board[8] && board[0] != CellType.EMPTY) ||
+                (board[2] == board[4] && board[4] == board[6] && board[2] != CellType.EMPTY))
             {
                 return true
             }

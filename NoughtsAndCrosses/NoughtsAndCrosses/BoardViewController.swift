@@ -13,6 +13,16 @@ class BoardViewController: UIViewController {
     
     // All outlets
     @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var button0: UIButton!
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    
     
     var gameObject = OXGame()
     
@@ -52,8 +62,17 @@ class BoardViewController: UIViewController {
 
     func restartGame () {
         gameObject.reset()
+        gameObject = OXGame()
         
-        
+        button0.setTitle("", forState: .Normal)
+        button1.setTitle("", forState: .Normal)
+        button2.setTitle("", forState: .Normal)
+        button3.setTitle("", forState: .Normal)
+        button4.setTitle("", forState: .Normal)
+        button5.setTitle("", forState: .Normal)
+        button6.setTitle("", forState: .Normal)
+        button7.setTitle("", forState: .Normal)
+        button8.setTitle("", forState: .Normal)
     }
     
 }
