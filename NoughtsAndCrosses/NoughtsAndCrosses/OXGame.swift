@@ -56,35 +56,55 @@ class OXGame {
         return board[index]
     }
     
-    func winDetection(){
+    func winDetection() -> Bool {
         // Vertical
-        if(board[0] == board[3] == board[6]){
+        if(board[0] == board[3] && board[3] == board[6]){
             return true
         }
-        if(board[1] == board[4] == board[7]){
+        if(board[1] == board[4] && board[4] == board[7]){
             return true
         }
-        if(board[2] == board[5] == board[8]){
+        if(board[2] == board[5] && board[5] == board[8]){
             return true
         }
         
         //Horizontal
-        if(board[0] == board[1] == board[2]){
+        if(board[0] == board[1] && board[1] == board[2]){
             return true
         }
-        if(board[3] == board[4] == board[5]){
+        if(board[3] == board[4] && board[4] == board[5]){
             return true
         }
-        if(board[6] == board[7] == board[8]){
+        if(board[6] == board[7] && board[7] == board[8]){
             return true
         }
         //Diag
-        if(board[0] == board[4] == board[8]){
+        if(board[0] == board[4] && board[4] == board[8]){
             return true
         }
-        if(board[2] == board[4] == board[6]){
+        if(board[2] == board[4] && board[4] == board[6]){
             return true
         }
-
+        return false
+    }
+    
+    func state() -> OXGameState{
+        let win = winDetection()
+        
+        if win == true {
+            return OXGameState.complete_someone_one
+        }
+        else if(win == false && turn() == 9){
+            return OXGameState.complete_no_one_won
+        }
+        else{
+            return OXGameState.inProgress
+        }
+    }
+    
+    func reset(){
+        for index in 0...8 {
+            board[index] = CellType.EMPTY
+        }
     }
 }

@@ -31,6 +31,6 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func newGame(sender: UIButton) {
-    
+        gameObject.reset()
     }
 }
