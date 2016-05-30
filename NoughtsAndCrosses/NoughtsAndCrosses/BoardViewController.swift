@@ -10,6 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    var gameObject = OXGame()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,5 +19,18 @@ class BoardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
 
+    @IBOutlet weak var boardView: UIView!
+
+    @IBAction func buttonPressed(sender: UIButton) {
+        
+        print("Button \(sender.tag) pressed")
+        sender.setTitle("X", forState: UIControlState.Normal)
+        
+    }
+    
+    @IBAction func newGame(sender: UIButton) {
+    
+    }
 }
