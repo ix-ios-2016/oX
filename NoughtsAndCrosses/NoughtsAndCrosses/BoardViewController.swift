@@ -10,6 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    var gameObject = OXGame()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,4 +20,8 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func buttonTapped(sender: AnyObject) {
+        
+        print("button \(sender.tag) tapped")
+    }
 }
