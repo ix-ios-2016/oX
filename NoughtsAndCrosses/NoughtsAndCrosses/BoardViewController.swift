@@ -10,6 +10,19 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet var boardView: UIView!
+    @IBOutlet weak var button0: UIButton!
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    
+    var gameObject = OXGame()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,5 +30,40 @@ class BoardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func buttonTapped(sender: AnyObject) {
+        gameObject.playMove(sender.tag)
+        sender.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
+        var gameState = String(gameObject.state())
+        if gameState == "complete_someone_won" {
+            if String(gameObject.whosTurn()) == "X" {
+                print("Congrats O won!")
+            } else if String(gameObject.whosTurn()) == "O" {
+                print ("Congrats X won!")
+            }
+            self.restartGame()
+        } else if gameState == "complete_no_one_won" {
+            print ("you tied")
+            self.restartGame()
+        }
+    }
 
+    @IBAction func newGame(sender: AnyObject) {
+        self.restartGame()
+    }
+    
+    func restartGame() {
+        gameObject.reset()
+        button0.setTitle("", forState: UIControlState.Normal)
+        button1.setTitle("", forState: UIControlState.Normal)
+        button2.setTitle("", forState: UIControlState.Normal)
+        button3.setTitle("", forState: UIControlState.Normal)
+        button4.setTitle("", forState: UIControlState.Normal)
+        button5.setTitle("", forState: UIControlState.Normal)
+        button6.setTitle("", forState: UIControlState.Normal)
+        button7.setTitle("", forState: UIControlState.Normal)
+        button8.setTitle("", forState: UIControlState.Normal)
+        
+    }
+    
 }
