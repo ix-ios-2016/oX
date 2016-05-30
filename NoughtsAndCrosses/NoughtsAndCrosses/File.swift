@@ -35,7 +35,6 @@ class OXGame {
                 count += 1
             }
         }
-        print("turn #\(count)")
         return count
     }
     
@@ -85,7 +84,7 @@ class OXGame {
             return OXGameState.complete_someone_won
         }
         //tie
-        else if turn() == 8 {
+        else if turn() == 9 {
             return OXGameState.complete_no_one_won
         }
         //game not over

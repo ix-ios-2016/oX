@@ -41,23 +41,25 @@ class BoardViewController: UIViewController {
         //determine state
         let status = String (gameObject.state())
         
-        //complete someone won
-        if status == "complete_someone_won" {
-            let xo = String (gameObject.whosTurn())
-            if xo == "X" {
-                print("O wins!")
-            }
-            else {
-                print("X wins!")
-            }
-            
-        }
-        else if status == "complete_no_one_won" {
-            print("tied game")
-        }
-        else {
+        if status == "inProgress"{
             //set to X or O
             sender.setTitle("\(String (gameObject.playMove(sender.tag)))", forState: UIControlState.Normal)
+            
+            //check if finished
+            let new_status = String (gameObject.state())
+            if new_status == "complete_someone_won" {
+                let xo = String (gameObject.whosTurn())
+                if xo == "X" {
+                    print("O wins!")
+                }
+                else {
+                    print("X wins!")
+                }
+                
+            }
+            else if new_status == "complete_no_one_won"{
+                print("tied game")
+            }
         }
 
         
