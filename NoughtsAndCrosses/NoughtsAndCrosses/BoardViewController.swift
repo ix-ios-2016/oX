@@ -10,6 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet var boardContainer: UIView!
+    
     var gameObject = OXGame()
     
     override func viewDidLoad() {
@@ -42,6 +44,11 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {
-        
+        gameObject.reset()
+        for item in boardContainer.subviews {
+            if let button = item as? UIButton {
+                button.setTitle("", forState: UIControlState.Normal)
+            }
+        }
     }
 }
