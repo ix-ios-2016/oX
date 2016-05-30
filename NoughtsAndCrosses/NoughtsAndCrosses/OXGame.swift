@@ -28,7 +28,7 @@ class OXGame {
     // variable denoting starting player
     private var startType: CellType = CellType.X
     
-    // functionin returning number of turns already passed
+    // function returning number of turns already passed
     private func turn() -> Int {
         var count = 0
         for cell in board {
@@ -61,10 +61,24 @@ class OXGame {
         return currentPlayer
     }
     
-    // determine whether the game is over
+    // determine whether some player has won the game
     // true if some player won, false otherwise
     private func winDetection() -> Bool {
-        return false
+        // must check if groups of three boxes are all the same
+        if (board[0] == board[1] && board[1] == board[2] || // horizontal checks
+            board[3] == board[4] && board[4] == board[5] ||
+            board[6] == board[7] && board[7] == board[8] ||
+            board[0] == board[3] && board[3] == board[6] || // vertical checks
+            board[1] == board[4] && board[4] == board[7] ||
+            board[2] == board[5] && board[5] == board[8] ||
+            board[0] == board[4] && board[4] == board[8] || // diagonal checks
+            board[2] == board[4] && board[4] == board[6]) {
+            
+            return true
+        }
+        else {
+            return false
+        }
     }
     
     // return the state of the game
