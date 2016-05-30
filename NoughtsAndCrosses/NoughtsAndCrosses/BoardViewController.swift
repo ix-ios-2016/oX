@@ -21,7 +21,27 @@ class BoardViewController: UIViewController {
     }
 
     @IBAction func buttonTapped(sender: AnyObject) {
-        
+        // play the move
+        gameObject.playMove(sender.tag)
+        sender.setTitle(String(gameObject.typeAtIndex(sender.tag)),
+                        forState: UIControlState.Normal)
         print("button \(sender.tag) tapped")
+        
+        // check the game state
+        let currentState = gameObject.state()
+        switch currentState {
+        case OXGameState.complete_someone_won:
+            print("Winner is \(gameObject.typeAtIndex(sender.tag))")
+        case OXGameState.complete_no_one_won:
+            print("Game is tied.")
+        default:
+            break
+        }
+        
+        
+    }
+    
+    @IBAction func newGameTapped(sender: AnyObject) {
+        
     }
 }

@@ -403,6 +403,9 @@
                             <exclude reference="Br2-ix-UID"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="newGameTapped:" destination="-1" eventType="touchUpInside" id="P8L-2Q-f6o"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>

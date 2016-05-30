@@ -65,14 +65,17 @@ class OXGame {
     // true if some player won, false otherwise
     private func winDetection() -> Bool {
         // must check if groups of three boxes are all the same
-        if (board[0] == board[1] && board[1] == board[2] || // horizontal checks
-            board[3] == board[4] && board[4] == board[5] ||
-            board[6] == board[7] && board[7] == board[8] ||
-            board[0] == board[3] && board[3] == board[6] || // vertical checks
-            board[1] == board[4] && board[4] == board[7] ||
-            board[2] == board[5] && board[5] == board[8] ||
-            board[0] == board[4] && board[4] == board[8] || // diagonal checks
-            board[2] == board[4] && board[4] == board[6]) {
+        if (// horizontal checks
+            board[0] == board[1] && board[1] == board[2] && board[0] != CellType.EMPTY ||
+            board[3] == board[4] && board[4] == board[5] && board[3] != CellType.EMPTY ||
+            board[6] == board[7] && board[7] == board[8] && board[6] != CellType.EMPTY ||
+            // vertical checks
+            board[0] == board[3] && board[3] == board[6] && board[0] != CellType.EMPTY ||
+            board[1] == board[4] && board[4] == board[7] && board[1] != CellType.EMPTY ||
+            board[2] == board[5] && board[5] == board[8] && board[2] != CellType.EMPTY ||
+            // diagonal checks
+            board[0] == board[4] && board[4] == board[8] && board[0] != CellType.EMPTY ||
+            board[2] == board[4] && board[4] == board[6] && board[2] != CellType.EMPTY) {
             
             return true
         }
