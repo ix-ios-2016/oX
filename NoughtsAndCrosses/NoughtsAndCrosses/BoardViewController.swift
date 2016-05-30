@@ -24,33 +24,30 @@ class BoardViewController: UIViewController {
 
     @IBAction func boardTapped(sender: UIButton) {
      let tag = sender.tag
-     var gameState = game.state()
-
+        
+        
+        //Set the title of the button to the player’s CellType.
+        let cell = String(game.playMove(tag))
+        sender.setTitle(cell, forState: UIControlState.Normal)
+        
+     let gameState = game.state()
+        
+    
+        let plyer = game.whosTurn()
+    
         if ( gameState == OXGameState.complete_someone_won){
-            let temp = String(game.whosTurn())
-            print("\(temp) is the Winner!")
+            
+            print("\(String(plyer)) is the Winner!")
             restartGame()
-            gameState = OXGameState.inProgress
         }
         else if ( gameState == OXGameState.complete_no_one_won ) {
             print("There is a Tie!")
             restartGame()
-            gameState = OXGameState.inProgress
         }
         
-        
-        //Set the title of the button to the player’s CellType.
-        sender.setTitle(String(game.playMove(tag)), forState: UIControlState.Normal)
 
         
     }
-
-    @IBOutlet var allButtons: [UIButton]!
-    
-    @IBAction func resetGame(sender: UIButton) {
-        restartGame()
-    }
-    
     func restartGame() {
         game.reset()
         game.currTurn = CellType.X
@@ -60,5 +57,12 @@ class BoardViewController: UIViewController {
             
         }
     }
+    @IBOutlet var allButtons: [UIButton]!
+    
+    @IBAction func resetGame(sender: UIButton) {
+        restartGame()
+    }
+    
+
    
 }

@@ -35,7 +35,7 @@ class OXGame {
         var count = 0
         for cell in board {
             if cell != CellType.EMPTY {
-                count += 1
+                count = count + 1
             }
         }
 
@@ -44,12 +44,10 @@ class OXGame {
     
     func whosTurn() -> CellType {
         if (turn() % 2 == 0 ) {
-            currTurn = CellType.X
-            return CellType.X
+            return CellType.O
         }
         else{
-            currTurn = CellType.O
-            return CellType.O
+            return CellType.X
         }
     }
     //Create a function that returns the CellType at a certain position of the board called typeAtIndex()
