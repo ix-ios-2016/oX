@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class BoardViewController: UIViewController {
     
     // All outlets
@@ -17,11 +18,28 @@ class BoardViewController: UIViewController {
     
     // Action for all buttons clicked
     @IBAction func buttonClicked(sender: AnyObject) {
-        print(String(sender.tag))
+        sender.setTitle(String(gameObject.whosTurn()), forState: .Normal)
+
+        gameObject.playMove(sender.tag)
+        
+        let state = gameObject.state()
+        if state == OXGame.OXGameState.complete_someone_won {
+            print("Congratulations, player " + String(gameObject.typeAtIndex(sender.tag)) + ". You won!")
+            restartGame()
+        }
+        else if state == OXGame.OXGameState.complete_no_one_won {
+            print("Tie game")
+            restartGame()
+        }
+        else if state == OXGame.OXGameState.inProgress {
+        }
+        
+        
     }
     
     // Action for new game click
     @IBAction func newGameClicked(sender: AnyObject) {
+        restartGame()
     }
     
     override func viewDidLoad() {
@@ -32,6 +50,10 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    
+    func restartGame () {
+        gameObject.reset()
+        
+        
+    }
     
 }
