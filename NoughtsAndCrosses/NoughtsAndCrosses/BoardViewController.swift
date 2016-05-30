@@ -10,6 +10,21 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    // All outlets
+    @IBOutlet weak var boardView: UIView!
+    
+    var gameObject:OXGame = OXGame()
+    
+    // Outlet for all grid buttons
+    @IBAction func gridButtonTapped(sender: AnyObject) {
+        //print(String(sender.tag))
+        
+    }
+    
+    // Outlet for newGame Button
+    @IBAction func newGameButtonTapped(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,5 +32,9 @@ class BoardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
+    
+    
 
 }
