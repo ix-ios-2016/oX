@@ -76,8 +76,6 @@ class OXGame {
             (board[0] == board[4] && board[4] == board[8] && board[0] != CellType.EMPTY) ||
             (board[2] == board[4] && board[4] == board[6] && board[2] != CellType.EMPTY))
         {
-            print(board[0])
-            print(board[1])
             return true
         }
         else {
