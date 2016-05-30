@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -10,6 +9,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="allButtons" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="b8b-jI-6ri"/>
+                <outletCollection property="allButtons" destination="N6c-yA-Xo4" collectionClass="NSMutableArray" id="UJ3-9X-tp4"/>
+                <outletCollection property="allButtons" destination="ouQ-ap-EjW" collectionClass="NSMutableArray" id="RPg-ik-Cpe"/>
+                <outletCollection property="allButtons" destination="KpC-Ia-fSQ" collectionClass="NSMutableArray" id="6xe-cX-GYm"/>
+                <outletCollection property="allButtons" destination="Uv9-k9-j6J" collectionClass="NSMutableArray" id="q8J-4x-Dwi"/>
+                <outletCollection property="allButtons" destination="l4o-we-hNW" collectionClass="NSMutableArray" id="3Hm-VU-auJ"/>
+                <outletCollection property="allButtons" destination="98z-PQ-N63" collectionClass="NSMutableArray" id="lfS-gc-wYs"/>
+                <outletCollection property="allButtons" destination="5oJ-IG-Rbw" collectionClass="NSMutableArray" id="3vs-GW-c6p"/>
+                <outletCollection property="allButtons" destination="wqL-6N-dzo" collectionClass="NSMutableArray" id="WQx-0o-je3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,6 +44,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="gEo-tg-aho"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6c-yA-Xo4">
                             <rect key="frame" x="187" y="0.0" width="187" height="146"/>
@@ -43,6 +54,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="lnw-bc-lZp"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouQ-ap-EjW">
                             <rect key="frame" x="379" y="0.0" width="181" height="146"/>
@@ -50,6 +64,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="dhc-m3-bEU"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-Ia-fSQ">
                             <rect key="frame" x="0.0" y="151" width="182" height="152"/>
@@ -57,6 +74,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="HGY-Vy-5TZ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-k9-j6J">
                             <rect key="frame" x="187" y="151" width="187" height="152"/>
@@ -78,6 +98,9 @@
                                     <exclude reference="oRF-Bl-x4s"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="hKZ-EI-d0g"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4o-we-hNW">
                             <rect key="frame" x="379" y="151" width="181" height="152"/>
@@ -85,6 +108,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="vpo-fI-wh5"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqL-6N-dzo">
                             <rect key="frame" x="0.0" y="308" width="182" height="146"/>
@@ -92,20 +118,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
-                        </button>
-                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oJ-IG-Rbw">
-                            <rect key="frame" x="187" y="308" width="187" height="146"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98z-PQ-N63">
-                            <rect key="frame" x="379" y="308" width="181" height="146"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="mXi-G4-Se2"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-39-2TU">
                             <rect key="frame" x="374" y="0.0" width="5" height="454"/>
@@ -135,6 +150,26 @@
                                 <constraint firstAttribute="height" constant="5" id="mgk-y5-0cw"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oJ-IG-Rbw">
+                            <rect key="frame" x="187" y="308" width="187" height="146"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="Hid-Dk-s34"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98z-PQ-N63">
+                            <rect key="frame" x="379" y="308" width="181" height="146"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="GiV-eI-NST"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="wqL-6N-dzo" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="width" multiplier="0.333" id="09T-Bw-3Cz"/>
@@ -375,6 +410,9 @@
                             <exclude reference="Br2-ix-UID"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="resetGame:" destination="-1" eventType="touchUpInside" id="O2r-Sn-wpt"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
