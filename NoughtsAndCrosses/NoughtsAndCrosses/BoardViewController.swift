@@ -10,6 +10,20 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    // All outlets
+    @IBOutlet weak var boardView: UIView!
+    
+    var gameObject = OXGame()
+    
+    // Action for all buttons clicked
+    @IBAction func buttonClicked(sender: AnyObject) {
+        print(String(sender.tag))
+    }
+    
+    // Action for new game click
+    @IBAction func newGameClicked(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,4 +32,6 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    
+    
 }
