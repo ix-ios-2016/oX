@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authenticationNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,13 +22,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
         
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        self.authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.authenticationNavigationController?.navigationBarHidden = true
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.authenticationNavigationController
         self.window?.makeKeyAndVisible()
         
         
         
         return true
+    }
+    
+    func navigateToGame() {
+        self.window?.rootViewController = self.navigationController
+    }
+    
+    func navigateToLandingView() {
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        
+        authenticationNavigationController?.pushViewController(landingViewController, animated: true)
+        self.window?.rootViewController = self.authenticationNavigationController
     }
 
     func applicationWillResignActive(application: UIApplication) {

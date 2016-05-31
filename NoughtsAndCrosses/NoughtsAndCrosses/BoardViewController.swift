@@ -36,10 +36,18 @@ class BoardViewController: UIViewController {
         let gameState = game.state()
         if gameState == OXGameState.complete_someone_won {
             print("Winner: Player " + String(turn))
+            let alert = UIAlertController(title: "Game Over!", message: "Winner: Player \(String(turn))", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             restartGame()
         }
         else if gameState == OXGameState.complete_no_one_won {
             print("Game Tied")
+            let alert = UIAlertController(title: "Game Over!", message: "Tie Game, no winner!", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             restartGame()
         }
         
@@ -56,6 +64,13 @@ class BoardViewController: UIViewController {
         restartGame()
     }
     
+    @IBAction func logoutButtonTapped(sender: UIButton) {
+        UserController.sharedInstance.logout()
+        print("Logged Out")
+        
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToLandingView()
+    }
     
     
 }

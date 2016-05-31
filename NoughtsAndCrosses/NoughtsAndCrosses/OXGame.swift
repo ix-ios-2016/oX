@@ -15,9 +15,9 @@ enum CellType : String {
 }
 
 enum OXGameState : String {
-    case inProgress = "In Progress"
-    case complete_no_one_won = "No Winner"
-    case complete_someone_won = "Winner!"
+    case inProgress
+    case complete_no_one_won
+    case complete_someone_won
 }
 
 class OXGame {
