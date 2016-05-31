@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-//    var navigationController: UINavigationController?
+    var boardNavigationController: UINavigationController?
     var authorizationNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         self.authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
         
-//        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-//        self.navigationController = UINavigationController(rootViewController: boardViewController)
-//        self.navigationController?.navigationBarHidden = true
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.boardNavigationController = UINavigationController(rootViewController: boardViewController)
+        self.boardNavigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.authorizationNavigationController
@@ -55,6 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func navigateToGame() {
+        self.window?.rootViewController = self.boardNavigationController
+    }
+    
+    func navigateToLoggedOutNavigationController() {
+        self.window?.rootViewController = self.authorizationNavigationController
     }
 
 

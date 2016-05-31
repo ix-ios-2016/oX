@@ -49,7 +49,8 @@ class RegisterViewController: UIViewController {
         
         if user != nil {
             // create alert controller and OK action
-            let alertController = UIAlertController(title: "User registered", message: "Username \(user!.email)",
+            let alertController = UIAlertController(title: "User registered",
+                                                    message: "Username \(user!.email). Feel free to log in.",
                                                     preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default, handler: UIAlertActionHandler)
             // add OK action to alert controller

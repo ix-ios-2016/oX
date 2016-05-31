@@ -37,7 +37,19 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        
+        let (failureMessage, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
+        if user != nil {
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToGame()
+        } else if failureMessage != nil {
+            let alertController = UIAlertController(title: "Could not log in",
+                                                    message: failureMessage, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action: UIAlertAction!) in
+                print("Error message given")
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     
