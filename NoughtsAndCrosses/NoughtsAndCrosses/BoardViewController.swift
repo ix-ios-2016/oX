@@ -38,9 +38,7 @@ class BoardViewController: UIViewController {
 
             // Present the message
             self.presentViewController(winAlert, animated: true, completion: nil)
-            
-//            if okButton.enabled
-            
+                        
             restartGame()
         }
         else if gameState == OXGame.OXGameState.complete_no_one_won
