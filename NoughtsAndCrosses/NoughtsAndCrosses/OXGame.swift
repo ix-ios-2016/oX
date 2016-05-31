@@ -81,6 +81,15 @@ class OXGame {
         } else {
             return false
         }
+        
+        //check rows
+//        for i in 0...2 {
+//            if board[3*i] == board[3*i + 1] && board[3*i] == board[3*i + 2] && !(String(board[3*i] == "EMPTY")){
+//                
+//            }
+//        }
+        
+        //check columns then check diagonals
     }
     
 

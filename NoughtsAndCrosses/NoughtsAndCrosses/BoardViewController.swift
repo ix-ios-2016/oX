@@ -10,6 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     @IBOutlet var boardView: UIView!
     @IBOutlet weak var button0: UIButton!
     @IBOutlet weak var button1: UIButton!
@@ -53,6 +55,14 @@ class BoardViewController: UIViewController {
         self.restartGame()
     }
     
+    @IBAction func logoutButtonTapped(sender: UIButton) {
+        UserController.sharedInstance.logged_in_user!.email = ""
+        UserController.sharedInstance.logged_in_user!.password = ""
+        appDelegate.navigateToLandingViewController()
+    }
+    
+    
+    
     func restartGame() {
         gameObject.reset()
         button0.setTitle("", forState: UIControlState.Normal)
@@ -64,6 +74,12 @@ class BoardViewController: UIViewController {
         button6.setTitle("", forState: UIControlState.Normal)
         button7.setTitle("", forState: UIControlState.Normal)
         button8.setTitle("", forState: UIControlState.Normal)
+        
+//        for view in boardView.subviews {
+//            if let button = view as? UIButton {
+//                button.setTitle("", forState: UIControlState.Normal)
+//            }
+//        } or make an array of outlet objects
         
     }
     

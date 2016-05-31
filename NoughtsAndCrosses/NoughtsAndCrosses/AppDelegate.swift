@@ -13,21 +13,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authorizationNavigationController = UINavigationController()
+    var loggedInNavigationController = UINavigationController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+       // let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        loggedInNavigationController = UINavigationController(rootViewController: loggedInViewController)
+        
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        self.authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.loggedInNavigationController.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.authorizationNavigationController
         self.window?.makeKeyAndVisible()
         
         
         
         return true
+    }
+    
+    func navigateToLoggedInNavigationController() {
+        self.window?.rootViewController = self.loggedInNavigationController
+    }
+    
+    func navigateToLandingViewController(){
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.window?.rootViewController = self.authorizationNavigationController
     }
 
     func applicationWillResignActive(application: UIApplication) {
