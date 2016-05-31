@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var authorizationNavigationController : UINavigationController?
     
     
-    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -64,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    
     func navigateToGame() {
         
-        var gameBoard = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        let gameBoard = BoardViewController(nibName: "BoardViewController", bundle: nil)
         
         self.gameNavigationController = UINavigationController (rootViewController: gameBoard)
         

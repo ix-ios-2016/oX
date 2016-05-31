@@ -18,6 +18,8 @@
 		8DE7C5121CFE386F00286199 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5111CFE386F00286199 /* UserController.swift */; };
 		8DE7C51A1CFE42AC00286199 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5181CFE42AC00286199 /* RegistrationViewController.swift */; };
 		8DE7C51B1CFE42AC00286199 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C5191CFE42AC00286199 /* RegistrationViewController.xib */; };
+		8DE7C51F1CFE4B1B00286199 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C51D1CFE4B1B00286199 /* LoginViewController.swift */; };
+		8DE7C5201CFE4B1B00286199 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C51E1CFE4B1B00286199 /* LoginViewController.xib */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		8DE7C5111CFE386F00286199 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		8DE7C5181CFE42AC00286199 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8DE7C5191CFE42AC00286199 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		8DE7C51D1CFE4B1B00286199 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8DE7C51E1CFE4B1B00286199 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +105,7 @@
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
+				8DE7C51C1CFE4AED00286199 /* LoginViewController */,
 				8DE7C5171CFE426C00286199 /* Registration View Controller */,
 			);
 			sourceTree = "<group>";
@@ -165,6 +170,16 @@
 				8DE7C5191CFE42AC00286199 /* RegistrationViewController.xib */,
 			);
 			name = "Registration View Controller";
+			path = NoughtsAndCrosses;
+			sourceTree = "<group>";
+		};
+		8DE7C51C1CFE4AED00286199 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8DE7C51D1CFE4B1B00286199 /* LoginViewController.swift */,
+				8DE7C51E1CFE4B1B00286199 /* LoginViewController.xib */,
+			);
+			name = LoginViewController;
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
 		};
@@ -274,6 +289,7 @@
 			files = (
 				8DE7C51B1CFE42AC00286199 /* RegistrationViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
+				8DE7C5201CFE4B1B00286199 /* LoginViewController.xib in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				8DE7C5101CFE2E9400286199 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
@@ -301,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE7C51F1CFE4B1B00286199 /* LoginViewController.swift in Sources */,
 				8DE7C51A1CFE42AC00286199 /* RegistrationViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				8D0E55761CFC707E00B3499E /* OXGame.swift in Sources */,
