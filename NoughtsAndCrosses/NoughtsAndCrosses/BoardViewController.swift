@@ -10,6 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet var boardView: UIView!
     
     @IBOutlet var button0: UIButton!
@@ -82,4 +84,12 @@ class BoardViewController: UIViewController {
         button7.setTitle("", forState: UIControlState.Normal)
         button8.setTitle("", forState: UIControlState.Normal)
     }
+    
+    @IBAction func logoutButtonTapped(sender: UIButton) {
+        UserController.sharedInstance.logged_in_user!.email = "";
+        UserController.sharedInstance.logged_in_user!.password = "";
+        appDelegate.navigateToLandingViewController()
+    }
+    
+    
 }
