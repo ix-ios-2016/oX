@@ -63,6 +63,7 @@ class BoardViewController: UIViewController {
         restartgame()
     }
     
+
     func restartgame() {
         gameObject.reset()
         target.setTitle("", forState: UIControlState.Normal)

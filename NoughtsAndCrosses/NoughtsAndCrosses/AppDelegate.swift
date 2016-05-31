@@ -13,22 +13,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authorizationNavigationContoller: UINavigationController?
+    var loggedOutNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorizationNavigationContoller = UINavigationController(rootViewController: landingViewController)
+                
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.authorizationNavigationContoller
         self.window?.makeKeyAndVisible()
         
         
         
         return true
     }
+    
+    func navigateToBoardNavigationController() {
+        window?.rootViewController = navigationController
+    }
+    
+    func navigateToLandingNavigationController() {
+        window?.rootViewController = authorizationNavigationContoller
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
