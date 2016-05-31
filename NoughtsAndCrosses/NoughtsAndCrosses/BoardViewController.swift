@@ -55,19 +55,15 @@ class BoardViewController: UIViewController {
     }
     
     func restartGame() {
-        
         let buttons = [button0, button1, button2, button3, button4, button5, button6, button7, button8]
         for button in buttons {
             button.setTitle("", forState: UIControlState.Normal)
         }
         game.reset()
-
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {
-    
         restartGame()
-        
     }
 
 }
