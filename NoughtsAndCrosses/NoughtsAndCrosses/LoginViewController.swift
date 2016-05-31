@@ -44,9 +44,7 @@ class LoginViewController: UIViewController {
         } else if failureMessage != nil {
             let alertController = UIAlertController(title: "Could not log in",
                                                     message: failureMessage, preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action: UIAlertAction!) in
-                print("Error message given")
-            }
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in}
             alertController.addAction(OKAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }

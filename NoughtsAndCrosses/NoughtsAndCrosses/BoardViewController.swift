@@ -34,8 +34,26 @@ class BoardViewController: UIViewController {
         switch currentState {
         case OXGameState.complete_someone_won:
             print("Winner is \(gameObject.typeAtIndex(sender.tag))")
+            // create alert controller and OK action
+            let alertController = UIAlertController(title: "Game over!",
+                                                    message: "Winner is \(gameObject.typeAtIndex(sender.tag))",
+                                                    preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
+            // add OK action to alert controller
+            alertController.addAction(OKAction)
+            // display alert
+            self.presentViewController(alertController, animated: true, completion: nil)
         case OXGameState.complete_no_one_won:
-            print("Game is tied.")
+            print("Game tied.")
+            // create alert controller and OK action
+            let alertController = UIAlertController(title: "Game over!",
+                                                    message: "Game is tied.",
+                                                    preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
+            // add OK action to alert controller
+            alertController.addAction(OKAction)
+            // display alert
+            self.presentViewController(alertController, animated: true, completion: nil)
         default:
             break
         }
