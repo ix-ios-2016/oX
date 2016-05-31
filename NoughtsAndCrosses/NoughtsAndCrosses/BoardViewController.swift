@@ -12,16 +12,6 @@ class BoardViewController: UIViewController {
     
     // All outlets
     @IBOutlet weak var boardView: UIView!
-    @IBOutlet weak var button0: UIButton!
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
-    @IBOutlet weak var button5: UIButton!
-    @IBOutlet weak var button6: UIButton!
-    @IBOutlet weak var button7: UIButton!
-    @IBOutlet weak var button8: UIButton!
-    
     
     var gameObject:OXGame = OXGame()
     
@@ -49,6 +39,8 @@ class BoardViewController: UIViewController {
             // Present the message
             self.presentViewController(winAlert, animated: true, completion: nil)
             
+//            if okButton.enabled
+            
             restartGame()
         }
         else if gameState == OXGame.OXGameState.complete_no_one_won
@@ -69,14 +61,13 @@ class BoardViewController: UIViewController {
         gameObject.reset()
         gameObject = OXGame()
         
-        let buttonArray = [button0, button1, button2, button3, button4,
-                           button5, button6, button7, button8]
-        
-        for button in buttonArray
+        for view in self.boardView.subviews as [UIView]
         {
-            button.setTitle("", forState: .Normal)
+            if let button = view as? UIButton
+            {
+                button.setTitle("", forState: .Normal)
+            }
         }
-        
     }
     
     // Outlet for newGame Button
