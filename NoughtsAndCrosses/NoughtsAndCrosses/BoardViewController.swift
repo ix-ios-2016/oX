@@ -47,14 +47,13 @@ class BoardViewController: UIViewController {
                 winningMessage.text = "Player X wins"
             } else if (game.whosTurn() == CellType.O){
                 winningMessage.text = "Player O wins"
-            } else {
-                winningMessage.text = ""
             }
         }
         sender.setTitle(cellType, forState: UIControlState.Normal)
     }
     
     func restartGame() {
+        winningMessage.text = ""
         let buttons = [button0, button1, button2, button3, button4, button5, button6, button7, button8]
         for button in buttons {
             button.setTitle("", forState: UIControlState.Normal)
