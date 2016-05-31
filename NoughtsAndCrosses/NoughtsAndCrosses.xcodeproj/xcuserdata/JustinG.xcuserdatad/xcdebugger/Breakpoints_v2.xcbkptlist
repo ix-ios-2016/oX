@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
             endingLineNumber = "52"
-            landmarkName = "OXGame"
-            landmarkType = "3">
+            landmarkName = "typeAtIndex(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoughtsAndCrosses/OXGame.swift"
-            timestampString = "486310349.696927"
+            timestampString = "486335456.12737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "OXGame"
-            landmarkType = "3">
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "state()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,12 +42,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoughtsAndCrosses/BoardViewController.swift"
-            timestampString = "486310787.908373"
+            timestampString = "486334495.798432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "newGame(_:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "didReceiveMemoryWarning()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoughtsAndCrosses/OXGame.swift"
+            timestampString = "486335456.12737"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "winDetection()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
