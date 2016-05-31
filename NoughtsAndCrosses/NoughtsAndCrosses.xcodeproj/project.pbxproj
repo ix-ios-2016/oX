@@ -13,6 +13,11 @@
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
 		8D0E55761CFC707E00B3499E /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E55751CFC707E00B3499E /* OXGame.swift */; };
+		8DE7C50F1CFE2E9400286199 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C50D1CFE2E9400286199 /* LandingViewController.swift */; };
+		8DE7C5101CFE2E9400286199 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C50E1CFE2E9400286199 /* LandingViewController.xib */; };
+		8DE7C5121CFE386F00286199 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5111CFE386F00286199 /* UserController.swift */; };
+		8DE7C51A1CFE42AC00286199 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5181CFE42AC00286199 /* RegistrationViewController.swift */; };
+		8DE7C51B1CFE42AC00286199 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C5191CFE42AC00286199 /* RegistrationViewController.xib */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -47,6 +52,11 @@
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0E55751CFC707E00B3499E /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		8DE7C50D1CFE2E9400286199 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		8DE7C50E1CFE2E9400286199 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		8DE7C5111CFE386F00286199 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		8DE7C5181CFE42AC00286199 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		8DE7C5191CFE42AC00286199 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +101,7 @@
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
+				8DE7C5171CFE426C00286199 /* Registration View Controller */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +118,7 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				8DE7C50C1CFE2E6200286199 /* LandingView */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
@@ -114,6 +126,7 @@
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
+				8DE7C5111CFE386F00286199 /* UserController.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -134,6 +147,25 @@
 				42D447EF1CD765680070326E /* Info.plist */,
 			);
 			path = NoughtsAndCrossesUITests;
+			sourceTree = "<group>";
+		};
+		8DE7C50C1CFE2E6200286199 /* LandingView */ = {
+			isa = PBXGroup;
+			children = (
+				8DE7C50D1CFE2E9400286199 /* LandingViewController.swift */,
+				8DE7C50E1CFE2E9400286199 /* LandingViewController.xib */,
+			);
+			name = LandingView;
+			sourceTree = "<group>";
+		};
+		8DE7C5171CFE426C00286199 /* Registration View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8DE7C5181CFE42AC00286199 /* RegistrationViewController.swift */,
+				8DE7C5191CFE42AC00286199 /* RegistrationViewController.xib */,
+			);
+			name = "Registration View Controller";
+			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +272,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE7C51B1CFE42AC00286199 /* RegistrationViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				8DE7C5101CFE2E9400286199 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +301,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE7C51A1CFE42AC00286199 /* RegistrationViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				8D0E55761CFC707E00B3499E /* OXGame.swift in Sources */,
+				8DE7C5121CFE386F00286199 /* UserController.swift in Sources */,
+				8DE7C50F1CFE2E9400286199 /* LandingViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -84,6 +84,16 @@ class BoardViewController: UIViewController {
         for button in settingToBlank{
             button.setTitle("" , forState: UIControlState.Normal)
         }
+        
+        /*
+            another way
+         
+         gameObject.reset()
+         
+         few view in boardview.subviews(){
+         `
+         }
+        */
             
     }
         

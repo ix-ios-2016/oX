@@ -12,23 +12,30 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    
+    var gameNavigationController : UINavigationController?
+    
+    var authorizationNavigationController : UINavigationController?
+    
+    
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        
+        authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.authorizationNavigationController
         self.window?.makeKeyAndVisible()
         
         
         return true
-    }
-
+        
+        }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -50,6 +57,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+//    func navigateToRegisterViewController(){
+//        
+//    }
+//    
+    func navigateToGame() {
+        
+        var gameBoard = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        
+        self.gameNavigationController = UINavigationController (rootViewController: gameBoard)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.gameNavigationController
+        self.window?.makeKeyAndVisible()
+        
+        
+    }
+
 
 
 }

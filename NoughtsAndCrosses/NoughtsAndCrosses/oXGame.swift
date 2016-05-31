@@ -127,26 +127,29 @@ class OXGame {
         return false
     }
  
-    }
-
-    /*Create a variable from the win detection function to that contains if someone won at the current configuration of the board
-    Use the variable to check if someone has won, if true, return the state complete_someone_won
-    Else if (no one won) and it is turn 9, return complete_no_one_won
-    Else return game still inProgress
-    */
+        /* Alternatively
+ 
+            for i in 0...2 {
+                if ((board[3*i] board[3*i + 1] etc... */
+            }
+    
+    //    Create a variable from the win detection function to that contains if someone won at the current configuration of the board
+    //    Use the variable to check if someone has won, if true, return the state complete_someone_won
+    //    Else if (no one won) and it is turn 9, return complete_no_one_won
+    //    Else return game still inProgress
+    
     func state() -> OXGameState{
         
-        var a = winDetection()
-        
-        if (a) {
+        if (winDetection() ) {
             return OXGameState.complete_someone_won
-        } else if (turn() == 9) {
+        } else if ((winDetection() == false) && (turn() == 8)) {
             return OXGameState.complete_no_one_won
         } else {
             return OXGameState.inProgress
         }
         
     }
+    
     //Create a reset function called reset() that sets all the board cells to CellType.Empty
     func reset() {
         
@@ -155,6 +158,5 @@ class OXGame {
         }
         
     }
-    
-    
-}
+
+    }
