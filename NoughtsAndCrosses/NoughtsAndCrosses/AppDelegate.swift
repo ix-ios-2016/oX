@@ -13,21 +13,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authorisationNavController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorisationNavController = UINavigationController(rootViewController: landingViewController)
+        self.window?.rootViewController = self.authorisationNavController
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.authorisationNavController
         self.window?.makeKeyAndVisible()
         
         
         
         return true
+    }
+    
+    func  navigateToLandingViewController() {
+        
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorisationNavController = UINavigationController(rootViewController: landingViewController)
+        self.window?.rootViewController = self.authorisationNavController
+        
+    }
+    
+    func  navigateToBoardViewController() {
+        
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        navigationController = UINavigationController(rootViewController: boardViewController)
+        self.navigationController?.navigationBarHidden = true
+        self.window?.rootViewController = self.navigationController
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
