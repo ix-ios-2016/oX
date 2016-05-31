@@ -12,11 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    var authorisationNavigationController:UINavigationController?
+    var BoardViewNavigationController:UINavigationController?
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        //Landing View
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
+        authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.authorisationNavigationController
+        self.window?.makeKeyAndVisible()
+        
+        
+        /**
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
@@ -25,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
         
-        
+        */
         
         return true
     }
@@ -51,6 +63,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func navigateToBoardViewController() {
+        
+        //Board View
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.BoardViewNavigationController = UINavigationController(rootViewController: boardViewController)
+        self.BoardViewNavigationController?.navigationBarHidden = true
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.BoardViewNavigationController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func navigateToLandingViewNavigationController() {
+        
+        //Landing View
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
+        authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.authorisationNavigationController
+        self.window?.makeKeyAndVisible()
+    }
+
 
 
 }

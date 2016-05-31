@@ -59,5 +59,13 @@ func restartGame() {
     @IBAction func newgame(sender: UIButton) {
         restartGame()
 }
+    
+    @IBAction func logOutButton(sender: UIButton) {
+        
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.navigateToLandingViewNavigationController()
+    }
+
 
 }
