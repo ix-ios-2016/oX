@@ -14,7 +14,6 @@ class BoardViewController: UIViewController {
     // All outlets
     @IBOutlet weak var boardView: UIView!
     
-    
     var gameObject = OXGame()
     
     // Action for all buttons clicked
@@ -60,16 +59,6 @@ class BoardViewController: UIViewController {
                 button.setTitle("", forState: .Normal)
             }
         }
-        
-        /*button0.setTitle("", forState: .Normal)
-        button1.setTitle("", forState: .Normal)
-        button2.setTitle("", forState: .Normal)
-        button3.setTitle("", forState: .Normal)
-        button4.setTitle("", forState: .Normal)
-        button5.setTitle("", forState: .Normal)
-        button6.setTitle("", forState: .Normal)
-        button7.setTitle("", forState: .Normal)
-        button8.setTitle("", forState: .Normal)*/
     }
     
 }
