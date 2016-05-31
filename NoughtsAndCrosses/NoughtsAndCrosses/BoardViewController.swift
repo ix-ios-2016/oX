@@ -63,6 +63,11 @@ class BoardViewController: UIViewController {
         restartGame()
     }
     
+    @IBAction func logoutButtonPressed(sender: UIButton) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.navigateBackToLandingNavigationController()
+    }
 
    
 }
