@@ -10,15 +10,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="boardView" destination="qYi-hH-8b3" id="47o-OG-2cf"/>
-                <outlet property="button0" destination="Lgl-eZ-ME1" id="cip-dC-czV"/>
-                <outlet property="button1" destination="N6c-yA-Xo4" id="9Px-do-2cL"/>
-                <outlet property="button2" destination="ouQ-ap-EjW" id="K4a-cC-ZUG"/>
-                <outlet property="button3" destination="KpC-Ia-fSQ" id="RcR-Lx-Y7E"/>
-                <outlet property="button4" destination="Uv9-k9-j6J" id="aD6-zc-XSf"/>
-                <outlet property="button5" destination="l4o-we-hNW" id="cAS-BK-oMd"/>
-                <outlet property="button6" destination="wqL-6N-dzo" id="A0n-VQ-Hf1"/>
-                <outlet property="button7" destination="5oJ-IG-Rbw" id="cIQ-vL-FXW"/>
-                <outlet property="button8" destination="98z-PQ-N63" id="jYV-IT-mT5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,14 +31,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3" userLabel="boardView">
                     <rect key="frame" x="20" y="43" width="560" height="555"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-eZ-ME1">
+                            <rect key="frame" x="0.0" y="0.5" width="182" height="179.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="fCZ-Li-rX5"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6c-yA-Xo4">
-                            <rect key="frame" x="187" y="0.0" width="187" height="179.5"/>
+                            <rect key="frame" x="187" y="0.5" width="187" height="179.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="xEJ-GG-Wkp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouQ-ap-EjW">
+                            <rect key="frame" x="379" y="0.5" width="181" height="179.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="qWO-gw-t1p"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-Ia-fSQ">
@@ -152,26 +163,6 @@
                                 <constraint firstAttribute="height" constant="5" id="mgk-y5-0cw"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouQ-ap-EjW">
-                            <rect key="frame" x="379" y="0.0" width="181" height="179.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="qWO-gw-t1p"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-eZ-ME1">
-                            <rect key="frame" x="0.0" y="0.0" width="182" height="179.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="fCZ-Li-rX5"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="wqL-6N-dzo" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="width" multiplier="0.333" id="09T-Bw-3Cz"/>

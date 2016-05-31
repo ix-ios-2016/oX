@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="UYB-7g-oMs" id="guX-ZQ-CjC"/>
+                <outlet property="passwordField" destination="y3f-kc-k2M" id="QVn-4b-H7N"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in3-ic-Z0z">
+                    <rect key="frame" x="26" y="82" width="75" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYB-7g-oMs">
+                    <rect key="frame" x="26" y="119" width="198" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y3f-kc-k2M">
+                    <rect key="frame" x="26" y="162" width="198" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Cyw-C6-MIq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Cyw-C6-MIq"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Cyw-C6-MIq"/>
+                        </mask>
+                    </variation>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndk-iw-gfm">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="Register"/>
+                    <connections>
+                        <action selector="registerUser:" destination="-1" eventType="touchUpInside" id="T5u-Gt-z17"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ndk-iw-gfm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3W5-oC-3Sf"/>
+                <constraint firstItem="in3-ic-Z0z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="3rq-5J-Ixw"/>
+                <constraint firstItem="y3f-kc-k2M" firstAttribute="top" secondItem="UYB-7g-oMs" secondAttribute="bottom" constant="8" symbolic="YES" id="Csa-9T-9KO"/>
+                <constraint firstItem="Ndk-iw-gfm" firstAttribute="top" secondItem="y3f-kc-k2M" secondAttribute="bottom" constant="8" symbolic="YES" id="FdV-fY-1pn"/>
+                <constraint firstItem="in3-ic-Z0z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JYH-ri-424"/>
+                <constraint firstItem="UYB-7g-oMs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eGm-UT-Dfc">
+                    <variation key="widthClass=compact" constant="104"/>
+                </constraint>
+                <constraint firstItem="y3f-kc-k2M" firstAttribute="trailing" secondItem="UYB-7g-oMs" secondAttribute="trailing" id="ft5-rs-Mcy"/>
+                <constraint firstItem="y3f-kc-k2M" firstAttribute="leading" secondItem="UYB-7g-oMs" secondAttribute="leading" id="mdC-xS-vcs"/>
+                <constraint firstItem="in3-ic-Z0z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qa1-mH-jwD"/>
+                <constraint firstItem="y3f-kc-k2M" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vKZ-hq-ihI">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="in3-ic-Z0z"/>
+                    <exclude reference="UYB-7g-oMs"/>
+                    <exclude reference="y3f-kc-k2M"/>
+                    <exclude reference="Ndk-iw-gfm"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="3W5-oC-3Sf"/>
+                    <exclude reference="FdV-fY-1pn"/>
+                    <exclude reference="3rq-5J-Ixw"/>
+                    <exclude reference="JYH-ri-424"/>
+                    <exclude reference="qa1-mH-jwD"/>
+                    <exclude reference="eGm-UT-Dfc"/>
+                    <exclude reference="Csa-9T-9KO"/>
+                    <exclude reference="ft5-rs-Mcy"/>
+                    <exclude reference="mdC-xS-vcs"/>
+                    <exclude reference="vKZ-hq-ihI"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="in3-ic-Z0z"/>
+                    <include reference="UYB-7g-oMs"/>
+                    <include reference="y3f-kc-k2M"/>
+                    <include reference="Ndk-iw-gfm"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="3W5-oC-3Sf"/>
+                    <include reference="FdV-fY-1pn"/>
+                    <include reference="3rq-5J-Ixw"/>
+                    <include reference="JYH-ri-424"/>
+                    <include reference="qa1-mH-jwD"/>
+                    <include reference="eGm-UT-Dfc"/>
+                    <include reference="Csa-9T-9KO"/>
+                    <include reference="ft5-rs-Mcy"/>
+                    <include reference="mdC-xS-vcs"/>
+                    <include reference="vKZ-hq-ihI"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="322" y="390"/>
+        </view>
+    </objects>
+</document>
