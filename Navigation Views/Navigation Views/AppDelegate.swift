@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  NoughtsAndCrosses
+//  Navigation Views
 //
-//  Created by Julian Hulme on 2016/05/02.
-//  Copyright © 2016 Julian Hulme. All rights reserved.
+//  Created by Salomon serfati on 5/31/16.
+//  Copyright © 2016 Salomon Serfati. All rights reserved.
 //
 
 import UIKit
@@ -13,28 +13,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var authorisationNavigationController:UINavigationController?
-    var navigationController: UINavigationController?
+    var LoggedInNavigationController: UINavigationController?
+    var logoutNavigationController: UINavigationController?
+    
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         let landingViewContoller = LandingViewController(nibName: "LandingViewController", bundle:nil)
         authorisationNavigationController = UINavigationController(rootViewController: landingViewContoller)
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        let loggedInViewContoller = LoggedInViewController(nibName: "LoggedInViewController", bundle:nil)
+        LoggedInNavigationController = UINavigationController(rootViewController: loggedInViewContoller)
+        
+//        let logoutViewContoller = LoggedInViewController(nibName: "LoggedInViewController", bundle:nil)
+//        LoggedInNavigationController = UINavigationController(rootViewController: loggedInViewContoller)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.authorisationNavigationController
         self.window?.makeKeyAndVisible()
         
-        
-        
+        // Override point for customization after application launch.
         return true
     }
     
-    func navigateToGameNavigationController() {
-        self.window?.rootViewController = self.navigationController
+    func navigateToLoggedInNavigationController() {
+        self.window?.rootViewController = self.LoggedInNavigationController
+
+    }
+    
+    func navigateBackToauthorisationNavigationController() {
+        self.window?.rootViewController = self.authorisationNavigationController
     }
 
     func applicationWillResignActive(application: UIApplication) {

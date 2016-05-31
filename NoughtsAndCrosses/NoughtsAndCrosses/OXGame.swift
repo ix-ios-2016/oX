@@ -108,6 +108,7 @@ class OXGame {
         let winner = winDetection()
         if winner {
             print("The Loser is \(whosTurn())")
+            let resultLabel = "The Loser is \(whosTurn())"
             return .complete_someone_won
         }
         else if self.turn() == 9 {
@@ -118,6 +119,7 @@ class OXGame {
             return .inProgress
         }
     }
+    
     
     func reset(){
         board[0] = CellType.EMPTY

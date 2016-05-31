@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2520457C1CFC7018004AEC2E /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2520457B1CFC7018004AEC2E /* OXGame.swift */; };
+		252045DA1CFE2C95004AEC2E /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045D81CFE2C95004AEC2E /* LandingViewController.swift */; };
+		252045DB1CFE2C95004AEC2E /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045D91CFE2C95004AEC2E /* LandingViewController.xib */; };
+		252045DE1CFE2CEA004AEC2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045DC1CFE2CEA004AEC2E /* LoginViewController.swift */; };
+		252045DF1CFE2CEA004AEC2E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045DD1CFE2CEA004AEC2E /* LoginViewController.xib */; };
+		252045E21CFE2CF5004AEC2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E01CFE2CF5004AEC2E /* RegisterViewController.swift */; };
+		252045E31CFE2CF5004AEC2E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045E11CFE2CF5004AEC2E /* RegisterViewController.xib */; };
+		252045E51CFE2EBE004AEC2E /* UserController.Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
@@ -36,6 +43,13 @@
 
 /* Begin PBXFileReference section */
 		2520457B1CFC7018004AEC2E /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		252045D81CFE2C95004AEC2E /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		252045D91CFE2C95004AEC2E /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		252045DC1CFE2CEA004AEC2E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		252045DD1CFE2CEA004AEC2E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		252045E01CFE2CF5004AEC2E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		252045E11CFE2CF5004AEC2E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.Copy.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +90,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252045D61CFE2C44004AEC2E /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				252045D81CFE2C95004AEC2E /* LandingViewController.swift */,
+				252045D91CFE2C95004AEC2E /* LandingViewController.xib */,
+				252045DC1CFE2CEA004AEC2E /* LoginViewController.swift */,
+				252045DD1CFE2CEA004AEC2E /* LoginViewController.xib */,
+				252045E01CFE2CF5004AEC2E /* RegisterViewController.swift */,
+				252045E11CFE2CF5004AEC2E /* RegisterViewController.xib */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		252045D71CFE2C4F004AEC2E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		427A5B651CE0FF4A00328EE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,8 +140,11 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
-				42D447CD1CD765670070326E /* AppDelegate.swift */,
+				252045D61CFE2C44004AEC2E /* Authentication */,
+				252045D71CFE2C4F004AEC2E /* Game */,
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				42D447CD1CD765670070326E /* AppDelegate.swift */,
+				252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
@@ -240,9 +277,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252045DF1CFE2CEA004AEC2E /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				252045DB1CFE2C95004AEC2E /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
+				252045E31CFE2CF5004AEC2E /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +309,10 @@
 			files = (
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				2520457C1CFC7018004AEC2E /* OXGame.swift in Sources */,
+				252045E51CFE2EBE004AEC2E /* UserController.Copy.swift in Sources */,
+				252045DA1CFE2C95004AEC2E /* LandingViewController.swift in Sources */,
+				252045E21CFE2CF5004AEC2E /* RegisterViewController.swift in Sources */,
+				252045DE1CFE2CEA004AEC2E /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

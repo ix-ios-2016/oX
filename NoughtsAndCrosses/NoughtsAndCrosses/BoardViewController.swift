@@ -11,6 +11,8 @@ import UIKit
 class BoardViewController: UIViewController {
     var gameObject = OXGame()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,8 +40,9 @@ class BoardViewController: UIViewController {
         
         let player = String(gameObject.playMove(tag))
         sender.setTitle(player, forState: UIControlState.Normal)
-        gameObject.winDetection()
         gameObject.state()
+        gameObject.winDetection()
+        
         
     }
 
