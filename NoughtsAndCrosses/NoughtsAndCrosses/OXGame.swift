@@ -54,74 +54,46 @@ class OXGame {
     }
     
     func winDetection() -> Bool {
-        if  (board[0] == "X" && board[1] == "X" && board[2] == "X") {
+        if  ((board[0] == board[1]) && (board[0] == board[2]) && !(board[0] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[3] == "X" && board[4] == "X" && board[5] == "X") {
+        }   else if
+            ((board[3] == board[4]) && (board[3] == board[5]) && !(board[3] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[6] == "X" && board[7] == "X" && board[8] == "X") {
+        }   else if
+            ((board[6] == board[7]) && (board[6] == board[8]) && !(board[6] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[0] == "X" && board[3] == "X" && board[6] == "X") {
+        }   else if
+            ((board[0] == board[3]) && (board[0] == board[6]) && !(board[0] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[1] == "X" && board[4] == "X" && board[7] == "X") {
+        }   else if
+            ((board[1] == board[4]) && (board[1] == board[7]) && !(board[1] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[2] == "X" && board[5] == "X" && board[8] == "X") {
+        }   else if
+            ((board[2] == board[5]) && (board[2] == board[8]) && !(board[2] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[0] == "X" && board[4] == "X" && board[8] == "X") {
+        }   else if
+            ((board[0] == board[4]) && (board[0] == board[8]) && !(board[0] == CellType.EMPTY)) {
             return true
-        } else if
-            (board[2] == "X" && board[4] == "X" && board[6] == "X") {
-            return true
-        } else if
-            (board[0] == "O" && board[1] == "O" && board[2] == "O") {
-            return true
-        } else if
-            (board[3] == "O" && board[4] == "O" && board[5] == "O") {
-            return true
-        } else if
-            (board[6] == "O" && board[7] == "O" && board[8] == "O") {
-            return true
-        } else if
-            (board[0] == "O" && board[3] == "O" && board[6] == "O") {
-            return true
-        } else if
-            (board[1] == "O" && board[4] == "O" && board[7] == "O") {
-            return true
-        } else if
-            (board[2] == "O" && board[5] == "O" && board[8] == "O") {
-            return true
-        } else if
-            (board[0] == "O" && board[4] == "O" && board[8] == "O") {
-            return true
-        } else if
-            (board[2] == "O" && board[4] == "O" && board[6] == "O") {
-            return true
-        } else {
+        }   else {
             return false
         }
-        
     }
     
-    func state() -> String {
+    func state() -> OXGameState {
         if  (winDetection() == true) {
-            return complete_someone_won
+            return OXGameState.complete_someone_won
         } else if
-            (winDetection() == false &&  count > 8) {
-            return complete_no_one_won
+            ((winDetection() == false) &&  (turn() > 8)) {
+            return OXGameState.complete_no_one_won
         } else {
-            return inProgress
+            return OXGameState.inProgress
         }
     }
     
     func reset() {
-        if (OXGame.state() == complete_someone_won && OXGame.state() == complete_no_one_won) {
-            for (index, cell) in board.enumerate() {
-                board.cell[index] = CellType.EMPTY
+        if ((self.state() == OXGameState.complete_someone_won) && (self.state() == OXGameState.complete_no_one_won)) {
+            for index in 0...board.count {
+                board[index] = CellType.EMPTY
             }
         }
     }

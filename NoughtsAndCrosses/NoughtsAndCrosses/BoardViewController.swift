@@ -18,19 +18,20 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBOutlet var boardView: UIView!
+//    @IBOutlet var boardView: UIViewController!
     @IBOutlet weak var boardTapped: UIButton!
+    @IBOutlet weak var board: UIView!
     
     var gameObject = OXGame()
     
-    @IBAction func boardTapped(sender: AnyObject) {
+    @IBAction func boardTapped(sender: UIButton) {
         
-        gameObject.playMove()
-        boardTapped.setTitle(gameObject.typeAtIndex(), forState: UIControlState.Normal)
-//        print("boardTapped")
+        gameObject.playMove(sender.tag)
+        boardTapped.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
+        print("boardTapped")
         
-        var gameState = gameObject.state()
-        if (gameState == "complete_someone_won") {
+        let gameState = gameObject.state()
+        if (gameState == OXGameState.complete_someone_won) {
             print("The winner is \(gameObject.whosTurn())!")
         } else {
             print("There is a tie!")
