@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.navigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.authorisationNavigationController
+        self.window?.rootViewController = self.authorisationNavigationController //navigationController
         self.window?.makeKeyAndVisible()
         
         

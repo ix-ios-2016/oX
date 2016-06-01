@@ -10,7 +10,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
@@ -30,15 +30,15 @@ class RegisterViewController: UIViewController {
         let password = passwordField.text!
         
         var (failureMessage, user) = UserController.sharedInstance.registerUser(email,newPassword: password)
-        
-        if user != nil {
+        if emailField.validate(){
+            if user != nil {
             print("The Register was Successful")
             
-        } else if failureMessage != nil {
+            } else if failureMessage != nil {
             print("registration failed: " + failureMessage!)
             
+            }
         }
-        
         
     }
 

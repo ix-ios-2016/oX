@@ -9,21 +9,46 @@
 import UIKit
 
 class BoardViewController: UIViewController {
-    var gameObject = OXGame()
     
+    @IBOutlet weak var boardView: UIView!
+    var gameObject = OXGame()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+          let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+            self.boardView.addGestureRecognizer(rotation)
+        
+        let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handlePinch(_:)))
+        self.boardView.addGestureRecognizer(pinch)
+        
+    }
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        print("pinch detected")
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        print("Rotation detected")
+        
+        
+        if sender!.state == UIGestureRecognizerState.Ended {
+            print("rotation \(sender!.rotation)")
+            
+            if sender!.rotation < CGFloat(M_PI)/2 {
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {self.boardView.transform = CGAffineTransformMakeRotation(0)})
+            } else {
+                self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+            }
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-//    @IBOutlet var boardView: UIView!
+
     
-    
-    @IBOutlet weak var boardView: UIView!
     
     func restartGame(){
         let restart = String(gameObject.reset())
@@ -50,4 +75,5 @@ class BoardViewController: UIViewController {
         print("New Game Pressed")
         restartGame()
     }
+
 }

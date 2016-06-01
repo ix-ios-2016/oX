@@ -8,16 +8,28 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
+        emailField.delegate = self
+        passwordField.delegate = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textField == emailField {
+            print("Email Field: \(textField.text! + string)")
+            
+        } else if textField == passwordField {
+            print("Password Field: \(textField.text! + string)")
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,10 +37,12 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func loginButtonTapped(sender: UIButton) {
         let email = emailField.text!
         let password = passwordField.text!
         let (failureMessage, user) = UserController.sharedInstance.loginUser(email, suppliedPassword: password)
+        if emailField.validate(){
         if user != nil {
             print("User is logged in")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -36,6 +50,7 @@ class LoginViewController: UIViewController {
             
         } else if failureMessage != nil {
             print("Login failed: " + failureMessage!)
+        }
         }
         
     

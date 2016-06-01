@@ -42,16 +42,8 @@ class OXGame {
         }
         return count
     }
-        
-
-    func whosTurn() -> CellType {
-        if (self.turn() % 2 == 0) {
-            return .X
-        } else {
-            return .O
-        }
-        
-    }
+    
+    
         //Create a function that returns the CellType at a certain position 
         //of the board called typeAtIndex()
     func typeAtIndex(tag:Int) -> CellType {
@@ -107,8 +99,7 @@ class OXGame {
     func state() -> OXGameState {
         let winner = winDetection()
         if winner {
-            print("The Loser is \(whosTurn())")
-            let resultLabel = "The Loser is \(whosTurn())"
+            print("The Winner is \(whosTurn())")
             return .complete_someone_won
         }
         else if self.turn() == 9 {
@@ -119,6 +110,16 @@ class OXGame {
             return .inProgress
         }
     }
+    
+    func whosTurn() -> CellType {
+        if (self.turn() % 2 == 0) {
+            return .X
+        } else {
+            return .O
+        }
+        
+    }
+
     
     
     func reset(){

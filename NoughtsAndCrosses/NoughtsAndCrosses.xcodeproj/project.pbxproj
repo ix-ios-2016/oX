@@ -15,6 +15,7 @@
 		252045E21CFE2CF5004AEC2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E01CFE2CF5004AEC2E /* RegisterViewController.swift */; };
 		252045E31CFE2CF5004AEC2E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045E11CFE2CF5004AEC2E /* RegisterViewController.xib */; };
 		252045E51CFE2EBE004AEC2E /* UserController.Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */; };
+		252045E71CFEDCC8004AEC2E /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E61CFEDCC8004AEC2E /* EmailValidatedTextField.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 		252045E01CFE2CF5004AEC2E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		252045E11CFE2CF5004AEC2E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.Copy.swift; sourceTree = "<group>"; };
+		252045E61CFEDCC8004AEC2E /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,6 +108,8 @@
 		252045D71CFE2C4F004AEC2E /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -142,10 +146,9 @@
 			children = (
 				252045D61CFE2C44004AEC2E /* Authentication */,
 				252045D71CFE2C4F004AEC2E /* Game */,
-				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				252045E61CFEDCC8004AEC2E /* EmailValidatedTextField.swift */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */,
-				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
@@ -314,6 +317,7 @@
 				252045E21CFE2CF5004AEC2E /* RegisterViewController.swift in Sources */,
 				252045DE1CFE2CEA004AEC2E /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				252045E71CFEDCC8004AEC2E /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
