@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var gameObject = OXGame()
     var lastRotation: Float!
@@ -22,6 +22,8 @@ class BoardViewController: UIViewController {
         
         let rotation : UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
         self.boardView.addGestureRecognizer(rotation)
+        
+        rotation.delegate = self
 //        
 //        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
 //        self.view.addGestureRecognizer(pinch)
@@ -44,23 +46,23 @@ class BoardViewController: UIViewController {
             
             if(sender!.rotation < CGFloat(M_PI)/4){
                 //snap action
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {
+                UIView.animateWithDuration(NSTimeInterval(2), animations: {
                     self.boardView.transform = CGAffineTransformMakeRotation(0)
                 })
                 
             }
             else if(sender!.rotation < CGFloat(M_PI)/3){
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {
+                UIView.animateWithDuration(NSTimeInterval(2), animations: {
                     self.boardView.transform = CGAffineTransformMakeRotation(90)
                 })
             }
             else if(sender!.rotation < CGFloat(M_PI)/2){
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {
+                UIView.animateWithDuration(NSTimeInterval(2), animations: {
                     self.boardView.transform = CGAffineTransformMakeRotation(180)
                 })
             }
             else if(sender!.rotation < CGFloat(M_PI)){
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {
+                UIView.animateWithDuration(NSTimeInterval(2), animations: {
                     self.boardView.transform = CGAffineTransformMakeRotation(270)
                 })
             }
@@ -126,5 +128,10 @@ class BoardViewController: UIViewController {
         target7.setTitle("", forState: UIControlState.Normal)
         target8.setTitle("", forState: UIControlState.Normal)
         target3.setTitle("", forState: UIControlState.Normal)
+    }
+    
+    //Allow to recognize multiple gestures of the same type
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
