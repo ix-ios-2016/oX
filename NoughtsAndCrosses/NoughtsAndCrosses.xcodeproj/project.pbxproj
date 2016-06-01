@@ -19,6 +19,7 @@
 		516D49D81CFE18FB00F7EF5A /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516D49D71CFE18FB00F7EF5A /* UserController.swift */; };
 		516D49DB1CFE1CC100F7EF5A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516D49D91CFE1CC100F7EF5A /* RegistrationViewController.swift */; };
 		516D49DC1CFE1CC100F7EF5A /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516D49DA1CFE1CC100F7EF5A /* RegistrationViewController.xib */; };
+		516D49E21CFEDF7600F7EF5A /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516D49E11CFEDF7600F7EF5A /* EmailValidatedTextField.swift */; };
 		518ACE311CFC6FCF0014134B /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518ACE301CFC6FCF0014134B /* OXGame.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
@@ -60,6 +61,7 @@
 		516D49D71CFE18FB00F7EF5A /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		516D49D91CFE1CC100F7EF5A /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		516D49DA1CFE1CC100F7EF5A /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		516D49E11CFEDF7600F7EF5A /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		518ACE301CFC6FCF0014134B /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardViewController.swift; path = NoughtsAndCrosses/BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BoardViewController.xib; path = NoughtsAndCrosses/BoardViewController.xib; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				516D49E11CFEDF7600F7EF5A /* EmailValidatedTextField.swift */,
 				516D49D71CFE18FB00F7EF5A /* UserController.swift */,
 				516D49C91CFE0F0D00F7EF5A /* Game */,
 				516D49CA1CFE0F2C00F7EF5A /* Authentication */,
@@ -314,6 +317,7 @@
 				516D49DB1CFE1CC100F7EF5A /* RegistrationViewController.swift in Sources */,
 				516D49D11CFE0F7700F7EF5A /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				516D49E21CFEDF7600F7EF5A /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

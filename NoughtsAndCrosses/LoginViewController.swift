@@ -8,11 +8,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var Failure: UILabel!
-    @IBOutlet weak var email: UITextField!
+    
+    @IBOutlet weak var email: EmailValidatedTextField!
     @IBOutlet weak var password: UITextField!
     
     
@@ -21,6 +22,13 @@ class LoginViewController: UIViewController {
         let emailGiven = email.text
         let passwordGiven = password.text
         let (failure_message, user) = UserController.sharedInstance.loginUser(emailGiven!, suppliedPassword: passwordGiven!)
+        
+        // Validate the email
+        if(!email.validate()){
+            email.updateUI()
+            return
+        }
+
         
         if (user != nil) {
             print("User registered view registration view")
@@ -42,6 +50,25 @@ class LoginViewController: UIViewController {
         self.title = "Login"
         self.view.backgroundColor = UIColor.blueColor()
         // Do any additional setup after loading the view.
+        
+        email.delegate = self
+        password.delegate = self
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if(textField == email){
+            print("email field just had a keystroke")
+            print("textfield.text: \(email.text)")
+            print("string: \(string)")
+        }
+        else if (textField == password){
+            print("password field just had a keystroke")
+            print("textfield.text: \(password.text)")
+            print("string: \(string)")
+        }
+        
+        return true
     }
     
     override func didReceiveMemoryWarning() {
