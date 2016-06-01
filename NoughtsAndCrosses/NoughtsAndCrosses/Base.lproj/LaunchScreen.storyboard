@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -46,8 +46,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yu5-s5-bc2">
                                 <rect key="frame" x="20" y="43" width="560" height="555"/>
                                 <subviews>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI4-rU-2zR">
-                                        <rect key="frame" x="187" y="184" width="187" height="186"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mI4-rU-2zR">
+                                        <rect key="frame" x="187" y="184.5" width="187" height="185"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="4nv-81-fBH"/>
                                             <constraint firstAttribute="width" secondItem="mI4-rU-2zR" secondAttribute="height" multiplier="115:94" constant="1" id="Far-5v-pZE"/>
@@ -81,15 +81,15 @@
                                             <constraint firstAttribute="width" constant="5" id="gs7-wW-cbw"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-dI-phJ">
-                                        <rect key="frame" x="0.0" y="179" width="560" height="5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-dI-phJ">
+                                        <rect key="frame" x="0.0" y="179.5" width="560" height="5"/>
                                         <color key="backgroundColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="fy3-m2-NdG"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeL-2j-Dys">
-                                        <rect key="frame" x="0.0" y="370" width="560" height="5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeL-2j-Dys">
+                                        <rect key="frame" x="0.0" y="369.5" width="560" height="5"/>
                                         <color key="backgroundColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="0Zm-Zc-Pxc"/>
