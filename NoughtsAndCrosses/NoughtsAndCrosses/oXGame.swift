@@ -67,13 +67,13 @@ class OXGame {
         }
         return CellType.EMPTY
     }
-    //Create a function called playMove() that takes an Int as an input, updates the board, and returns the CellType of that move
     
+    //Create a function called playMove() that takes an Int as an input, updates the board, and returns the CellType of that move
     func playMove(tag : Int) -> CellType {
 
         if (whosTurn() == CellType.X) {
             
-            board[tag] = CellType.X
+            board[tag] = (CellType.X)
             return CellType.X
             
         } else {

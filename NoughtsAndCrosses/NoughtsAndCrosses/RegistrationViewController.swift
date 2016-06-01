@@ -8,20 +8,35 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController , UITextFieldDelegate {
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        emailField.delegate = self
+        passwordField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        print("Username Textfield: \(emailField)")
+        print("Username String \(string)")
+        
+//        print("Password Textfield: \(passwordField)")
+//        print("Password String \(string)")
+        
+        return true
     }
     
     @IBAction func registerButtonTapped(sender: UIButton) {
@@ -30,12 +45,17 @@ class RegistrationViewController: UIViewController {
         //let emailSupplied = String(UITextField.textInRange(emailField))
         let passwordSupplied = passwordField.text!
         
+        if (!emailField.validate()){
+            return
+        }
+        
         let (failure_message , user) = UserController.sharedInstance.registerUser(emailSupplied, newPassword: passwordSupplied)
         
         //        If one is not present, check to see if a failure message is present and then print    the failure message.
         
         if let tmp = user {
             print (user)
+            
             
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
             

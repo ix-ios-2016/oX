@@ -8,23 +8,30 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController , UITextFieldDelegate {
 
-    @IBOutlet weak var emailField: UITextField!
-    
+    @IBOutlet weak var emailField: EmailValidatedTextField!
+
     @IBOutlet weak var passwordField: UITextField!
     
+    var lastString : String?
+    
+    var imageView : UIImageView = UIImageView()
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        emailField.delegate = self
+        //passwordField.delegate = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func loginButtonTapped(sender: UIButton) {
         let emailSupplied = emailField.text!
         //let emailSupplied = String(UITextField.textInRange(emailField))
@@ -49,6 +56,7 @@ class LoginViewController: UIViewController {
         
         //print("Login Button Tapped")
     }
+   
 
 }
 

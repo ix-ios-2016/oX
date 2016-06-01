@@ -18,7 +18,7 @@
                 <outlet property="Button6" destination="wqL-6N-dzo" id="ZvP-fd-JI9"/>
                 <outlet property="Button7" destination="5oJ-IG-Rbw" id="xnD-yT-jlc"/>
                 <outlet property="Button8" destination="98z-PQ-N63" id="okw-6o-Vqc"/>
-                <outlet property="boardView" destination="qYi-hH-8b3" id="qCm-Vf-kxD"/>
+                <outlet property="boardView" destination="qYi-hH-8b3" id="Hxq-jn-lk1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -172,6 +172,12 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="250-Ah-bHu"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Checking rotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4z-B5-rdG">
+                            <rect key="frame" x="8" y="133" width="136" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="wqL-6N-dzo" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="width" multiplier="0.333" id="09T-Bw-3Cz"/>
