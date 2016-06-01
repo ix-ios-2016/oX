@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.loggedinNavigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
         navigateToLoggedOutViewController()
         
         return true
@@ -38,15 +39,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         self.window?.rootViewController = self.loggedinNavigationController
         self.window?.makeKeyAndVisible()
+        
+        // MARK! delete this once login back up .
+        EasterEggController.sharedInstance.initiate(self.window!)
     }
     
     func navigateToLoggedInViewController()
     {
         self.window?.rootViewController = self.loggedinNavigationController
         self.window?.makeKeyAndVisible()
+        // allow for the easterEgg to be visible only when logged in
+        EasterEggController.sharedInstance.initiate(self.window!)
+
     }
     
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

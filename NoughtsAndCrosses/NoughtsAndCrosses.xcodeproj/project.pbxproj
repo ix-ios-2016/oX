@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		402C1EDF1CFF31570022BFCB /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EDD1CFF31570022BFCB /* EasterEggViewController.swift */; };
+		402C1EE01CFF31570022BFCB /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402C1EDE1CFF31570022BFCB /* EasterEggViewController.xib */; };
+		402C1EE21CFF3F550022BFCB /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EE11CFF3F550022BFCB /* EasterEggController.swift */; };
 		409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F41391CFCDFFF00F9FF28 /* OXGame.swift */; };
 		40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */; };
 		40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		402C1EDD1CFF31570022BFCB /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
+		402C1EDE1CFF31570022BFCB /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
+		402C1EE11CFF3F550022BFCB /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
 		409F41391CFCDFFF00F9FF28 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
@@ -92,6 +98,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		402C1EDC1CFF31350022BFCB /* Easter Egg */ = {
+			isa = PBXGroup;
+			children = (
+				402C1EDD1CFF31570022BFCB /* EasterEggViewController.swift */,
+				402C1EDE1CFF31570022BFCB /* EasterEggViewController.xib */,
+				402C1EE11CFF3F550022BFCB /* EasterEggController.swift */,
+			);
+			name = "Easter Egg";
+			sourceTree = "<group>";
+		};
 		40EF72281CFDCD7C004EB4A8 /* Onboarding Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +163,7 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				402C1EDC1CFF31350022BFCB /* Easter Egg */,
 				40EF72371CFDD520004EB4A8 /* LoggedIn Screens */,
 				40EF72281CFDCD7C004EB4A8 /* Onboarding Screens */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
@@ -283,6 +300,7 @@
 				40EF72301CFDD0B6004EB4A8 /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				402C1EE01CFF31570022BFCB /* EasterEggViewController.xib in Resources */,
 				40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 				40EF72341CFDD0FB004EB4A8 /* RegisterViewController.xib in Resources */,
@@ -311,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
+				402C1EE21CFF3F550022BFCB /* EasterEggController.swift in Sources */,
+				402C1EDF1CFF31570022BFCB /* EasterEggViewController.swift in Sources */,
 				409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */,
 				40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */,
 				40EF72331CFDD0FB004EB4A8 /* RegisterViewController.swift in Sources */,

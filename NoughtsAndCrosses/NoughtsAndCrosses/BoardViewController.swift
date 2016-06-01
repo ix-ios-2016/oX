@@ -18,8 +18,7 @@ class BoardViewController: UIViewController {
     // create a new game object
     var gameObject:OXGame = OXGame()
     // saves the last snap of rotation
-    var lastSnap = CGFloat(0)
-
+    var lastSnap:CGFloat = CGFloat(0)
     
     override func viewDidLoad() {
         // do things for the look of the app
@@ -33,10 +32,29 @@ class BoardViewController: UIViewController {
         logoutButton.layer.borderColor = UIColor.blackColor().CGColor
         
         // Create gesture recognizer
-        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
+        let rotation = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
+        rotation.delegate = EasterEggController.sharedInstance
         self.boardView.addGestureRecognizer(rotation)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         
-        //self.lastRotation = 0.0
+        // put the board back to the start position
+        UIView.animateWithDuration(NSTimeInterval(0), animations: {
+            self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
+        })
+        lastSnap = CGFloat(0)
+        
+        //        // send alert to user
+        //        let userController = UserController.sharedInstance
+        //        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)! + "!", message:
+        //            (userController.logged_in_user?.email)! + " is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
+        //        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+        //        welcomeAlert.addAction(okButton)
+        //
+        //        // Present the message
+        //        self.presentViewController(welcomeAlert, animated: true, completion: nil)
     }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil)
@@ -133,19 +151,7 @@ class BoardViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-//        // send alert to user
-//        let userController = UserController.sharedInstance
-//        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)! + "!", message:
-//            (userController.logged_in_user?.email)! + " is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
-//        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-//        welcomeAlert.addAction(okButton)
-//
-//        // Present the message
-//        self.presentViewController(welcomeAlert, animated: true, completion: nil)
-    }
+
     
     // Outlet for all grid buttons
     @IBAction func gridButtonTapped(sender: AnyObject) {
