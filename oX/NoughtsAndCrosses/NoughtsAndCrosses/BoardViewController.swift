@@ -25,6 +25,51 @@ class BoardViewController: UIViewController {
     
     
     var gameObject = OXGame()
+    var lastRotation: Float!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Rotation
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+        self.boardView.addGestureRecognizer(rotation)
+        rotation.delegate = EasterEggController.sharedInstance
+        self.lastRotation = 0.0
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        //Rotation ends
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        print("Rotate")
+        if (sender!.state == UIGestureRecognizerState.Ended) {
+            
+            if ((sender!.rotation % CGFloat(M_PI)) < CGFloat(M_PI/4)) {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(0)
+                })
+            }
+            
+            else if ((sender!.rotation % CGFloat(M_PI)) < CGFloat(M_PI/2)) {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
+                })
+            }
+            
+            else if ((sender!.rotation % CGFloat(M_PI)) < CGFloat(M_PI)) {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                })
+            }
+            
+            else if ((sender!.rotation % CGFloat(M_PI)) < CGFloat(5*M_PI/2)) {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
+                })
+            }
+            print("Rotation \(sender!.rotation)")
+        }
+    }
+    
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        print("Pinch")
+    }
     
     // Action for all buttons clicked
     @IBAction func buttonClicked(sender: AnyObject) {
@@ -34,12 +79,18 @@ class BoardViewController: UIViewController {
         
         let state = gameObject.state()
         if state == OXGame.OXGameState.complete_someone_won {
-            print("Congratulations, player " + String(gameObject.typeAtIndex(sender.tag)) + ". You won!")
-            restartGame()
+            let winMessage = UIAlertController(title: "Game over!", message: "Congratulations, player " + String(gameObject.typeAtIndex(sender.tag)) + ". You won!", preferredStyle: UIAlertControllerStyle.Alert)
+            let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
+            winMessage.addAction(okButton)
+            
+            self.presentViewController(winMessage, animated: true, completion: nil)
         }
         else if state == OXGame.OXGameState.complete_no_one_won {
-            print("Tie game")
-            restartGame()
+            let tieMessage = UIAlertController(title: "Tie game.", message: "Play again!", preferredStyle: UIAlertControllerStyle.Alert)
+            let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
+            tieMessage.addAction(okButton)
+            
+            self.presentViewController(tieMessage, animated: true, completion: nil)
         }
         else if state == OXGame.OXGameState.inProgress {
         }
@@ -52,9 +103,7 @@ class BoardViewController: UIViewController {
         restartGame()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var onboardingNavigationController:UINavigationController?
     var gameModeViewController:UINavigationController?
-    
+    var easterEggViewController:UINavigationController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,16 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let loggedInViewController = BoardViewController(nibName: "BoardViewController", bundle: nil)
         gameModeViewController = UINavigationController(rootViewController: loggedInViewController)
-        
+        gameModeViewController?.navigationBarHidden = true
+
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         navigateToLandingViewController()
+        
+        let easterEgg = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        easterEggViewController = UINavigationController(rootViewController: easterEgg)
+        easterEggViewController?.navigationBarHidden = true
+        
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         return true
     }
     
     func navigateToLandingViewController() {
         
-        self.window?.rootViewController = self.onboardingNavigationController
+        self.window?.rootViewController = self.gameModeViewController
         self.window?.makeKeyAndVisible()
     }
     
@@ -42,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
 
+    func navigateToEasterEggScreen() {
+        self.window?.rootViewController = self.easterEggViewController
+        self.window?.makeKeyAndVisible()
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
