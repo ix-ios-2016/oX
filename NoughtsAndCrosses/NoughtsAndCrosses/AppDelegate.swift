@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.authorizationNavigationController
         self.window?.makeKeyAndVisible()
         
+        EasterEggController.sharedInstance.initiate(self.window!)
+        
         
         
         return true
@@ -63,6 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func navigateToLoggedOutNavigationController() {
         self.window?.rootViewController = self.authorizationNavigationController
+    }
+    
+    func navigateToEasterEggScreen() {
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        let easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        self.window?.rootViewController = easterEggNavigationController
     }
 
 
