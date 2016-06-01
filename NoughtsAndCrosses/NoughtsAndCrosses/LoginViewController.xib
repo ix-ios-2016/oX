@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="emailField" destination="LGw-wi-6Vy" id="h1o-S6-1gd"/>
                 <outlet property="passwordField" destination="Up0-ir-Hfy" id="CAa-DK-YDL"/>
+                <outlet property="userInputTextField" destination="g9q-ls-Poy" id="1gV-Zy-xuN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,22 +18,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-wi-6Vy">
-                    <rect key="frame" x="139" y="68" width="97" height="30"/>
+                    <rect key="frame" x="139" y="183" width="97" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up0-ir-Hfy">
-                    <rect key="frame" x="139" y="146" width="97" height="30"/>
+                    <rect key="frame" x="139" y="230" width="97" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-XQ-Sye">
-                    <rect key="frame" x="169" y="213" width="38" height="30"/>
+                    <rect key="frame" x="169" y="297" width="38" height="30"/>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="1xN-ne-KCY"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user input" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9q-ls-Poy">
+                    <rect key="frame" x="139" y="134" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

@@ -12,6 +12,7 @@
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
+		CA1A82CD1CFEDED700BCBF24 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1A82CC1CFEDED700BCBF24 /* EmailValidatedTextField.swift */; };
 		CA35D7221CFE2C420030E246 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D7201CFE2C420030E246 /* LandingViewController.swift */; };
 		CA35D7231CFE2C420030E246 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA35D7211CFE2C420030E246 /* LandingViewController.xib */; };
 		CA35D7261CFE2CEF0030E246 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D7241CFE2CEF0030E246 /* LoginViewController.swift */; };
@@ -53,6 +54,7 @@
 		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1A82CC1CFEDED700BCBF24 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		CA35D7201CFE2C420030E246 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		CA35D7211CFE2C420030E246 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		CA35D7241CFE2CEF0030E246 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				CA1A82CC1CFEDED700BCBF24 /* EmailValidatedTextField.swift */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
@@ -314,6 +317,7 @@
 				CAE1B4661CFE3A0700887A64 /* UserController.swift in Sources */,
 				CA35D7261CFE2CEF0030E246 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				CA1A82CD1CFEDED700BCBF24 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
