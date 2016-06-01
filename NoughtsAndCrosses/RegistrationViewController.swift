@@ -10,7 +10,8 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
 
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
+   
 
     @IBOutlet weak var passwordField: UITextField!
     
@@ -26,6 +27,10 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(sender: UIButton) {
+        
+        if (!emailField.validate()){
+        return
+        }
         
         let email = emailField.text!
         let password = passwordField.text!

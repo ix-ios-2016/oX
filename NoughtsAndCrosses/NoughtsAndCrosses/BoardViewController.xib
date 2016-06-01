@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
+                <outlet property="boardView" destination="qYi-hH-8b3" id="yB9-EU-td3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="buttons" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="u14-6h-5ZG"/>
                 <outletCollection property="buttons" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="2jy-VN-OSF"/>
@@ -37,7 +38,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3" userLabel="Board View">
                     <rect key="frame" x="20" y="43" width="560" height="555"/>
                     <subviews>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouQ-ap-EjW">

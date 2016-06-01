@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "42D447C91CD765670070326E"
-               BuildableName = "NoughtsAndCrosses.app"
-               BlueprintName = "NoughtsAndCrosses"
-               ReferencedContainer = "container:NoughtsAndCrosses.xcodeproj">
+               BuildableName = "NoughtsAndCrossesCur.app"
+               BlueprintName = "NoughtsAndCrossesCur"
+               ReferencedContainer = "container:NoughtsAndCrossesCur.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "42D447DD1CD765680070326E"
-               BuildableName = "NoughtsAndCrossesTests.xctest"
-               BlueprintName = "NoughtsAndCrossesTests"
-               ReferencedContainer = "container:NoughtsAndCrosses.xcodeproj">
+               BuildableName = "NoughtsAndCrossesCur.xctest"
+               BlueprintName = "NoughtsAndCrossesCurTests"
+               ReferencedContainer = "container:NoughtsAndCrossesCur.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "42D447E81CD765680070326E"
-               BuildableName = "NoughtsAndCrossesUITests.xctest"
-               BlueprintName = "NoughtsAndCrossesUITests"
-               ReferencedContainer = "container:NoughtsAndCrosses.xcodeproj">
+               BuildableName = "NoughtsAndCrossesCur.xctest"
+               BlueprintName = "NoughtsAndCrossesCurUITests"
+               ReferencedContainer = "container:NoughtsAndCrossesCur.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "42D447C91CD765670070326E"
-            BuildableName = "NoughtsAndCrosses.app"
-            BlueprintName = "NoughtsAndCrosses"
-            ReferencedContainer = "container:NoughtsAndCrosses.xcodeproj">
+            BuildableName = "NoughtsAndCrossesCur.app"
+            BlueprintName = "NoughtsAndCrossesCur"
+            ReferencedContainer = "container:NoughtsAndCrossesCur.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "42D447C91CD765670070326E"
-            BuildableName = "NoughtsAndCrosses.app"
-            BlueprintName = "NoughtsAndCrosses"
-            ReferencedContainer = "container:NoughtsAndCrosses.xcodeproj">
+            BuildableName = "NoughtsAndCrossesCur.app"
+            BlueprintName = "NoughtsAndCrossesCur"
+            ReferencedContainer = "container:NoughtsAndCrossesCur.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "42D447C91CD765670070326E"
-            BuildableName = "NoughtsAndCrosses.app"
-            BlueprintName = "NoughtsAndCrosses"
-            ReferencedContainer = "container:NoughtsAndCrosses.xcodeproj">
+            BuildableName = "NoughtsAndCrossesCur.app"
+            BlueprintName = "NoughtsAndCrossesCur"
+            ReferencedContainer = "container:NoughtsAndCrossesCur.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

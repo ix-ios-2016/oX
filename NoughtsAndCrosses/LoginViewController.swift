@@ -8,17 +8,22 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     
     @IBOutlet weak var passwordField: UITextField!
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
     self.title = "Login"
+        
+        //emailField.delegate = self
+        //passwordField.delegate = self
+        //userInput.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -28,8 +33,14 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     @IBAction func loginButtonTapped(sender: UIButton) {
+        
+       if (!emailField.validate()){
+            return
+        }
+        
+        
+        
         let email = emailField.text!
         let password = passwordField.text!
         
@@ -65,7 +76,19 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-
+        
     }
 
+
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        print("textfield.text \(textField.text)")
+        print ("string \(string)")
+        
+        return true
+    }
+    
+    
 }

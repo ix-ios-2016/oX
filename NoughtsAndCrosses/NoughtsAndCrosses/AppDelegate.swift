@@ -23,8 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
         authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
         
+        //Board View
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.BoardViewNavigationController = UINavigationController(rootViewController: boardViewController)
+        self.BoardViewNavigationController?.navigationBarHidden = true
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.authorisationNavigationController
+        //REMEMBER TO CHANGE THIS BACK TO authorisation controller!!!
+        self.window?.rootViewController = self.BoardViewNavigationController
         self.window?.makeKeyAndVisible()
         
         

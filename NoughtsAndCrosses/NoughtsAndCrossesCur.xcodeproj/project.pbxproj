@@ -15,6 +15,7 @@
 		1757C8791CFE2EEF00598400 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1757C8771CFE2EEF00598400 /* RegistrationViewController.swift */; };
 		1757C87A1CFE2EEF00598400 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1757C8781CFE2EEF00598400 /* RegistrationViewController.xib */; };
 		1757C87C1CFE337100598400 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1757C87B1CFE337100598400 /* UserController.swift */; };
+		1757C87E1CFEDC0100598400 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1757C87D1CFEDC0100598400 /* EmailValidatedTextField.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
@@ -50,15 +51,16 @@
 		1757C8771CFE2EEF00598400 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		1757C8781CFE2EEF00598400 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		1757C87B1CFE337100598400 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1757C87D1CFEDC0100598400 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
+		42D447CA1CD765670070326E /* NoughtsAndCrossesCur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrossesCur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42D447D71CD765670070326E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42D447D91CD765670070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42D447DE1CD765680070326E /* NoughtsAndCrossesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42D447DE1CD765680070326E /* NoughtsAndCrossesCur.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesCur.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesTests.swift; sourceTree = "<group>"; };
 		42D447E41CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42D447E91CD765680070326E /* NoughtsAndCrossesCur.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesCur.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardViewController.swift; path = NoughtsAndCrosses/BoardViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				1757C87D1CFEDC0100598400 /* EmailValidatedTextField.swift */,
 				1757C87B1CFE337100598400 /* UserController.swift */,
 				1757C86D1CFE274100598400 /* Game */,
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
@@ -134,9 +137,9 @@
 		42D447CB1CD765670070326E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				42D447CA1CD765670070326E /* NoughtsAndCrosses.app */,
-				42D447DE1CD765680070326E /* NoughtsAndCrossesTests.xctest */,
-				42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */,
+				42D447CA1CD765670070326E /* NoughtsAndCrossesCur.app */,
+				42D447DE1CD765680070326E /* NoughtsAndCrossesCur.xctest */,
+				42D447E91CD765680070326E /* NoughtsAndCrossesCur.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,9 +180,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		42D447C91CD765670070326E /* NoughtsAndCrosses */ = {
+		42D447C91CD765670070326E /* NoughtsAndCrossesCur */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrosses" */;
+			buildConfigurationList = 42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesCur" */;
 			buildPhases = (
 				42D447C61CD765670070326E /* Sources */,
 				42D447C71CD765670070326E /* Frameworks */,
@@ -189,14 +192,14 @@
 			);
 			dependencies = (
 			);
-			name = NoughtsAndCrosses;
+			name = NoughtsAndCrossesCur;
 			productName = NoughtsAndCrosses;
-			productReference = 42D447CA1CD765670070326E /* NoughtsAndCrosses.app */;
+			productReference = 42D447CA1CD765670070326E /* NoughtsAndCrossesCur.app */;
 			productType = "com.apple.product-type.application";
 		};
-		42D447DD1CD765680070326E /* NoughtsAndCrossesTests */ = {
+		42D447DD1CD765680070326E /* NoughtsAndCrossesCurTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42D447F51CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesTests" */;
+			buildConfigurationList = 42D447F51CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesCurTests" */;
 			buildPhases = (
 				42D447DA1CD765680070326E /* Sources */,
 				42D447DB1CD765680070326E /* Frameworks */,
@@ -207,14 +210,14 @@
 			dependencies = (
 				42D447E01CD765680070326E /* PBXTargetDependency */,
 			);
-			name = NoughtsAndCrossesTests;
+			name = NoughtsAndCrossesCurTests;
 			productName = NoughtsAndCrossesTests;
-			productReference = 42D447DE1CD765680070326E /* NoughtsAndCrossesTests.xctest */;
+			productReference = 42D447DE1CD765680070326E /* NoughtsAndCrossesCur.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		42D447E81CD765680070326E /* NoughtsAndCrossesUITests */ = {
+		42D447E81CD765680070326E /* NoughtsAndCrossesCurUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42D447F81CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesUITests" */;
+			buildConfigurationList = 42D447F81CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesCurUITests" */;
 			buildPhases = (
 				42D447E51CD765680070326E /* Sources */,
 				42D447E61CD765680070326E /* Frameworks */,
@@ -225,9 +228,9 @@
 			dependencies = (
 				42D447EB1CD765680070326E /* PBXTargetDependency */,
 			);
-			name = NoughtsAndCrossesUITests;
+			name = NoughtsAndCrossesCurUITests;
 			productName = NoughtsAndCrossesUITests;
-			productReference = 42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */;
+			productReference = 42D447E91CD765680070326E /* NoughtsAndCrossesCur.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -253,7 +256,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 42D447C51CD765670070326E /* Build configuration list for PBXProject "NoughtsAndCrosses" */;
+			buildConfigurationList = 42D447C51CD765670070326E /* Build configuration list for PBXProject "NoughtsAndCrossesCur" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -266,9 +269,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				42D447C91CD765670070326E /* NoughtsAndCrosses */,
-				42D447DD1CD765680070326E /* NoughtsAndCrossesTests */,
-				42D447E81CD765680070326E /* NoughtsAndCrossesUITests */,
+				42D447C91CD765670070326E /* NoughtsAndCrossesCur */,
+				42D447DD1CD765680070326E /* NoughtsAndCrossesCurTests */,
+				42D447E81CD765680070326E /* NoughtsAndCrossesCurUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +318,7 @@
 				1757C87C1CFE337100598400 /* UserController.swift in Sources */,
 				1757C8751CFE2E8100598400 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				1757C87E1CFEDC0100598400 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,12 +343,12 @@
 /* Begin PBXTargetDependency section */
 		42D447E01CD765680070326E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 42D447C91CD765670070326E /* NoughtsAndCrosses */;
+			target = 42D447C91CD765670070326E /* NoughtsAndCrossesCur */;
 			targetProxy = 42D447DF1CD765680070326E /* PBXContainerItemProxy */;
 		};
 		42D447EB1CD765680070326E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 42D447C91CD765670070326E /* NoughtsAndCrosses */;
+			target = 42D447C91CD765670070326E /* NoughtsAndCrossesCur */;
 			targetProxy = 42D447EA1CD765680070326E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -454,7 +458,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NoughtsAndCrossesCur;
 			};
 			name = Debug;
 		};
@@ -466,7 +470,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NoughtsAndCrossesCur;
 			};
 			name = Release;
 		};
@@ -477,8 +481,8 @@
 				INFOPLIST_FILE = NoughtsAndCrossesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrossesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoughtsAndCrosses.app/NoughtsAndCrosses";
+				PRODUCT_NAME = NoughtsAndCrossesCur;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoughtsAndCrossesCur.app/NoughtsAndCrossesCur";
 			};
 			name = Debug;
 		};
@@ -489,8 +493,8 @@
 				INFOPLIST_FILE = NoughtsAndCrossesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrossesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoughtsAndCrosses.app/NoughtsAndCrosses";
+				PRODUCT_NAME = NoughtsAndCrossesCur;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoughtsAndCrossesCur.app/NoughtsAndCrossesCur";
 			};
 			name = Release;
 		};
@@ -500,7 +504,7 @@
 				INFOPLIST_FILE = NoughtsAndCrossesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrossesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NoughtsAndCrossesCur;
 				TEST_TARGET_NAME = NoughtsAndCrosses;
 			};
 			name = Debug;
@@ -511,7 +515,7 @@
 				INFOPLIST_FILE = NoughtsAndCrossesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrossesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NoughtsAndCrossesCur;
 				TEST_TARGET_NAME = NoughtsAndCrosses;
 			};
 			name = Release;
@@ -519,7 +523,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		42D447C51CD765670070326E /* Build configuration list for PBXProject "NoughtsAndCrosses" */ = {
+		42D447C51CD765670070326E /* Build configuration list for PBXProject "NoughtsAndCrossesCur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42D447F01CD765680070326E /* Debug */,
@@ -528,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrosses" */ = {
+		42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesCur" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42D447F31CD765680070326E /* Debug */,
@@ -537,7 +541,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42D447F51CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesTests" */ = {
+		42D447F51CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesCurTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42D447F61CD765680070326E /* Debug */,
@@ -546,7 +550,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		42D447F81CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesUITests" */ = {
+		42D447F81CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesCurUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42D447F91CD765680070326E /* Debug */,
