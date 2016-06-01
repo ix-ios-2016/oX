@@ -8,20 +8,37 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Login"
+        
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if (textField == self.emailField) {
+            print("EMAIL FIELD")
+        } else if (textField == self.passwordField) {
+            print("PASSWORD FIELD")
+        } else {
+            print("UNKNOWN FIELD")
+        }
+        print("Current text: \(textField.text!)")
+        print("Typed text: \(string)")
+        
+        return true
     }
     
 
