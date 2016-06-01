@@ -19,7 +19,7 @@ enum gesture: Int {
 
 class EasterEggController: NSObject, UIGestureRecognizerDelegate {
     
-    var correctOrder: [gesture] = [gesture.CLOCKWISE, gesture.DOWN]
+    var correctOrder: [gesture] = [gesture.CLOCKWISE, gesture.DOWN, gesture.RIGHT]
     var currentOrder: [gesture] = []
     
     //MARK: Class Singleton
@@ -49,7 +49,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         twoFingerDownSwipe.direction = UISwipeGestureRecognizerDirection.Down
         
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleRotation(_:)))
-        
+        rotation.delegate = self
 //        let clockWiseRotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleClockWiseRotation(_:)))
 //        
 //        let counterClockWiseRotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleCounterClockWiseRotation(_:)))
@@ -91,14 +91,17 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
     
     func handleRotation(sender: UIRotationGestureRecognizer) {
         if (sender.rotation > 0) {
-            print("clock wise rotation")
+//            print("clock wise rotation")
             if (sender.state == UIGestureRecognizerState.Ended) {
+                print("clock wise rotation")
+
                 self.currentOrder.append(gesture.CLOCKWISE)
             }
         } else {
-            print("counter clock wise rotation")
+//            print("counter clock wise rotation")
             if (sender.state == UIGestureRecognizerState.Ended) {
                 self.currentOrder.append(gesture.COUNTERCLOCKWISE)
+                print("counter clock wise rotation")
             }
         }
         self.validate()
@@ -121,6 +124,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
     //Allow to recognize multiple gestures of the same type
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        print("HERE")
         return true
     }
     

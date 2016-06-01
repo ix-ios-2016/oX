@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController{
     
     @IBOutlet var boardContainer: UIView!
     
@@ -20,12 +20,13 @@ class BoardViewController: UIViewController {
         // create a rotation gesture recognizer
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(
             target: self, action: #selector(BoardViewController.handleRotation(_:)))
+//        rotation.delegate = self
         rotation.delegate = EasterEggController.sharedInstance
         self.boardContainer.addGestureRecognizer(rotation)
         
         // create pinch gesture recognizer
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
-        self.boardContainer.addGestureRecognizer(pinch)
+//        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
+//        self.boardContainer.addGestureRecognizer(pinch)
         
         
     }
@@ -34,7 +35,7 @@ class BoardViewController: UIViewController {
         
         self.boardContainer.transform = CGAffineTransformMakeRotation(sender!.rotation)
         
-        print("board rotation")
+//        print("board rotation")
         if (sender!.state == UIGestureRecognizerState.Ended) {
             print("rotation ended at: \(sender!.rotation)")
             UIView.animateWithDuration(NSTimeInterval(1), animations: {
@@ -45,9 +46,9 @@ class BoardViewController: UIViewController {
         }
     }
     
-    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
-        print("pinch")
-    }
+//    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+//        print("pinch")
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
