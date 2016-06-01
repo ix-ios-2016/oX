@@ -11,7 +11,9 @@ import UIKit
 
 class EasterEggController: NSObject, UIGestureRecognizerDelegate
 {
-
+    var correctArray:[String] = [ "long", "right", "doubleDown", "counterclockwise", "clockwise" ]
+    var currentArray:[String] = []
+    
     //MARK: Class Singleton
     class var sharedInstance: EasterEggController
     {
@@ -47,9 +49,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.doubleRotationHandler(_:)))
         view.addGestureRecognizer(rotation)
         
-        
         gestureRecognizer(rightSwipe, shouldRecognizeSimultaneouslyWithGestureRecognizer: twoFingerDownSwipe)
-//        gestureRecognizer(rotation, shouldRecognizeSimultaneouslyWithGestureRecognizer:  )
     }
     
     func longPressHandler(sender: UILongPressGestureRecognizer? = nil)
@@ -57,16 +57,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate
         if sender!.state == UIGestureRecognizerState.Ended
         {
             print("LONG PRESSED")
-        }
-    }
-    
-    
-    
-    func twoFingerDownSwipeHandler(sender: UISwipeGestureRecognizer? = nil)
-    {
-        if sender!.state == UIGestureRecognizerState.Ended
-        {
-            print("TWO FINGER DOWN SWIPED")
+            currentArray.append("long")
         }
     }
     
@@ -75,6 +66,16 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate
         if sender!.state == UIGestureRecognizerState.Ended
         {
             print("RIGHT SWIPED")
+            currentArray.append("right")
+        }
+    }
+    
+    func twoFingerDownSwipeHandler(sender: UISwipeGestureRecognizer? = nil)
+    {
+        if sender!.state == UIGestureRecognizerState.Ended
+        {
+            print("TWO FINGER DOWN SWIPED")
+            currentArray.append("doubleDown")
         }
     }
     
@@ -82,13 +83,46 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate
     {
         if sender!.state == UIGestureRecognizerState.Ended
         {
-            if sender?.rotation > CGFloat(0)
+            if sender?.rotation < CGFloat(0)
             {
-                print("ROTATED CLOCKWIZE")
+                print("ROTATED COUNTERCLOCKWISE")
+                currentArray.append("counterclockwise")
             }
-            else if sender?.rotation < CGFloat(0)
+            else if sender?.rotation > CGFloat(0)
             {
-                print("ROTATED COUNTERCLOCKWIZE")
+                print("ROTATED CLOCKWISE")
+                currentArray.append("clockwise")
+                
+                // Check if the user put in the correct sequence
+                self.validate()
+            }
+        }
+    }
+    
+    func validate() -> Bool
+    {
+        if currentArray.count < 5
+        {
+            print("Says it's less than 5 long")
+            currentArray.removeAll()
+            return false
+        }
+        else
+        {
+            print(String((correctArray[(correctArray.startIndex)..<(correctArray.endIndex)])))
+            print(String((currentArray[(currentArray.endIndex - 5)..<(currentArray.endIndex)])))
+            if (correctArray[(correctArray.startIndex)..<(correctArray.endIndex)] == currentArray[(currentArray.endIndex - 5)..<(currentArray.endIndex)])
+            {
+                print("HOLY BENIDAS!")
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToEasterEggViewController()
+                return true
+            }
+            else
+            {
+                print("Says they're not equal")
+                currentArray.removeAll()
+                return false
             }
         }
     }

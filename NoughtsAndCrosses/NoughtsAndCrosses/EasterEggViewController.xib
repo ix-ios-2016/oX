@@ -15,25 +15,35 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easter Egg!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyo-1g-xR6">
-                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="152" y="77" width="97" height="21"/>
-                    </variation>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJV-EI-GPh">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="Back to Game"/>
+                    <connections>
+                        <action selector="backToGameButtonPressed:" destination="-1" eventType="touchUpInside" id="Dyk-mK-lOO"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jJV-EI-GPh" secondAttribute="bottom" constant="20" id="4J0-2k-gL8"/>
+                <constraint firstItem="jJV-EI-GPh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dr3-nh-c8w"/>
+            </constraints>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="Uyo-1g-xR6"/>
+                    <exclude reference="jJV-EI-GPh"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="4J0-2k-gL8"/>
+                    <exclude reference="Dr3-nh-c8w"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
-                    <include reference="Uyo-1g-xR6"/>
+                    <include reference="jJV-EI-GPh"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="4J0-2k-gL8"/>
+                    <include reference="Dr3-nh-c8w"/>
                 </mask>
             </variation>
         </view>
