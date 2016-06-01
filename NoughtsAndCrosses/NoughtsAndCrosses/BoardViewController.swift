@@ -8,11 +8,57 @@
 
 import UIKit
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
+    
+    
+    var game = OXGame()
+    
+    @IBOutlet weak var boardView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
+        self.boardView.addGestureRecognizer(rotation)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
+        self.boardView.addGestureRecognizer(pinch)
+        
+        
     }
+    
+    
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil)
+    {
+        print("pinch detector")
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil)
+    {
+        print("detected")
+        
+        
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        if sender!.state == UIGestureRecognizerState.Ended
+        {
+            
+            // snap action
+            /*
+            // previous quarter
+            let quad = (Double(Int((Double(sender!.rotation) * 57.2985)/90.0))) * ((M_PI)/2)
+            */
+            
+            // nearest quarter
+            let quad = (Double(round(((sender!.rotation) * 57.2985)/90))) * ((M_PI)/2)
+            
+            UIView.animateWithDuration(NSTimeInterval(3), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(quad))})
+        }
+       
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -29,14 +75,20 @@ class BoardViewController: UIViewController {
         
         let currentPlayer = gameObject.whoseTurn()
         
-        if (currentPlayer == CellType.X)
+        
+        if (sender.currentTitle == nil)
         {
-            sender.setTitle("X", forState: UIControlState.Normal)
+            if (currentPlayer == CellType.X)
+            {
+                sender.setTitle("X", forState: UIControlState.Normal)
+            }
+            else
+            {
+                sender.setTitle("O", forState: UIControlState.Normal)
+            }
         }
-        else
-        {
-            sender.setTitle("O", forState: UIControlState.Normal)
-        }
+        
+        
         print("Button \(sender.tag) tapped")
         gameObject.playMove(sender.tag)
         

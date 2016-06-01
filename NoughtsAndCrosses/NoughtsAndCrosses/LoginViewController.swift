@@ -25,11 +25,7 @@ class LoginViewController: UIViewController {
         
         self.title = "Login"
         
-        /*
-        emailField.delegate = self
-        passwordField.delegate = self
-        userInputTextField.delegate = self
- */
+
         
     }
 
@@ -37,24 +33,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-    var message = ""
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
-    {
-        
-        if (string == "")
-        {
-            message.removeAtIndex(message.endIndex.predecessor())
-        }
-        else
-        {
-            message = message + string
-        }
-        print(message)
-        return true
-    }
-    */
 
     @IBAction func loginButtonTapped(sender: UIButton)
     {

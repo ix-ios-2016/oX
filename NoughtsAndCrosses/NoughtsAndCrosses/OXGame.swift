@@ -75,9 +75,16 @@ class OXGame
     func playMove(cell: Int) -> CellType
     {
         
-        let turn = whoseTurn()
-        board[cell] = turn
-        return turn
+        if (board[cell] == CellType.EMPTY)
+        {
+            let turn = whoseTurn()
+            board[cell] = turn
+            return turn
+        }
+        else
+        {
+            return CellType.EMPTY
+        }
         
     }
     

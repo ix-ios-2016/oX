@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loggedOutNavigationController: UINavigationController?
 
+    var easterEggNavigationController: UINavigationController?
+    
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
@@ -31,11 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
         
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.authorisationNavigationController
         self.window?.makeKeyAndVisible()
         
         
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         
         return true
@@ -54,9 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.gameNavigationController?.navigationBarHidden = true
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
         self.window?.rootViewController = self.gameNavigationController
-        self.window?.makeKeyAndVisible()
         
     }
     
@@ -66,20 +69,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loggedOutViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         loggedOutNavigationController = UINavigationController(rootViewController: loggedOutViewController)
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.loggedOutNavigationController
-        self.window?.makeKeyAndVisible()
         
     }
     
+    func navigateToEasterEggScreen()
+    {
+        
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        
+        self.window?.rootViewController = self.easterEggNavigationController
+
+    }
     
     
-    
-    
-    
-    
-    
-    
+    func navigateEasterEggToOX()
+    {
+        
+        if (UserController.sharedInstance.logged_in_user == nil)
+        {
+            self.window?.rootViewController = self.loggedOutNavigationController
+        }
+        else
+        {
+            
+            self.window?.rootViewController = self.gameNavigationController
+        
+        }
+    }
     
     
 
