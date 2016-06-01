@@ -11,7 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // all outlets
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     
     
@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         
         // only using one instance of UserController
         let userController = UserController.sharedInstance
-        if email != "" && password != ""
+        if email != "" && password != "" && emailField.validate()
         {
             let (failure_message, user) = userController.loginUser(email!, suppliedPassword: password!)
             
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
         else
         {
             let failAlert = UIAlertController(title: "Failure", message:
-                "One or more fields are empty. \nFill em' up!", preferredStyle: UIAlertControllerStyle.Alert)
+                "One or more fields are empty \nOR\nYour email is invalid", preferredStyle: UIAlertControllerStyle.Alert)
             let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
             failAlert.addAction(okButton)
             
