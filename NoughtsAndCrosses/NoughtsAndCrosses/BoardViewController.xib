@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
+                <outlet property="boardView" destination="qYi-hH-8b3" id="JO6-EG-27f"/>
                 <outlet property="button0" destination="Lgl-eZ-ME1" id="gza-EN-lxd"/>
                 <outlet property="button1" destination="N6c-yA-Xo4" id="X7j-4g-xsr"/>
                 <outlet property="button2" destination="ouQ-ap-EjW" id="lM3-ED-rFj"/>
@@ -40,16 +41,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3">
                     <rect key="frame" x="20" y="218" width="335" height="270"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-eZ-ME1">
-                            <rect key="frame" x="0.0" y="0.0" width="107" height="84.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="kmW-gY-V98"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouQ-ap-EjW">
                             <rect key="frame" x="229" y="0.0" width="106" height="84.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -170,6 +161,16 @@
                             </state>
                             <connections>
                                 <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="Crl-fT-jbn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgl-eZ-ME1">
+                            <rect key="frame" x="0.0" y="0.0" width="107" height="84.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="kmW-gY-V98"/>
                             </connections>
                         </button>
                     </subviews>

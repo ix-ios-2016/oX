@@ -8,16 +8,17 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var failureDisplay: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Log In View"
-
+        emailField.delegate = self
+        passwordField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -26,19 +27,34 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textField == emailField {
+            print("emailField text: \(emailField.text!)")
+        } else if textField == passwordField {
+            print("password text: \(passwordField.text!)")
+        }
+        print("string: \(string)")
+        return true
+    }
+    
     @IBAction func loginButtonTapped(sender: AnyObject) {
-        let email = emailField.text
-        let password = passwordField.text
-        let (failureMessage, user) = UserController.sharedInstance.loginUser(email!, suppliedPassword: password!)
-        if (user != nil) {
-            print("User registered view registration view")
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.navigateToLoggedInNavigationController()
-            failureDisplay.text = ""
-        } else {
-            if (failureMessage != nil) {
-                failureDisplay.text = failureMessage
+        if emailField.valid() {
+            let email = emailField.text
+            let password = passwordField.text
+            let (failureMessage, user) = UserController.sharedInstance.loginUser(email!, suppliedPassword: password!)
+            if (user != nil) {
+                print("User registered view registration view")
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToLoggedInNavigationController()
+                failureDisplay.text = ""
+            } else {
+                if (failureMessage != nil) {
+                    failureDisplay.text = failureMessage
+                }
+            emailField.validate()
             }
+        } else {
+            failureDisplay.text = "Invalid Email"
         }
     }
 

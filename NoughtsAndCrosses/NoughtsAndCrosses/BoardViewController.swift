@@ -12,6 +12,7 @@ class BoardViewController: UIViewController {
     
     var game = OXGame()
     
+    @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var button0: UIButton!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -25,6 +26,33 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.userInteractionEnabled = true
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+        self.boardView.addGestureRecognizer(rotation)
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
+        self.view.addGestureRecognizer(pinch)
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        if (sender!.state == UIGestureRecognizerState.Ended) {
+            
+            if (sender!.rotation < CGFloat(M_PI/4)) {
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {
+                    self.boardView.transform = CGAffineTransformMakeRotation(0)
+                })
+            }
+            print("rotation detected at \(sender!.rotation)")
+            self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        }
+        
+    }
+    
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        if (sender!.state == UIGestureRecognizerState.Ended) {
+            print("pinch detected")
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -10,7 +10,7 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
 
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var failureDisplay: UILabel!
     
@@ -27,18 +27,22 @@ class RegistrationViewController: UIViewController {
     }
 
     @IBAction func registerButtonTapped(sender: AnyObject) {
-        let email = emailField.text
-        let password = passwordField.text
-        let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
-        if (user != nil) {
-            print("User registered view registration view")
-            failureDisplay.text = ""
-        } else {
-            if (failureMessage != nil) {
-                failureDisplay.text = failureMessage
+        if emailField.valid() {
+            let email = emailField.text
+            let password = passwordField.text
+            let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
+            if (user != nil) {
+                print("User registered view registration view")
+                failureDisplay.text = ""
             }
+            if (failureMessage != nil) {
+                    failureDisplay.text = failureMessage
+            }
+            emailField.validate()
+        } else {
+            emailField.updateUI()
+            failureDisplay.text = "Invalid Email"
         }
-
     }
     
 }

@@ -14,6 +14,7 @@
 		290BC23E1CFE226400B0F998 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BC23C1CFE226400B0F998 /* RegistrationViewController.swift */; };
 		290BC23F1CFE226400B0F998 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290BC23D1CFE226400B0F998 /* RegistrationViewController.xib */; };
 		290BC2411CFE22EA00B0F998 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BC2401CFE22EA00B0F998 /* UserController.swift */; };
+		290BC2471CFEE17200B0F998 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290BC2461CFEE17200B0F998 /* EmailValidatedTextField.swift */; };
 		29FE5C051CFC637E00522B22 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FE5C041CFC637E00522B22 /* OXGame.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		290BC23C1CFE226400B0F998 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		290BC23D1CFE226400B0F998 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		290BC2401CFE22EA00B0F998 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		290BC2461CFEE17200B0F998 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		29FE5C041CFC637E00522B22 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				290BC2461CFEE17200B0F998 /* EmailValidatedTextField.swift */,
 				290BC2401CFE22EA00B0F998 /* UserController.swift */,
 				290BC22F1CFE21E700B0F998 /* Game */,
 				290BC22E1CFE21DC00B0F998 /* Authentication */,
@@ -314,6 +317,7 @@
 				290BC2411CFE22EA00B0F998 /* UserController.swift in Sources */,
 				290BC2381CFE224900B0F998 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				290BC2471CFEE17200B0F998 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
