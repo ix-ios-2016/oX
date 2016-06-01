@@ -12,23 +12,76 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    var gameNavigationController: UINavigationController?
+    
+    var authorisationNavigationController: UINavigationController?
+    
+    var loggedOutNavigationController: UINavigationController?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
+        
         // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        
+        // landing view
+        
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = self.authorisationNavigationController
         self.window?.makeKeyAndVisible()
+        
         
         
         
         return true
     }
+    
+    
+    // navigation functions to assorted pages
+    
+    func navigateToBoardNavigationController()
+    {
+        
+        // board view
+        
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        gameNavigationController = UINavigationController(rootViewController: boardViewController)
+        
+        self.gameNavigationController?.navigationBarHidden = true
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.gameNavigationController
+        self.window?.makeKeyAndVisible()
+        
+    }
+    
+    func navigateToLoggedOutNavigationController()
+    {
+        
+        let loggedOutViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        loggedOutNavigationController = UINavigationController(rootViewController: loggedOutViewController)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.loggedOutNavigationController
+        self.window?.makeKeyAndVisible()
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
