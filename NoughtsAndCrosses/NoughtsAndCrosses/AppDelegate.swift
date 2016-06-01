@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authenticationNavigationController: UINavigationController?
+    var loggedInNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,9 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
         
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
         
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.authenticationNavigationController
+        self.window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func navigateToLoggedInNavigationController() {
+        window?.rootViewController = navigationController
+    }
+    
+    func navigateToLogOutNavigationController() {
+        window?.rootViewController = authenticationNavigationController
     }
 
     func applicationWillResignActive(application: UIApplication) {
