@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
-                <outlet property="boardView" destination="i5M-Pr-FkT" id="4u9-t6-6FJ"/>
+                <outlet property="boardView" destination="qYi-hH-8b3" id="mDV-YG-aDD"/>
                 <outlet property="button0" destination="Lgl-eZ-ME1" id="qhG-c0-Zey"/>
                 <outlet property="button1" destination="N6c-yA-Xo4" id="2pd-lD-PIU"/>
                 <outlet property="button2" destination="ouQ-ap-EjW" id="ySK-99-oRf"/>

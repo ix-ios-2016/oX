@@ -10,7 +10,7 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
 
-    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var userNameField: EmailValidatedTextField!
     
     @IBOutlet weak var passwordField: UITextField!
     
@@ -30,27 +30,29 @@ class RegistrationViewController: UIViewController {
         let userName = userNameField.text
         let passwordName = passwordField.text
         let (failureMessage,user1) = UserController.sharedInstance.registerUser(userName!, newPassword: passwordName!)
-        if user1 != nil {
+        if !userNameField.validate(){
+            return
+        } else if user1 != nil {
             print("User registered view registration view")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToLoggedInNavigationController()
         } else if failureMessage != nil {
             print(failureMessage)
-            let alertController = UIAlertController(title: "Error", message: failureMessage, preferredStyle: .Alert)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                // ...
-            }
-            alertController.addAction(cancelAction)
-            
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                // ...
-            }
-            alertController.addAction(OKAction)
-            
-            self.presentViewController(alertController, animated: true) {
-                // ...
-            }
+//            let alertController = UIAlertController(title: "Error", message: failureMessage, preferredStyle: .Alert)
+//            
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+//                // ...
+//            }
+//            alertController.addAction(cancelAction)
+//            
+//            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+//                // ...
+//            }
+//            alertController.addAction(OKAction)
+//            
+//            self.presentViewController(alertController, animated: true) {
+//                // ...
+//            }
         }
         
     }

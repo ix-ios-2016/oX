@@ -12,7 +12,8 @@ class BoardViewController: UIViewController {
     
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    @IBOutlet var boardView: UIView!
+    @IBOutlet weak var boardView: UIView!
+    //@IBOutlet var boardView: UIView!
     @IBOutlet weak var button0: UIButton!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -27,8 +28,35 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+        self.boardView.addGestureRecognizer(rotation)
+        
+//        let pinch = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handlePinch(_:)))
+//        self.view.addGestureRecognizer(pinch)
+        
     }
     
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        print("pinch detected")
+    }
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        print("rotation detected")
+        if sender!.state == UIGestureRecognizerState.Ended {
+            print("rotation \(sender!.rotation)")
+            if abs(sender!.rotation) < CGFloat(M_PI/4) {
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {
+                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
+                })
+            }
+        }
+       // print("howdy")
+        
+    }
+    
+    //enum/ array of gestures? variable arraycombo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

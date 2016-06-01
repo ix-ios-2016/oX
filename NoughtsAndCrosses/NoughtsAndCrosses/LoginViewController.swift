@@ -10,7 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var userNameField: EmailValidatedTextField!
+  
     
     @IBOutlet weak var passwordField: UITextField!
     
@@ -30,7 +31,9 @@ class LoginViewController: UIViewController {
         let userName = userNameField.text
         let passwordName = passwordField.text
         let (failureMessage,user1) = UserController.sharedInstance.loginUser(userName!, suppliedPassword: passwordName!)
-        if user1 != nil {
+        if !userNameField.validate(){
+            return
+        } else if user1 != nil {
             print("User logged in view login view")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToLoggedInNavigationController()
