@@ -14,6 +14,9 @@
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
 		D1068B8A1CFEDA85007A8F57 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068B891CFEDA85007A8F57 /* EmailValidatedTextField.swift */; };
 		D1339B601CFC638300ED48B1 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1339B5F1CFC638300ED48B1 /* OXGame.swift */; };
+		D158402A1CFF63E900D9F669 /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15840281CFF63E900D9F669 /* EasterEggViewController.swift */; };
+		D158402B1CFF63E900D9F669 /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15840291CFF63E900D9F669 /* EasterEggViewController.xib */; };
+		D158402D1CFF63FD00D9F669 /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D158402C1CFF63FD00D9F669 /* EasterEggController.swift */; };
 		D16E38F81CFDC83D00FB07C0 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E38F61CFDC83D00FB07C0 /* LandingViewController.swift */; };
 		D16E38F91CFDC83D00FB07C0 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16E38F71CFDC83D00FB07C0 /* LandingViewController.xib */; };
 		D16E38FC1CFDC84A00FB07C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E38FA1CFDC84A00FB07C0 /* LoginViewController.swift */; };
@@ -56,6 +59,9 @@
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1068B891CFEDA85007A8F57 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		D1339B5F1CFC638300ED48B1 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		D15840281CFF63E900D9F669 /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
+		D15840291CFF63E900D9F669 /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
+		D158402C1CFF63FD00D9F669 /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
 		D16E38F61CFDC83D00FB07C0 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		D16E38F71CFDC83D00FB07C0 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		D16E38FA1CFDC84A00FB07C0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				D15840271CFF63A600D9F669 /* EasterEgg */,
 				D1068B881CFEDA59007A8F57 /* ValidatedTextFields */,
 				D16E38F41CFDC7E300FB07C0 /* Authentication */,
 				D16E38F51CFDC7FA00FB07C0 /* Game */,
@@ -160,6 +167,16 @@
 				D1068B891CFEDA85007A8F57 /* EmailValidatedTextField.swift */,
 			);
 			name = ValidatedTextFields;
+			sourceTree = "<group>";
+		};
+		D15840271CFF63A600D9F669 /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				D15840281CFF63E900D9F669 /* EasterEggViewController.swift */,
+				D15840291CFF63E900D9F669 /* EasterEggViewController.xib */,
+				D158402C1CFF63FD00D9F669 /* EasterEggController.swift */,
+			);
+			name = EasterEgg;
 			sourceTree = "<group>";
 		};
 		D16E38F41CFDC7E300FB07C0 /* Authentication */ = {
@@ -252,6 +269,7 @@
 				TargetAttributes = {
 					42D447C91CD765670070326E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = K4NUNQ5VCK;
 					};
 					42D447DD1CD765680070326E = {
 						CreatedOnToolsVersion = 7.3;
@@ -291,6 +309,7 @@
 				D16E38FD1CFDC84A00FB07C0 /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				D158402B1CFF63E900D9F669 /* EasterEggViewController.xib in Resources */,
 				D16E39011CFDC85F00FB07C0 /* RegistrationViewController.xib in Resources */,
 				D16E38F91CFDC83D00FB07C0 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
@@ -319,6 +338,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D16E39001CFDC85F00FB07C0 /* RegistrationViewController.swift in Sources */,
+				D158402D1CFF63FD00D9F669 /* EasterEggController.swift in Sources */,
+				D158402A1CFF63E900D9F669 /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				D1339B601CFC638300ED48B1 /* OXGame.swift in Sources */,
 				D16E38F81CFDC83D00FB07C0 /* LandingViewController.swift in Sources */,
@@ -461,10 +482,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -472,10 +496,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

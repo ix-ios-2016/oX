@@ -8,12 +8,45 @@
 
 import UIKit
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var game = OXGame()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
+        rotation.delegate = self
+        self.boardView.addGestureRecognizer(rotation)
+        
+        
+    }
+    
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        if sender!.state == UIGestureRecognizerState.Ended {
+            
+            print("rotation \(sender!.rotation)")
+            
+            if sender!.rotation > CGFloat(M_PI_2 / 3) {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {
+                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                })
+            }
+            else if sender!.rotation < CGFloat(-M_PI_2 / 3) {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {
+                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
+                })
+            }
+            
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,8 +63,9 @@ class BoardViewController: UIViewController {
         
         let turn = game.whosTurn()
         
-        game.playMove(tag)
-        sender.setTitle(String(turn), forState: UIControlState.Normal)
+        if game.playMove(tag) != CellType.EMPTY {
+            sender.setTitle(String(turn), forState: UIControlState.Normal)
+        }
         
         let gameState = game.state()
         if gameState == OXGameState.complete_someone_won {
@@ -70,6 +104,10 @@ class BoardViewController: UIViewController {
         
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.navigateToLandingView()
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
     

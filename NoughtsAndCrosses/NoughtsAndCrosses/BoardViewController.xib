@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
-                <outlet property="boardView" destination="i5M-Pr-FkT" id="7Pv-Kp-joJ"/>
+                <outlet property="boardView" destination="qYi-hH-8b3" id="Khd-Tg-dln"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="buttons" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="eLZ-0g-9JM"/>
                 <outletCollection property="buttons" destination="N6c-yA-Xo4" collectionClass="NSMutableArray" id="xMw-bE-mMx"/>

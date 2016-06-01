@@ -21,6 +21,12 @@ class EasterEggViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func returnToGameButtonTapped(sender: UIButton) {
+        
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToGame()
+        
+    }
 
     /*
     // MARK: - Navigation
