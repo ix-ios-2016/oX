@@ -14,9 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var authorisationNavigationController:UINavigationController?
     var navigationController: UINavigationController?
+    var easterEggController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let easterEggContoller = EasterEggViewController(nibName: "EasterEggViewController", bundle:nil)
+        easterEggController = UINavigationController(rootViewController: easterEggContoller)
+        
+        
         let landingViewContoller = LandingViewController(nibName: "LandingViewController", bundle:nil)
         authorisationNavigationController = UINavigationController(rootViewController: landingViewContoller)
         
@@ -28,9 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.authorisationNavigationController //navigationController
         self.window?.makeKeyAndVisible()
         
+        //Make Gestures Global
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         
         return true
+    }
+    
+    func navigateToEasterEggScreen() {
+        self.window?.rootViewController = self.easterEggController
+    }
+    func returnToOxGameNavigation() {
+        self.window?.rootViewController = self.navigationController
     }
     
     func navigateToGameNavigationController() {

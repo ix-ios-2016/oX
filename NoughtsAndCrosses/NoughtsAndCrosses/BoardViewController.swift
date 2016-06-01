@@ -16,6 +16,7 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
           let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
             self.boardView.addGestureRecognizer(rotation)
         
@@ -30,15 +31,19 @@ class BoardViewController: UIViewController {
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
         print("Rotation detected")
         
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
         
         if sender!.state == UIGestureRecognizerState.Ended {
             print("rotation \(sender!.rotation)")
             
-            if sender!.rotation < CGFloat(M_PI)/2 {
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {self.boardView.transform = CGAffineTransformMakeRotation(0)})
-            } else {
-                self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+            
+             if sender!.rotation > CGFloat(M_PI)/6 {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))})
+             } else /*if sender!.rotation < CGFloat(M_PI)/6*/ {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(0)})
+
             }
+ 
             
         }
         
