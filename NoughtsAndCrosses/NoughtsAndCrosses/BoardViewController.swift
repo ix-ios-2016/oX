@@ -12,8 +12,29 @@ class BoardViewController: UIViewController {
     
     // All outlets
     @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var appTitle: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
     
     var gameObject:OXGame = OXGame()
+    
+    override func viewDidLoad() {
+        // do things for the look of the app
+        super.viewDidLoad()
+        self.title = "Login"
+        logoutButton.backgroundColor = UIColor.clearColor()
+        logoutButton.layer.cornerRadius = 5
+        logoutButton.layer.borderWidth = 1
+        logoutButton.layer.borderColor = UIColor.blackColor().CGColor
+        
+        // send alert to user
+        let userController = UserController.sharedInstance
+        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)! + "!", message:
+            (userController.logged_in_user?.email)! + " is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
+        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+        welcomeAlert.addAction(okButton)
+        // Present the message
+        self.presentViewController(welcomeAlert, animated: true, completion: nil)
+    }
     
     // Outlet for all grid buttons
     @IBAction func gridButtonTapped(sender: AnyObject) {
@@ -74,8 +95,16 @@ class BoardViewController: UIViewController {
         restartGame()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // Handle user logout
+    @IBAction func logoutButtonTapped(sender: UIButton) {
+        restartGame()
+        
+        UserController.sharedInstance.logoutUser()
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToLoggedOutViewController()
+        
+        // get rid of this viewController instance
+        self.view = nil
     }
     
     override func didReceiveMemoryWarning() {

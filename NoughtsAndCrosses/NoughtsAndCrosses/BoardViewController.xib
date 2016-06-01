@@ -9,7 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
+                <outlet property="appTitle" destination="k6O-si-s1J" id="brO-hh-85t"/>
                 <outlet property="boardView" destination="qYi-hH-8b3" id="47o-OG-2cf"/>
+                <outlet property="logoutButton" destination="E2A-rd-Doq" id="Vzo-pD-LSr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -408,6 +410,19 @@
                         <action selector="newGameButtonTapped:" destination="-1" eventType="touchUpInside" id="2yF-8x-Zs7"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2A-rd-Doq">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.53964342948717936" green="0.53964342948717936" blue="0.53964342948717936" alpha="0.44625538793103448" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="310" y="26" width="60" height="30"/>
+                    </variation>
+                    <connections>
+                        <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="coN-7E-Ohj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -432,8 +447,16 @@
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="E2A-rd-Doq"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="d8s-qj-E3B"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="E2A-rd-Doq"/>
                 </mask>
             </variation>
         </view>
