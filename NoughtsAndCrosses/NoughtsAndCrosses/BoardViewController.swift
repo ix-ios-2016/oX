@@ -29,14 +29,6 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //create an instance of UIRotationGestureRecognizer
-        /*let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
-        self.boardView.addGestureRecognizer(rotation)*/
-        //self.lastRotation = 0.0
-        
-        //create a pinch gesture recognizer
-        /*let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
-        self.boardView.addGestureRecognizer(pinch)*/
     }
     
     /*func handleRotation(sender: UIRotationGestureRecognizer? = nil) {

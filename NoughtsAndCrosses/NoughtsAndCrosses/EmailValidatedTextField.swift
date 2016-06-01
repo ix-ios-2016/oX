@@ -28,7 +28,7 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
             self.text?.append(Character(string))
         }
         else {
-            print("backspace occured! \(self.text?.substringToIndex((self.text?.endIndex.predecessor())!))")
+            //print("backspace occured! \(self.text?.substringToIndex((self.text?.endIndex.predecessor())!))")
             self.text = self.text?.substringToIndex((self.text?.endIndex.predecessor())!)
         }
         updateUI()

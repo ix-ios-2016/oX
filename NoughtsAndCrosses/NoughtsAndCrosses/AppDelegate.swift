@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationController: UINavigationController?
     var authorisationNavController: UINavigationController?
-
+    var easterEggNavController: UINavigationController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.authorisationNavController
         self.window?.makeKeyAndVisible()
         
-        
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         return true
     }
@@ -45,6 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
         self.window?.rootViewController = self.navigationController
+        
+    }
+    
+    func  navigateToEasterEggScreen() {
+        
+        let easterEggViewController = EasterEggViewController(nibName:"EasterEggViewController",bundle:nil)
+        easterEggNavController = UINavigationController(rootViewController: easterEggViewController)
+        self.easterEggNavController?.navigationBarHidden = true
+        self.window?.rootViewController = self.easterEggNavController
         
     }
 
