@@ -10,7 +10,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    @IBOutlet var emailField: UITextField!
+    @IBOutlet var emailField: EmailValidatedTextField!
     @IBOutlet var passwordField: UITextField!
     
 
@@ -41,26 +41,29 @@ class RegisterViewController: UIViewController {
         let email = emailField.text
         let password = passwordField.text
         
-        let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
-        
-        if user != nil {
-            // create alert controller and OK action
-            let alertController = UIAlertController(title: "User registered",
-                                                    message: "Username \(user!.email). Feel free to log in.",
-                                                    preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
-            // add OK action to alert controller
-            alertController.addAction(OKAction)
-            // display alert
-            self.presentViewController(alertController, animated: true, completion: nil)
-        } else if failureMessage != nil {
-            // create alert controller and OK action
-            let alertController = UIAlertController(title: "Error", message: failureMessage!, preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
-            // add OK action to alert controller
-            alertController.addAction(OKAction)
-            // display alert
-            self.presentViewController(alertController, animated: true, completion: nil)
+        if self.emailField.validate() {
+            let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
+            
+            if user != nil {
+                // create alert controller and OK action
+                let alertController = UIAlertController(title: "User registered",
+                                                        message: "Username \(user!.email). Feel free to log in.",
+                                                        preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
+                // add OK action to alert controller
+                alertController.addAction(OKAction)
+                // display alert
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if failureMessage != nil {
+                // create alert controller and OK action
+                let alertController = UIAlertController(title: "Error", message: failureMessage!, preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
+                // add OK action to alert controller
+                alertController.addAction(OKAction)
+                // display alert
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            }
             
         }
         

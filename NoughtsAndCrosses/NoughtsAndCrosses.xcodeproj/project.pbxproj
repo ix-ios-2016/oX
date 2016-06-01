@@ -12,6 +12,7 @@
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
+		A171257B1CFEDAEC0002D506 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */; };
 		A1B5792E1CFC758D00621F30 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B5792D1CFC758D00621F30 /* OXGame.swift */; };
 		A1DCC6AB1CFDEB9000236776 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DCC6A91CFDEB9000236776 /* LandingViewController.swift */; };
 		A1DCC6AC1CFDEB9000236776 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DCC6AA1CFDEB9000236776 /* LandingViewController.xib */; };
@@ -53,6 +54,7 @@
 		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		A1B5792D1CFC758D00621F30 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		A1DCC6A91CFDEB9000236776 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		A1DCC6AA1CFDEB9000236776 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				42D447D91CD765670070326E /* Info.plist */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
 				A1DCC6B51CFE082D00236776 /* UserController.swift */,
+				A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				A1DCC6B61CFE082D00236776 /* UserController.swift in Sources */,
 				A1DCC6AF1CFDFC6200236776 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				A171257B1CFEDAEC0002D506 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
