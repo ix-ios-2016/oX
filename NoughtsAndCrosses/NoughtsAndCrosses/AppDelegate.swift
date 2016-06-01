@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func navigateToLoggedOutViewController()
     {
-        self.window?.rootViewController = self.onboardingNavigationController
+        self.window?.rootViewController = self.loggedinNavigationController
         self.window?.makeKeyAndVisible()
     }
     
