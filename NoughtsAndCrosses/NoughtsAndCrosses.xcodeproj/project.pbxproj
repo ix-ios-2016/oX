@@ -21,6 +21,9 @@
 		8DE7C51F1CFE4B1B00286199 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C51D1CFE4B1B00286199 /* LoginViewController.swift */; };
 		8DE7C5201CFE4B1B00286199 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C51E1CFE4B1B00286199 /* LoginViewController.xib */; };
 		8DE7C5251CFEE71500286199 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5241CFEE71500286199 /* EmailValidatedTextField.swift */; };
+		8DE7C5291CFF271700286199 /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5271CFF271700286199 /* EasterEggViewController.swift */; };
+		8DE7C52A1CFF271700286199 /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C5281CFF271700286199 /* EasterEggViewController.xib */; };
+		8DE7C52C1CFF27B100286199 /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C52B1CFF27B100286199 /* EasterEggController.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -63,6 +66,9 @@
 		8DE7C51D1CFE4B1B00286199 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8DE7C51E1CFE4B1B00286199 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		8DE7C5241CFEE71500286199 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
+		8DE7C5271CFF271700286199 /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
+		8DE7C5281CFF271700286199 /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
+		8DE7C52B1CFF27B100286199 /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EasterEggController.swift; path = ../EasterEggController.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +131,7 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				8DE7C5261CFF26EC00286199 /* Easter Egg */,
 				8DE7C5211CFEE08400286199 /* Email Validated Text */,
 				8DE7C50C1CFE2E6200286199 /* LandingView */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
@@ -192,6 +199,16 @@
 				8DE7C5241CFEE71500286199 /* EmailValidatedTextField.swift */,
 			);
 			name = "Email Validated Text";
+			sourceTree = "<group>";
+		};
+		8DE7C5261CFF26EC00286199 /* Easter Egg */ = {
+			isa = PBXGroup;
+			children = (
+				8DE7C5271CFF271700286199 /* EasterEggViewController.swift */,
+				8DE7C5281CFF271700286199 /* EasterEggViewController.xib */,
+				8DE7C52B1CFF27B100286199 /* EasterEggController.swift */,
+			);
+			name = "Easter Egg";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +318,7 @@
 				8DE7C51B1CFE42AC00286199 /* RegistrationViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				8DE7C5201CFE4B1B00286199 /* LoginViewController.xib in Resources */,
+				8DE7C52A1CFF271700286199 /* EasterEggViewController.xib in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				8DE7C5101CFE2E9400286199 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
@@ -329,6 +347,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DE7C51F1CFE4B1B00286199 /* LoginViewController.swift in Sources */,
+				8DE7C52C1CFF27B100286199 /* EasterEggController.swift in Sources */,
+				8DE7C5291CFF271700286199 /* EasterEggViewController.swift in Sources */,
 				8DE7C51A1CFE42AC00286199 /* RegistrationViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				8D0E55761CFC707E00B3499E /* OXGame.swift in Sources */,

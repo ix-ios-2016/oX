@@ -11,7 +11,6 @@ import UIKit
 class EmailValidatedTextField: UITextField , UITextFieldDelegate {
     //inherits all of the UITextField elements so it is still technically a UITextField. That's why
     var imageView : UIImageView = UIImageView()
-    var lastString : String?
     
     override func drawRect (rect : CGRect) {
         
@@ -24,23 +23,36 @@ class EmailValidatedTextField: UITextField , UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
-        print(self.text)
+        if (string == "") {
             
-        //print("\(textField.text) string param \(string)")
-        
-        lastString = string
+            var substring = (textField.text! as! NSString).substringToIndex(textField.text!.characters.count-1)
             
-        updateUI()
-        return true
+            textField.text = substring
+            updateUI()
+            
+            return false
+        }   else    {
+            print(self.text)
+            
+            //print("\(textField.text) string param \(string)")
+            textField.text = textField.text! + string
+            
+            updateUI()
+            
+            return false
+        }
+        
+        
+            
+       
     }
 
     func valid() -> Bool {
-        print ("Validaing email: \(self.text! + lastString!)")
+        print ("Validaing email: \(self.text!)")
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluateWithObject(self.text! + lastString!)
+        return emailTest.evaluateWithObject(self.text!)
         
     }
     
