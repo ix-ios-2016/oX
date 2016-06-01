@@ -46,7 +46,7 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
     
     // delegate function
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if string == "" {
+        if string == "" { // backspace
             textField.text! = textField.text!.substringToIndex(textField.text!.endIndex.predecessor())
         }
         else {

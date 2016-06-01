@@ -8,17 +8,18 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
-    @IBOutlet var emailField: UITextField!
+    
+    @IBOutlet var emailField: EmailValidatedTextField!
     @IBOutlet var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
         
-        self.emailField.delegate = self
-        self.passwordField.delegate = self
+//        self.emailField.delegate = self
+//        self.passwordField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -27,19 +28,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if (textField == self.emailField) {
-            print("EMAIL FIELD")
-        } else if (textField == self.passwordField) {
-            print("PASSWORD FIELD")
-        } else {
-            print("UNKNOWN FIELD")
-        }
-        print("Current text: \(textField.text!)")
-        print("Typed text: \(string)")
-        
-        return true
-    }
+//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+//        if (textField == self.emailField) {
+//            print("EMAIL FIELD")
+//        } else if (textField == self.passwordField) {
+//            print("PASSWORD FIELD")
+//        } else {
+//            print("UNKNOWN FIELD")
+//        }
+//        print("Current text: \(textField.text!)")
+//        print("Typed text: \(string)")
+//        
+//        return true
+//    }
     
 
     /*
@@ -54,17 +55,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        let (failureMessage, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
-        if user != nil {
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.navigateToGame()
-        } else if failureMessage != nil {
-            let alertController = UIAlertController(title: "Could not log in",
-                                                    message: failureMessage, preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in}
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+        if self.emailField.validate() {
+            let (failureMessage, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
+            if user != nil {
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToGame()
+            } else if failureMessage != nil {
+                let alertController = UIAlertController(title: "Could not log in",
+                                                        message: failureMessage, preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in}
+                alertController.addAction(OKAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
         }
+        
     }
     
     

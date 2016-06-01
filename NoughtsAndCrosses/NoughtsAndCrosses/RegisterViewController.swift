@@ -47,13 +47,16 @@ class RegisterViewController: UIViewController {
             if user != nil {
                 // create alert controller and OK action
                 let alertController = UIAlertController(title: "User registered",
-                                                        message: "Username \(user!.email). Feel free to log in.",
+                                                        message: "Username \(user!.email). Tap to play.",
                                                         preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
                 // add OK action to alert controller
                 alertController.addAction(OKAction)
                 // display alert
                 self.presentViewController(alertController, animated: true, completion: nil)
+                // navigate to game
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToGame()
             } else if failureMessage != nil {
                 // create alert controller and OK action
                 let alertController = UIAlertController(title: "Error", message: failureMessage!, preferredStyle: .Alert)

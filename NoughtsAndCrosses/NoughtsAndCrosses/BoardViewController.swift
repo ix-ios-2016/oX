@@ -16,6 +16,36 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // create a rotation gesture recognizer
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(
+            target: self, action: #selector(BoardViewController.handleRotation(_:)))
+        self.boardContainer.addGestureRecognizer(rotation)
+        
+        // create pinch gesture recognizer
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
+        self.boardContainer.addGestureRecognizer(pinch)
+        
+        
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        
+        self.boardContainer.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        print("rotation")
+        if (sender!.state == UIGestureRecognizerState.Ended) {
+            print("rotation ended at: \(sender!.rotation)")
+            UIView.animateWithDuration(NSTimeInterval(1), animations: {
+                // can use CGFloat(M_PI)
+                self.boardContainer.transform = CGAffineTransformMakeRotation(0)
+            })
+            
+        }
+    }
+    
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        print("pinch")
     }
     
     override func didReceiveMemoryWarning() {
