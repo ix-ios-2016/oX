@@ -15,6 +15,7 @@
 		32DBFCDA1CFDFD6300B39958 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DBFCD41CFDFD6300B39958 /* LoginViewController.xib */; };
 		32DBFCDB1CFDFD6300B39958 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DBFCD51CFDFD6300B39958 /* RegisterViewController.swift */; };
 		32DBFCDC1CFDFD6300B39958 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DBFCD61CFDFD6300B39958 /* RegisterViewController.xib */; };
+		32DBFCE01CFEDDBD00B39958 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DBFCDF1CFEDDBD00B39958 /* EmailValidatedTextField.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
@@ -49,6 +50,7 @@
 		32DBFCD41CFDFD6300B39958 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = ../../../OnboardingDemo/OnboardingDemo/LoginViewController.xib; sourceTree = "<group>"; };
 		32DBFCD51CFDFD6300B39958 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../../../OnboardingDemo/OnboardingDemo/RegisterViewController.swift; sourceTree = "<group>"; };
 		32DBFCD61CFDFD6300B39958 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = ../../../OnboardingDemo/OnboardingDemo/RegisterViewController.xib; sourceTree = "<group>"; };
+		32DBFCDF1CFEDDBD00B39958 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				32DBFCDF1CFEDDBD00B39958 /* EmailValidatedTextField.swift */,
 				32DBFCCB1CFDFC3700B39958 /* UserController.swift */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
@@ -310,6 +313,7 @@
 				32DBFCCC1CFDFC3700B39958 /* UserController.swift in Sources */,
 				32DBFCD71CFDFD6300B39958 /* LandingViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				32DBFCE01CFEDDBD00B39958 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
