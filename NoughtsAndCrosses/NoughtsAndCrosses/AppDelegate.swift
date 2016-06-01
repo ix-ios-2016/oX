@@ -22,10 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //LandingViewController
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
         authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
+       
+        
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.GameNavigationController = UINavigationController(rootViewController: boardViewController)
+        self.GameNavigationController?.navigationBarHidden = true
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.authorisationNavigationController
         self.window?.makeKeyAndVisible()
-        
         
         
         

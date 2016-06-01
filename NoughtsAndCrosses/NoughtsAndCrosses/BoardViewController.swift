@@ -8,15 +8,63 @@
 
 import UIKit
 
-class BoardViewController: UIViewController {
+class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var BoardView: UIView!
     var game = OXGame()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.userInteractionEnabled = true
+        
+//        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+//        
+//        self.BoardView.addGestureRecognizer(rotation)
+        
+        //let pinch = UIPinchGestureRecognizer(target: self, action: #selector(Board) )
     }
+    
+    func handlePinch( sender: UIPinchGestureRecognizer? = nil  ){
+        print("pinch detected")
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil ){
+        self.BoardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        print("rotation detected")
+        
+        
+        if (sender!.state == UIGestureRecognizerState.Ended){
+            print("rotation \(sender!.rotation)")
+            //self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
+            
+            
+            if( sender!.rotation < CGFloat(M_1_PI)/4) {
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {} )
+                self.BoardView.transform = CGAffineTransformMakeRotation(0)
+            }
+            else if (sender!.rotation < CGFloat(M_1_PI)/2){
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {} )
+                self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI)/4)
+                
+            }
+            else if (sender!.rotation < CGFloat(M_1_PI)){
+                UIView.animateWithDuration(NSTimeInterval(3), animations: {} )
+                self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI)/2)
+            }
+            else if (true){
+                
+            }
+            
+            self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_2_PI))
+            self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI))
+        }
+        
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

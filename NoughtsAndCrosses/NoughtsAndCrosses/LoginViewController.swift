@@ -10,9 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var userInputTextField: UITextField!
+
+
     
     
     override func viewDidLoad() {
@@ -21,7 +22,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         emailField.delegate = self
         passwordField.delegate = self
-        userInputTextField.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -39,15 +39,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         else if ( textField == passwordField ){
             print("password field was updated: \(passwordField.text!)")
         }
-        else if( textField == userInputTextField ){
-            print("userInputTextField was updated: \(userInputTextField.text!)")
-        }
         return true
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
         let email = emailField.text!
         let password = passwordField.text!
+        if ( !emailField.validate() ){
+            return
+        }
         
         let ( failureMessage , user ) = UserController.sharedInstance.loginUser(email, suppliedPassword: password )
         
