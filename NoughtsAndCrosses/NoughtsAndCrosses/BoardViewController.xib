@@ -9,10 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
-                <outlet property="board" destination="qYi-hH-8b3" id="f2R-lF-gjN"/>
-                <outlet property="boardTapped" destination="wqL-6N-dzo" id="bfX-gi-0JG"/>
-                <outlet property="boardView" destination="i5M-Pr-FkT" id="a7x-Rc-sCw"/>
-                <outlet property="view" destination="qYi-hH-8b3" id="ySb-jW-UWp"/>
+                <outlet property="board" destination="qYi-hH-8b3" id="NHW-0k-QRZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="OQt-02-Fl8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

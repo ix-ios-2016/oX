@@ -91,12 +91,9 @@ class OXGame {
     }
     
     func reset() {
-        if ((self.state() == OXGameState.complete_someone_won) && (self.state() == OXGameState.complete_no_one_won)) {
-            for index in 0...board.count {
-                board[index] = CellType.EMPTY
-            }
+        for index in 0...(board.count - 1) {
+            board[index] = CellType.EMPTY
         }
     }
-
 }
 

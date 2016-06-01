@@ -18,8 +18,6 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-//    @IBOutlet var boardView: UIViewController!
-    @IBOutlet weak var boardTapped: UIButton!
     @IBOutlet weak var board: UIView!
     
     var gameObject = OXGame()
@@ -27,26 +25,34 @@ class BoardViewController: UIViewController {
     @IBAction func boardTapped(sender: UIButton) {
         
         gameObject.playMove(sender.tag)
-        boardTapped.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
+        sender.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
         print("boardTapped")
         
         let gameState = gameObject.state()
         if (gameState == OXGameState.complete_someone_won) {
-            print("The winner is \(gameObject.whosTurn())!")
-        } else {
+            print("The winner is \(String(gameObject.typeAtIndex(sender.tag)))!")
+            restartGame()
+        } else if (gameState == OXGameState.complete_no_one_won) {
             print("There is a tie!")
+            restartGame()
+        } else if (gameState == OXGameState.inProgress) {
+            print("Game in progress")
         }
-         restartGame()
     }
     
     func restartGame() {
         gameObject.reset()
-        boardTapped.setTitle("", forState: UIControlState.Normal)
+        for view in board.subviews {
+//          print(view.classForCoder)
+            if let button = view as? UIButton{
+                button.setTitle("", forState: UIControlState.Normal)
+            } else {
+                print("This is not a UIButton")
+            }
+        }
     }
     
     @IBAction func newGame(sender: AnyObject) {
         restartGame()
     }
-
-
 }
