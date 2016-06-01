@@ -12,7 +12,7 @@ class RegistrationViewController: UIViewController {
 
     
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     
     @IBOutlet weak var passwordField: UITextField!
     
@@ -36,9 +36,24 @@ class RegistrationViewController: UIViewController {
     @IBAction func registrationButtonTapped(sender: UIButton)
     {
         
+        
         let email = emailField.text!
         let password = passwordField.text!
         
+        if (!emailField.validate())
+        {
+            
+            let alertController = UIAlertController(title: "WARNING", message: "Not a valid email address", preferredStyle: .Alert)
+            
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            return
+        }
         
         let (failureMessage, user) = UserController.sharedInstance.registerUser(email, newPassword: password)
         
