@@ -15,7 +15,11 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
     
+    // create a new game object
     var gameObject:OXGame = OXGame()
+    // saves the last snap of rotation
+    var lastSnap = CGFloat(0)
+
     
     override func viewDidLoad() {
         // do things for the look of the app
@@ -37,83 +41,93 @@ class BoardViewController: UIViewController {
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil)
     {
-        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation + lastSnap)
         
         if (sender!.state == UIGestureRecognizerState.Ended)
         {
             let myRotation = sender!.rotation % CGFloat(2*M_PI)
+            let adjustedRotation = lastSnap + myRotation
+            
             print("rotation: " + String((sender!.rotation % CGFloat(2*M_PI))))
             
             // positive rotation
-            if myRotation > 0
+            if adjustedRotation > 0
             {
                 // up
-                if (myRotation < CGFloat(M_PI/4) ||
-                    myRotation > CGFloat((7*M_PI)/4))
+                if (adjustedRotation < CGFloat(M_PI/4) ||
+                    adjustedRotation > CGFloat((7*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
                     })
+                    lastSnap = CGFloat(0)
                 }
                     // right
-                else if (myRotation > CGFloat(M_PI/4) &&
-                    myRotation < CGFloat((3*M_PI)/4))
+                else if (adjustedRotation > CGFloat(M_PI/4) &&
+                    adjustedRotation < CGFloat((3*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
                     })
+                    lastSnap = CGFloat(M_PI/2)
                 }
                     // down
-                else if (myRotation > CGFloat((3*M_PI)/4) &&
-                    myRotation < CGFloat((5*M_PI)/4))
+                else if (adjustedRotation > CGFloat((3*M_PI)/4) &&
+                    adjustedRotation < CGFloat((5*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
                     })
+                    lastSnap = CGFloat(M_PI)
                 }
                     // left
-                else if (myRotation > CGFloat((5*M_PI)/4) &&
-                    myRotation < CGFloat((7*M_PI)/4))
+                else if (adjustedRotation > CGFloat((5*M_PI)/4) &&
+                    adjustedRotation < CGFloat((7*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat((3*M_PI)/2))
                     })
+                    lastSnap = CGFloat((3*M_PI)/2)
                 }
             }
             // negative rotation
-            else if myRotation < 0
+            else if adjustedRotation < 0
             {
                 // up
-                if (myRotation > CGFloat(-M_PI/4) ||
-                    myRotation < CGFloat(-(7*M_PI)/4))
+                if (adjustedRotation > CGFloat(-M_PI/4) ||
+                    adjustedRotation < CGFloat(-(7*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
                     })
+                    lastSnap = CGFloat(0)
                 }
                 // right
-                else if (myRotation > CGFloat(-(7*M_PI)/4) &&
-                         myRotation < CGFloat(-(5*M_PI)/4))
+                else if (adjustedRotation > CGFloat(-(7*M_PI)/4) &&
+                         adjustedRotation < CGFloat(-(5*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(-3*M_PI/2))
                     })
+                    lastSnap = CGFloat(-3*M_PI/2)
                 }
                 // down
-                else if (myRotation < CGFloat(-(3*M_PI)/4) &&
-                         myRotation > CGFloat(-(5*M_PI)/4))
+                else if (adjustedRotation < CGFloat(-(3*M_PI)/4) &&
+                         adjustedRotation > CGFloat(-(5*M_PI)/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
                     })
+                    lastSnap = CGFloat(-M_PI)
                 }
                 // left
-                else if (myRotation > CGFloat(-3*M_PI/4) &&
-                         myRotation < CGFloat(-M_PI/4))
+                else if (adjustedRotation > CGFloat(-3*M_PI/4) &&
+                         adjustedRotation < CGFloat(-M_PI/4))
                 {
                     UIView.animateWithDuration(NSTimeInterval(1), animations: {
                         self.boardView.transform = CGAffineTransformMakeRotation(CGFloat((3*M_PI)/2))
                     })
+                    lastSnap = CGFloat((3*M_PI)/2)
                 }
             }
         }
