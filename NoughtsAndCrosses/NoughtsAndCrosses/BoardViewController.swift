@@ -64,6 +64,7 @@ class BoardViewController: UIViewController {
         UserController.sharedInstance.logged_in_user!.email = ""
         UserController.sharedInstance.logged_in_user!.password = ""
         appDelegate.navigateToLandingViewController()
+        EasterEggController.sharedInstance.refresh()
     }
     
     

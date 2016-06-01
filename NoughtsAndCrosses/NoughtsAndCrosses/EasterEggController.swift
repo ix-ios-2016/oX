@@ -116,6 +116,9 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
             }
         }
     }
+    func refresh() {
+        series = []
+    }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true

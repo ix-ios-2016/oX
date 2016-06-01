@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.loggedInNavigationController.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.loggedInNavigationController
+        self.window?.rootViewController = self.authorizationNavigationController
         self.window?.makeKeyAndVisible()
         
         EasterEggController.sharedInstance.initiate(self.window!)
