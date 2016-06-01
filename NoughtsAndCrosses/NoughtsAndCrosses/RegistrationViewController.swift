@@ -12,7 +12,8 @@ class RegistrationViewController: UIViewController {
     
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
+    
     
     @IBOutlet weak var passwordField: UITextField!
     
@@ -30,6 +31,9 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(sender: UIButton) {
+        
+        if emailField.validate() == true {
+        
         var (failure_message, user) = UserController.sharedInstance.registerUser(emailField.text!, newPassword: passwordField.text!)
         
         if ((user?.email) != nil) {
@@ -45,6 +49,8 @@ class RegistrationViewController: UIViewController {
                 alertController.addAction(OKAction)
                 self.presentViewController(alertController, animated: true) {}
             }
+        }
+        
         }
     }
 

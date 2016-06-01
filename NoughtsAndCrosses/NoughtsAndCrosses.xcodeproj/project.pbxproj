@@ -19,6 +19,7 @@
 		7D11C94E1CFE387C00E9A488 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11C94C1CFE387C00E9A488 /* RegistrationViewController.swift */; };
 		7D11C94F1CFE387C00E9A488 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D11C94D1CFE387C00E9A488 /* RegistrationViewController.xib */; };
 		7D11C9571CFE3B1500E9A488 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11C9561CFE3B1500E9A488 /* UserController.swift */; };
+		7D11C9591CFEE2B800E9A488 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11C9581CFEE2B800E9A488 /* EmailValidatedTextField.swift */; };
 		7D1DBE971CFC6D5C00E2347F /* file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1DBE961CFC6D5C00E2347F /* file.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
@@ -60,6 +61,7 @@
 		7D11C94C1CFE387C00E9A488 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		7D11C94D1CFE387C00E9A488 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		7D11C9561CFE3B1500E9A488 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		7D11C9581CFEE2B800E9A488 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		7D1DBE961CFC6D5C00E2347F /* file.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				42D447D91CD765670070326E /* Info.plist */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
 				7D11C9561CFE3B1500E9A488 /* UserController.swift */,
+				7D11C9581CFEE2B800E9A488 /* EmailValidatedTextField.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				7D11C9571CFE3B1500E9A488 /* UserController.swift in Sources */,
 				7D11C94A1CFE34DA00E9A488 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				7D11C9591CFEE2B800E9A488 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
