@@ -21,10 +21,19 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
 
     @IBAction func registerButtonTapped(sender: UIButton) {
+        
+        if !emailField.validate(emailField.text!) {
+            let alert = UIAlertController(title: "Registration Failed", message: "Invalid Email", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
         
         let email = emailField.text
         let password = passwordField.text
