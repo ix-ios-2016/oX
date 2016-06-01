@@ -24,7 +24,12 @@ class EasterEggViewController: UIViewController {
     @IBAction func returnToGameButtonTapped(sender: UIButton) {
         
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToGame()
+        if UserController.sharedInstance.logged_in_user != nil {
+            appDelegate.navigateToGame()
+        }
+        else {
+            appDelegate.navigateToLandingView()
+        }
         
     }
 

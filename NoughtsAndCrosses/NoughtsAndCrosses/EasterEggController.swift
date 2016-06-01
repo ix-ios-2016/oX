@@ -97,6 +97,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
                 
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.navigateToEasterEgg()
+                lastGesture = 0
                 
             }
             else {
