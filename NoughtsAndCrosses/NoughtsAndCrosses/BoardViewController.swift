@@ -21,10 +21,16 @@ class BoardViewController: UIViewController {
         // do things for the look of the app
         super.viewDidLoad()
         self.title = "Login"
+        
+        // format the logoutButton
         logoutButton.backgroundColor = UIColor.clearColor()
         logoutButton.layer.cornerRadius = 5
         logoutButton.layer.borderWidth = 1
         logoutButton.layer.borderColor = UIColor.blackColor().CGColor
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         
         // send alert to user
         let userController = UserController.sharedInstance
@@ -59,7 +65,7 @@ class BoardViewController: UIViewController {
 
             // Present the message
             self.presentViewController(winAlert, animated: true, completion: nil)
-                        
+
             restartGame()
         }
         else if gameState == OXGame.OXGameState.complete_no_one_won
@@ -104,7 +110,7 @@ class BoardViewController: UIViewController {
         appDelegate.navigateToLoggedOutViewController()
         
         // get rid of this viewController instance
-        self.view = nil
+        // self.view = nil
     }
     
     override func didReceiveMemoryWarning() {

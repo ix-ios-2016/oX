@@ -11,7 +11,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     // all Outlets
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     
     
@@ -27,6 +27,7 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Handle when the registerButton is tapped
     @IBAction func registerUser(sender: UIButton) {
         // get user's email and pass
         let email = self.emailField.text
@@ -34,8 +35,12 @@ class RegisterViewController: UIViewController {
         
         // only using one instance of UserController
         let userController = UserController.sharedInstance
-        if email != "" && password != ""{
+        
+        // Both fields are non-empty and the email is valid
+        if email != "" && password != "" && emailField.validate()
+        {
             let (failure_message, user) = userController.registerUser(email!, newPassword: password!)
+            
             if user != nil{
                 print("User registered view registration view")
             }
@@ -52,7 +57,7 @@ class RegisterViewController: UIViewController {
         else
         {
             let failAlert = UIAlertController(title: "Failure", message:
-                "One or more fields are empty. \nFill em' up!", preferredStyle: UIAlertControllerStyle.Alert)
+                "One or more fields are empty \nOR\nYour email is invalid", preferredStyle: UIAlertControllerStyle.Alert)
             let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
             failAlert.addAction(okButton)
             
@@ -60,5 +65,7 @@ class RegisterViewController: UIViewController {
             self.presentViewController(failAlert, animated: true, completion: nil)
         }
     }
+
+    
     
 }
