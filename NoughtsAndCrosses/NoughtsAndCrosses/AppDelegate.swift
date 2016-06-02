@@ -17,21 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var easterEggController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
-        let easterEggContoller = EasterEggViewController(nibName: "EasterEggViewController", bundle:nil)
-        easterEggController = UINavigationController(rootViewController: easterEggContoller)
-        
-        
-        let landingViewContoller = LandingViewController(nibName: "LandingViewController", bundle:nil)
-        authorisationNavigationController = UINavigationController(rootViewController: landingViewContoller)
-        
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userLoggedIn")
+    
         self.navigationController?.navigationBarHidden = true
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.authorisationNavigationController //navigationController
         self.window?.makeKeyAndVisible()
+        
+        if let loggedIn = userIsLoggedIn {
+            let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+            self.navigationController = UINavigationController(rootViewController: boardViewController)
+            self.window?.rootViewController = self.navigationController
+            self.navigationController?.navigationBarHidden = true
+            
+        } else {
+            let landingViewContoller = LandingViewController(nibName: "LandingViewController", bundle:nil)
+            authorisationNavigationController = UINavigationController(rootViewController: landingViewContoller)
+            self.window?.rootViewController = self.authorisationNavigationController
+        }
+        
+//        let easterEggContoller = EasterEggViewController(nibName: "EasterEggViewController", bundle:nil)
+//        easterEggController = UINavigationController(rootViewController: easterEggContoller)
+        
         
         //Make Gestures Global
         EasterEggController.sharedInstance.initiate(self.window!)

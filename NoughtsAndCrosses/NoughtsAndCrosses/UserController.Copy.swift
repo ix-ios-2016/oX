@@ -10,6 +10,7 @@ import Foundation
 
 
 class UserController {
+    
     // Singleton design pattern
     class var sharedInstance: UserController {
         struct Static {
@@ -46,18 +47,42 @@ class UserController {
     }
     
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
+        if let user = self.getStoredUser(suppliedEmail) {
+            
+          
         for user in users {
             if user.email == suppliedEmail {
                 if user.password == suppliedPassword {
                     logged_in_user = user
                     print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
-                    return (nil, user)
-                } else {
+                    return (nil, user)}
+                    else {
                     return ("Password incorrect", nil)
+                    }
                 }
             }
         }
         
         return ("No user with that email", nil)
+    }
+    
+    //MARK:- User Persistence Functions
+    func storeUser(user:User)    {
+        
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+        
+    }
+    
+    func getStoredUser(id:String) -> User?    {
+        
+        if let userPassword:String = NSUserDefaults.standardUserDefaults().stringForKey(id)    {
+            //user found
+            let user = User(email: id, password: userPassword)
+            return user
+        }   else    {
+            //else user not found
+            return nil
+        }
+        
     }
 }

@@ -12,6 +12,7 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var registerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +34,11 @@ class RegisterViewController: UIViewController {
         if emailField.validate(){
             if user != nil {
             print("The Register was Successful")
+            registerLabel.text = "You have been registered!"
             
             } else if failureMessage != nil {
             print("registration failed: " + failureMessage!)
+                registerLabel.text = "registration failed: " + failureMessage!
             
             }
         }

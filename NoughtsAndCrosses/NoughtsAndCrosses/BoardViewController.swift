@@ -80,5 +80,10 @@ class BoardViewController: UIViewController {
         print("New Game Pressed")
         restartGame()
     }
+    
+    @IBAction func logOut(sender: UIButton) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.returnToOxGameNavigation()
+    }
 
 }

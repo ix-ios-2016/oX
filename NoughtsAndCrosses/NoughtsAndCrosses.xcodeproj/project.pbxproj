@@ -19,9 +19,6 @@
 		252045EA1CFF2F1F004AEC2E /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E81CFF2F1F004AEC2E /* EasterEggViewController.swift */; };
 		252045EB1CFF2F1F004AEC2E /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045E91CFF2F1F004AEC2E /* EasterEggViewController.xib */; };
 		252045ED1CFF2F79004AEC2E /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045EC1CFF2F79004AEC2E /* EasterEggController.swift */; };
-		252045F01CFF94C4004AEC2E /* 0131.png in Resources */ = {isa = PBXBuildFile; fileRef = 252045EF1CFF94C4004AEC2E /* 0131.png */; };
-		252045F21CFF95C2004AEC2E /* 7d22c230-3315-0133-5b33-0aecee5a8273.png in Resources */ = {isa = PBXBuildFile; fileRef = 252045F11CFF95C2004AEC2E /* 7d22c230-3315-0133-5b33-0aecee5a8273.png */; };
-		252045F81CFF9701004AEC2E /* 0_7eb9c_db2ee8e7_orig.png in Resources */ = {isa = PBXBuildFile; fileRef = 252045F71CFF9701004AEC2E /* 0_7eb9c_db2ee8e7_orig.png */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
@@ -61,9 +58,6 @@
 		252045E81CFF2F1F004AEC2E /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		252045E91CFF2F1F004AEC2E /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		252045EC1CFF2F79004AEC2E /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
-		252045EF1CFF94C4004AEC2E /* 0131.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0131.png; path = ../../../0131.png; sourceTree = "<group>"; };
-		252045F11CFF95C2004AEC2E /* 7d22c230-3315-0133-5b33-0aecee5a8273.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "7d22c230-3315-0133-5b33-0aecee5a8273.png"; path = "../../../7d22c230-3315-0133-5b33-0aecee5a8273.png"; sourceTree = "<group>"; };
-		252045F71CFF9701004AEC2E /* 0_7eb9c_db2ee8e7_orig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 0_7eb9c_db2ee8e7_orig.png; path = ../../../0_7eb9c_db2ee8e7_orig.png; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,9 +164,6 @@
 				252045D71CFE2C4F004AEC2E /* Game */,
 				252045EE1CFF2F90004AEC2E /* EasterEgg */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				252045EF1CFF94C4004AEC2E /* 0131.png */,
-				252045F71CFF9701004AEC2E /* 0_7eb9c_db2ee8e7_orig.png */,
-				252045F11CFF95C2004AEC2E /* 7d22c230-3315-0133-5b33-0aecee5a8273.png */,
 				252045E61CFEDCC8004AEC2E /* EmailValidatedTextField.swift */,
 				252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
@@ -306,14 +297,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				252045F01CFF94C4004AEC2E /* 0131.png in Resources */,
 				252045DF1CFE2CEA004AEC2E /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				252045EB1CFF2F1F004AEC2E /* EasterEggViewController.xib in Resources */,
 				252045DB1CFE2C95004AEC2E /* LandingViewController.xib in Resources */,
-				252045F81CFF9701004AEC2E /* 0_7eb9c_db2ee8e7_orig.png in Resources */,
-				252045F21CFF95C2004AEC2E /* 7d22c230-3315-0133-5b33-0aecee5a8273.png in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 				252045E31CFE2CF5004AEC2E /* RegisterViewController.xib in Resources */,
 			);

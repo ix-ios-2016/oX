@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="emailField" destination="bLZ-31-cYf" id="nWb-vR-og3"/>
                 <outlet property="passwordField" destination="UwU-wB-gpg" id="1kV-ok-FPD"/>
+                <outlet property="registerLabel" destination="8Rg-hf-Di8" id="EBV-Fz-sY6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,6 +35,12 @@
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="fyH-f1-42C"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rg-hf-Di8">
+                    <rect key="frame" x="0.0" y="358" width="375" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

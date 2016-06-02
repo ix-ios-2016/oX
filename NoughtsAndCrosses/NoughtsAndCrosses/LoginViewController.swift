@@ -12,6 +12,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,14 +47,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if user != nil {
             print("User is logged in")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
             appDelegate.navigateToGameNavigationController()
             
         } else if failureMessage != nil {
             print("Login failed: " + failureMessage!)
+            loginLabel.text = "Login failed: " + failureMessage!
+            
         }
         }
-        
-    
     }
 
     /*
