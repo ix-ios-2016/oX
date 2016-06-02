@@ -14,10 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationController: UINavigationController?
     var authenticationNavigationController: UINavigationController?
-    var easterEggNavigationController: UINavigationController?
+    var easterEggViewController: EasterEggViewController?
+    // var easterEggNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.navigationController = UINavigationController(rootViewController: boardViewController)
@@ -27,13 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
         self.authenticationNavigationController?.navigationBarHidden = true
         
-        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
-        self.easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
-        self.easterEggNavigationController?.navigationBarHidden = true
+        easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.authenticationNavigationController
-        self.window?.makeKeyAndVisible()
+        
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        if let _ = userIsLoggedIn {
+            self.window?.rootViewController = self.navigationController
+            self.window?.makeKeyAndVisible()
+        }
+        else {
+            self.window?.rootViewController = self.authenticationNavigationController
+            self.window?.makeKeyAndVisible()
+        }
         
         EasterEggController.sharedInstance.initiate(self.window!)
         
@@ -52,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func navigateToEasterEgg() {
-        self.window?.rootViewController = self.easterEggNavigationController
+        self.window?.rootViewController = self.easterEggViewController
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -63,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
