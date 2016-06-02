@@ -60,6 +60,7 @@ class LoginViewController: UIViewController {
             if user != nil {
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.navigateToGame()
+                // save log in data
             } else if failureMessage != nil {
                 let alertController = UIAlertController(title: "Could not log in",
                                                         message: failureMessage, preferredStyle: .Alert)

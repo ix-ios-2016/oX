@@ -27,7 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.boardNavigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.authorizationNavigationController
+        
+        // check if user is already logged in
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn") {
+                self.window?.rootViewController = self.boardNavigationController
+        } else {
+            self.window?.rootViewController = self.authorizationNavigationController
+        }
+        
+//        self.window?.rootViewController = self.authorizationNavigationController
         self.window?.makeKeyAndVisible()
         
         EasterEggController.sharedInstance.initiate(self.window!)

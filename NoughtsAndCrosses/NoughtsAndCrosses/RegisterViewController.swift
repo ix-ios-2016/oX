@@ -55,8 +55,8 @@ class RegisterViewController: UIViewController {
                 // display alert
                 self.presentViewController(alertController, animated: true, completion: nil)
                 // navigate to game
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToGame()
+//                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                appDelegate.navigateToGame()
             } else if failureMessage != nil {
                 // create alert controller and OK action
                 let alertController = UIAlertController(title: "Error", message: failureMessage!, preferredStyle: .Alert)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoardViewController: UIViewController{
+class BoardViewController: UIViewController {
     
     @IBOutlet var boardContainer: UIView!
     
