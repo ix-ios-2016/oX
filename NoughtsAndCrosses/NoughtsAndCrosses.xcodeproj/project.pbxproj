@@ -12,6 +12,7 @@
 		402C1EE21CFF3F550022BFCB /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EE11CFF3F550022BFCB /* EasterEggController.swift */; };
 		402C1EE41CFF8EA40022BFCB /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */; };
 		409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F41391CFCDFFF00F9FF28 /* OXGame.swift */; };
+		40AE91FD1D0046AF0082CD96 /* oneDance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */; };
 		40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */; };
 		40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */; };
 		40EF722F1CFDD0B6004EB4A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF722D1CFDD0B6004EB4A8 /* LoginViewController.swift */; };
@@ -52,6 +53,7 @@
 		402C1EE11CFF3F550022BFCB /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
 		402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "../../SwiftGif/SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
 		409F41391CFCDFFF00F9FF28 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oneDance.mp3; path = ../../../../../Downloads/oneDance.mp3; sourceTree = "<group>"; };
 		40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		40EF722D1CFDD0B6004EB4A8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				402C1EDD1CFF31570022BFCB /* EasterEggViewController.swift */,
 				402C1EDE1CFF31570022BFCB /* EasterEggViewController.xib */,
 				402C1EE11CFF3F550022BFCB /* EasterEggController.swift */,
+				40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */,
 			);
 			name = "Easter Egg";
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 				40EF72341CFDD0FB004EB4A8 /* RegisterViewController.xib in Resources */,
+				40AE91FD1D0046AF0082CD96 /* oneDance.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

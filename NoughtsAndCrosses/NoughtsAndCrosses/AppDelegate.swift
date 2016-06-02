@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var onboardingNavigationController:UINavigationController?
     // navigation controller for logged in user
     var loggedinNavigationController:UINavigationController?
-    // navigation controller for easter egg
-    var easterEggNavigationController:UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -30,41 +28,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loggedinNavigationController = UINavigationController(rootViewController: boardViewController)
         loggedinNavigationController?.navigationBarHidden = true
         
-        // controllers for easter egg 
-        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
-        easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
-        easterEggNavigationController?.navigationBarHidden = true
-        
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.makeKeyAndVisible()
         
-        navigateToLoggedOutViewController()
+        
+        // check for user persistent data
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        print("App Delegate USerloggedin" + String(userIsLoggedIn))
+        if let _ = userIsLoggedIn {
+            navigateToLoggedInViewController()
+        }
+        else {
+            navigateToLoggedOutViewController()
+        }
         
         return true
     }
     
     func navigateToLoggedOutViewController()
     {
-        self.window?.rootViewController = self.loggedinNavigationController
-        self.window?.makeKeyAndVisible()
-        
-        // MARK! delete this once login back up .
-        EasterEggController.sharedInstance.initiate(self.window!)
+        self.window?.rootViewController = self.onboardingNavigationController
     }
     
     func navigateToLoggedInViewController()
     {
         self.window?.rootViewController = self.loggedinNavigationController
-        self.window?.makeKeyAndVisible()
         // allow for the easterEgg to be visible only when logged in
         EasterEggController.sharedInstance.initiate(self.window!)
 
     }
     
+    // make the easterEgg view Controller shown
     func navigateToEasterEggViewController()
     {
-        self.window?.rootViewController = self.easterEggNavigationController
-        self.window?.makeKeyAndVisible()
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        self.window?.rootViewController = easterEggViewController
     }
     
     func applicationWillResignActive(application: UIApplication) {

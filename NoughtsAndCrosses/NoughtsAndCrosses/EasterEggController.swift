@@ -48,6 +48,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate
         // Create rotation recognizer
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.doubleRotationHandler(_:)))
         view.addGestureRecognizer(rotation)
+        //rotation.delegate = self // set the delegate for the rotation to itself to distinguish
         
         gestureRecognizer(rightSwipe, shouldRecognizeSimultaneouslyWithGestureRecognizer: twoFingerDownSwipe)
     }
@@ -109,8 +110,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate
         }
         else
         {
-            print(String((correctArray[(correctArray.startIndex)..<(correctArray.endIndex)])))
-            print(String((currentArray[(currentArray.endIndex - 5)..<(currentArray.endIndex)])))
             if (correctArray[(correctArray.startIndex)..<(correctArray.endIndex)] == currentArray[(currentArray.endIndex - 5)..<(currentArray.endIndex)])
             {
                 print("HOLY BENIDAS!")

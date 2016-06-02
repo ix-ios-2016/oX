@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class EasterEggViewController: UIViewController {
+    
+    var musicPlayer: MPMusicPlayerController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +19,23 @@ class EasterEggViewController: UIViewController {
         let myGif = UIImage.gifWithName("beautifulFlower")
         let imageView = UIImageView(image: myGif)
         
-        print(self.view.frame.size.width)
-        print(self.view.frame.size.height)
+        print( UIScreen.mainScreen().bounds.width)
+        print(UIScreen.mainScreen().bounds.height)
 
-        imageView.frame = CGRect(x: 0, y: 0, width: (Int)(self.view.frame.size.width), height: (Int)(self.view.frame.size.height))
+        // make imageView the size of the whole screen
+        imageView.frame = CGRect(x: 0, y: 0, width: (Int)(UIScreen.mainScreen().bounds.width), height: (Int)(UIScreen.mainScreen().bounds.height))
+        
+        // make a music player
+        musicPlayer = MPMusicPlayerController.applicationMusicPlayer()
+        // need to make a queue for the music player
+        
+        
+        
         
         self.view.addSubview(imageView)
-        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

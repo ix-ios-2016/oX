@@ -46,15 +46,21 @@ class BoardViewController: UIViewController {
         })
         lastSnap = CGFloat(0)
         
-        //        // send alert to user
-        //        let userController = UserController.sharedInstance
-        //        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)! + "!", message:
-        //            (userController.logged_in_user?.email)! + " is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
-        //        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-        //        welcomeAlert.addAction(okButton)
-        //
-        //        // Present the message
-        //        self.presentViewController(welcomeAlert, animated: true, completion: nil)
+        // send alert to user
+        let userController = UserController.sharedInstance
+        
+        print(userController.logged_in_user?.email)
+        
+        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)!  + "!", message:
+            (userController.logged_in_user?.email)! + "User is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+        welcomeAlert.addAction(okButton)
+        
+        // Present the message
+        self.presentViewController(welcomeAlert, animated: true, completion: nil)
+        
+        
     }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil)
@@ -222,8 +228,6 @@ class BoardViewController: UIViewController {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.navigateToLoggedOutViewController()
         
-        // get rid of this viewController instance
-        // self.view = nil
     }
     
     override func didReceiveMemoryWarning() {
