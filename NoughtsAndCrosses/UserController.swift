@@ -45,18 +45,37 @@ class UserController {
     }
     
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
-        for user in users {
-            if user.email == suppliedEmail {
-                if user.password == suppliedPassword {
-                    logged_in_user = user
-                    print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
-                    return (nil, user)
-                } else {
-                    return ("Password incorrect", nil)
-                }
-            }
+        
+        if let user = self.getStoredUser(suppliedEmail){
+            
         }
         
-        return ("No user with that email", nil)
+//        for user in users {
+//            if user.email == suppliedEmail {
+//                if user.password == suppliedPassword {
+//                    logged_in_user = user
+//                    print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+//                    return (nil, user)
+//                } else {
+//                    return ("Password incorrect", nil)
+//                }
+//            }
+//        }
+//        
+//        return ("No user with that email", nil)
+    }
+    
+    func storeUser(user:User){
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+    }
+    
+    func getStoredUser(id:String) -> User{
+        if let userPassword:String = NSUserDefaults.standardUserDefaults().objectForKey(id) as? String {
+            let user = User(email: id, password: userPassword)
+            return user
+        }
+        else{
+            return nil
+        }
     }
 }

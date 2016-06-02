@@ -13,6 +13,11 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     var gameObject = OXGame()
     var lastRotation: Float!
     
+    @IBAction func logOutPressed(sender: UIButton) {
+        
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToLandingNavigationController()
+    }
     @IBOutlet weak var target2: UIButton!
     
     override func viewDidLoad() {
