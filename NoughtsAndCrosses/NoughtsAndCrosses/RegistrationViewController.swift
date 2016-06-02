@@ -12,6 +12,8 @@ class RegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Register"
+
 
         // Do any additional setup after loading the view.
     }
@@ -21,13 +23,17 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: EmailValidatedTextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    
     @IBAction func registrationButtonTapped(sender: AnyObject) {
         let username = emailTextField.text
         let password = passwordTextField.text
-       
+        
+        if (EmailValidatedTextField().validate()) {
+            return
+        }
+        
         let (failureMessage, user) = UserController.sharedInstance.registerUser(username!, newPassword: password!)
         
         if (user != nil) {

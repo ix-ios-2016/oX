@@ -24,13 +24,13 @@
                             <rect key="frame" x="0.0" y="591" width="375" height="76"/>
                             <color key="backgroundColor" red="1" green="0.1145460926" blue="0.45541034009999998" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-8Y-PKh" userLabel="Email Field">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-8Y-PKh" userLabel="Password Field">
                             <rect key="frame" x="143" y="293" width="97" height="30"/>
                             <color key="backgroundColor" red="0.2365079571" green="0.79403223170000004" blue="0.53989523740000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-KT-XjD" userLabel="Password Field">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-KT-XjD" userLabel="Email Field">
                             <rect key="frame" x="143" y="236" width="97" height="30"/>
                             <color key="backgroundColor" red="0.2365079571" green="0.79403223170000004" blue="0.53989523740000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
