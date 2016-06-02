@@ -116,6 +116,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         
         appDelegate.navigateBackToLandingNavigationController()
     }
+    
+    
 
    
 }

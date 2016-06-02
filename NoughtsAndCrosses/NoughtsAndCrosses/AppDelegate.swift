@@ -14,10 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var authorisationNavigationController: UINavigationController?
     var GameNavigationController: UINavigationController?
+    var EasterEggNavigationController: UINavigationController?
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("User Is Logged In")
+        
+        if let loggedIn = userIsLoggedIn {
+            
+            //someCode
+        } else {
+            //someCode
+        }
         
         //LandingViewController
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
@@ -28,12 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.GameNavigationController = UINavigationController(rootViewController: boardViewController)
         self.GameNavigationController?.navigationBarHidden = true
         
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        EasterEggController.sharedInstance.initiate(self.window!)
         self.window?.rootViewController = self.authorisationNavigationController
         self.window?.makeKeyAndVisible()
-        
-        
-        
         
         return true
     }
@@ -76,7 +84,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
     }
+    
+    func navigateToEasterEggScreen(){
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle:nil)
+        EasterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
 
-
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.EasterEggNavigationController
+        self.window?.makeKeyAndVisible()
+        
+    }
 }
 
