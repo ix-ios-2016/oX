@@ -408,6 +408,20 @@
                         <action selector="newGameTapped:" destination="-1" eventType="touchUpInside" id="P8L-2Q-f6o"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-7K-Mex">
+                    <rect key="frame" x="500" y="43" width="80" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.3458618249" blue="0.48096406219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="CWU-g0-HNw"/>
+                        <constraint firstAttribute="height" constant="30" id="LSI-bw-OrH"/>
+                    </constraints>
+                    <state key="normal" title="Log out">
+                        <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    </state>
+                    <connections>
+                        <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="Jzo-cy-vp7"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -417,6 +431,8 @@
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TEW-Or-WEp">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
+                <constraint firstItem="aNx-7K-Mex" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="43" id="TSo-kT-Oi4"/>
+                <constraint firstAttribute="trailing" secondItem="aNx-7K-Mex" secondAttribute="trailing" constant="20" id="Tc8-fs-Dcz"/>
                 <constraint firstAttribute="trailing" secondItem="qYi-hH-8b3" secondAttribute="trailing" constant="20" id="VOv-ac-lE8">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>

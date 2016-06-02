@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         self.authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
         
+        // set up board view controller
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.boardNavigationController = UINavigationController(rootViewController: boardViewController)
         self.boardNavigationController?.navigationBarHidden = true
@@ -39,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         
         EasterEggController.sharedInstance.initiate(self.window!)
-        
-        
         
         return true
     }

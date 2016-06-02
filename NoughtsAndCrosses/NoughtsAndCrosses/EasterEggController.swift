@@ -139,6 +139,8 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
+    
+    
 //    func appendToOrder(nextGesture: gesture) {
 //        if (currentOrder == []) {
 //            self.currentOrder.append(nextGesture)
