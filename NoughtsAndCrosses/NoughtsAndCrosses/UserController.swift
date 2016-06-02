@@ -41,6 +41,7 @@ class UserController {
         let user = User(email: newEmail, password: newPassword)
         users.append(user)
         logged_in_user = user
+        NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
         print("User with email: \(newEmail) has been registered by the UserManager.")
         return (nil, user)
     }
@@ -51,6 +52,7 @@ class UserController {
                 if user.password == suppliedPassword {
                     logged_in_user = user
                     print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+                    NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
                     return (nil, user)
                 } else {
                     return ("Password incorrect", nil)
@@ -64,8 +66,30 @@ class UserController {
     func logoutUser()
     {
         logged_in_user = nil
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
     }
-   
+    
+    
+    func storeUser(user: User)
+    {
+        
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+    }
+    
+    
+    func getStoredUser(id: String) -> User?
+    {
+        
+        if let userPasswordString = NSUserDefaults.standardUserDefaults().stringForKey(id)
+        {
+            // user found
+            return User(email: id, password: userPasswordString)
+        }
+        else
+        {
+            return nil
+        }
+    }
     
     
 }

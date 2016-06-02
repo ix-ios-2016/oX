@@ -62,6 +62,8 @@ class RegistrationViewController: UIViewController {
         {
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToBoardNavigationController()
+            
+        
         }
         else if (failureMessage != nil)
         {

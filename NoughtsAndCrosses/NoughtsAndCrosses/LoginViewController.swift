@@ -65,6 +65,10 @@ class LoginViewController: UIViewController {
             
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToBoardNavigationController()
+            
+            //happy to login the user
+            
+        
         }
         else if (failureMessage != nil)
         {

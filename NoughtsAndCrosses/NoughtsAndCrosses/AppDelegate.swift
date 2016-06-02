@@ -12,13 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var gameNavigationController: UINavigationController?
+    
+    var boardNavigationController: UINavigationController?
     
     var authorisationNavigationController: UINavigationController?
     
-    var loggedOutNavigationController: UINavigationController?
 
-    var easterEggNavigationController: UINavigationController?
+    //var easterEggNavigationController: UINavigationController?
+    
     
     
     
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
+        print("hey")
         
         // landing view
         
@@ -42,6 +44,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EasterEggController.sharedInstance.initiate(self.window!)
         
         
+        //persistence
+        
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        
+        
+        if let _ = userIsLoggedIn
+        {
+            navigateToBoardNavigationController()
+        }
+        else
+        {
+            self.window?.rootViewController = self.authorisationNavigationController
+        }
+        
+        
         return true
     }
     
@@ -54,12 +71,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // board view
         
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        gameNavigationController = UINavigationController(rootViewController: boardViewController)
+        boardNavigationController = UINavigationController(rootViewController: boardViewController)
         
-        self.gameNavigationController?.navigationBarHidden = true
+        self.boardNavigationController?.navigationBarHidden = true
         
         
-        self.window?.rootViewController = self.gameNavigationController
+        self.window?.rootViewController = self.boardNavigationController
         
     }
     
@@ -67,9 +84,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         
         let loggedOutViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
-        loggedOutNavigationController = UINavigationController(rootViewController: loggedOutViewController)
+        authorisationNavigationController = UINavigationController(rootViewController: loggedOutViewController)
         
-        self.window?.rootViewController = self.loggedOutNavigationController
+        self.window?.rootViewController = self.authorisationNavigationController
         
     }
     
@@ -77,9 +94,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         
         let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
-        easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        //easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
         
-        self.window?.rootViewController = self.easterEggNavigationController
+        self.window?.rootViewController = easterEggViewController
+            
+            //self.easterEggNavigationController
 
     }
     
@@ -89,14 +108,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if (UserController.sharedInstance.logged_in_user == nil)
         {
-            self.window?.rootViewController = self.loggedOutNavigationController
+            let backToGameController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+            authorisationNavigationController = UINavigationController(rootViewController: backToGameController)
+            self.window?.rootViewController = self.authorisationNavigationController
         }
         else
         {
-            
-            self.window?.rootViewController = self.gameNavigationController
-        
+            let backToGameController = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            boardNavigationController = UINavigationController(rootViewController: backToGameController)
+            self.boardNavigationController?.navigationBarHidden = true
+            self.window?.rootViewController = self.boardNavigationController
         }
+        
     }
     
     

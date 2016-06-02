@@ -140,6 +140,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.navigateToLoggedOutNavigationController()
         
+       
+        
     }
     
     
