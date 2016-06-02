@@ -68,6 +68,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         if (index == gesturesCombo.endIndex) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.navigateToEasterEggScreen()
+        index = 0
         
     }
         else {
