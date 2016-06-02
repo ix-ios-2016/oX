@@ -104,7 +104,7 @@ class BoardViewController: UIViewController {
     
     @IBAction func logOutButtonTapped(sender: UIButton) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        UserController.sharedInstance().logoutUser()
+        UserController.sharedInstance.logoutUser()
         appDelegate.navigateToLoggedOutNavigationController()
     }
     
