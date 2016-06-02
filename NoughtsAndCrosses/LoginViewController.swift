@@ -32,8 +32,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if (user != nil) {
             print("User registered view registration view")
+            
+            // Move to the game
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToBoardNavigationController()
+            
+            // Store user
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
         }
         if (failure_message != nil){
             Failure.text = failure_message
@@ -48,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
-        self.view.backgroundColor = UIColor.blueColor()
+//        self.view.backgroundColor = UIColor.blueColor()
         // Do any additional setup after loading the view.
         
         email.delegate = self

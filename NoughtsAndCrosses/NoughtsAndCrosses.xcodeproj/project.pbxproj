@@ -108,9 +108,9 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
-				518E724B1CFF232C0050BCE6 /* EasterEgg */,
 				516D49E11CFEDF7600F7EF5A /* EmailValidatedTextField.swift */,
 				516D49D71CFE18FB00F7EF5A /* UserController.swift */,
+				518E724B1CFF232C0050BCE6 /* EasterEgg */,
 				516D49C91CFE0F0D00F7EF5A /* Game */,
 				516D49CA1CFE0F2C00F7EF5A /* Authentication */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
