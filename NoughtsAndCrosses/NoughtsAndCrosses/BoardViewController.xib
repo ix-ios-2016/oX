@@ -10,6 +10,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="boardContainer" destination="qYi-hH-8b3" id="8sT-yR-aKo"/>
+                <outlet property="logOutButton" destination="aNx-7K-Mex" id="9Xr-cd-D2D"/>
+                <outlet property="networkPlayButton" destination="07k-br-mwb" id="BAw-jt-3IV"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="RNR-xe-eHm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -422,11 +425,26 @@
                         <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="Jzo-cy-vp7"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07k-br-mwb">
+                    <rect key="frame" x="22" y="71" width="104" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.3458618249" blue="0.48096406219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="104" id="U0k-hH-GRH"/>
+                        <constraint firstAttribute="height" constant="30" id="uOS-NT-dmG"/>
+                    </constraints>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="networkPlayButtonTapped:" destination="-1" eventType="touchUpInside" id="pfn-3P-mio"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
+                <constraint firstItem="07k-br-mwb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="Q7p-El-XYp"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RNm-oP-Ohl"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TEW-Or-WEp">
                     <variation key="heightClass=regular" constant="20"/>
@@ -441,6 +459,7 @@
                     <variation key="heightClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
+                <constraint firstItem="07k-br-mwb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="jAq-Sr-QgJ"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>

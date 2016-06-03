@@ -12,7 +12,13 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var boardContainer: UIView!
     
+    @IBOutlet var networkPlayButton: UIButton!
+    
+    @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
+    
     var gameObject = OXGame()
+    var networkGame = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +34,16 @@ class BoardViewController: UIViewController {
 //        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
 //        self.boardContainer.addGestureRecognizer(pinch)
         
-        
+        // check if network game
+        if (self.networkGame) {
+            self.newGameButton.hidden = true
+            self.logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
+            self.networkPlayButton.hidden = true
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
     }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
@@ -103,9 +118,19 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func logOutButtonTapped(sender: UIButton) {
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        UserController.sharedInstance.logoutUser()
-        appDelegate.navigateToLoggedOutNavigationController()
+        if (self.networkGame) {
+            self.navigationController?.popViewControllerAnimated(true)
+        } else {
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            UserController.sharedInstance.logoutUser()
+            appDelegate.navigateToLoggedOutNavigationController()
+        }
     }
+    
+    @IBAction func networkPlayButtonTapped(sender: UIButton) {
+        let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(networkPlayViewController, animated: true)
+    }
+    
     
 }

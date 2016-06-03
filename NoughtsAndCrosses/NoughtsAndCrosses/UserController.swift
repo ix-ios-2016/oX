@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct User {
+    var email: String
+    var password: String
+}
+
 class UserController {
     // Singleton design pattern
     class var sharedInstance: UserController {
@@ -20,11 +25,6 @@ class UserController {
             Static.instance = UserController()
         }
         return Static.instance!
-    }
-    
-    struct User {
-        var email: String
-        var password: String
     }
     
     private var users: [User] = []

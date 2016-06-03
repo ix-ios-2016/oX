@@ -23,10 +23,16 @@ enum OXGameState: String {
 
 class OXGame {
     // variable storing the board state
-    private var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+    var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
     
     // variable denoting starting player
     private var startType: CellType = CellType.X
+    
+    // properties for network games
+    var hostUser: User?
+    var guestUser: User?
+    var backEndState: OXGameState?
+    var gameID: String?
     
     // function returning number of turns already passed
     private func turn() -> Int {
