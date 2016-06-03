@@ -8,25 +8,28 @@
 
 import Foundation
 
+struct User {
+    var email: String
+    var password: String
+}
+
 class UserController {
     // Singleton design pattern
     class var sharedInstance: UserController {
-        struct Static {
-            static var instance:UserController?
-            static var token: dispatch_once_t = 0
-        }
-        
+
         dispatch_once(&Static.token)    {
             Static.instance = UserController()
         }
         return Static.instance!
     }
     
-    struct User {
-        var email: String
-        var password: String
+    struct Static {
+        static var instance:UserController?
+        static var token: dispatch_once_t = 0
     }
+
     
+    // MARK: MAKE THIS A NSUSERDEFAULT
     var logged_in_user: User?
     
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?)

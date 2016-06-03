@@ -10,14 +10,17 @@ import Foundation
 
 private let MAX_TURNS = 9
 
+
+
+enum CellType:String
+{
+    case O = "O"
+    case X = "X"
+    case EMPTY = ""
+}
+
 class OXGame {
-    
-    
-    enum CellType:String {
-        case O = "O"
-        case X = "X"
-        case EMPTY = ""
-    }
+
     
     enum OXGameState:String {
         case inProgress
@@ -25,8 +28,17 @@ class OXGame {
         case complete_someone_won
     }
     
+    // return the host user
+    var hostUser:User?
+    // return the guest user
+    var guestUser:User?
+    // return the state of the backend
+    var backendState:OXGameState?
+    // return the id of the OXGame
+    var gameId:String?
+    
     // Initiaize a board of 9 empty cells
-    private var board = [CellType](count: MAX_TURNS, repeatedValue: CellType.EMPTY)
+    var board = [CellType](count: MAX_TURNS, repeatedValue: CellType.EMPTY)
     // Decide which cellType goes first in the game
     private var startType:CellType = CellType.X
     
@@ -98,11 +110,13 @@ class OXGame {
             return OXGameState.inProgress
         }
     }
-    
+    // reset the board
     func reset()
     {
         for index in 0...8 {
             board[index] = CellType.EMPTY
         }
     }
+    
+
 }

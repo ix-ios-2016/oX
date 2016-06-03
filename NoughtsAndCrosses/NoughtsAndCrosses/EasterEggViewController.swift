@@ -32,6 +32,7 @@ class EasterEggViewController: UIViewController {
         
         
         
+        
         self.view.addSubview(imageView)
     }
     

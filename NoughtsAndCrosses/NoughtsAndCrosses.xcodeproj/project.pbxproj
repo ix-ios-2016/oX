@@ -13,6 +13,9 @@
 		402C1EE41CFF8EA40022BFCB /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */; };
 		409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F41391CFCDFFF00F9FF28 /* OXGame.swift */; };
 		40AE91FD1D0046AF0082CD96 /* oneDance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */; };
+		40AE92001D016EE20082CD96 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */; };
+		40AE92011D016EE20082CD96 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */; };
+		40AE92041D0189FA0082CD96 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE92031D0189FA0082CD96 /* OXGameController.swift */; };
 		40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */; };
 		40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */; };
 		40EF722F1CFDD0B6004EB4A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF722D1CFDD0B6004EB4A8 /* LoginViewController.swift */; };
@@ -54,13 +57,16 @@
 		402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "../../SwiftGif/SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
 		409F41391CFCDFFF00F9FF28 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oneDance.mp3; path = ../../../../../Downloads/oneDance.mp3; sourceTree = "<group>"; };
+		40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
+		40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
+		40AE92031D0189FA0082CD96 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
 		40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		40EF722D1CFDD0B6004EB4A8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		40EF722E1CFDD0B6004EB4A8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		40EF72311CFDD0FB004EB4A8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		40EF72321CFDD0FB004EB4A8 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		40EF72351CFDD35C004EB4A8 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		40EF72351CFDD35C004EB4A8 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = ../UserController.swift; sourceTree = "<group>"; };
 		40EF723C1CFEDBA3004EB4A8 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +119,16 @@
 			name = "Easter Egg";
 			sourceTree = "<group>";
 		};
+		40AE92021D017EAD0082CD96 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				40EF72351CFDD35C004EB4A8 /* UserController.swift */,
+				409F41391CFCDFFF00F9FF28 /* OXGame.swift */,
+				40AE92031D0189FA0082CD96 /* OXGameController.swift */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
 		40EF72281CFDCD7C004EB4A8 /* Onboarding Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,16 +147,10 @@
 			children = (
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */,
+				40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */,
 			);
 			name = "LoggedIn Screens";
-			sourceTree = "<group>";
-		};
-		427A5B651CE0FF4A00328EE7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				409F41391CFCDFFF00F9FF28 /* OXGame.swift */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		42D447C11CD765670070326E = {
@@ -148,7 +158,6 @@
 			children = (
 				402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */,
 				40EF723C1CFEDBA3004EB4A8 /* EmailValidatedTextField.swift */,
-				40EF72351CFDD35C004EB4A8 /* UserController.swift */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
@@ -169,6 +178,7 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				40AE92021D017EAD0082CD96 /* Model Controllers */,
 				402C1EDC1CFF31350022BFCB /* Easter Egg */,
 				40EF72371CFDD520004EB4A8 /* LoggedIn Screens */,
 				40EF72281CFDCD7C004EB4A8 /* Onboarding Screens */,
@@ -176,7 +186,6 @@
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
-				427A5B651CE0FF4A00328EE7 /* Model */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -305,6 +314,7 @@
 			files = (
 				40EF72301CFDD0B6004EB4A8 /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
+				40AE92011D016EE20082CD96 /* NetworkPlayViewController.xib in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				402C1EE01CFF31570022BFCB /* EasterEggViewController.xib in Resources */,
 				40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */,
@@ -340,6 +350,8 @@
 				402C1EDF1CFF31570022BFCB /* EasterEggViewController.swift in Sources */,
 				402C1EE41CFF8EA40022BFCB /* UIImage+Gif.swift in Sources */,
 				409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */,
+				40AE92001D016EE20082CD96 /* NetworkPlayViewController.swift in Sources */,
+				40AE92041D0189FA0082CD96 /* OXGameController.swift in Sources */,
 				40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */,
 				40EF72331CFDD0FB004EB4A8 /* RegisterViewController.swift in Sources */,
 				40EF72361CFDD35C004EB4A8 /* UserController.swift in Sources */,

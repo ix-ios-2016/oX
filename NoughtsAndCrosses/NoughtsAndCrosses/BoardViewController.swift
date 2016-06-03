@@ -14,11 +14,15 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var networkPlayButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
     
     // create a new game object
     var gameObject:OXGame = OXGame()
     // saves the last snap of rotation
     var lastSnap:CGFloat = CGFloat(0)
+    // create a network game mode boolean 
+    var networkMode:Bool = false
     
     override func viewDidLoad() {
         // do things for the look of the app
@@ -26,15 +30,27 @@ class BoardViewController: UIViewController {
         self.title = "Login"
         
         // format the logoutButton
-        logoutButton.backgroundColor = UIColor.clearColor()
-        logoutButton.layer.cornerRadius = 5
-        logoutButton.layer.borderWidth = 1
-        logoutButton.layer.borderColor = UIColor.blackColor().CGColor
+        formatButton(logoutButton)
+        formatButton(networkPlayButton)
+        
         
         // Create gesture recognizer
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
         rotation.delegate = EasterEggController.sharedInstance
         self.boardView.addGestureRecognizer(rotation)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // ensure the nav bar is hidden in game
+        self.navigationController?.navigationBarHidden = true
+        
+        // change things if in network mode
+        if networkMode
+        {
+            networkPlayButton.hidden = true
+            logoutButton.setTitle("Leave Game", forState: .Normal)
+            newGameButton.enabled = false
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -47,18 +63,17 @@ class BoardViewController: UIViewController {
         lastSnap = CGFloat(0)
         
         // send alert to user
-        let userController = UserController.sharedInstance
-        
-        print(userController.logged_in_user?.email)
-        
-        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)!  + "!", message:
-            (userController.logged_in_user?.email)! + "User is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-        welcomeAlert.addAction(okButton)
-        
-        // Present the message
-        self.presentViewController(welcomeAlert, animated: true, completion: nil)
+//        let userController = UserController.sharedInstance
+//        
+//        print(userController.logged_in_user?.email)
+//        
+//        let welcomeAlert = UIAlertController(title: "Welcome, " + (userController.logged_in_user?.email)!  + "!", message:
+//            (userController.logged_in_user?.email)! + "User is Xs and has the first move.", preferredStyle: UIAlertControllerStyle.Alert)
+//        
+//        let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+//        welcomeAlert.addAction(okButton)
+//        // Present the message
+//        self.presentViewController(welcomeAlert, animated: true, completion: nil)
         
         
     }
@@ -222,16 +237,38 @@ class BoardViewController: UIViewController {
     
     // Handle user logout
     @IBAction func logoutButtonTapped(sender: UIButton) {
-        restartGame()
-        
-        UserController.sharedInstance.logoutUser()
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToLoggedOutViewController()
+        // the button works differently depending whether playing online or not
+        if networkMode {
+            self.navigationController?.popViewControllerAnimated(true)
+        }   else    {
+            // logout the user and restart the game
+            restartGame()
+            UserController.sharedInstance.logoutUser()
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToLoggedOutViewController()
+        }
+    }
+    
+    // Handle network play switch
+    @IBAction func networkPlayTapped(sender: AnyObject) {
+        // create new viewController and push it
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(npc, animated: true)
         
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // format buttons
+    func formatButton(button: UIButton)
+    {
+        button.backgroundColor = UIColor.clearColor()
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     
