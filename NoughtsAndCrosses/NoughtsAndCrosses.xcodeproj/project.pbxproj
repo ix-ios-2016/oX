@@ -23,6 +23,8 @@
 		C18AF0CF1CFF644500FDB16F /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AF0CD1CFF644500FDB16F /* EasterEggViewController.swift */; };
 		C18AF0D01CFF644500FDB16F /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18AF0CE1CFF644500FDB16F /* EasterEggViewController.xib */; };
 		C18AF0D21CFF645000FDB16F /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AF0D11CFF645000FDB16F /* EasterEggController.swift */; };
+		C18FA08B1D016F1300C0FBDB /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FA0891D016F1300C0FBDB /* NetworkPlayViewController.swift */; };
+		C18FA08C1D016F1300C0FBDB /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18FA08A1D016F1300C0FBDB /* NetworkPlayViewController.xib */; };
 		C1F33A621CFD256200EF4EAE /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F33A611CFD256200EF4EAE /* OXGame.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
@@ -68,6 +70,8 @@
 		C18AF0CD1CFF644500FDB16F /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		C18AF0CE1CFF644500FDB16F /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		C18AF0D11CFF645000FDB16F /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
+		C18FA0891D016F1300C0FBDB /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
+		C18FA08A1D016F1300C0FBDB /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		C1F33A611CFD256200EF4EAE /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 			children = (
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				C18FA0891D016F1300C0FBDB /* NetworkPlayViewController.swift */,
+				C18FA08A1D016F1300C0FBDB /* NetworkPlayViewController.xib */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				C18AF0D01CFF644500FDB16F /* EasterEggViewController.xib in Resources */,
 				C108239C1CFE95D00075336E /* RegistrationViewController.xib in Resources */,
+				C18FA08C1D016F1300C0FBDB /* NetworkPlayViewController.xib in Resources */,
 				C10823941CFE95AB0075336E /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
@@ -335,6 +342,7 @@
 				C1F33A621CFD256200EF4EAE /* OXGame.swift in Sources */,
 				C10823931CFE95AB0075336E /* LandingViewController.swift in Sources */,
 				C146666F1CFEA25600468757 /* UserController.swift in Sources */,
+				C18FA08B1D016F1300C0FBDB /* NetworkPlayViewController.swift in Sources */,
 				C10823971CFE95C30075336E /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
 				C15CCF201CFEDA540071E4DA /* EmailValidatedTextField.swift in Sources */,

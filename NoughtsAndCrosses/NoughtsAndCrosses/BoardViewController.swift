@@ -13,8 +13,11 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var game = OXGame()
     
+    var networkMode = false
+    
     @IBOutlet weak var boardView: UIView!
     
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,19 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         self.boardView.addGestureRecognizer(pinch)
         
         
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        
+        self.navigationController?.navigationBarHidden = true
+        
+        if (networkMode)
+        {
+            networkPlayButton.hidden = true
+            logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
+            
+        }
     }
     
     
@@ -135,14 +151,36 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func logoutButtonTapped(sender: UIButton)
     {
         
-        UserController.sharedInstance.logoutUser()
         
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToLoggedOutNavigationController()
-        
+        if (self.networkMode)
+        {
+            self.navigationController?.popViewControllerAnimated(true)
+            networkMode = false
+        }
+        else
+        {
+            UserController.sharedInstance.logoutUser()
+
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToLoggedOutNavigationController()
+            
+        }
        
         
     }
+    
+    
+    
+    
+    @IBOutlet weak var networkPlayButton: UIButton!
+    
+    @IBAction func networkPlayTapped(sender: UIButton)
+    {
+        
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(npc, animated: true)
+    }
+    
     
     
     

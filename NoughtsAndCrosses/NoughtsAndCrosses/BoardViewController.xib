@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="boardView" destination="qYi-hH-8b3" id="8BG-LZ-xYu"/>
+                <outlet property="logoutButton" destination="pjw-IL-dLQ" id="hO9-8k-eFc"/>
+                <outlet property="networkPlayButton" destination="YVa-gn-UEJ" id="XHf-oa-suc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewOutlet" destination="i5M-Pr-FkT" id="711-IA-KNI"/>
                 <outletCollection property="buttonArray" destination="KpC-Ia-fSQ" collectionClass="NSMutableArray" id="gly-FY-Gl4"/>
@@ -448,6 +450,24 @@
                     </variation>
                     <connections>
                         <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="b3Y-Yo-4e1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVa-gn-UEJ">
+                    <rect key="frame" x="0.0" y="96" width="375" height="50"/>
+                    <color key="backgroundColor" red="0.85490196080000003" green="0.0" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="44M-IQ-YaO"/>
+                        <constraint firstAttribute="width" constant="375" id="Lts-H4-KBZ"/>
+                        <constraint firstAttribute="width" constant="75" id="oFi-LS-rmb"/>
+                    </constraints>
+                    <state key="normal" title="Start Network Play"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="oFi-LS-rmb"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="WUj-R5-adC"/>
                     </connections>
                 </button>
             </subviews>
