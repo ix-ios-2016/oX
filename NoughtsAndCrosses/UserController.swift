@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct User {
+    var email: String
+    var password: String
+}
+
 class UserController {
     // Singleton design pattern
     class var sharedInstance: UserController {
@@ -21,45 +26,57 @@ class UserController {
         }
         return Static.instance!
     }
-    
-    struct User {
-        var email: String
-        var password: String
-    }
-    
-    private var users: [User] = []
-    
+
     var logged_in_user: User?
     
+    // Register a user
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?) {
-        for user in users {
-            if user.email == newEmail {
-                return ("Email taken", nil)
-            }
+        if let _ = self.getStoredUser(newEmail) {
+            return ("Email taken", nil)
         }
+        else {}
+        
         let user = User(email: newEmail, password: newPassword)
-        users.append(user)
+        self.storeUser(user)
         logged_in_user = user
         print("User with email: \(newEmail) has been registered by the UserManager.")
         return (nil, user)
     }
     
+    // Store user to hard drive
+    func storeUser(user:User) {
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+    }
+    
+    // If user exists, return it
+    func getStoredUser(id:String) -> User? {
+        if let userPassword:String = NSUserDefaults.standardUserDefaults().stringForKey(id) {
+            //user found
+            let user = User(email: id, password: userPassword)
+            return user
+        }
+        else {
+            //user not found
+            return nil
+        }
+    }
+    
+    // Login the user if valid
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
-        for user in users {
-            if user.email == suppliedEmail {
-                if user.password == suppliedPassword {
-                    logged_in_user = user
-                    print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
-                    return (nil, user)
-                } else {
-                    return ("Password incorrect", nil)
-                }
+        if let user = self.getStoredUser((suppliedEmail)) {
+            if user.password == suppliedPassword {
+                logged_in_user = user
+                print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+                return (nil, user)
+            }
+            else {
+                return ("Password incorrect", nil)
             }
         }
-        
         return ("No user with that email", nil)
     }
     
+    // Logout the user
     func logoutUser() {
         logged_in_user?.email = ""
         logged_in_user?.password = ""

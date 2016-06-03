@@ -10,21 +10,27 @@ import Foundation
 
 private let maxTurns:Int = 9
 
+enum CellType: String {
+    case O = "O"
+    case X = "X"
+    case EMPTY = ""
+}
+
+enum OXGameState: String {
+    case inProgress
+    case complete_no_one_won
+    case complete_someone_won
+}
+
 class OXGame {
-    enum CellType: String {
-        case O = "O"
-        case X = "X"
-        case EMPTY = ""
-    }
     
-    enum OXGameState: String {
-        case inProgress
-        case complete_no_one_won
-        case complete_someone_won
-    }
-    
+    var hostUser: User?
+    var guestUser: User?
+    var backendState: OXGameState?
+    var gameId: String?
+
     // The board, stored as array of 9 CellTypes, initialized to case Empty
-    private var board = [CellType](count: maxTurns, repeatedValue: CellType.EMPTY)
+    var board = [CellType](count: maxTurns, repeatedValue: CellType.EMPTY)
 
     // Starting type
     private var startType: CellType = CellType.X
@@ -62,14 +68,17 @@ class OXGame {
     // Determine if someone has won the game
     func winDetection() -> Bool {
         if turnCount > 4 {
-            if ((board[0] == board[1] && board[1] == board[2] && board[0] != CellType.EMPTY) ||
+            if (// horizontal
+                (board[0] == board[1] && board[1] == board[2] && board[0] != CellType.EMPTY) ||
                 (board[3] == board[4] && board[4] == board[5] && board[3] != CellType.EMPTY) ||
                 (board[6] == board[7] && board[7] == board[8] && board[6] != CellType.EMPTY) ||
                 
+                // vertical
                 (board[0] == board[3] && board[3] == board[6] && board[0] != CellType.EMPTY) ||
                 (board[1] == board[4] && board[4] == board[7] && board[1] != CellType.EMPTY) ||
                 (board[2] == board[5] && board[5] == board[8] && board[2] != CellType.EMPTY) ||
                 
+                // diagonal
                 (board[0] == board[4] && board[4] == board[8] && board[0] != CellType.EMPTY) ||
                 (board[2] == board[4] && board[4] == board[6] && board[2] != CellType.EMPTY))
             {

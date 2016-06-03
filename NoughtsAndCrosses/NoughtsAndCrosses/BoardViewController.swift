@@ -23,9 +23,12 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
     
+    @IBOutlet weak var networkPlayButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     
     var gameObject = OXGame()
     var lastRotation: Float!
+    var networkMode:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +36,20 @@ class BoardViewController: UIViewController {
         //Rotation
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
         self.boardView.addGestureRecognizer(rotation)
-        rotation.delegate = EasterEggController.sharedInstance
         self.lastRotation = 0.0
     }
     
+    // Make sure navigation bar is hidden
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        
+        if (networkMode) {
+            networkPlayButton.hidden = true
+            logOutButton.setTitle("Leave Game", forState: .Normal)
+        }
+    }
+    
+    // Handle rotation on the board
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
         //Rotation ends
         self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
@@ -67,34 +80,35 @@ class BoardViewController: UIViewController {
         }
     }
     
-    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
-        print("Pinch")
-    }
-    
-    // Action for all buttons clicked
+    // Action for all game board buttons clicked
     @IBAction func buttonClicked(sender: AnyObject) {
         sender.setTitle(String(gameObject.whosTurn()), forState: .Normal)
 
         gameObject.playMove(sender.tag)
         
         let state = gameObject.state()
-        if state == OXGame.OXGameState.complete_someone_won {
+        if state == OXGameState.complete_someone_won {
             let winMessage = UIAlertController(title: "Game over!", message: "Congratulations, player " + String(gameObject.typeAtIndex(sender.tag)) + ". You won!", preferredStyle: UIAlertControllerStyle.Alert)
             let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
             winMessage.addAction(okButton)
             
             self.presentViewController(winMessage, animated: true, completion: nil)
         }
-        else if state == OXGame.OXGameState.complete_no_one_won {
+        else if state == OXGameState.complete_no_one_won {
             let tieMessage = UIAlertController(title: "Tie game.", message: "Play again!", preferredStyle: UIAlertControllerStyle.Alert)
             let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
             tieMessage.addAction(okButton)
             
             self.presentViewController(tieMessage, animated: true, completion: nil)
         }
-        else if state == OXGame.OXGameState.inProgress {
+        else if state == OXGameState.inProgress {
         }
-        
+    }
+    
+    // Action for user tapping Network Play button
+    @IBAction func networkPlayButtonTapped(sender: UIButton) {
+        let nvc = NetworkPlayViewController()
+        self.navigationController?.pushViewController(nvc, animated: true)
         
     }
     
@@ -103,6 +117,18 @@ class BoardViewController: UIViewController {
         restartGame()
     }
     
+    // Action for Log out button tapped
+    @IBAction func logoutTapped(sender: UIButton) {
+        if (networkMode) {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else {
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.landingNavigationController?.navigationBarHidden = true
+            appDelegate.navigateToLandingViewController()
+        }
+    }
     
     
     override func didReceiveMemoryWarning() {

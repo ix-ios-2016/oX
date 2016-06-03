@@ -19,6 +19,8 @@
                 <outlet property="button6" destination="wqL-6N-dzo" id="9Yi-VZ-SBa"/>
                 <outlet property="button7" destination="5oJ-IG-Rbw" id="vIB-m6-ly1"/>
                 <outlet property="button8" destination="98z-PQ-N63" id="G6O-w2-m1O"/>
+                <outlet property="logOutButton" destination="NcS-eH-r1j" id="Xa3-zG-bbR"/>
+                <outlet property="networkPlayButton" destination="Lhk-fa-lmd" id="ZNQ-km-Vok"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,16 +29,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o_X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-si-s1J">
-                    <rect key="frame" x="250" y="100" width="100" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="Tdd-xZ-kHf"/>
-                        <constraint firstAttribute="width" constant="100" id="UmC-ng-EUh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3" userLabel="boardView">
                     <rect key="frame" x="20" y="43" width="560" height="555"/>
                     <subviews>
@@ -417,6 +409,42 @@
                         <action selector="newGameClicked:" destination="-1" eventType="touchUpInside" id="8V6-eh-KUe"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcS-eH-r1j">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Log Out"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                        <rect key="frame" x="239" y="28" width="114" height="30"/>
+                    </variation>
+                    <connections>
+                        <action selector="logoutTapped:" destination="-1" eventType="touchUpInside" id="jwL-DU-adt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhk-fa-lmd">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="20" y="28" width="114" height="30"/>
+                    </variation>
+                    <connections>
+                        <action selector="networkPlayButtonTapped:" destination="-1" eventType="touchUpInside" id="Pl1-wY-uSs"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o_X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-si-s1J">
+                    <rect key="frame" x="250" y="100" width="100" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Tdd-xZ-kHf"/>
+                        <constraint firstAttribute="width" constant="100" id="UmC-ng-EUh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -432,6 +460,7 @@
                 <constraint firstAttribute="trailing" secondItem="qSP-P1-uv7" secondAttribute="trailing" id="W88-YP-PUV"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="cOI-dQ-zgP">
                     <variation key="heightClass=regular" constant="40"/>
+                    <variation key="widthClass=compact" constant="73"/>
                 </constraint>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
@@ -441,8 +470,18 @@
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="NcS-eH-r1j"/>
+                    <exclude reference="Lhk-fa-lmd"/>
+                </mask>
                 <mask key="constraints">
                     <exclude reference="d8s-qj-E3B"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="NcS-eH-r1j"/>
+                    <include reference="Lhk-fa-lmd"/>
                 </mask>
             </variation>
         </view>

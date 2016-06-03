@@ -12,6 +12,7 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
 
     var imageView: UIImageView = UIImageView()
     
+    // Tests for a valid email address
     func valid() -> Bool {
         print("Validating email: " + self.text!)
         
@@ -20,6 +21,7 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
         return emailTest.evaluateWithObject(self.text!)
     }
     
+    // Updates UI with image if current email address is valid or invalid
     func updateUI() {
         if valid() {
             imageView.image = UIImage(named: "input_valid")
@@ -30,11 +32,13 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
         }
     }
     
+    // Update UI, return whether or not email is valid
     func validate() -> Bool {
         updateUI()
         return valid()
     }
     
+    // Update text field with what the user is typing
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if string == "" {
             self.text!.removeAtIndex(self.text!.endIndex.predecessor())

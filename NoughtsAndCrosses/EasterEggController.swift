@@ -24,23 +24,30 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         return true
     }
     
+    // Initiate gestures
     func initiate(view:UIView) {
+        // Rotation
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(EasterEggController.handleRotation(_:)))
+        rotation.delegate = self
         view.addGestureRecognizer(rotation)
         
+        // Long press
         let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(EasterEggController.handleLongPress(_:)))
         view.addGestureRecognizer(longPress)
     
+        // Right swipe
         let rightSwipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(EasterEggController.handleRightSwipe(_:)))
         rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
         view.addGestureRecognizer(rightSwipe)
         
+        // Two finger down swipe
         let twoFingerDown: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(EasterEggController.handleTwoFingerDown(_:)))
         twoFingerDown.numberOfTouchesRequired = 2
         twoFingerDown.direction = UISwipeGestureRecognizerDirection.Down
         view.addGestureRecognizer(twoFingerDown)
     }
     
+    // Handle rotation by user
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
         if (sender!.state == UIGestureRecognizerState.Ended) {
             if (sender!.rotation > 0) {
@@ -54,6 +61,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
+    // Handle long press
     func handleLongPress(sender: UILongPressGestureRecognizer? = nil) {
         if (sender!.state == UIGestureRecognizerState.Ended) {
             print("LONG PRESS")
@@ -61,6 +69,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
+    // Handle right swipe
     func handleRightSwipe(sender: UISwipeGestureRecognizer? = nil) {
         if (sender!.state == UIGestureRecognizerState.Ended) {
             print("RIGHT SWIPE")
@@ -68,6 +77,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
+    // Handle two finger down
     func handleTwoFingerDown(sender: UISwipeGestureRecognizer? = nil) {
         if (sender!.state == UIGestureRecognizerState.Ended) {
             print("TWO FINGER SWIPE")
@@ -81,6 +91,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
+    // Validate if sequence of gestures matches the easter egg gesture. If it does, navigate to easter egg screen
     func validate() -> Bool {
         
         if (currentSequence.count < 4) {
@@ -89,7 +100,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         
         let start = currentSequence.endIndex - 4
         if (currentSequence[start..<currentSequence.endIndex] == ArraySlice(correctSequence)) {
-            print("corect")
+            print("Easter Egg Unlocked")
             return true
         }
         

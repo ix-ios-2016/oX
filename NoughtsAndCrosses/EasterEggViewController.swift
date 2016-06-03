@@ -21,6 +21,7 @@ class EasterEggViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // "Return to game" button tapped, bring user back to game
     @IBAction func returnToGameTapped(sender: UIButton) {
         let bvc = BoardViewController()
         self.navigationController?.pushViewController(bvc, animated: true)
