@@ -11,14 +11,21 @@ import UIKit
 class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var game = OXGame()
+    var networkGame = false
+    @IBOutlet weak var networkPlayButton: UIButton!
+    @IBOutlet var boardView: UIView!
+    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        
+        if networkGame {
+            logoutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
+            networkPlayButton.hidden = true
+        }
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
-        rotation.delegate = self
         self.boardView.addGestureRecognizer(rotation)
         
         
@@ -52,9 +59,10 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    @IBOutlet var boardView: UIView!
-    @IBOutlet var buttons: [UIButton]!
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
     
     @IBAction func boardTapped(sender: UIButton) {
         
@@ -95,20 +103,30 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func newGame(sender: UIButton) {
-        restartGame()
+        
+        if !networkGame {
+            restartGame()
+        }
     }
     
     @IBAction func logoutButtonTapped(sender: UIButton) {
-        UserController.sharedInstance.logout()
-        print("Logged Out")
         
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToLandingView()
+        if networkGame {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else {
+            UserController.sharedInstance.logout()
+            print("Logged Out")
+        
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToLandingView()
+        }
+        
     }
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    @IBAction func networkPlayButtonTapped(sender: UIButton) {
+        
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(npc, animated: true)
     }
-    
-    
 }

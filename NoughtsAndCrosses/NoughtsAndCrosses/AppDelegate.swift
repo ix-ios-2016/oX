@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        /*let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
         if let _ = userIsLoggedIn {
             self.window?.rootViewController = self.navigationController
             self.window?.makeKeyAndVisible()
@@ -42,7 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             self.window?.rootViewController = self.authenticationNavigationController
             self.window?.makeKeyAndVisible()
-        }
+        }*/
+        self.window?.rootViewController = self.navigationController
+        self.window?.makeKeyAndVisible()
         
         EasterEggController.sharedInstance.initiate(self.window!)
         

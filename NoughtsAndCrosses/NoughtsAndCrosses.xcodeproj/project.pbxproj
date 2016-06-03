@@ -24,6 +24,9 @@
 		D16E39001CFDC85F00FB07C0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E38FE1CFDC85F00FB07C0 /* RegistrationViewController.swift */; };
 		D16E39011CFDC85F00FB07C0 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16E38FF1CFDC85F00FB07C0 /* RegistrationViewController.xib */; };
 		D16E39031CFDCB8C00FB07C0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E39021CFDCB8C00FB07C0 /* UserController.swift */; };
+		D18A2E341D016F8E00B17B44 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A2E321D016F8E00B17B44 /* NetworkPlayViewController.swift */; };
+		D18A2E351D016F8E00B17B44 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18A2E331D016F8E00B17B44 /* NetworkPlayViewController.xib */; };
+		D18A2E371D018C9200B17B44 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A2E361D018C9200B17B44 /* OXGameController.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -69,6 +72,9 @@
 		D16E38FE1CFDC85F00FB07C0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D16E38FF1CFDC85F00FB07C0 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		D16E39021CFDCB8C00FB07C0 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		D18A2E321D016F8E00B17B44 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
+		D18A2E331D016F8E00B17B44 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
+		D18A2E361D018C9200B17B44 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,13 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		427A5B651CE0FF4A00328EE7 /* Model */ = {
+		427A5B651CE0FF4A00328EE7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				D16E39021CFDCB8C00FB07C0 /* UserController.swift */,
 				D1339B5F1CFC638300ED48B1 /* OXGame.swift */,
+				D18A2E361D018C9200B17B44 /* OXGameController.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		42D447C11CD765670070326E = {
@@ -130,15 +137,15 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
-				D15840271CFF63A600D9F669 /* EasterEgg */,
+				427A5B651CE0FF4A00328EE7 /* Models */,
 				D1068B881CFEDA59007A8F57 /* ValidatedTextFields */,
 				D16E38F41CFDC7E300FB07C0 /* Authentication */,
-				D16E38F51CFDC7FA00FB07C0 /* Game */,
+				D16E38F51CFDC7FA00FB07C0 /* Screens */,
+				D15840271CFF63A600D9F669 /* EasterEgg */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
-				427A5B651CE0FF4A00328EE7 /* Model */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -192,13 +199,15 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
-		D16E38F51CFDC7FA00FB07C0 /* Game */ = {
+		D16E38F51CFDC7FA00FB07C0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				D18A2E321D016F8E00B17B44 /* NetworkPlayViewController.swift */,
+				D18A2E331D016F8E00B17B44 /* NetworkPlayViewController.xib */,
 			);
-			name = Game;
+			name = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +320,7 @@
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				D158402B1CFF63E900D9F669 /* EasterEggViewController.xib in Resources */,
 				D16E39011CFDC85F00FB07C0 /* RegistrationViewController.xib in Resources */,
+				D18A2E351D016F8E00B17B44 /* NetworkPlayViewController.xib in Resources */,
 				D16E38F91CFDC83D00FB07C0 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
@@ -344,8 +354,10 @@
 				D1339B601CFC638300ED48B1 /* OXGame.swift in Sources */,
 				D16E38F81CFDC83D00FB07C0 /* LandingViewController.swift in Sources */,
 				D16E39031CFDCB8C00FB07C0 /* UserController.swift in Sources */,
+				D18A2E341D016F8E00B17B44 /* NetworkPlayViewController.swift in Sources */,
 				D16E38FC1CFDC84A00FB07C0 /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				D18A2E371D018C9200B17B44 /* OXGameController.swift in Sources */,
 				D1068B8A1CFEDA85007A8F57 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

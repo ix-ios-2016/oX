@@ -46,6 +46,8 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleRotation(_:)))
         view.addGestureRecognizer(rotation)
+        
+        rotation.delegate = self
     }
     
     func handleLongPress(sender: UILongPressGestureRecognizer? = nil) {
