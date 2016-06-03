@@ -13,17 +13,8 @@ class BoardViewController: UIViewController {
     
     // All outlets
     @IBOutlet weak var boardView: UIView!
-    @IBOutlet weak var button0: UIButton!
-    @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
-    @IBOutlet weak var button3: UIButton!
-    @IBOutlet weak var button4: UIButton!
-    @IBOutlet weak var button5: UIButton!
-    @IBOutlet weak var button6: UIButton!
-    @IBOutlet weak var button7: UIButton!
-    @IBOutlet weak var button8: UIButton!
-    
     @IBOutlet weak var networkPlayButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
     var gameObject = OXGame()
@@ -114,7 +105,12 @@ class BoardViewController: UIViewController {
     
     // Action for new game click
     @IBAction func newGameClicked(sender: AnyObject) {
-        restartGame()
+        if (networkMode) {
+            newGameButton.enabled = false
+        }
+        else {
+            restartGame()
+        }
     }
     
     // Action for Log out button tapped

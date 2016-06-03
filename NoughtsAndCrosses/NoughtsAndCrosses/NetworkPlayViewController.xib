@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NetworkPlayViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
@@ -16,10 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YrY-fu-fri">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffM-4p-I9m">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <color key="backgroundColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,26 +37,34 @@
                         </mask>
                     </variation>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YrY-fu-fri">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ffM-4p-I9m" firstAttribute="trailing" secondItem="YrY-fu-fri" secondAttribute="trailing" id="YSQ-LV-o6e"/>
-                <constraint firstItem="YrY-fu-fri" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="Yog-H7-ZH0">
-                    <variation key="widthClass=compact" constant="58"/>
+                <constraint firstItem="YrY-fu-fri" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="59" id="E2U-kW-rkc">
+                    <variation key="widthClass=compact" constant="64"/>
                 </constraint>
+                <constraint firstItem="ffM-4p-I9m" firstAttribute="trailing" secondItem="YrY-fu-fri" secondAttribute="trailing" id="YSQ-LV-o6e"/>
                 <constraint firstItem="ffM-4p-I9m" firstAttribute="leading" secondItem="YrY-fu-fri" secondAttribute="leading" id="cEo-ZO-Gqt"/>
                 <constraint firstItem="ffM-4p-I9m" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fSj-NO-ozE"/>
                 <constraint firstItem="ffM-4p-I9m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hH5-d1-heT"/>
                 <constraint firstAttribute="bottom" secondItem="ffM-4p-I9m" secondAttribute="bottom" id="qxv-DS-FD1"/>
-                <constraint firstItem="ffM-4p-I9m" firstAttribute="top" secondItem="YrY-fu-fri" secondAttribute="bottom" constant="2" id="ySA-PY-zen"/>
+                <constraint firstItem="ffM-4p-I9m" firstAttribute="top" secondItem="YrY-fu-fri" secondAttribute="bottom" constant="2" id="ySA-PY-zen">
+                    <variation key="widthClass=compact" constant="-1"/>
+                </constraint>
             </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="YrY-fu-fri"/>
                     <exclude reference="ffM-4p-I9m"/>
+                    <exclude reference="YrY-fu-fri"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Yog-H7-ZH0"/>
+                    <exclude reference="E2U-kW-rkc"/>
                     <exclude reference="YSQ-LV-o6e"/>
                     <exclude reference="cEo-ZO-Gqt"/>
                     <exclude reference="fSj-NO-ozE"/>
@@ -70,11 +75,11 @@
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
-                    <include reference="YrY-fu-fri"/>
                     <include reference="ffM-4p-I9m"/>
+                    <include reference="YrY-fu-fri"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Yog-H7-ZH0"/>
+                    <include reference="E2U-kW-rkc"/>
                     <include reference="YSQ-LV-o6e"/>
                     <include reference="cEo-ZO-Gqt"/>
                     <include reference="fSj-NO-ozE"/>
@@ -83,6 +88,7 @@
                     <include reference="ySA-PY-zen"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="292.5" y="372.5"/>
         </view>
     </objects>
 </document>

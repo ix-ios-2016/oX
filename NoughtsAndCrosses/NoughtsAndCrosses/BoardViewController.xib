@@ -10,17 +10,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="boardView" destination="qYi-hH-8b3" id="Cte-Df-ago"/>
-                <outlet property="button0" destination="Lgl-eZ-ME1" id="5H1-3P-69O"/>
-                <outlet property="button1" destination="N6c-yA-Xo4" id="nNO-AD-x2n"/>
-                <outlet property="button2" destination="ouQ-ap-EjW" id="cck-fQ-jCj"/>
-                <outlet property="button3" destination="KpC-Ia-fSQ" id="JW5-Tm-Ova"/>
-                <outlet property="button4" destination="Uv9-k9-j6J" id="Bxf-kB-C1k"/>
-                <outlet property="button5" destination="l4o-we-hNW" id="KNG-PU-L5H"/>
-                <outlet property="button6" destination="wqL-6N-dzo" id="9Yi-VZ-SBa"/>
-                <outlet property="button7" destination="5oJ-IG-Rbw" id="vIB-m6-ly1"/>
-                <outlet property="button8" destination="98z-PQ-N63" id="G6O-w2-m1O"/>
-                <outlet property="logOutButton" destination="NcS-eH-r1j" id="Xa3-zG-bbR"/>
+                <outlet property="logOutButton" destination="NcS-eH-r1j" id="Ed2-Vd-Mv3"/>
                 <outlet property="networkPlayButton" destination="Lhk-fa-lmd" id="ZNQ-km-Vok"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="YDa-x9-auv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
