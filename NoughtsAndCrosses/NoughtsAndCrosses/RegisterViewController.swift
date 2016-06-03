@@ -42,21 +42,31 @@ class RegisterViewController: UIViewController {
         let password = passwordField.text
         
         if self.emailField.validate() {
-            let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
+            var (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
             
             if user != nil {
                 // create alert controller and OK action
                 let alertController = UIAlertController(title: "User registered",
-                                                        message: "Username \(user!.email). Tap to play.",
+                                                        message: "Your username is \(user!.email). Tap to play.",
                                                         preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
                 // add OK action to alert controller
                 alertController.addAction(OKAction)
                 // display alert
                 self.presentViewController(alertController, animated: true, completion: nil)
-                // navigate to game
-//                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                appDelegate.navigateToGame()
+                // now try to log in
+                (failureMessage, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
+                if user != nil {
+                    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.navigateToGame()
+                    // save log in data
+                } else if failureMessage != nil {
+                    let alertController = UIAlertController(title: "Could not log in",
+                                                            message: failureMessage, preferredStyle: .Alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in}
+                    alertController.addAction(OKAction)
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
             } else if failureMessage != nil {
                 // create alert controller and OK action
                 let alertController = UIAlertController(title: "Error", message: failureMessage!, preferredStyle: .Alert)

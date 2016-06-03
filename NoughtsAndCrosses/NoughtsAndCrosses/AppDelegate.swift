@@ -76,8 +76,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func navigateToEasterEggScreen() {
         let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
-        let easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
-        self.window?.rootViewController = easterEggNavigationController
+//        let easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        self.window?.rootViewController = easterEggViewController
+    }
+    
+    func navigateAwayFromEasterEggScreen() {
+        // check if logged in, and respond accordingly
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn") {
+            self.window?.rootViewController = self.boardNavigationController
+        } else {
+            self.window?.rootViewController = self.authorizationNavigationController
+        }
     }
 
 

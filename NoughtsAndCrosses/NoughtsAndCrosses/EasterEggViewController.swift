@@ -34,7 +34,7 @@ class EasterEggViewController: UIViewController {
     
     @IBAction func goBackButtonTapped(sender: UIButton) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToGame()
+        appDelegate.navigateAwayFromEasterEggScreen()
     }
     
     

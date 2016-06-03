@@ -21,7 +21,7 @@ class BoardViewController: UIViewController {
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(
             target: self, action: #selector(BoardViewController.handleRotation(_:)))
 //        rotation.delegate = self
-        rotation.delegate = EasterEggController.sharedInstance
+//        rotation.delegate = EasterEggController.sharedInstance
         self.boardContainer.addGestureRecognizer(rotation)
         
         // create pinch gesture recognizer
@@ -38,7 +38,7 @@ class BoardViewController: UIViewController {
 //        print("board rotation")
         if (sender!.state == UIGestureRecognizerState.Ended) {
             print("rotation ended at: \(sender!.rotation)")
-            UIView.animateWithDuration(NSTimeInterval(1), animations: {
+            UIView.animateWithDuration(NSTimeInterval(0.5), animations: {
                 // can use CGFloat(M_PI)
                 self.boardContainer.transform = CGAffineTransformMakeRotation(0)
             })

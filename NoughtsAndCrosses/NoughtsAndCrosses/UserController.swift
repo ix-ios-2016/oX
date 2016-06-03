@@ -40,6 +40,7 @@ class UserController {
         let user = User(email: newEmail, password: newPassword)
         users.append(user)
         logged_in_user = user
+        storeUser(user)
         print("User with email: \(newEmail) has been registered by the UserManager.")
         return (nil, user)
     }
@@ -77,7 +78,8 @@ class UserController {
     }
     
     func logoutUser() {
-        // nothing to do
+        // set data values
+        logged_in_user = nil
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
     }
 }

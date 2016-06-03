@@ -25,7 +25,7 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
     }
     
     func valid() -> Bool {
-        print("Trying to validate email: \(self.text!)")
+//        print("Trying to validate email: \(self.text!)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluateWithObject(self.text!)
@@ -52,7 +52,7 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
         else {
             textField.text! += string
         }
-        print("String to add: \(string)")
+//        print("String to add: \(string)")
         self.updateUI()
         return false
     }

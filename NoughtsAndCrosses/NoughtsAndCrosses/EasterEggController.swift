@@ -124,7 +124,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
     //Allow to recognize multiple gestures of the same type
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        print("HERE")
         return true
     }
     
