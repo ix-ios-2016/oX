@@ -10,8 +10,11 @@ import UIKit
 
 class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var networkPlay: UIButton!
     @IBOutlet weak var BoardView: UIView!
     var game = OXGame()
+    var networkMode = false
     
     
     
@@ -20,13 +23,21 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         
         view.userInteractionEnabled = true
         
-//        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
-//        
-//        self.BoardView.addGestureRecognizer(rotation)
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
         
-        //let pinch = UIPinchGestureRecognizer(target: self, action: #selector(Board) )
+        self.BoardView.addGestureRecognizer(rotation)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+        
+        if ( networkMode ) {
+            networkPlay.hidden = true
+            logoutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
+        }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
     func handlePinch( sender: UIPinchGestureRecognizer? = nil  ){
         print("pinch detected")
     }
@@ -41,25 +52,18 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             //self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(0))
             
             
-            if( sender!.rotation < CGFloat(M_1_PI)/4) {
+            if( sender!.rotation < CGFloat(M_1_PI)/2) {
                 UIView.animateWithDuration(NSTimeInterval(3), animations: {} )
                 self.BoardView.transform = CGAffineTransformMakeRotation(0)
             }
-            else if (sender!.rotation < CGFloat(M_1_PI)/2){
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {} )
-                self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI)/4)
-                
-            }
-            else if (sender!.rotation < CGFloat(M_1_PI)){
+            else if ( sender!.rotation < CGFloat(M_1_PI)) {
                 UIView.animateWithDuration(NSTimeInterval(3), animations: {} )
                 self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI)/2)
             }
-            else if (true){
-                
-            }
+
             
-            self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_2_PI))
-            self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI))
+            //self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_2_PI))
+            //self.BoardView.transform = CGAffineTransformMakeRotation(CGFloat(M_1_PI))
         }
         
         
@@ -112,12 +116,27 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func logoutButtonPressed(sender: UIButton) {
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        appDelegate.navigateBackToLandingNavigationController()
+        if ( networkMode ){
+            self.navigationController?.popViewControllerAnimated( true)
+        }
+        else {
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            appDelegate.navigateBackToLandingNavigationController()
+            NSUserDefaults.standardUserDefaults().setValue( nil , forKey: "userIdLoggedIn")
+        }
+
     }
     
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
+    @IBAction func networkPlayTapped(sender: UIButton) {
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(npc, animated: true)
+    }
 
    
 }

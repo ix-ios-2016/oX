@@ -22,14 +22,21 @@ enum OXGameState:String {
 
 }
 
+
+
 class OXGame {
-    
-    private var board = [CellType](count:9, repeatedValue: CellType.EMPTY)
     private var startType = CellType.X
     var currTurn = CellType.X
     
-    //responsible for telling viewController whose turn it is
+    //is there something specific that we initialize these to?
+    var hostUser: User!
+    var guestUser: User!
+    var backendState: OXGameState!
+    var gameID: String!
+    var board = [CellType](count:9, repeatedValue: CellType.EMPTY)
     
+    
+    //responsible for telling viewController whose turn it is
     private func turn() -> Int {
         
         var count = 0

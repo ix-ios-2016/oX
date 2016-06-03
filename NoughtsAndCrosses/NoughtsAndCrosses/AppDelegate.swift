@@ -19,29 +19,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("User Is Logged In")
         
-        if let loggedIn = userIsLoggedIn {
-            
-            //someCode
-        } else {
-            //someCode
-        }
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.makeKeyAndVisible()
         
-        //LandingViewController
-        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
-        authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
-       
+        EasterEggController.sharedInstance.initiate(self.window!)
+        
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIdLoggedIn")
         
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.GameNavigationController = UINavigationController(rootViewController: boardViewController)
         self.GameNavigationController?.navigationBarHidden = true
         
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        EasterEggController.sharedInstance.initiate(self.window!)
-        self.window?.rootViewController = self.authorisationNavigationController
-        self.window?.makeKeyAndVisible()
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle:nil)
+        authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
+        
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle:nil)
+        EasterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+
+        
+        if let loggedIn = userIsLoggedIn {
+  
+            self.window?.rootViewController = self.GameNavigationController
+        } else {
+            //LandingViewController
+            //self.window?.rootViewController = self.authorisationNavigationController
+            self.window?.rootViewController = self.GameNavigationController
+        }
+        
+    
         
         return true
     }
@@ -68,31 +75,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     func navigateToBoardNavigationController(){
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.GameNavigationController = UINavigationController(rootViewController: boardViewController)
-        self.GameNavigationController?.navigationBarHidden = true
-        
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+    
         self.window?.rootViewController = self.GameNavigationController
-        self.window?.makeKeyAndVisible()
+   
     }
     
     func navigateBackToLandingNavigationController(){
         //        This function should take no params and return nothing. Inside this function, set the windows rootViewController to be the loggedInNavController. You have already seen a line of code that allows for this. Read up :)
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
         self.window?.rootViewController = self.authorisationNavigationController
-        self.window?.makeKeyAndVisible()
         
     }
     
     func navigateToEasterEggScreen(){
-        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle:nil)
-        EasterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
-
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+  
         self.window?.rootViewController = self.EasterEggNavigationController
-        self.window?.makeKeyAndVisible()
+    
         
     }
+    
 }
 

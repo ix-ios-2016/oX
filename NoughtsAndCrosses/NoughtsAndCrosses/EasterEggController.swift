@@ -46,6 +46,8 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         //rotations
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(EasterEggController.handleRotation(_:)))
         view.addGestureRecognizer(rotation)
+        
+        rotation.delegate = self
 
         //rightSwipe
         let rightSwipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action:#selector(EasterEggController.handleRightSwipe(_:)))

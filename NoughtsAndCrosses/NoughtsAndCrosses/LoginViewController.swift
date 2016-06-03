@@ -59,7 +59,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             appDelegate.navigateToBoardNavigationController()
             //at this point we are happy to log in the user, so let's implement persistence
-           // NSUserDefaults.standardUserDefaults().setValue
+          NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIdLoggedIn")
+            
+            
+            
+            
             
         }   else    {
             if let failureMessage = failureMessage   {
