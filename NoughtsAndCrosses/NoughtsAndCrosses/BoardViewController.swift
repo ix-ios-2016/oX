@@ -12,6 +12,7 @@ class BoardViewController: UIViewController {
     
     var game = OXGame()
     
+    @IBOutlet weak var networkPlay: UIButton!
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var button0: UIButton!
     @IBOutlet weak var button1: UIButton!
@@ -23,6 +24,8 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
     @IBOutlet weak var winningMessage: UILabel!
+    var networkMode = false
+    @IBOutlet weak var logOutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,9 @@ class BoardViewController: UIViewController {
         self.boardView.addGestureRecognizer(rotation)
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
         self.view.addGestureRecognizer(pinch)
+        if (networkMode == true) {
+            logOutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
+        }
     }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
@@ -50,9 +56,7 @@ class BoardViewController: UIViewController {
     }
     
     func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
-        if (sender!.state == UIGestureRecognizerState.Ended) {
-            print("pinch detected")
-        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,7 +94,32 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {
-        restartGame()
+        if (networkMode == false) {
+            restartGame()
+        }
+    }
+    
+    @IBAction func logOutButtonTapped(sender: AnyObject) {
+        if (networkMode == true) {
+            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.navigationBarHidden = true
+        } else {
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToLogOutNavigationController()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.navigationController?.navigationBarHidden = true
+
     }
 
+    @IBAction func networkPlayTapped(sender: AnyObject) {
+        if (networkMode == false) {
+            let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+            self.navigationController?.pushViewController(npc, animated: true)
+        }
+    }
+    
 }

@@ -24,7 +24,11 @@ enum OXGameState:String {
 
 class OXGame {
     
-    private var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+    var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+    var hostUser: User?
+    var guestUser: User?
+    var backendState: OXGameState?
+    var gameID: String?
     
     private func turn() -> Int {
         var count = 0

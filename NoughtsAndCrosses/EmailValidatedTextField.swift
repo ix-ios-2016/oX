@@ -53,5 +53,4 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
         return false
     }
 
-    
 }

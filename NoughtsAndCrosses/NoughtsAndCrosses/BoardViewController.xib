@@ -19,6 +19,8 @@
                 <outlet property="button6" destination="wqL-6N-dzo" id="BvW-HO-sf5"/>
                 <outlet property="button7" destination="5oJ-IG-Rbw" id="GWV-90-66Y"/>
                 <outlet property="button8" destination="98z-PQ-N63" id="8TI-NV-hDZ"/>
+                <outlet property="logOutButton" destination="qV6-d2-UHL" id="ghw-T4-RAy"/>
+                <outlet property="networkPlay" destination="fxE-kX-4Ao" id="7e3-Yj-ppp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="winningMessage" destination="Dd5-yR-xSv" id="yx0-CE-54e"/>
             </connections>
@@ -423,6 +425,24 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxE-kX-4Ao">
+                    <rect key="frame" x="20" y="161" width="91" height="30"/>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="l2a-do-cCB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV6-d2-UHL">
+                    <rect key="frame" x="20" y="18" width="109" height="30"/>
+                    <state key="normal" title="Log Out">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="cvl-SC-9cj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

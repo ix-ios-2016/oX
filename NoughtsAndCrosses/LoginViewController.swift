@@ -47,6 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.navigateToLoggedInNavigationController()
                 failureDisplay.text = ""
+                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
             } else {
                 if (failureMessage != nil) {
                     failureDisplay.text = failureMessage
