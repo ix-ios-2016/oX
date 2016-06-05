@@ -173,7 +173,7 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func newGame(sender: UIButton) {
-        OXGameController.sharedInstance.finishCurrentGame()
+        //OXGameController.sharedInstance.finishCurrentGame()
         restartgame()
     }
     
@@ -197,7 +197,7 @@ class BoardViewController: UIViewController {
     
 
     func restartgame() {
-        OXGameController.sharedInstance.finishCurrentGame()
+        //OXGameController.sharedInstance.finishCurrentGame()
         OXGameController.sharedInstance.getCurrentGame()!.reset()
         target.setTitle("", forState: UIControlState.Normal)
         target2.setTitle("", forState: UIControlState.Normal)
