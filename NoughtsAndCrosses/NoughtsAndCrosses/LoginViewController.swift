@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("User is logged in")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
-            appDelegate.navigateToGameNavigationController()
+            appDelegate.returnToOxGameNavigation()
             
         } else if failureMessage != nil {
             print("Login failed: " + failureMessage!)

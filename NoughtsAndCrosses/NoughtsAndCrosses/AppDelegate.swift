@@ -59,8 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = self.navigationController
     }
     
-    func navigateToGameNavigationController() {
-        self.window?.rootViewController = self.navigationController
+    func navigateToLandingNavigationController() {
+        self.window?.rootViewController = self.authorisationNavigationController
     }
 
     func applicationWillResignActive(application: UIApplication) {

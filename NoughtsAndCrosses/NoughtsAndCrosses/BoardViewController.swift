@@ -83,7 +83,8 @@ class BoardViewController: UIViewController {
     
     @IBAction func logOut(sender: UIButton) {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.returnToOxGameNavigation()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userLoggedIn")
+        appDelegate.navigateToLandingNavigationController()
     }
 
 }
