@@ -47,7 +47,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         let rotation : UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleRotation(_:)))
         view.addGestureRecognizer(rotation)
         
-
+        rotation.delegate = self
         
  
     }
@@ -99,8 +99,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         }
         
     }
-
-  
     
     //Allow to recognize multiple gestures of the same type
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {

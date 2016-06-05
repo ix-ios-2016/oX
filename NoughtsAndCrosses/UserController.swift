@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct User {
+    var email: String
+    var password: String
+}
+
 class UserController {
     // Singleton design pattern
     class var sharedInstance: UserController {
@@ -21,11 +26,7 @@ class UserController {
         }
         return Static.instance!
     }
-    
-    struct User {
-        var email: String
-        var password: String
-    }
+
     
     private var users: [User] = []
     
@@ -40,6 +41,7 @@ class UserController {
         let user = User(email: newEmail, password: newPassword)
         users.append(user)
         logged_in_user = user
+        storeUser(user)
         print("User with email: \(newEmail) has been registered by the UserManager.")
         return (nil, user)
     }
@@ -47,7 +49,13 @@ class UserController {
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
         
         if let user = self.getStoredUser(suppliedEmail){
-            
+            if user.password == suppliedPassword {
+                    logged_in_user = user
+                    print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+                    return (nil, user)
+                    } else {
+                    return ("Password incorrect", nil)
+            }
         }
         
 //        for user in users {
@@ -62,20 +70,31 @@ class UserController {
 //            }
 //        }
 //        
-//        return ("No user with that email", nil)
+       return ("No user with that email", nil)
     }
     
-    func storeUser(user:User){
+    func storeUser(user:User)    {
+        
         NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+        
     }
     
-    func getStoredUser(id:String) -> User{
-        if let userPassword:String = NSUserDefaults.standardUserDefaults().objectForKey(id) as? String {
+    func deleteUser()    {
+        
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "\(logged_in_user!.email)")
+        
+    }
+    
+    func getStoredUser(id:String) -> User?    {
+        
+        if let userPassword:String = NSUserDefaults.standardUserDefaults().stringForKey(id)    {
+            //user found
             let user = User(email: id, password: userPassword)
             return user
-        }
-        else{
+        }   else    {
+            //else user not found
             return nil
         }
+        
     }
 }

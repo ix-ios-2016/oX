@@ -8,17 +8,32 @@
 
 import UIKit
 
-class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
+class BoardViewController: UIViewController {
     
+    var networkMode : Bool = false
     var gameObject = OXGame()
     var lastRotation: Float!
     
-    @IBAction func logOutPressed(sender: UIButton) {
-        
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToLandingNavigationController()
-    }
+    @IBOutlet weak var logOutButton: UIButton!
+    
+    @IBOutlet weak var networkPlayButton: UIButton!
     @IBOutlet weak var target2: UIButton!
+    
+    @IBOutlet weak var target7: UIButton!
+    
+    @IBOutlet weak var target9: UIButton!
+    @IBOutlet weak var target3: UIButton!
+    @IBOutlet weak var target8: UIButton!
+    
+    @IBOutlet weak var target6: UIButton!
+    @IBOutlet weak var target5: UIButton!
+    
+    
+    @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var target4: UIButton!
+    
+    @IBOutlet weak var target: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +43,18 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         let rotation : UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
         self.boardView.addGestureRecognizer(rotation)
         
-        rotation.delegate = self
-//        
-//        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
-//        self.view.addGestureRecognizer(pinch)
-//        
+        //
+        //        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
+        //        self.view.addGestureRecognizer(pinch)
+        //
         self.lastRotation = 0.0
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+
     func handlePinch(sender: UIPinchGestureRecognizer? = nil){
         print("Pinch Detected")
     }
@@ -49,48 +68,40 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         if (sender!.state == UIGestureRecognizerState.Ended){
             print("Rotation \(sender!.rotation)")
             
-            if(sender!.rotation < CGFloat(M_PI)/4){
+            if(sender!.rotation < CGFloat(M_PI)/4 || sender!.rotation > CGFloat((7/4) * M_PI)){
                 //snap action
                 UIView.animateWithDuration(NSTimeInterval(2), animations: {
                     self.boardView.transform = CGAffineTransformMakeRotation(0)
                 })
                 
             }
-            else if(sender!.rotation < CGFloat(M_PI)/3){
+            else if(sender!.rotation < CGFloat((3/4) * M_PI)){
                 UIView.animateWithDuration(NSTimeInterval(2), animations: {
-                    self.boardView.transform = CGAffineTransformMakeRotation(90)
+                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.0))
                 })
             }
-            else if(sender!.rotation < CGFloat(M_PI)/2){
+            else if(sender!.rotation < CGFloat((5/4) * M_PI)){
                 UIView.animateWithDuration(NSTimeInterval(2), animations: {
-                    self.boardView.transform = CGAffineTransformMakeRotation(180)
+                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
                 })
             }
-            else if(sender!.rotation < CGFloat(M_PI)){
+            else if(sender!.rotation < CGFloat((7/4) * M_PI)){
                 UIView.animateWithDuration(NSTimeInterval(2), animations: {
-                    self.boardView.transform = CGAffineTransformMakeRotation(270)
+                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat((3.0/2.0) * M_PI))
                 })
             }
         }
         print("stuff")
     }
     
-    @IBOutlet weak var target7: UIButton!
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        if(networkMode){
+            networkPlayButton.hidden = true
+            logOutButton.setTitle("cancel", forState: UIControlState.Normal)
+        }
     }
-    @IBOutlet weak var target9: UIButton!
-    @IBOutlet weak var target3: UIButton!
-    @IBOutlet weak var target8: UIButton!
-    
-    @IBOutlet weak var target6: UIButton!
-    @IBOutlet weak var target5: UIButton!
 
-    
-    @IBOutlet weak var boardView: UIView!
-    @IBOutlet weak var target4: UIButton!
-    
-    @IBOutlet weak var target: UIButton!
     @IBAction func buttonPressed(sender: UIButton) {
         
         let type = gameObject.playMove(sender.tag)
@@ -114,11 +125,28 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             print("Game in progress")
         }
         
-        
     }
     
     @IBAction func newGame(sender: UIButton) {
         restartgame()
+    }
+    
+    @IBAction func logOutPressed(sender: UIButton) {
+        
+        if(networkMode){
+           self.navigationController?.popViewControllerAnimated(true)
+        }
+        else{
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToLandingNavigationController()
+            
+            UserController.sharedInstance.deleteUser()
+        }
+    }
+    
+    @IBAction func networkPlayTapped(sender: AnyObject) {
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle : nil)
+        self.navigationController?.pushViewController(npc, animated: true)
     }
     
 
@@ -135,8 +163,4 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         target3.setTitle("", forState: UIControlState.Normal)
     }
     
-    //Allow to recognize multiple gestures of the same type
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
 }

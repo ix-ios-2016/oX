@@ -33,12 +33,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (user != nil) {
             print("User registered view registration view")
             
+            // Store user
+//            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+            
             // Move to the game
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToBoardNavigationController()
             
-            // Store user
-            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+
         }
         if (failure_message != nil){
             Failure.text = failure_message

@@ -23,7 +23,13 @@ enum OXGameState:String {
 }
 class OXGame {
     
-    private var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+    var hostUser: User?
+    var guestUser: User?
+    var backednState: OXGameState?
+    var gameId: String?
+    
+    
+    var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
     
     private var startType: CellType = CellType.X
     
