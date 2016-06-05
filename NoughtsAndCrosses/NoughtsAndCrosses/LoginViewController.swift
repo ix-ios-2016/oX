@@ -48,6 +48,9 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
             
             appDelegate.navigateToGame()
             //navigateToLoggedInNavigationController
+            
+            //This is how we store something in the harddrive
+            NSUserDefaults.standardUserDefaults().setValue("True" , forKey: "userIsLoggedIn")
         } else {
             if let temp2 = failure_message{ //temp2 is NOT optional. If it exists, now we can use it
                 print (temp2)

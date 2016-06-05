@@ -53,12 +53,12 @@ class RegistrationViewController: UIViewController , UITextFieldDelegate {
         
         //        If one is not present, check to see if a failure message is present and then print    the failure message.
         
-        if let tmp = user {
+        if let _ = user {
             print (user)
             
             
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
-            
+            NSUserDefaults.standardUserDefaults().setValue("TRUE" , forKey: "userIsLoggedIn")
             appDelegate.navigateToGame()
         } else {
             if let temp2 = failure_message{ //temp2 is NOT optional. If it exists, now we can use it

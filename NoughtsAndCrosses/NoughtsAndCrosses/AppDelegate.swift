@@ -23,31 +23,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        self.gameNavigationController?.navigationBarHidden = true
+        //Always have this line at the top of the application function to confirm that a window does exist
+        self.window = UIWindow(frame : UIScreen.mainScreen().bounds)
         
-        // Override point for customization after application launch.
+        //set to stored persistent value
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+      
+        if let _ = (userIsLoggedIn) {
+            navigateToGame()
+        } else {
+            //This is for if there is no value for the objectForKey which means this is the first time this has run
+            navigateToLandingViewController()
+        }
         
-        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
-        
-        authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
-        
-        
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         //This gets you to the Easter Egg page from every page in the entire app!!! From Julian.
-        
-        self.window?.rootViewController = self.authorizationNavigationController
-        self.window?.makeKeyAndVisible()
-        
         EasterEggController.sharedInstance.initiate(self.window!)
         
-        
+        //Have this at the end of the application() method to ensure that everything is set up
+        self.window?.makeKeyAndVisible()
         return true
-        
         }
     
-    func navigateToEasterEggScreen() {
+    func navigateToLandingViewController() {
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.window?.rootViewController = self.authorizationNavigationController
         
+
+    }
+    
+    func navigateToGame() {
+        
+        let gameBoard = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        self.gameNavigationController = UINavigationController(rootViewController: gameBoard)
+        self.window?.rootViewController = self.gameNavigationController
+    }
+    
+    func navigateToEasterEggScreen() {
         let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController",bundle: nil)
         easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        self.window?.rootViewController = easterEggNavigationController
     }
     
     func applicationWillResignActive(application: UIApplication) {
@@ -71,25 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-//    func navigateToRegisterViewController(){
-//        
-//    }
-//    
-    func navigateToGame() {
-        
-        let gameBoard = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        
-        self.gameNavigationController = UINavigationController (rootViewController: gameBoard)
-        
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.gameNavigationController
-        self.window?.makeKeyAndVisible()
-        
-        
-    }
-
-
 
 }
 

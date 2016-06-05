@@ -26,11 +26,14 @@ enum OXGameState : String {
 
 class OXGame {
     
-
-    
-    private var board = [CellType] (count : 9 , repeatedValue : CellType.EMPTY)
+    var board = [CellType] (count : 9 , repeatedValue : CellType.EMPTY)
     
     private var startType : CellType = (CellType.X)
+    
+    var hostUser : User?
+    var guestUser : User?
+    var backendState : OXGameState?
+    var gameId : String?
     
     
     //Build a function called turn() that returns an Int with the count of how many turns happened in the game so far.
@@ -52,9 +55,10 @@ class OXGame {
     func whosTurn() -> CellType {
         
         if (turn() % 2 != 0){
-            return CellType.X
+            return startType
+        } else {
+            return CellType.O
         }
-        return CellType.O
     }
 
     //Create a function that returns the CellType at a certain position of the board called typeAtIndex()
@@ -74,11 +78,13 @@ class OXGame {
         if (whosTurn() == CellType.X) {
             
             board[tag] = (CellType.X)
+            print (board[tag])
             return CellType.X
             
         } else {
             
             board[tag] = CellType.O
+            print (board[tag])
             return CellType.O
             
         }
@@ -87,69 +93,66 @@ class OXGame {
     
     func winDetection() -> Bool {
     
-    if (board[0] == CellType.X && board[1] == CellType.X && board[2] == CellType.X && board[2] != CellType.EMPTY) {
-        return true
-    }
-    else if (board[3] == CellType.X && board[4] == CellType.X && board[5] == CellType.X && board[5] != CellType.EMPTY){
-        return true
-    }
-    else if (board[6] == CellType.X && board[7] == CellType.X && board[8] == CellType.X && board[8] != CellType.EMPTY){
-        return true
-    }
-    else if (board[0] == CellType.X && board[1] == CellType.X && board[2] == CellType.X && board[2] != CellType.EMPTY){
-        return true
-    }
-    else if (board[3] == CellType.O && board[4] == CellType.O && board[5] == CellType.O && board[5] != CellType.EMPTY){
-        return true
-    }
-    else if (board[6] == CellType.O && board[7] == CellType.O && board[8] == CellType.O && board[8] != CellType.EMPTY){
-        return true
-    }
-    else if (board[0] == CellType.X && board[3] == CellType.X && board[6] == CellType.X && board[6] != CellType.EMPTY){
-        return true
-    }
-    else if (board[1] == CellType.X && board[4] == CellType.X && board[7] == CellType.X && board[7] != CellType.EMPTY){
-        return true
-    }
-    else if (board[2] == CellType.X && board[5] == CellType.X && board[8] == CellType.X && board[8] != CellType.EMPTY){
-        return true
-    }
-    else if (board[0] == CellType.O && board[3] == CellType.O && board[6] == CellType.O && board[6] != CellType.EMPTY){
-        return true
-    }
-    else if (board[1] == CellType.O && board[4] == CellType.O && board[7] == CellType.O && board[7] != CellType.EMPTY){
-        return true
-    }
-    else if (board[2] == CellType.O && board[5] == CellType.O && board[8] == CellType.O && board[8] != CellType.EMPTY){
-        return true
-    }
-    else {
+        //Check rows
+        for i in 0...2 {
+            if((board[3*i] == board[3*i + 1]) && (board[3*i] == board[3*i + 2]) && !(String(board[3*i]) == "EMPTY")){
+                print("Someone won at row i")
+                print(i)
+                print( board[i])
+                return true
+            }
+        }
+        
+        //Check columns
+        for j in 0...2 {
+            if((board[j] == board[j + 3]) && (board[j] == board[j + 6]) && !(String(board[j]) == "EMPTY")){
+                print("Someone won at column j")
+                print(j)
+                print( board[j])
+                return true
+            }
+        }
+        
+        //Check diagonals
+        if((board[0] == board[4]) && (board[0] == board[8]) && !(String(board[0]) == "EMPTY")){
+            print("Someone won at diagonal 1")
+            return true
+        }
+        if((board[2] == board[4]) && (board[2] == board[6]) && !(String(board[2]) == "EMPTY")){
+            print("Someone won at diagonal 2")
+            return true
+        }
+        
         return false
+        
+    }
+    //the current state of the game
+    func state() -> OXGameState    {
+        
+        //check if someone won on this turn
+        let win = winDetection()
+        
+        //if noone won, game is still in progress
+        if (win)   {
+            return OXGameState.complete_someone_won
+        } else if (turn() == 9) {
+            return OXGameState.complete_no_one_won
+        } else    {
+            return OXGameState.inProgress
+        }
+        
     }
  
         /* Alternatively
  
             for i in 0...2 {
                 if ((board[3*i] board[3*i + 1] etc... */
-            }
     
     //    Create a variable from the win detection function to that contains if someone won at the current configuration of the board
     //    Use the variable to check if someone has won, if true, return the state complete_someone_won
     //    Else if (no one won) and it is turn 9, return complete_no_one_won
     //    Else return game still inProgress
-    
-    func state() -> OXGameState{
-        
-        if (winDetection() ) {
-            return OXGameState.complete_someone_won
-        } else if ((winDetection() == false) && (turn() == 8)) {
-            return OXGameState.complete_no_one_won
-        } else {
-            return OXGameState.inProgress
-        }
-        
-    }
-    
+
     //Create a reset function called reset() that sets all the board cells to CellType.Empty
     func reset() {
         
@@ -159,4 +162,4 @@ class OXGame {
         
     }
 
-    }
+}

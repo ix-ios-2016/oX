@@ -8,6 +8,12 @@
 
 import Foundation
 
+
+struct User {
+    var email: String
+    var password: String
+}
+
 class UserController {
     // Singleton design pattern
     class var sharedInstance: UserController {
@@ -21,17 +27,14 @@ class UserController {
         }
         return Static.instance!
     }
-    
-    struct User {
-        var email: String
-        var password: String
-    }
+   
     
     private var users: [User] = []
     
     var logged_in_user: User?
     
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?) {
+        
         for user in users {
             if user.email == newEmail {
                 return ("Email taken", nil)
@@ -59,4 +62,39 @@ class UserController {
         
         return ("No user with that email", nil)
     }
+    
+    func storedUser(user : User) {
+        
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+    }
+    
+    //MARK:- User Persistence Functions
+    func storeUser(user:User)    {
+        
+        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.email)")
+        
+    }
+    
+    func getStoredUser(id:String) -> User?    {
+        
+        if let userPassword:String = NSUserDefaults.standardUserDefaults().stringForKey(id)    {
+            //user found
+            let user = User(email: id, password: userPassword)
+            return user
+        }   else    {
+            //else user not found
+            return nil
+        }
+        
+    }
+//    func loginUser (suppliedUsername : String , suppliedPassword : String) -> (failureMessage : String? , user : User?) {
+//        
+//        if let tmp = self.getStoredUser(suppliedUsername) {
+//            logged_in_user = user
+//            print("User with email: \(suppliedUsername) has been logged in by the UserController.")
+//            return (nil, user)
+//        } else {
+//            return ("Password incorrect" , nil)
+//        }
+//    }
 }
