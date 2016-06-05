@@ -19,6 +19,9 @@
 		252045EA1CFF2F1F004AEC2E /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E81CFF2F1F004AEC2E /* EasterEggViewController.swift */; };
 		252045EB1CFF2F1F004AEC2E /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045E91CFF2F1F004AEC2E /* EasterEggViewController.xib */; };
 		252045ED1CFF2F79004AEC2E /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045EC1CFF2F79004AEC2E /* EasterEggController.swift */; };
+		25B772801D04B900001D7EBD /* networkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B7727E1D04B900001D7EBD /* networkPlayViewController.swift */; };
+		25B772811D04B900001D7EBD /* networkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B7727F1D04B900001D7EBD /* networkPlayViewController.xib */; };
+		25B772841D04CCC2001D7EBD /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B772831D04CCC2001D7EBD /* OXGameController.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
@@ -58,6 +61,9 @@
 		252045E81CFF2F1F004AEC2E /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		252045E91CFF2F1F004AEC2E /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		252045EC1CFF2F79004AEC2E /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
+		25B7727E1D04B900001D7EBD /* networkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = networkPlayViewController.swift; sourceTree = "<group>"; };
+		25B7727F1D04B900001D7EBD /* networkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = networkPlayViewController.xib; sourceTree = "<group>"; };
+		25B772831D04CCC2001D7EBD /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 			children = (
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				25B7727E1D04B900001D7EBD /* networkPlayViewController.swift */,
+				25B7727F1D04B900001D7EBD /* networkPlayViewController.xib */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -130,11 +138,14 @@
 			name = EasterEgg;
 			sourceTree = "<group>";
 		};
-		427A5B651CE0FF4A00328EE7 /* Model */ = {
+		25B772821D04BCF1001D7EBD /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2520457B1CFC7018004AEC2E /* OXGame.swift */,
+				25B772831D04CCC2001D7EBD /* OXGameController.swift */,
+				252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */,
 			);
-			name = Model;
+			name = ModelControllers;
 			sourceTree = "<group>";
 		};
 		42D447C11CD765670070326E = {
@@ -160,17 +171,15 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				25B772821D04BCF1001D7EBD /* ModelControllers */,
 				252045D61CFE2C44004AEC2E /* Authentication */,
 				252045D71CFE2C4F004AEC2E /* Game */,
 				252045EE1CFF2F90004AEC2E /* EasterEgg */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				252045E61CFEDCC8004AEC2E /* EmailValidatedTextField.swift */,
-				252045E41CFE2EBE004AEC2E /* UserController.Copy.swift */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
-				427A5B651CE0FF4A00328EE7 /* Model */,
-				2520457B1CFC7018004AEC2E /* OXGame.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -302,6 +311,7 @@
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				252045EB1CFF2F1F004AEC2E /* EasterEggViewController.xib in Resources */,
 				252045DB1CFE2C95004AEC2E /* LandingViewController.xib in Resources */,
+				25B772811D04B900001D7EBD /* networkPlayViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 				252045E31CFE2CF5004AEC2E /* RegisterViewController.xib in Resources */,
 			);
@@ -333,10 +343,12 @@
 				252045EA1CFF2F1F004AEC2E /* EasterEggViewController.swift in Sources */,
 				2520457C1CFC7018004AEC2E /* OXGame.swift in Sources */,
 				252045E51CFE2EBE004AEC2E /* UserController.Copy.swift in Sources */,
+				25B772801D04B900001D7EBD /* networkPlayViewController.swift in Sources */,
 				252045DA1CFE2C95004AEC2E /* LandingViewController.swift in Sources */,
 				252045E21CFE2CF5004AEC2E /* RegisterViewController.swift in Sources */,
 				252045DE1CFE2CEA004AEC2E /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				25B772841D04CCC2001D7EBD /* OXGameController.swift in Sources */,
 				252045E71CFEDCC8004AEC2E /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

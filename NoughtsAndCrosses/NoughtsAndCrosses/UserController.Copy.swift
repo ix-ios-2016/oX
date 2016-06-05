@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct User {
+    var email: String
+    var password: String
+}
+
 
 class UserController {
     
@@ -24,10 +29,6 @@ class UserController {
         return Static.instance!
     }
     
-    struct User {
-        var email: String
-        var password: String
-    }
     
     private var users: [User] = []
     

@@ -10,18 +10,28 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet weak var logOut: UIButton!
+    @IBOutlet weak var networkButton: UIButton!
     @IBOutlet weak var boardView: UIView!
     var gameObject = OXGame()
     
+    var networkPlay: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         
           let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
             self.boardView.addGestureRecognizer(rotation)
         
         let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handlePinch(_:)))
         self.boardView.addGestureRecognizer(pinch)
+        
+        
+        if networkPlay {
+            logOut.setTitle("Cancel", forState: UIControlState.Normal)
+            networkButton.hidden = true
+        }
         
     }
     func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
@@ -77,14 +87,32 @@ class BoardViewController: UIViewController {
     }
 
     @IBAction func newGame(sender: AnyObject) {
-        print("New Game Pressed")
-        restartGame()
+        if networkPlay {
+            print("Dont Start A New Game. You are in Network Mode")
+        } else {
+            print("New Game Pressed")
+            restartGame()
+        }
+        
     }
     
     @IBAction func logOut(sender: UIButton) {
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userLoggedIn")
-        appDelegate.navigateToLandingNavigationController()
+        
+        if networkPlay {
+           logOut.setTitle("Cancel", forState: UIControlState.Normal)
+            navigationController?.popViewControllerAnimated(true)
+        } else {
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userLoggedIn")
+            appDelegate.navigateToLandingNavigationController()
+        }
+        
+        
     }
 
+    @IBAction func networkButtonPressed(sender: UIButton) {
+        let nvc = networkPlayViewController(nibName:"networkPlayViewController",bundle:nil)
+        self.navigationController?.pushViewController(nvc, animated: true)
+        networkPlay = true
+    }
 }

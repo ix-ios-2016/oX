@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="boardView" destination="qYi-hH-8b3" id="vjD-P9-Q6f"/>
+                <outlet property="logOut" destination="DTg-ol-7nQ" id="gxC-w9-i4F"/>
+                <outlet property="networkButton" destination="HnS-d4-MD9" id="je2-xW-aiD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Zvj-w5-97h"/>
             </connections>
         </placeholder>
@@ -415,13 +417,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-ol-7nQ">
-                    <rect key="frame" x="30" y="20" width="52" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <rect key="frame" x="30" y="18" width="57" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="Log Out">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="logOut:" destination="-1" eventType="touchUpInside" id="vBD-0k-hcS"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnS-d4-MD9">
+                    <rect key="frame" x="101" y="18" width="105" height="30"/>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="networkButtonPressed:" destination="-1" eventType="touchUpInside" id="nvN-ow-BET"/>
                     </connections>
                 </button>
             </subviews>
