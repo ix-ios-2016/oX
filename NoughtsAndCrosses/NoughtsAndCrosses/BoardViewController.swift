@@ -92,35 +92,32 @@ class BoardViewController: UIViewController {
             // check state again
             self.checkState(cell)
         }
-        print(OXGameController.sharedInstance.gameList!)
         
     }
     
     private func checkState(lastPlayer: CellType) -> OXGameState {
         let currentState = OXGameController.sharedInstance.getCurrentGame()!.state()
         switch currentState {
-        case OXGameState.complete_someone_won:
-            print("Winner is \(lastPlayer)")
-            // create alert controller and OK action
-            let alertController = UIAlertController(title: "Game over!", message: "Winner is \(lastPlayer)", preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
-            // add OK action to alert controller
-            alertController.addAction(OKAction)
-            // display alert
-            self.presentViewController(alertController, animated: true, completion: nil)
+        case OXGameState.complete_someone_won, OXGameState.complete_no_one_won:
+//            // create alert controller and OK action
+//            let alertController = UIAlertController(title: "Game over!", message: "Game is tied.", preferredStyle: .Alert)
+//            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
+//            // add OK action to alert controller
+//            alertController.addAction(OKAction)
+//            // display alert
+//            self.presentViewController(alertController, animated: true, completion: nil)
+            // print end game message
+            if (currentState == OXGameState.complete_someone_won) {
+                print("Winner is \(lastPlayer)")
+            } else {
+                print("Game tied")
+            }
+            // finish game
             OXGameController.sharedInstance.finishCurrentGame()
-            self.resetBoard()
-        case OXGameState.complete_no_one_won:
-            print("Game tied.")
-            // create alert controller and OK action
-            let alertController = UIAlertController(title: "Game over!", message: "Game is tied.", preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
-            // add OK action to alert controller
-            alertController.addAction(OKAction)
-            // display alert
-            self.presentViewController(alertController, animated: true, completion: nil)
-            OXGameController.sharedInstance.finishCurrentGame()
-            self.resetBoard()
+            // update view
+            if (self.networkGame) {
+                self.navigationController?.popViewControllerAnimated(true)
+            }
         default:
             break
         }
