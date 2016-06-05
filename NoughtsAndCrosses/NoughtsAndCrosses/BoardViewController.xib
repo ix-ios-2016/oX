@@ -415,13 +415,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-ol-7nQ">
-                    <rect key="frame" x="540" y="560" width="52" height="30"/>
+                    <rect key="frame" x="30" y="20" width="52" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Log Out">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="BFn-Ay-6bt"/>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="vBD-0k-hcS"/>
                     </connections>
                 </button>
             </subviews>

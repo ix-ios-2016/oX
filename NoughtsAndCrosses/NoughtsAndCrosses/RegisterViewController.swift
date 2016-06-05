@@ -35,6 +35,9 @@ class RegisterViewController: UIViewController {
             if user != nil {
             print("The Register was Successful")
             registerLabel.text = "You have been registered!"
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+                appDelegate.navigateToGameNavigationController()
             
             } else if failureMessage != nil {
             print("registration failed: " + failureMessage!)

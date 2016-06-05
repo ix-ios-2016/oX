@@ -25,15 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.navigationController = UINavigationController(rootViewController: boardViewController)
+        self.window?.rootViewController = self.navigationController
+        self.navigationController?.navigationBarHidden = true
+        
+        let landingViewContoller = LandingViewController(nibName: "LandingViewController", bundle:nil)
+        authorisationNavigationController = UINavigationController(rootViewController: landingViewContoller)
+        
         if let loggedIn = userIsLoggedIn {
-            let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-            self.navigationController = UINavigationController(rootViewController: boardViewController)
             self.window?.rootViewController = self.navigationController
-            self.navigationController?.navigationBarHidden = true
             
         } else {
-            let landingViewContoller = LandingViewController(nibName: "LandingViewController", bundle:nil)
-            authorisationNavigationController = UINavigationController(rootViewController: landingViewContoller)
+            
             self.window?.rootViewController = self.authorisationNavigationController
         }
         

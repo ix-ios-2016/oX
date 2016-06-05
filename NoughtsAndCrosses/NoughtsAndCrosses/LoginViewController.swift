@@ -47,7 +47,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if user != nil {
             print("User is logged in")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+            
             appDelegate.navigateToGameNavigationController()
             
         } else if failureMessage != nil {

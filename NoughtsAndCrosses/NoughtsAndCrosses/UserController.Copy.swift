@@ -42,6 +42,7 @@ class UserController {
         let user = User(email: newEmail, password: newPassword)
         users.append(user)
         logged_in_user = user
+        NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userLoggedIn")
         print("User with email: \(newEmail) has been registered by the UserManager.")
         return (nil, user)
     }
@@ -55,6 +56,7 @@ class UserController {
                 if user.password == suppliedPassword {
                     logged_in_user = user
                     print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+                    NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userLoggedIn")
                     return (nil, user)}
                     else {
                     return ("Password incorrect", nil)
