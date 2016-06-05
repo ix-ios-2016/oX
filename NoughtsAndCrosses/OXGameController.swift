@@ -46,10 +46,20 @@ class OXGameController {
         }
         
         return gameList
+        
+    }
+    
+    private func setCurrentGame(game: OXGame){
+        currentGame = game
     }
     
     func getCurrentGame() -> OXGame? {
         //        print("Getting current game")
+        
+        if(currentGame == nil){
+            setCurrentGame(OXGame())
+        }
+        
         return currentGame
     }
     
@@ -84,11 +94,11 @@ class OXGameController {
     }
     
     
-    func acceptGameNumber(gameId: String) -> OXGame? {
+    func acceptGameWithId(gameId: String) -> OXGame? {
         //        print("Accepting network game")
         for game in self.gameList!    {
             if (game.gameId == gameId)  {
-                currentGame = game
+                setCurrentGame(game)
                 //                print("Succesfully")
                 return game
             }
@@ -99,21 +109,23 @@ class OXGameController {
     }
     
     func finishCurrentGame(){
-        //        print("Finishing current game")
-        //Delete from game array and setting currentGame to nil
-        //        print(getCurrentGame()?.gameId)
-        for i in 0...(gameList?.count)! - 1{
-            if (getCurrentGame()?.gameId == gameList![i].gameId){
-                currentGame = nil
-                gameList?.removeAtIndex(i)
-                return
+        print("Finishing current game")
+        
+        if(gameList != nil && gameList?.count != 0){
+            var reducer = 0
+            for i in 0...(gameList?.count)! - 1{
+                if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
+                    gameList?.removeAtIndex(i)
+                    reducer += 1
+                }
             }
         }
         
+        setCurrentGame(OXGame())
     }
     
     //Helper functions
-    func getRandomID() -> String {
+    private func getRandomID() -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len: Int = 10
         let randomString : NSMutableString = NSMutableString(capacity: len)

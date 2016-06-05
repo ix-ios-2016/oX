@@ -11,8 +11,8 @@ import UIKit
 class BoardViewController: UIViewController {
     
     var networkMode : Bool = false
-    var gameObject = OXGame()
     var lastRotation: Float!
+    var places = [UIButton]()
     
     @IBOutlet weak var logOutButton: UIButton!
     
@@ -35,8 +35,20 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var target: UIButton!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        places.append(target)
+        places.append(target2)
+        places.append(target3)
+        places.append(target4)
+        places.append(target5)
+        places.append(target6)
+        places.append(target7)
+        places.append(target8)
+        places.append(target9)
+        
         
         view.userInteractionEnabled = true
         
@@ -48,6 +60,8 @@ class BoardViewController: UIViewController {
         //        self.view.addGestureRecognizer(pinch)
         //
         self.lastRotation = 0.0
+        
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,19 +110,22 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
+        
         if(networkMode){
-            networkPlayButton.hidden = true
             logOutButton.setTitle("cancel", forState: UIControlState.Normal)
+            networkPlayButton.hidden = true
         }
     }
 
     @IBAction func buttonPressed(sender: UIButton) {
         
-        let type = gameObject.playMove(sender.tag)
+        let current = OXGameController.sharedInstance.getCurrentGame()!
+        
+        let type = OXGameController.sharedInstance.playMove(sender.tag)
         print("Button \(sender.tag) pressed")
         sender.setTitle(String(type), forState: UIControlState.Normal)
         
-        let state = gameObject.state()
+        let state = OXGameController.sharedInstance.getCurrentGame()!.state()
         if state == OXGameState.complete_someone_one && type == CellType.O {
             print("Player 1 has won!")
             restartgame()
@@ -125,9 +142,38 @@ class BoardViewController: UIViewController {
             print("Game in progress")
         }
         
+        if networkMode {
+            if state != OXGameState.complete_someone_one || state != OXGameState.complete_no_one_won {
+                if current.whosTurn() == CellType.X{
+                    var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
+                    current.board[place] = newMove
+                    places[place].setTitle(String("X"), forState: UIControlState.Normal)
+                    let state = OXGameController.sharedInstance.getCurrentGame()!.state()
+                    if state == OXGameState.complete_someone_one && type == CellType.O {
+                        print("Player 1 has won!")
+                        restartgame()
+                    }
+                    else if state == OXGameState.complete_someone_one && type == CellType.X {
+                        print("player 2 has won!")
+                        restartgame()
+                    }
+                    else if state == OXGameState.complete_no_one_won {
+                        print("The game is a tie.")
+                        restartgame()
+                    }
+                    else {
+                        print("Game in progress")
+                    }
+
+                }
+            }
+        }
+
+        
     }
     
     @IBAction func newGame(sender: UIButton) {
+        OXGameController.sharedInstance.finishCurrentGame()
         restartgame()
     }
     
@@ -151,7 +197,8 @@ class BoardViewController: UIViewController {
     
 
     func restartgame() {
-        gameObject.reset()
+        OXGameController.sharedInstance.finishCurrentGame()
+        OXGameController.sharedInstance.getCurrentGame()!.reset()
         target.setTitle("", forState: UIControlState.Normal)
         target2.setTitle("", forState: UIControlState.Normal)
         target9.setTitle("", forState: UIControlState.Normal)

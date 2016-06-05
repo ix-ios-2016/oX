@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             
             //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = self.authorizationNavigationContoller
+            self.window?.rootViewController = self.navigationController
             //self.window?.makeKeyAndVisible()
 
         }

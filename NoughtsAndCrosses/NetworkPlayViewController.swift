@@ -26,6 +26,8 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         
         gamesList = OXGameController.sharedInstance.getListOfGames()!
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

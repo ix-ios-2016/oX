@@ -435,12 +435,6 @@
                         <action selector="logOutPressed:" destination="-1" eventType="touchUpInside" id="iCh-Bk-j9d"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSQ-WU-Fgk">
-                    <rect key="frame" x="29" y="112" width="91" height="30"/>
-                    <state key="normal" title="Network Play">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF8-MZ-vbb">
                     <rect key="frame" x="29" y="112" width="91" height="30"/>
                     <state key="normal" title="Network Play">
