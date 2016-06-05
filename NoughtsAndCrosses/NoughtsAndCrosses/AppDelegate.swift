@@ -33,9 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // check for user persistent data
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
-        print("App Delegate USerloggedin" + String(userIsLoggedIn))
-        if let _ = userIsLoggedIn {
+        let userLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userLoggedIn") as? NSData
+        print("App Delegate USerloggedin" + String(userLoggedIn))
+        
+        if userLoggedIn != nil
+        {
             navigateToLoggedInViewController()
         }
         else {

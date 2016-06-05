@@ -19,12 +19,15 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9H-04-6cd">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                     <color key="backgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Start Network Game">
+                    <state key="normal" title="Start New Network Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     </variation>
+                    <connections>
+                        <action selector="startNewNetworkGame:" destination="-1" eventType="touchUpInside" id="bgj-MB-EdR"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-BF-I53">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>

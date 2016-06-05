@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
         let email = self.emailField.text
         let password = self.passwordField.text
         
+        
         // only using one instance of UserController
         let userController = UserController.sharedInstance
         if email != "" && password != "" && emailField.validate()

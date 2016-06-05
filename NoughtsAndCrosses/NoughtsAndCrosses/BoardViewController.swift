@@ -18,7 +18,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var networkPlayButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     
-    let currentGame = OXGameController.sharedInstance.getCurrentGame()
     // saves the last snap of rotation
     var lastSnap:CGFloat = CGFloat(0)
 
@@ -175,6 +174,10 @@ class BoardViewController: UIViewController {
     
     // Outlet for all grid buttons
     @IBAction func gridButtonTapped(sender: AnyObject) {
+        
+        
+        let currentGame = OXGameController.sharedInstance.getCurrentGame()
+        
         print("sender.title = :" + String(sender.currentTitle))
         print("currentGame!.board[sender.tag] = :" + String(currentGame!.board[sender.tag]))
         
@@ -187,7 +190,9 @@ class BoardViewController: UIViewController {
             // Call the playMove function on the specific button
             //OXGameController.sharedInstance.playMove(sender.tag)
             
-            moveLogic(sender.tag)
+            if moveLogic(sender.tag) {
+                return
+            }
         }
         
         // play with AI to simulate fun
@@ -214,7 +219,10 @@ class BoardViewController: UIViewController {
                             
                             let button = button as? UIButton
                             button?.setTitle(String(randomCellType), forState: .Normal)
-                            self.moveLogic(randomInt)
+                            
+                            if self.moveLogic(randomInt) {
+                                return
+                            }
                         }
                     }
                 }
@@ -223,8 +231,11 @@ class BoardViewController: UIViewController {
         }
     }
     
-    private func moveLogic(index:Int)
+    // Return true if the game ends
+    private func moveLogic(index:Int) -> Bool
     {
+        let currentGame = OXGameController.sharedInstance.getCurrentGame()
+        
         // Get current the state of the game
         let gameState = currentGame!.state()
         
@@ -239,6 +250,9 @@ class BoardViewController: UIViewController {
             winAlert.addAction(okButton)
             // Present the message
             self.presentViewController(winAlert, animated: true, completion: nil)
+            
+            // game ends, return true
+            return true
         }
         else if gameState == OXGame.OXGameState.complete_no_one_won
         {
@@ -249,27 +263,16 @@ class BoardViewController: UIViewController {
             tieAlert.addAction(okButton)
             // Present the message
             self.presentViewController(tieAlert, animated: true, completion: nil)
+            
+            // game ends, return true
+            return true
         }
+        
+        // game still in progress, return false
+        return false
     }
     
-    // restart the game
-    func restartGame()
-    {
-        OXGameController.sharedInstance.finishCurrentGame()
-        
-        for view in self.boardView.subviews as [UIView]
-        {
-            if let button = view as? UIButton
-            {
-                button.setTitle("", forState: .Normal)
-            }
-        }
-        
-        if OXGameController.sharedInstance.networkMode
-        {
-            self.navigationController?.popViewControllerAnimated(true)
-        }
-    }
+
     
     // Outlet for newGame Button
     @IBAction func newGameButtonTapped(sender: AnyObject) {
@@ -279,6 +282,7 @@ class BoardViewController: UIViewController {
     
     // Handle user logout OR use cancel the current game
     @IBAction func logoutButtonTapped(sender: UIButton) {
+        
         // the button works differently depending whether playing online or not
         if OXGameController.sharedInstance.getNetworkMode()
         {
@@ -322,6 +326,26 @@ class BoardViewController: UIViewController {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.blackColor().CGColor
+    }
+    
+    // PRIVATE HELPER FUNCTIONS ********************************************
+    // restart the game
+    private func restartGame()
+    {
+        OXGameController.sharedInstance.finishCurrentGame()
+        
+        for view in self.boardView.subviews as [UIView]
+        {
+            if let button = view as? UIButton
+            {
+                button.setTitle("", forState: .Normal)
+            }
+        }
+        
+        if OXGameController.sharedInstance.networkMode
+        {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     

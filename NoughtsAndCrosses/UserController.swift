@@ -8,9 +8,26 @@
 
 import Foundation
 
-struct User {
-    var email: String
-    var password: String
+class User: NSObject, NSCoding
+{
+    var email: String!
+    var password: String!
+    
+    init(email:String, password:String) {
+        self.email = email
+        self.password = password
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let email = aDecoder.decodeObjectForKey("email") as? String
+        let password = aDecoder.decodeObjectForKey("password") as? String
+        self.init(email: email!, password: password!)
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(email!, forKey: "email")
+        aCoder.encodeObject(password!, forKey: "password")
+    }
 }
 
 class UserController {
@@ -37,13 +54,17 @@ class UserController {
         let user = User(email: newEmail, password: newPassword)
         
         // use the new storing function
-        if getStoredUser(newEmail) == nil
+        if self.getStoredUser(newEmail) == nil
         {
             // store the user with persistence function
             storeUser(user)
             
             logged_in_user = user
             print("User with email: \(newEmail) has been registered by the UserManager.")
+            
+            // Log in that user
+            loginUser(newEmail, suppliedPassword: newPassword)
+            
             return (nil, user)
         }
         else {
@@ -60,8 +81,13 @@ class UserController {
                 if user.password == suppliedPassword
                 {
                     logged_in_user = user
-                    // delete the user data
-                    NSUserDefaults.standardUserDefaults().setValue("true", forKey: "userIsLoggedIn")
+                    
+                    // keep the user data
+                    let userDefaults = NSUserDefaults.standardUserDefaults()
+                    let encodedData = NSKeyedArchiver.archivedDataWithRootObject(user)
+                    userDefaults.setObject(encodedData, forKey: "userLoggedIn")
+                    userDefaults.synchronize()
+
                     print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
                     return (nil, user)
                 }
@@ -77,7 +103,7 @@ class UserController {
     func logoutUser()
     {
         // delete the user data
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userLoggedIn")
     }
     
     // PERSISTENCE FUNCTIONS ***********************************************************
@@ -86,6 +112,7 @@ class UserController {
     func storeUser(user:User) {
         NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: user.email)
     }
+        
     // get the user
     func getStoredUser(id:String) -> User?
     {
@@ -94,7 +121,9 @@ class UserController {
             // user is found
             let user = User(email: id, password: userPassword)
             return user
-        } else {
+        }
+        else
+        {
             // user not found
             return nil
         }

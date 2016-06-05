@@ -11,7 +11,7 @@ import Foundation
 class OXGameController {
     
     var gameList:[OXGame]? = []
-    private var currentGame: OXGame?
+    private var currentGame: OXGame = OXGame()
     // create a network game mode boolean
     var networkMode:Bool = false
     
@@ -47,16 +47,16 @@ class OXGameController {
         return gameList
     }
     
-    private func setCurrentGame(game: OXGame){
+    func setCurrentGame(game: OXGame){
         currentGame = game
     }
     
     func getCurrentGame() -> OXGame? {
         //        print("Getting current game")
         
-        if(currentGame == nil) {
-            setCurrentGame(OXGame())
-        }
+        //if(currentGame == nil) {
+        //            setCurrentGame(OXGame())
+        //}
         
         return currentGame
     }
@@ -65,7 +65,7 @@ class OXGameController {
     //Can only be called when there is an active game
     func playMove(index: Int) -> CellType{
         //        print("PlayingMove on 'network'")
-        let cellType: CellType = (currentGame?.playMove(index))!
+        let cellType: CellType = currentGame.playMove(index)
         return cellType
     }
     
@@ -73,25 +73,32 @@ class OXGameController {
     func playRandomMove() -> (CellType, Int)?
     {
         //        print("Playing random move")
-        if let count = currentGame?.board.count {
-            for i in 0...count - 1 {
-                if (currentGame?.board[i] == CellType.EMPTY){
-                    let cellType: CellType = (currentGame?.playMove(i))!
-                    
-                    print(cellType)
-                    print("Succesfully at: " + String(i))
-                    
-                    return (cellType, i)
-                }
+        let count = currentGame.board.count
+        for i in 0...count - 1 {
+            if (currentGame.board[i] == CellType.EMPTY){
+                let cellType: CellType = (currentGame.playMove(i))
+                
+                print(cellType)
+                print("Succesfully at: " + String(i))
+                
+                return (cellType, i)
             }
         }
+        
         //        print("Unsuccesfully")
         return nil
         
     }
     
+    // used to have this as parameter: hostUser:User. I changed it
     func createNewGame(hostUser:User)   {
         print("Creating new network game")
+        
+        let newGame = OXGame()
+        newGame.gameId = getRandomID()
+        newGame.hostUser = hostUser
+        
+        gameList?.append(newGame)
     }
     
     func acceptGameWithId(gameId: String) -> OXGame? {
@@ -120,18 +127,39 @@ class OXGameController {
             // get rid of the current game from the gameList
             if(gameList != nil && gameList?.count != 0){
                 var reducer = 0
-                for i in 0...(gameList?.count)! - 1{
-                    if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
+                
+                print("PreGames LIST: ")
+                for game in gameList!
+                {
+                    print(game.gameId)
+                }
+                
+                for i in 0..<(gameList?.count)!
+                {
+                    
+                    if (getCurrentGame()?.gameId == gameList![i - reducer].gameId)
+                    {
+                        print("Actual Game: " + String(getCurrentGame()?.gameId ))
+                        print("In the list: " + String(gameList![i - reducer].gameId))
+                        
+                        
                         gameList?.removeAtIndex(i)
                         reducer += 1
+                        
+                        print("POSTGames LIST: ")
+                        for game in gameList!
+                        {
+                            print(game.gameId)
+                        }
                     }
                 }
             }
-            setCurrentGame(OXGame())
         }
+        
+        setCurrentGame(OXGame())
     }
     
-
+    
     
     //Create a getter and setter for this networkMode.
     func getNetworkMode() -> Bool {
