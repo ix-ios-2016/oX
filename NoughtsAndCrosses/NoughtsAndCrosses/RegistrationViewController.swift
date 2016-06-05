@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
 
+    // decide whether or not to register user
     @IBAction func registerButtonTapped(sender: UIButton) {
         
         if !emailField.validate(emailField.text!) {

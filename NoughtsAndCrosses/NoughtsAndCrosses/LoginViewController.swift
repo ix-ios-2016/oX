@@ -21,11 +21,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    // decide whether or not to log user in
     @IBAction func loginButtonTapped(sender: UIButton) {
         
         if !emailField.validate(emailField.text!) {

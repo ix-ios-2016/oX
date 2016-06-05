@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
-        
+        // Instantiate View Controllers and Navigation Controllers
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
@@ -34,34 +33,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        /*let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
-        if let _ = userIsLoggedIn {
+        // Set up root view based on persistence
+        if let loggedInUser = UserController.sharedInstance.checkLoggedIn() {
+            UserController.sharedInstance.logged_in_user = loggedInUser
             self.window?.rootViewController = self.navigationController
             self.window?.makeKeyAndVisible()
         }
         else {
             self.window?.rootViewController = self.authenticationNavigationController
             self.window?.makeKeyAndVisible()
-        }*/
-        self.window?.rootViewController = self.navigationController
-        self.window?.makeKeyAndVisible()
+        }
         
+        // start up easter egg functionality
         EasterEggController.sharedInstance.initiate(self.window!)
         
         return true
     }
     
+    
+    // Navigate to the gameplay screen
     func navigateToGame() {
         self.window?.rootViewController = self.navigationController
     }
     
+    
+    // Navigate to the homepage
     func navigateToLandingView() {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         
         authenticationNavigationController?.pushViewController(landingViewController, animated: true)
         self.window?.rootViewController = self.authenticationNavigationController
+        
     }
     
+    
+    // Navigate to the easter egg screen
     func navigateToEasterEgg() {
         self.window?.rootViewController = self.easterEggViewController
     }

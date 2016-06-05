@@ -29,6 +29,7 @@ class OXGame {
     var backendState: OXGameState?
     var gameId: String?
     
+    // turn as int
     private func turn() -> Int {
         
         var count = 0
@@ -38,8 +39,11 @@ class OXGame {
             }
         }
         return count
+        
     }
     
+    
+    // turn as type
     func whosTurn() -> CellType {
         
         if (turn() % 2) == 0 {
@@ -51,6 +55,8 @@ class OXGame {
         
     }
     
+    
+    // return CellType at specified cell
     func typeAtIndex(index: Int) -> CellType {
         
         switch board[index] {
@@ -64,6 +70,8 @@ class OXGame {
         
     }
     
+    
+    // play CellType move and specified cell only if cell is empty
     func playMove(index: Int) -> CellType {
         
         let cellType = whosTurn()
@@ -77,6 +85,8 @@ class OXGame {
         
     }
     
+    
+    // check for a winning game
     func winDetection() -> Bool {
         
         func check(cell: Int, with: Int, and: Int) -> Bool {
@@ -90,37 +100,11 @@ class OXGame {
             return false
         }
         
-        /*if (typeAtIndex(0) == typeAtIndex(1) && typeAtIndex(1) == typeAtIndex(2) && typeAtIndex(0) != CellType.EMPTY)
-            || (typeAtIndex(0) == typeAtIndex(3) && typeAtIndex(3) == typeAtIndex(6) && typeAtIndex(0) != CellType.EMPTY)
-            || (typeAtIndex(0) == typeAtIndex(4) && typeAtIndex(4) == typeAtIndex(8) && typeAtIndex(0) != CellType.EMPTY)
-            || (typeAtIndex(3) == typeAtIndex(4) && typeAtIndex(4) == typeAtIndex(5) && typeAtIndex(3) != CellType.EMPTY)
-            || (typeAtIndex(6) == typeAtIndex(7) && typeAtIndex(7) == typeAtIndex(8) && typeAtIndex(6) != CellType.EMPTY)
-            || (typeAtIndex(1) == typeAtIndex(4) && typeAtIndex(4) == typeAtIndex(7) && typeAtIndex(1) != CellType.EMPTY)
-            || (typeAtIndex(2) == typeAtIndex(5) && typeAtIndex(5) == typeAtIndex(8) && typeAtIndex(2) != CellType.EMPTY)
-            || (typeAtIndex(2) == typeAtIndex(4) && typeAtIndex(4) == typeAtIndex(6) && typeAtIndex(2) != CellType.EMPTY) {
-            return true
-        }
-        else {
-            return false
-        }*/
-        
-        /*if (board[0] == board[1] && board[1] == board[2] && board[0] != CellType.EMPTY)
-            || (board[0] == board[3] && board[3] == board[6] && board[0] != CellType.EMPTY)
-            || (board[0] == board[4] && board[4] == board[8] && board[0] != CellType.EMPTY)
-            || (board[1] == board[4] && board[4] == board[7] && board[1] != CellType.EMPTY)
-            || (board[2] == board[5] && board[5] == board[8] && board[2] != CellType.EMPTY)
-            || (board[3] == board[4] && board[4] == board[5] && board[3] != CellType.EMPTY)
-            || (board[6] == board[7] && board[7] == board[8] && board[6] != CellType.EMPTY)
-            || (board[2] == board[4] && board[4] == board[6] && board[2] != CellType.EMPTY) {
-            return true
-        }
-        else {
-            return false
-        }*/
-        
     }
     
+    // return OXGameState by checking for win or tie
     func state() -> OXGameState {
+        
         let won = winDetection()
         if won {
             return OXGameState.complete_someone_won
@@ -131,8 +115,10 @@ class OXGame {
         else {
             return OXGameState.inProgress
         }
+    
     }
     
+    // reset the board to be empty
     func reset() {
         board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
     }

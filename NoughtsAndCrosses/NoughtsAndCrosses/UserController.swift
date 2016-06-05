@@ -31,11 +31,13 @@ class UserController {
     
     var logged_in_user: User?
     
+    // logout user
     func logout() {
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
         logged_in_user = nil
     }
     
+    // register user and return failure message
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?) {
         for user in users {
             if user.email == newEmail {
@@ -45,18 +47,17 @@ class UserController {
         let user = User(email: newEmail, password: newPassword)
         self.storeUser(user)
         logged_in_user = user
-        NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
-        print("User with email: \(newEmail) has been registered and logged in by the UserController.")
+        NSUserDefaults.standardUserDefaults().setValue(user.email, forKey: "userIsLoggedIn")
         return (nil, user)
     }
     
+    // login user and return failure message
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
         if let user = self.getStoredUser(suppliedEmail) {
             if user.email == suppliedEmail {
                 if user.password == suppliedPassword {
-                    NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+                    NSUserDefaults.standardUserDefaults().setValue(user.email, forKey: "userIsLoggedIn")
                     logged_in_user = user
-                    print("User with email: \(suppliedEmail) has been logged in by the UserController.")
                     return (nil, user)
                 } else {
                     return ("Password incorrect", nil)
@@ -67,12 +68,23 @@ class UserController {
         return ("No user with that email", nil)
     }
     
+    func checkLoggedIn() -> User? {
+        if let email = NSUserDefaults.standardUserDefaults().stringForKey("userIsLoggedIn") {
+            return getStoredUser(email)
+        }
+        else {
+            return nil
+        }
+    }
+    
+    // store user with persistence
     func storeUser(user: User) {
         
         NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: user.email)
         
     }
     
+    // get stored user from persistence
     func getStoredUser(id: String) -> User? {
         
         if let userPassword: String = NSUserDefaults.standardUserDefaults().stringForKey(id) {

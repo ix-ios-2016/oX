@@ -24,8 +24,21 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         return Static.instance!
     }
     
-    var lastGesture: Int = 0
+    enum Gestures {
+        case LongPress
+        case RightSwipe
+        case LeftSwipe
+        case TwoDownSwipe
+        case ClockwiseRotation
+        case CounterRotation
+        case Reset
+    }
     
+    var code: [Gestures] = [Gestures.LeftSwipe, Gestures.RightSwipe, Gestures.CounterRotation, Gestures.ClockwiseRotation, Gestures.LongPress, Gestures.TwoDownSwipe, Gestures.TwoDownSwipe]
+    var nextGestureIndex: Int = 0
+    
+    
+    // initialize Easter Egg gesture recognition on a specified view
     func initiate(view:UIView) {
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(EasterEggController.handleLongPress(_:)))
@@ -50,71 +63,130 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         rotation.delegate = self
     }
     
+    
+    // gesture with id
     func handleLongPress(sender: UILongPressGestureRecognizer? = nil) {
-        print("LongPress")
         
-        lastGesture = 1
+        if sender!.state == UIGestureRecognizerState.Began {
+            if nextGestureIndex < code.count && code[nextGestureIndex] == Gestures.LongPress {
+                if nextGestureIndex == code.count - 1 {
+                    nextGestureIndex = 0
+                    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.navigateToEasterEgg()
+                }
+                else {
+                    nextGestureIndex += 1
+                }
+            }
+            else if code[0] == Gestures.LongPress {
+                nextGestureIndex = 1
+            }
+            else {
+                nextGestureIndex = 0
+            }
+}
     }
     
     
     func handleRightSwipe(sender: UISwipeGestureRecognizer? = nil) {
-        print("RightSwipe")
         
-        if lastGesture == 1 {
-            lastGesture = 2
+        if nextGestureIndex < code.count && code[nextGestureIndex] == Gestures.RightSwipe {
+            if nextGestureIndex == code.count - 1 {
+                nextGestureIndex = 0
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToEasterEgg()
+            }
+            else {
+                nextGestureIndex += 1
+            }
+        }
+        else if code[0] == Gestures.RightSwipe {
+            nextGestureIndex = 1
         }
         else {
-            lastGesture = 0
+            nextGestureIndex = 0
         }
     }
     
     func handleLeftSwipe(sender: UISwipeGestureRecognizer? = nil) {
-        print("LeftSwipe")
         
-        if lastGesture == 2 {
-            lastGesture = 3
+        if nextGestureIndex < code.count && code[nextGestureIndex] == Gestures.LeftSwipe {
+            if nextGestureIndex == code.count - 1 {
+                nextGestureIndex = 0
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToEasterEgg()
+            }
+            else {
+                nextGestureIndex += 1
+            }
+        }
+        else if code[0] == Gestures.LeftSwipe {
+            nextGestureIndex = 1
         }
         else {
-            lastGesture = 0
+            nextGestureIndex = 0
         }
     }
     
     func handleTwoDownSwipe(sender: UISwipeGestureRecognizer? = nil) {
-        print("TwoDownSwipe")
         
-        if lastGesture == 3 {
-            lastGesture = 4
+        if nextGestureIndex < code.count && code[nextGestureIndex] == Gestures.TwoDownSwipe {
+            if nextGestureIndex == code.count - 1 {
+                nextGestureIndex = 0
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToEasterEgg()
+            }
+            else {
+                nextGestureIndex += 1
+            }
+        }
+        else if code[0] == Gestures.TwoDownSwipe {
+            nextGestureIndex = 1
         }
         else {
-            lastGesture = 0
+            nextGestureIndex = 0
         }
     }
 
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
         if sender!.state == UIGestureRecognizerState.Ended && sender?.rotation < 0 {
-            print("CounterRotation")
             
-            if lastGesture == 5 {
-                
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToEasterEgg()
-                lastGesture = 0
-                
+            if nextGestureIndex < code.count && code[nextGestureIndex] == Gestures.CounterRotation {
+                if nextGestureIndex == code.count - 1 {
+                    nextGestureIndex = 0
+                    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.navigateToEasterEgg()
+                }
+                else {
+                    nextGestureIndex += 1
+                }
+            }
+            else if code[0] == Gestures.CounterRotation {
+                nextGestureIndex = 1
             }
             else {
-                lastGesture = 0
+                nextGestureIndex = 0
             }
 
         }
         else if sender!.state == UIGestureRecognizerState.Ended && sender?.rotation > 0 {
-   
-            print("ClockwiseRotation")
-            if lastGesture == 4 {
-                lastGesture = 5
+            
+            if nextGestureIndex < code.count && code[nextGestureIndex] == Gestures.ClockwiseRotation {
+                if nextGestureIndex == code.count - 1 {
+                    nextGestureIndex = 0
+                    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.navigateToEasterEgg()
+                }
+                else {
+                    nextGestureIndex += 1
+                }
+            }
+            else if code[0] == Gestures.ClockwiseRotation {
+                nextGestureIndex = 1
             }
             else {
-                lastGesture = 0
+                nextGestureIndex = 0
             }
         }
     }

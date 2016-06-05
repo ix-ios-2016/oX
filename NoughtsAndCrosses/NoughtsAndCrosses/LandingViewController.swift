@@ -25,7 +25,8 @@ class LandingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    // navigate to login page
     @IBAction func loginButtonTapped(sender: UIButton) {
         
         let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
@@ -34,6 +35,8 @@ class LandingViewController: UIViewController {
         
     }
     
+    
+    // navigate to register page
     @IBAction func registerButtonTapped(sender: UIButton) {
         
         let rvc = RegistrationViewController(nibName: "RegistrationViewController", bundle: nil)
