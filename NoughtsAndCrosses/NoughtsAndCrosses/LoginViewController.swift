@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Login"
         // KASRA'S LINE - line to load all past users
-        UserController.sharedInstance.loadUsers()
+//        UserController.sharedInstance.loadUsers()
         
 //        self.emailField.delegate = self
 //        self.passwordField.delegate = self

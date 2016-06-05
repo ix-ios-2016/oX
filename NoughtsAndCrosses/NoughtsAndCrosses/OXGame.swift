@@ -32,7 +32,7 @@ class OXGame {
     var hostUser: User?
     var guestUser: User?
     var backEndState: OXGameState?
-    var gameID: String?
+    var gameId: String?
     
     // function returning number of turns already passed
     private func turn() -> Int {

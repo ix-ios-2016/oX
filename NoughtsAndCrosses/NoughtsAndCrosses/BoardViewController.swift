@@ -17,7 +17,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     
-    var gameObject = OXGame()
     var networkGame = false
     
     override func viewDidLoad() {
@@ -71,53 +70,71 @@ class BoardViewController: UIViewController {
 
     @IBAction func buttonTapped(sender: AnyObject) {
         // play the move
-        gameObject.playMove(sender.tag)
-        sender.setTitle(String(gameObject.typeAtIndex(sender.tag)),
+        let lastPlayer = OXGameController.sharedInstance.getCurrentGame()!.playMove(sender.tag)
+        // update the board
+        sender.setTitle(String(OXGameController.sharedInstance.getCurrentGame()!.typeAtIndex(sender.tag)),
                         forState: UIControlState.Normal)
         print("button \(sender.tag) tapped")
         
         // check the game state
-        let currentState = gameObject.state()
+        let lastState = self.checkState(lastPlayer)
+        // if in network mode, play a move by a stupid AI
+        if (self.networkGame && lastState == OXGameState.inProgress) {
+            // play a move
+            let (cell, index) = OXGameController.sharedInstance.playRandomMove()!
+            // update the board
+            print("button \(index) tapped by AI")
+            for subview in self.boardContainer.subviews {
+                if subview is UIButton && subview.tag == index {
+                    (subview as! UIButton).setTitle(String(cell), forState: UIControlState.Normal)
+                }
+            }
+            // check state again
+            self.checkState(cell)
+        }
+        print(OXGameController.sharedInstance.gameList!)
+        
+    }
+    
+    private func checkState(lastPlayer: CellType) -> OXGameState {
+        let currentState = OXGameController.sharedInstance.getCurrentGame()!.state()
         switch currentState {
         case OXGameState.complete_someone_won:
-            print("Winner is \(gameObject.typeAtIndex(sender.tag))")
+            print("Winner is \(lastPlayer)")
             // create alert controller and OK action
-            let alertController = UIAlertController(title: "Game over!",
-                                                    message: "Winner is \(gameObject.typeAtIndex(sender.tag))",
-                                                    preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Game over!", message: "Winner is \(lastPlayer)", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
             // add OK action to alert controller
             alertController.addAction(OKAction)
             // display alert
             self.presentViewController(alertController, animated: true, completion: nil)
+            OXGameController.sharedInstance.finishCurrentGame()
+            self.resetBoard()
         case OXGameState.complete_no_one_won:
             print("Game tied.")
             // create alert controller and OK action
-            let alertController = UIAlertController(title: "Game over!",
-                                                    message: "Game is tied.",
-                                                    preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Game over!", message: "Game is tied.", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
             // add OK action to alert controller
             alertController.addAction(OKAction)
             // display alert
             self.presentViewController(alertController, animated: true, completion: nil)
+            OXGameController.sharedInstance.finishCurrentGame()
+            self.resetBoard()
         default:
             break
         }
-        
-        
+        return currentState
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {
-        gameObject.reset()
-        for item in boardContainer.subviews {
-            if let button = item as? UIButton {
-                button.setTitle("", forState: UIControlState.Normal)
-            }
-        }
+        OXGameController.sharedInstance.finishCurrentGame()
+        self.resetBoard()
     }
     
     @IBAction func logOutButtonTapped(sender: UIButton) {
+        OXGameController.sharedInstance.finishCurrentGame()
+        self.resetBoard()
         if (self.networkGame) {
             self.navigationController?.popViewControllerAnimated(true)
         } else {
@@ -128,8 +145,17 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
+        OXGameController.sharedInstance.finishCurrentGame()
         let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.pushViewController(networkPlayViewController, animated: true)
+    }
+    
+    private func resetBoard() {
+        for item in boardContainer.subviews {
+            if let button = item as? UIButton {
+                button.setTitle("", forState: UIControlState.Normal)
+            }
+        }
     }
     
     

@@ -32,16 +32,16 @@ class UserController {
     var logged_in_user: User?
     
     // KASRA'S EXTRA FUNCTION
-    func loadUsers() {
-        for (key, pass) in NSUserDefaults.standardUserDefaults().dictionaryRepresentation() {
-            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-            if emailTest.evaluateWithObject(key) {
-                // is an email key
-                self.users.append(User(email: key, password: pass as! String))
-            }
-        }
-    }
+//    func loadUsers() {
+//        for (key, pass) in NSUserDefaults.standardUserDefaults().dictionaryRepresentation() {
+//            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//            let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+//            if emailTest.evaluateWithObject(key) {
+//                // is an email key
+//                self.users.append(User(email: key, password: pass as! String))
+//            }
+//        }
+//    }
     
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?) {
         for user in users {

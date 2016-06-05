@@ -38,6 +38,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         print("did select row \(indexPath.row)")
         let newBoardView = BoardViewController(nibName: "BoardViewController", bundle: nil)
         newBoardView.networkGame = true
+//        OXGameController.sharedInstance.setCurrentGame(gamesList[indexPath.row])
         self.navigationController?.pushViewController(newBoardView, animated: true)
         
     }
