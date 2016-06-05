@@ -8,11 +8,12 @@
 
 import UIKit
 
-class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var gamesList = [OXGame]() // Might need to be optional
+    var refreshControl : UIRefreshControl!
     
-    
+
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,11 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         gamesList = OXGameController.sharedInstance.getListOfGames()!
         
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
+        refreshControl.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
         
     }
 
@@ -38,6 +44,9 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
 
+        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     
@@ -59,8 +68,8 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var game = OXGameController.sharedInstance
-        cell.textLabel?.text = game.getListOfGames()![indexPath.row].hostUser!.email // NEEDS CHANGE FROM ANOTHER TO ANOTHER VARIABLE
+        let game = OXGameController.sharedInstance
+        cell.textLabel!.text = "\(game.getListOfGames()![indexPath.row].hostUser!.email), ID: \(game.getListOfGames()![indexPath.row].gameId!)"
         return cell
     }
     
@@ -71,12 +80,27 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     //Delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         print("did select row \(indexPath.row)")
+        var game = OXGameController.sharedInstance.acceptGameWithId(self.gamesList[indexPath.row].gameId!) //Need to do something with this
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         bvc.networkMode = true
         self.navigationController?.pushViewController(bvc, animated: true)
         
+    }
+    
+    func refreshTable(){
+        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    
+    @IBAction func newGamePressed(sender: AnyObject) {
+        var newUser = User(email: "h@e.com", password: "1")
+        OXGameController.sharedInstance.createNewGame(newUser)
+        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        bvc.networkMode = true
+        self.navigationController?.pushViewController(bvc, animated: true)
     }
     /*
     // MARK: - Navigation

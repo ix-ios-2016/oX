@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("User registered view registration view")
             
             // Store user
-//            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+            NSUserDefaults.standardUserDefaults().setValue("sss", forKey: "userIsLoggedIn")
             
             // Move to the game
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -126,11 +126,11 @@ class BoardViewController: UIViewController {
         sender.setTitle(String(type), forState: UIControlState.Normal)
         
         let state = OXGameController.sharedInstance.getCurrentGame()!.state()
-        if state == OXGameState.complete_someone_one && type == CellType.O {
+        if state == OXGameState.complete_someone_one && type == CellType.X {
             print("Player 1 has won!")
             restartgame()
         }
-        else if state == OXGameState.complete_someone_one && type == CellType.X {
+        else if state == OXGameState.complete_someone_one && type == CellType.O {
             print("player 2 has won!")
             restartgame()
         }
@@ -144,16 +144,16 @@ class BoardViewController: UIViewController {
         
         if networkMode {
             if state != OXGameState.complete_someone_one || state != OXGameState.complete_no_one_won {
-                if current.whosTurn() == CellType.X{
+                if current.whosTurn() == CellType.O{
                     var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
                     current.board[place] = newMove
-                    places[place].setTitle(String("X"), forState: UIControlState.Normal)
+                    places[place].setTitle(String("O"), forState: UIControlState.Normal)
                     let state = OXGameController.sharedInstance.getCurrentGame()!.state()
-                    if state == OXGameState.complete_someone_one && type == CellType.O {
+                    if state == OXGameState.complete_someone_one && type == CellType.X {
                         print("Player 1 has won!")
                         restartgame()
                     }
-                    else if state == OXGameState.complete_someone_one && type == CellType.X {
+                    else if state == OXGameState.complete_someone_one && type == CellType.O {
                         print("player 2 has won!")
                         restartgame()
                     }
@@ -168,17 +168,16 @@ class BoardViewController: UIViewController {
                 }
             }
         }
-
+        //print(OXGameController.sharedInstance.gameList?.endIndex)
         
     }
     
     @IBAction func newGame(sender: UIButton) {
-        //OXGameController.sharedInstance.finishCurrentGame()
         restartgame()
     }
     
     @IBAction func logOutPressed(sender: UIButton) {
-        
+        OXGameController.sharedInstance.finishCurrentGame()
         if(networkMode){
            self.navigationController?.popViewControllerAnimated(true)
         }
@@ -186,7 +185,7 @@ class BoardViewController: UIViewController {
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToLandingNavigationController()
             
-            UserController.sharedInstance.deleteUser()
+            UserController.sharedInstance.logoutCurrentUser()
         }
     }
     
@@ -197,7 +196,6 @@ class BoardViewController: UIViewController {
     
 
     func restartgame() {
-        //OXGameController.sharedInstance.finishCurrentGame()
         OXGameController.sharedInstance.getCurrentGame()!.reset()
         target.setTitle("", forState: UIControlState.Normal)
         target2.setTitle("", forState: UIControlState.Normal)
@@ -208,6 +206,10 @@ class BoardViewController: UIViewController {
         target7.setTitle("", forState: UIControlState.Normal)
         target8.setTitle("", forState: UIControlState.Normal)
         target3.setTitle("", forState: UIControlState.Normal)
+        OXGameController.sharedInstance.finishCurrentGame()
+        if networkMode{
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
 }

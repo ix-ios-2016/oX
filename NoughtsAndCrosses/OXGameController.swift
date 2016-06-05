@@ -1,3 +1,4 @@
+
 //
 //  OXGameController.swift
 //  NoughtsAndCrosses
@@ -11,7 +12,7 @@ import Foundation
 class OXGameController {
     
     var gameList:[OXGame]? = []
-    private var currentGame: OXGame?
+    private var currentGame: OXGame = OXGame()
     
     
     class var sharedInstance: OXGameController {
@@ -56,10 +57,6 @@ class OXGameController {
     func getCurrentGame() -> OXGame? {
         //        print("Getting current game")
         
-        if(currentGame == nil){
-            setCurrentGame(OXGame())
-        }
-        
         return currentGame
     }
     
@@ -67,21 +64,21 @@ class OXGameController {
     //Can only be called when there is an active game
     func playMove(index: Int) -> CellType{
         //        print("PlayingMove on 'network'")
-        let cellType: CellType = (currentGame?.playMove(index))!
+        
+        let cellType: CellType = currentGame.playMove(index)
         return cellType
     }
     
     //Simple random move, it will always try to play the first indexes
     func playRandomMove() -> (CellType, Int)? {
         //        print("Playing random move")
-        if let count = currentGame?.board.count {
-            for i in 0...count - 1 {
-                if (currentGame?.board[i] == CellType.EMPTY){
-                    let cellType: CellType = (currentGame?.playMove(i))!
-                    //                    print(cellType)
-                    //                    print("Succesfully at: " + String(i))
-                    return (cellType, i)
-                }
+        
+        for i in 0...currentGame.board.count - 1 {
+            if (currentGame.board[i] == CellType.EMPTY){
+                let cellType: CellType = (currentGame.playMove(i))
+                //                    print(cellType)
+                //                    print("Succesfully at: " + String(i))
+                return (cellType, i)
             }
         }
         //        print("Unsuccesfully")
@@ -120,6 +117,8 @@ class OXGameController {
                 }
             }
         }
+        
+        currentGame.reset()
         
         setCurrentGame(OXGame())
     }

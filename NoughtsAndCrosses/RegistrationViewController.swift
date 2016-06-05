@@ -14,6 +14,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var Failure: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Register"

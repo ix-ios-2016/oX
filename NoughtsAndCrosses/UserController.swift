@@ -85,6 +85,12 @@ class UserController {
         
     }
     
+    func logoutCurrentUser()    {
+    
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userIsLoggedIn")
+    }
+    
+    
     func getStoredUser(id:String) -> User?    {
         
         if let userPassword:String = NSUserDefaults.standardUserDefaults().stringForKey(id)    {
