@@ -12,7 +12,7 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Authorization Menu"
+        self.title = "Auth Menu"
         
         // Do any additional setup after loading the view.
     }

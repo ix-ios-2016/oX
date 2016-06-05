@@ -39,9 +39,11 @@ class OXGame {
     
     // Initiaize a board of 9 empty cells
     var board = [CellType](count: MAX_TURNS, repeatedValue: CellType.EMPTY)
+    
     // Decide which cellType goes first in the game
     private var startType:CellType = CellType.X
     
+    // give the amount of turns played in the game so far
     private var turnCount:Int = 0
 
     // Return the amount of turns played
@@ -72,6 +74,8 @@ class OXGame {
         board[index] = whoseTurn()
         
         turnCount += 1
+        print("playmove played... CURRENT TURNCOUNT: " + String(turnCount))
+        print("Whose turn: " + String(whoseTurn()))
         return board[index]
     }
     
@@ -116,6 +120,7 @@ class OXGame {
         for index in 0...8 {
             board[index] = CellType.EMPTY
         }
+        turnCount = 0
     }
     
 

@@ -1,3 +1,4 @@
+//
 //  OXGameController.swift
 //  NoughtsAndCrosses
 //
@@ -7,12 +8,12 @@
 
 import Foundation
 
-
 class OXGameController {
     
-    var gameList:[OXGame]?
+    var gameList:[OXGame]? = []
     private var currentGame: OXGame?
-    
+    // create a network game mode boolean
+    var networkMode:Bool = false
     
     class var sharedInstance: OXGameController {
         struct Static {
@@ -29,44 +30,62 @@ class OXGameController {
     
     func getListOfGames() -> [OXGame]?
     {
-        let random: Int = Int(arc4random_uniform(UInt32(9)) + 5)
-        self.gameList = [OXGame](count: random, repeatedValue: OXGame())
-        for game in self.gameList!
+        if(gameList?.count == 0)
         {
-            game.gameId = getRandomID()
-            game.hostUser = User(email:"hostuser@gmail.com",password: "")
+            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
+            //Create games
+            for _ in 1...random {
+                self.gameList?.append(OXGame())
+            }
+            
+            for game in self.gameList! {
+                game.gameId = getRandomID()
+                game.hostUser = User(email:"hostuser@gmail.com",password: "")
+            }
         }
         
         return gameList
     }
     
+    private func setCurrentGame(game: OXGame){
+        currentGame = game
+    }
+    
     func getCurrentGame() -> OXGame? {
-        print("Getting current game")
+        //        print("Getting current game")
+        
+        if(currentGame == nil) {
+            setCurrentGame(OXGame())
+        }
+        
         return currentGame
     }
     
     
     //Can only be called when there is an active game
-    func playMove(index: Int) -> CellType {
-        print("PlayingMove on 'network'")
+    func playMove(index: Int) -> CellType{
+        //        print("PlayingMove on 'network'")
         let cellType: CellType = (currentGame?.playMove(index))!
         return cellType
     }
     
     //Simple random move, it will always try to play the first indexes
-    func playRandomMove() -> (CellType, Int)? {
-        print("Playing random move")
+    func playRandomMove() -> (CellType, Int)?
+    {
+        //        print("Playing random move")
         if let count = currentGame?.board.count {
             for i in 0...count - 1 {
                 if (currentGame?.board[i] == CellType.EMPTY){
                     let cellType: CellType = (currentGame?.playMove(i))!
+                    
                     print(cellType)
                     print("Succesfully at: " + String(i))
+                    
                     return (cellType, i)
                 }
             }
         }
-        print("Unsuccesfully")
+        //        print("Unsuccesfully")
         return nil
         
     }
@@ -75,29 +94,55 @@ class OXGameController {
         print("Creating new network game")
     }
     
-    
-    func acceptGameNumber(gameId: String) -> OXGame? {
-        print("Accepting network game")
+    func acceptGameWithId(gameId: String) -> OXGame? {
+        //        print("Accepting network game")
         for game in self.gameList!    {
             if (game.gameId == gameId)  {
-                currentGame = game
-                print("Succesfully")
+                setCurrentGame(game)
+                //                print("Succesfully")
                 return game
             }
             
         }
-        print("Not succesfully")
+        //        print("Not succesfully")
         return nil
-        
     }
     
     func finishCurrentGame(){
         print("Finishing current game")
-        currentGame = nil
+        
+        if let game = self.getCurrentGame() {
+            game.reset()
+        }
+        
+        if networkMode
+        {
+            // get rid of the current game from the gameList
+            if(gameList != nil && gameList?.count != 0){
+                var reducer = 0
+                for i in 0...(gameList?.count)! - 1{
+                    if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
+                        gameList?.removeAtIndex(i)
+                        reducer += 1
+                    }
+                }
+            }
+            setCurrentGame(OXGame())
+        }
+    }
+    
+
+    
+    //Create a getter and setter for this networkMode.
+    func getNetworkMode() -> Bool {
+        return networkMode
+    }
+    func setNetworkMode(value:Bool) {
+        networkMode = value
     }
     
     //Helper functions
-    func getRandomID() -> String {
+    private func getRandomID() -> String {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len: Int = 10
         let randomString : NSMutableString = NSMutableString(capacity: len)

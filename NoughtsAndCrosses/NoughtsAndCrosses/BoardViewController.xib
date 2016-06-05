@@ -87,33 +87,6 @@
                                 <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="Ald-Yn-xzK"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-k9-j6J">
-                            <rect key="frame" x="187" y="184.5" width="187" height="185"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="1dn-Lo-y90"/>
-                                <constraint firstAttribute="width" secondItem="Uv9-k9-j6J" secondAttribute="height" multiplier="1:1" constant="1" id="Cl3-PX-RJY"/>
-                                <constraint firstAttribute="width" secondItem="Uv9-k9-j6J" secondAttribute="height" multiplier="115:94" constant="1" id="bJq-Hs-aJT"/>
-                                <constraint firstAttribute="width" constant="30" id="oRF-Bl-x4s"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="1dn-Lo-y90"/>
-                                    <exclude reference="Cl3-PX-RJY"/>
-                                    <exclude reference="bJq-Hs-aJT"/>
-                                    <exclude reference="oRF-Bl-x4s"/>
-                                </mask>
-                            </variation>
-                            <variation key="widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="111" y="109" width="112" height="110"/>
-                            </variation>
-                            <connections>
-                                <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="Oy8-Ck-akL"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4o-we-hNW">
                             <rect key="frame" x="379" y="184.5" width="181" height="185"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -200,6 +173,33 @@
                                 <rect key="frame" x="0.0" y="219" width="335" height="5"/>
                             </variation>
                         </view>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-k9-j6J">
+                            <rect key="frame" x="187" y="184.5" width="187" height="185"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="1dn-Lo-y90"/>
+                                <constraint firstAttribute="width" secondItem="Uv9-k9-j6J" secondAttribute="height" multiplier="1:1" constant="1" id="Cl3-PX-RJY"/>
+                                <constraint firstAttribute="width" secondItem="Uv9-k9-j6J" secondAttribute="height" multiplier="115:94" constant="1" id="bJq-Hs-aJT"/>
+                                <constraint firstAttribute="width" constant="30" id="oRF-Bl-x4s"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="1dn-Lo-y90"/>
+                                    <exclude reference="Cl3-PX-RJY"/>
+                                    <exclude reference="bJq-Hs-aJT"/>
+                                    <exclude reference="oRF-Bl-x4s"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="111" y="109" width="112" height="110"/>
+                            </variation>
+                            <connections>
+                                <action selector="gridButtonTapped:" destination="-1" eventType="touchUpInside" id="Oy8-Ck-akL"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="wqL-6N-dzo" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="width" multiplier="0.333" id="09T-Bw-3Cz"/>

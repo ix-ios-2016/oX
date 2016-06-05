@@ -20,15 +20,15 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
 
         // Do any additional setup after loading the view.
         self.title = "Network Play"
-        // set the table's data source
-        gamesTableView.dataSource = self
-        // set the table's delegate???
-        gamesTableView.delegate = self
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
+        
+        // set the table's data source
+        gamesTableView.dataSource = self
+        // set the table's delegate???
+        gamesTableView.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         let networkGameView = BoardViewController(nibName: "BoardViewController", bundle: nil)
         
-        networkGameView.networkMode = true
+        OXGameController.sharedInstance.setNetworkMode(true)
         
         self.navigationController?.pushViewController(networkGameView, animated: true)
         
@@ -66,7 +66,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         // create a cell for the row at index
         let cell:UITableViewCell = UITableViewCell()
-        cell.textLabel?.text = gamesList![indexPath.item].hostUser!.email
+        cell.textLabel?.text = String(gamesList![indexPath.item].gameId!) + "  By: " + String(gamesList![indexPath.item].hostUser!.email)
         return cell
     }
     

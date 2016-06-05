@@ -18,7 +18,10 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9H-04-6cd">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <color key="backgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Start Network Game">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <variation key="widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     </variation>
@@ -27,11 +30,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="62" width="375" height="547"/>
+                        <rect key="frame" x="0.0" y="62" width="375" height="555"/>
                     </variation>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="subviews">
