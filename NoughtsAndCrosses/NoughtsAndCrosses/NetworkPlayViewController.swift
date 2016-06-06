@@ -18,12 +18,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBarHidden = false
         super.viewDidLoad()
-        self.title = "Network Play"
-        
-        tableView.dataSource = self
-        tableView.delegate = self
         
         
         
@@ -36,6 +31,12 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+        self.title = "Network Play"
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
     
 
     /*
@@ -51,6 +52,9 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("did select row \(indexPath.row)")
+        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        self.navigationController?.pushViewController(bvc, animated: true)
+        bvc.networkGame = true
         
     }
     
@@ -63,7 +67,10 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "test cell label"
+        return cell
+        
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -19,6 +19,7 @@
                 <outlet property="button6" destination="wqL-6N-dzo" id="Sfm-cn-MyB"/>
                 <outlet property="button7" destination="5oJ-IG-Rbw" id="fJj-72-2Lt"/>
                 <outlet property="button8" destination="98z-PQ-N63" id="DHe-ED-oPe"/>
+                <outlet property="logoutButton" destination="1cp-6n-plq" id="8BD-60-mhO"/>
                 <outlet property="networkPlayButton" destination="E16-yK-SWc" id="emK-cU-clF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

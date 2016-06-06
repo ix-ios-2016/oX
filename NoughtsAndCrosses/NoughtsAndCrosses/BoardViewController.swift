@@ -13,6 +13,9 @@ class BoardViewController: UIViewController {
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet var boardView: UIView!
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    var networkGame: Bool = false
     
     @IBOutlet var button0: UIButton!
     @IBOutlet var button1: UIButton!
@@ -31,36 +34,6 @@ class BoardViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
-    /*func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
-        
-        //set the actual boards to rotate
-        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation);
-        
-        print("rotation!")
-        
-        //when the rotation ends
-        if(sender!.state == UIGestureRecognizerState.Ended) {
-            //sender!.rotation is the angle (in radians?) that the rotation ended at
-            print("rotation \(sender!.rotation)")
-            
-            //snap actions
-            if (sender!.rotation < CGFloat(M_PI)/4) {
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {
-                    self.boardView.transform = CGAffineTransformMakeRotation(0)})
-                sender!.rotation = 0;
-            }
-            else {
-                UIView.animateWithDuration(NSTimeInterval(3), animations: {
-                    self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))})
-                sender!.rotation = CGFloat(M_PI)
-            }
-        }
-    }*/
-    
-    /*func handlePinch(sender: UIRotationGestureRecognizer? = nil) {
-        print("pinch!")
-    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -101,6 +74,15 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
+        
+        //if network game
+        if networkGame {
+            networkPlayButton.hidden = true
+            logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
+        }
+        else {
+            logoutButton.setTitle("Logout", forState: UIControlState.Normal)
+        }
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {
@@ -123,15 +105,24 @@ class BoardViewController: UIViewController {
     
     @IBAction func logoutButtonTapped(sender: UIButton) {
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
-        //UserController.sharedInstance.logged_in_user!.email = "";
-        //UserController.sharedInstance.logged_in_user!.password = "";
-        appDelegate.navigateToLandingViewController()
+        //not in network play
+        if !networkGame {
+            //UserController.sharedInstance.logged_in_user!.email = "";
+            //UserController.sharedInstance.logged_in_user!.password = "";
+            appDelegate.navigateToLandingViewController()
+        }
+        //in network play (cancel pressed)
+        else {
+            self.navigationController?.popViewControllerAnimated(true)
+            
+        }
+        
     }
     
     @IBAction func networkPlayTapped(sender: AnyObject) {
-        
         let nvc = NetworkPlayViewController(nibName:"NetworkPlayViewController",bundle:nil)
         self.navigationController?.pushViewController(nvc, animated: true)
+        
     }
     
 }
