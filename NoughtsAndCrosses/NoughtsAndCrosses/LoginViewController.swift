@@ -23,8 +23,14 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+
         emailField.delegate = self
         //passwordField.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+          self.navigationController?.navigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,39 +43,40 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
         //let emailSupplied = String(UITextField.textInRange(emailField))
         let passwordSupplied = passwordField.text!
         
-        UserController.sharedInstance.loginUser(emailSupplied, password: passwordSupplied, presentingViewController: nil , viewControllerCompletionFunction: {(user,message) in self.loginCallComplete(user!, message: message)})
+        UserController.sharedInstance.loginUser(emailSupplied, password: passwordSupplied, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginCallComplete(user, message: message)})
         
         //        If one is not present, check to see if a failure message is present and then print    the failure message.
 
         }
-        
-        //print("Login Button Tapped")
     
     func loginCallComplete(user : User? , message : String?) {
-        //new registration code
-        
-        
-        
-//        if (user != nil) {
-//            
-//            print (user)
-//            
-//            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
-//            
-//            appDelegate.navigateToGame()
-//            //navigateToLoggedInNavigationController
-//            
-//            //This is how we store something in the harddrive
-//            NSUserDefaults.standardUserDefaults().setValue("True" , forKey: "userIsLoggedIn")
-//        } else {
-//            //if let temp2 = failure_message { //temp2 is NOT optional. If it exists, now we can use it
-//            //    print (temp2)
-//            }
-//        
-//    }
+            
+        if let _ = user   {
+                
+            //successfully logged in
+            let alert = UIAlertController(title:"Login Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+            //when the user clicks "Ok", do the following
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToGame()
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+                
+            } else  {
+                
+                //registration failed
+                let alert = UIAlertController(title:"Login Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: {
+                    
+                })
+                
+            }
+        }
 
-    }
 }
+
 
    
 

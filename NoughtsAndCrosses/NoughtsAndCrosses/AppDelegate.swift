@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
         }
     
+    
     func navigateToLandingViewController() {
         let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         authorizationNavigationController = UINavigationController(rootViewController: landingViewController)

@@ -52,25 +52,33 @@ class RegistrationViewController: UIViewController , UITextFieldDelegate {
         UserController.sharedInstance.registerUser(emailSupplied, password: passwordSupplied, presentingViewController: self , viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user!, message: message)})
         
         addLoadingOverlay()
-        
-        //        If one is not present, check to see if a failure message is present and then print    the failure message.
-        
-        //if let _ = user {
-            print (user)
-            
-            
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
-            NSUserDefaults.standardUserDefaults().setValue("TRUE" , forKey: "userIsLoggedIn")
-            appDelegate.navigateToGame()
-        //} else {
-        //    if let temp2 = failure_message{ //temp2 is NOT optional. If it exists, now we can use it
-        //        print (temp2)
-            }
-        //}
-        
-    func registrationComplete(user : User , message : String?) {
-        //new registration code
-        
     }
+    
+    func registrationComplete(user:User?,message:String?) {
+        
+        if let _ = user   {
+            
+            //successfully registered
+            let alert = UIAlertController(title:"Registration Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+                //when the user clicks "Ok", do the following
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToGame()
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }   else    {
+            
+            //registration failed
+            let alert = UIAlertController(title:"Registration Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
+    }
+    
 
  }

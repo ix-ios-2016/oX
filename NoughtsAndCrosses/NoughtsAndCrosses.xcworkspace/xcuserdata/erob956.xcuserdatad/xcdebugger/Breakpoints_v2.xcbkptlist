@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoughtsAndCrosses/RegistrationViewController.swift"
-            timestampString = "486905973.608195"
+            timestampString = "486911991.003448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "registrationComplete(_:message:)"
             landmarkType = "5">
          </BreakpointContent>

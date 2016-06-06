@@ -11,11 +11,8 @@ import UIKit
 class NetworkPlayViewController: UIViewController, UITableViewDataSource , UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-        
     var gamesList : [OXGame] = []
-    
     @IBOutlet weak var createNewGameInNetworkMode: UIButton!
-    
     var refreshControl : UIRefreshControl!
     
     override func viewDidLoad() {
