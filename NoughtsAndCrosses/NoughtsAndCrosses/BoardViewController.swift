@@ -23,16 +23,26 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var button6: UIButton!
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var networkPlayButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     var gameObject = OXGame()
+    var networkGame:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        EasterEggController.sharedInstance.initiate(view)
 //        EasterEggController.sharedInstance.checkEasterEgg()
         
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        if networkGame {
+            networkPlayButton.hidden = true
+            logoutButton.setTitle("Cancel game", forState: UIControlState.Normal)
+        }
+    }
     //enum/ array of gestures? variable arraycombo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,13 +71,22 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(sender: UIButton) {
-        UserController.sharedInstance.logged_in_user!.email = ""
-        UserController.sharedInstance.logged_in_user!.password = ""
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
+        if networkGame {
+            self.navigationController?.popViewControllerAnimated(true)
+        } else {
+        //UserController.sharedInstance.logged_in_user!.email = ""
+        //UserController.sharedInstance.logged_in_user!.password = ""
         appDelegate.navigateToLandingViewController()
         EasterEggController.sharedInstance.refresh()
+        }
     }
     
     
+    @IBAction func networkPlayButtonTapped(sender: UIButton) {
+        let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(npc, animated: true)
+    }
     
     func restartGame() {
         gameObject.reset()

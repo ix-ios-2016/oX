@@ -53,6 +53,7 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
 
         let rotationVar: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleRotation(_:)))
         view.addGestureRecognizer(rotationVar)
+        rotationVar.delegate = self
         
         print(correctSeries)
     }

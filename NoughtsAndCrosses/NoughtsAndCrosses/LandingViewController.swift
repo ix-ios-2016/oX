@@ -13,6 +13,7 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Noughts and Crosses!"
+        var _ = ClosureExperiment()
 
         // Do any additional setup after loading the view.
     }
