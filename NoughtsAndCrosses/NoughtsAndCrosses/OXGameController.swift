@@ -1,4 +1,3 @@
-
 //
 //  OXGameController.swift
 //  NoughtsAndCrosses
@@ -12,7 +11,7 @@ import Foundation
 class OXGameController {
     
     var gameList:[OXGame]? = []
-    private var currentGame: OXGame?
+    private var currentGame: OXGame = OXGame()
     
     
     class var sharedInstance: OXGameController {
@@ -47,18 +46,15 @@ class OXGameController {
         }
         
         return gameList
+        
     }
     
-    func setCurrentGame(game: OXGame){
+    private func setCurrentGame(game: OXGame){
         currentGame = game
     }
     
     func getCurrentGame() -> OXGame? {
         //        print("Getting current game")
-        
-        if(currentGame == nil){
-            currentGame = OXGame()
-        }
         
         return currentGame
     }
@@ -67,21 +63,21 @@ class OXGameController {
     //Can only be called when there is an active game
     func playMove(index: Int) -> CellType{
         //        print("PlayingMove on 'network'")
-        let cellType: CellType = (currentGame?.playMove(index))!
+        
+        let cellType: CellType = currentGame.playMove(index)
         return cellType
     }
     
     //Simple random move, it will always try to play the first indexes
     func playRandomMove() -> (CellType, Int)? {
         //        print("Playing random move")
-        if let count = currentGame?.board.count {
-            for i in 0...count - 1 {
-                if (currentGame?.board[i] == CellType.EMPTY){
-                    let cellType: CellType = (currentGame?.playMove(i))!
-                    //                    print(cellType)
-                    //                    print("Succesfully at: " + String(i))
-                    return (cellType, i)
-                }
+        
+        for i in 0...currentGame.board.count - 1 {
+            if (currentGame.board[i] == CellType.EMPTY){
+                let cellType: CellType = ( currentGame.playMove(i) )
+                                    //print(cellType)
+                //                    print("Succesfully at: " + String(i))
+                return (cellType, i)
             }
         }
         //        print("Unsuccesfully")
@@ -91,6 +87,11 @@ class OXGameController {
     
     func createNewGame(hostUser:User)   {
         print("Creating new network game")
+        let game = OXGame()
+        gameList?.append(game)
+        setCurrentGame(game)
+        game.gameID = getRandomID()
+        game.hostUser = hostUser
     }
     
     
@@ -98,8 +99,8 @@ class OXGameController {
         //        print("Accepting network game")
         for game in self.gameList!    {
             if (game.gameID == gameId)  {
-                currentGame = game
-                //                print("Succesfully")
+                setCurrentGame(game)
+                                print("Succesfully")
                 return game
             }
             
@@ -114,14 +115,16 @@ class OXGameController {
         if(gameList != nil && gameList?.count != 0){
             var reducer = 0
             for i in 0...(gameList?.count)! - 1{
-                if (getCurrentGame()?.gameID == gameList![i - reducer].gameID){
+                if ( getCurrentGame()?.gameID == gameList![i - reducer].gameID){
                     gameList?.removeAtIndex(i)
                     reducer += 1
                 }
             }
         }
         
-        currentGame = OXGame()
+        currentGame.reset()
+        
+        setCurrentGame(OXGame())
     }
     
     //Helper functions

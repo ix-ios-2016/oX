@@ -98,7 +98,7 @@ class OXGame {
         if ( winDetection() ){
             return OXGameState.complete_someone_won
         }
-        else if ( (winDetection() == false) && (turn() == 8) ){
+        else if ( (winDetection() == false) && (turn() == 9) ){
             return  OXGameState.complete_no_one_won
         }
         else {

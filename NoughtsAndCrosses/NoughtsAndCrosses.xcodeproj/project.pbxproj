@@ -12,6 +12,7 @@
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
+		B649DFC4A1CACAAF36F004FC /* Pods_NoughtsAndCrosses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C646BCA96E577A86A9AC2373 /* Pods_NoughtsAndCrosses.framework */; };
 		CA07DB211CFF6633002895CF /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07DB1F1CFF6633002895CF /* EasterEggViewController.swift */; };
 		CA07DB221CFF6633002895CF /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA07DB201CFF6633002895CF /* EasterEggViewController.xib */; };
 		CA07DB251CFF66F6002895CF /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07DB241CFF66F6002895CF /* EasterEggController.swift */; };
@@ -22,6 +23,8 @@
 		CA35D7271CFE2CEF0030E246 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA35D7251CFE2CEF0030E246 /* LoginViewController.xib */; };
 		CA35D72A1CFE32930030E246 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA35D7281CFE32930030E246 /* RegistrationViewController.swift */; };
 		CA35D72B1CFE32930030E246 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA35D7291CFE32930030E246 /* RegistrationViewController.xib */; };
+		CA3ED6D31D0565DC00765DA8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CA3ED6D21D0565DC00765DA8 /* Podfile */; };
+		CA3ED6D71D05700B00765DA8 /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */; };
 		CA47A89B1D016EA0005F66F3 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */; };
 		CA47A89C1D016EA0005F66F3 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */; };
 		CA5FE1C61D01BF04005DB249 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5FE1C51D01BF04005DB249 /* OXGameController.swift */; };
@@ -60,6 +63,9 @@
 		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		782AE7B5918F932283C1C1E9 /* Pods-NoughtsAndCrosses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.debug.xcconfig"; sourceTree = "<group>"; };
+		7BAA4FBB12CBD602A3A39B7F /* Pods-NoughtsAndCrosses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.release.xcconfig"; sourceTree = "<group>"; };
+		C646BCA96E577A86A9AC2373 /* Pods_NoughtsAndCrosses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrosses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA07DB1F1CFF6633002895CF /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		CA07DB201CFF6633002895CF /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		CA07DB241CFF66F6002895CF /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,8 @@
 		CA35D7251CFE2CEF0030E246 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		CA35D7281CFE32930030E246 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		CA35D7291CFE32930030E246 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		CA3ED6D21D0565DC00765DA8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
 		CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		CA5FE1C51D01BF04005DB249 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B649DFC4A1CACAAF36F004FC /* Pods_NoughtsAndCrosses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,11 +123,14 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */,
 				CA1A82CC1CFEDED700BCBF24 /* EmailValidatedTextField.swift */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
+				8BF78FC294A25E0909463277 /* Pods */,
+				D867E4FDC9E9F9D0267B25E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +147,7 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				CA3ED6D21D0565DC00765DA8 /* Podfile */,
 				CA5FE1C41D01BD06005DB249 /* Screens */,
 				CA5FE1C31D01BC3C005DB249 /* ModelControllers */,
 				CA07DB231CFF667B002895CF /* EasterEgg */,
@@ -164,6 +177,15 @@
 				42D447EF1CD765680070326E /* Info.plist */,
 			);
 			path = NoughtsAndCrossesUITests;
+			sourceTree = "<group>";
+		};
+		8BF78FC294A25E0909463277 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				782AE7B5918F932283C1C1E9 /* Pods-NoughtsAndCrosses.debug.xcconfig */,
+				7BAA4FBB12CBD602A3A39B7F /* Pods-NoughtsAndCrosses.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		CA07DB231CFF667B002895CF /* EasterEgg */ = {
@@ -218,6 +240,14 @@
 			name = Screens;
 			sourceTree = "<group>";
 		};
+		D867E4FDC9E9F9D0267B25E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C646BCA96E577A86A9AC2373 /* Pods_NoughtsAndCrosses.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,9 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrosses" */;
 			buildPhases = (
+				1A7973273201DDE10A8BB034 /* [CP] Check Pods Manifest.lock */,
 				42D447C61CD765670070326E /* Sources */,
 				42D447C71CD765670070326E /* Frameworks */,
 				42D447C81CD765670070326E /* Resources */,
+				EE312ADEF732D7931AD50BF9 /* [CP] Embed Pods Frameworks */,
+				B36B5534F758F32A5A148DC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -328,6 +361,7 @@
 				CA07DB221CFF6633002895CF /* EasterEggViewController.xib in Resources */,
 				CA35D72B1CFE32930030E246 /* RegistrationViewController.xib in Resources */,
 				CA47A89C1D016EA0005F66F3 /* NetworkPlayViewController.xib in Resources */,
+				CA3ED6D31D0565DC00765DA8 /* Podfile in Resources */,
 				CA35D7231CFE2C420030E246 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
@@ -349,6 +383,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A7973273201DDE10A8BB034 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B36B5534F758F32A5A148DC1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE312ADEF732D7931AD50BF9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		42D447C61CD765670070326E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -363,6 +445,7 @@
 				CAE1B4661CFE3A0700887A64 /* UserController.swift in Sources */,
 				CA47A89B1D016EA0005F66F3 /* NetworkPlayViewController.swift in Sources */,
 				CA35D7261CFE2CEF0030E246 /* LoginViewController.swift in Sources */,
+				CA3ED6D71D05700B00765DA8 /* ClosureExperiment.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
 				CA5FE1C61D01BF04005DB249 /* OXGameController.swift in Sources */,
 				CA1A82CD1CFEDED700BCBF24 /* EmailValidatedTextField.swift in Sources */,
@@ -499,6 +582,7 @@
 		};
 		42D447F31CD765680070326E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 782AE7B5918F932283C1C1E9 /* Pods-NoughtsAndCrosses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
@@ -511,6 +595,7 @@
 		};
 		42D447F41CD765680070326E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BAA4FBB12CBD602A3A39B7F /* Pods-NoughtsAndCrosses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;

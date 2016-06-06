@@ -13,16 +13,28 @@ import UIKit
 
 class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var networkGameButton: UIButton!
     @IBOutlet weak var TableView: UITableView!
     var gameList = [OXGame]()
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Network Play"
         TableView.dataSource = self
         TableView.delegate = self
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
+        refreshControl.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
+        TableView.addSubview(refreshControl)
 
 
+    }
+    func refreshTable(){
+        self.gameList = OXGameController.sharedInstance.getListOfGames()!
+        self.TableView.reloadData()
+        refreshControl.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +45,10 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
         gameList = OXGameController.sharedInstance.getListOfGames()!
+        
+        self.gameList = OXGameController.sharedInstance.getListOfGames()!
+        self.TableView.reloadData()
+        refreshControl.endRefreshing()
 
     }
     
@@ -51,7 +67,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         //cell.backgroundColor = UIColor.redColor()
         //get the game in the gamesList at the given index, and display the email of the hostUser of the game in the cell.
-        cell.textLabel?.text = self.gameList[indexPath.row].hostUser!.email
+        cell.textLabel?.text = "gameID: " + self.gameList[indexPath.row].gameID! + ", " + self.gameList[indexPath.row].hostUser!.email
         return cell
     }
     
@@ -63,9 +79,21 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     //push a new board view onto the existing navigation. This involves, instantiating and then pushing the view.
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //2c: How do you show the specific game you created to the user?
+        
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil )
+        OXGameController.sharedInstance.acceptGameWithId(String(gameList[indexPath.row].gameID))
         bvc.networkMode = true
         self.navigationController?.pushViewController(bvc, animated: true)
     }
+    
+    
+    @IBAction func networkGameButtonTapped(sender: UIButton) {
+        OXGameController.sharedInstance.createNewGame( (UserController.sharedInstance.logged_in_user)! )
+//        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil )
+//        bvc.networkMode = true
+//        self.navigationController?.pushViewController(bvc, animated: true)
+    }
+    
 
 }

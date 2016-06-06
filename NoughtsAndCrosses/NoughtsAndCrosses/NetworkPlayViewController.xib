@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NetworkPlayViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="TableView" destination="6Xe-U6-n7H" id="XZa-fR-3hG"/>
+                <outlet property="networkGameButton" destination="j1j-Rg-iWY" id="QfD-PG-OgT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,10 +19,13 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1j-Rg-iWY">
                     <rect key="frame" x="0.0" y="616" width="375" height="51"/>
                     <color key="backgroundColor" red="0.85490196080000003" green="0.0" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Start Network Game">
+                    <state key="normal" title="Start New Network Game">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="networkGameButtonTapped:" destination="-1" eventType="touchUpInside" id="bEF-hp-dov"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Xe-U6-n7H">
                     <rect key="frame" x="10" y="72" width="354" height="536"/>

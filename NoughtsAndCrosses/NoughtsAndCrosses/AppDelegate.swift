@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = self.GameNavigationController
         } else {
             //LandingViewController
-            //self.window?.rootViewController = self.authorisationNavigationController
-            self.window?.rootViewController = self.GameNavigationController
+            self.window?.rootViewController = self.authorisationNavigationController
+            //self.window?.rootViewController = self.GameNavigationController
         }
         
     
