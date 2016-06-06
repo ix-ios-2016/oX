@@ -6,11 +6,14 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
-class OXGameController {
+class OXGameController: WebService {
     
     var gameList:[OXGame]? = []
+    
+    
     private var currentGame: OXGame = OXGame()
     // create a network game mode boolean
     var networkMode:Bool = false
@@ -28,23 +31,39 @@ class OXGameController {
         
     }
     
-    func getListOfGames() -> [OXGame]?
+    func getListOfGames(presentingViewController:UIViewController? = nil) -> [OXGame]?
     {
-        if(gameList?.count == 0)
-        {
-            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
-            //Create games
-            for _ in 1...random {
-                self.gameList?.append(OXGame())
-            }
-            
-            for game in self.gameList! {
-                game.gameId = getRandomID()
-                game.hostUser = User(email:"hostuser@gmail.com",password: "")
-            }
-        }
+        let request = self.createMutableRequest(NSURL(string:"https://ox-backend.herokuapp.com/games"), method: "GET", parameters: nil)
         
-        return gameList
+        self.executeRequest(request, presentingViewController: presentingViewController, requestCompletionFunction:
+            {(responseCode, json) in
+                
+                // successful response code
+                if (responseCode / 100 == 2)
+                {
+                    self.gameList = json
+                }
+                
+                
+        })
+        
+        
+        
+        //        if(gameList?.count == 0)
+        //        {
+        //            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
+        //            //Create games
+        //            for _ in 1...random {
+        //                self.gameList?.append(OXGame())
+        //            }
+        //
+        //            for game in self.gameList! {
+        //                game.gameId = getRandomID()
+        //                //game.hostUser = User(email:"hostuser@gmail.com",password: "")
+        //            }
+        //        }
+        //
+        //        return gameList
     }
     
     func setCurrentGame(game: OXGame){

@@ -33,37 +33,39 @@ class RegisterViewController: UIViewController {
         let email = self.emailField.text
         let password = self.passwordField.text
         
-        // only using one instance of UserController
-        let userController = UserController.sharedInstance
-        
         // Both fields are non-empty and the email is valid
         if email != "" && password != "" && emailField.validate()
         {
-            let (failure_message, user) = userController.registerUser(email!, newPassword: password!)
-            
-            print("user in registerViewController: " + String(user?.email))
-            
-            if user != nil {
-                print("User registered view registration view")
-                
-                // present logged in view
-//                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                appDelegate.navigateToLoggedInViewController()
-            }
-            else if failure_message != nil {
-                let failAlert = UIAlertController(title: "Failure", message:
-                    failure_message, preferredStyle: UIAlertControllerStyle.Alert)
-                let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-                failAlert.addAction(okButton)
-                
-                // Present the message
-                self.presentViewController(failAlert, animated: true, completion: nil)
-            }
+            //new registration code
+            UserController.sharedInstance.registerUser(email!,password: password!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in
+                self.registrationComplete(user, message: message)})
         }
         else
         {
             let failAlert = UIAlertController(title: "Failure", message:
                 "One or more fields are empty \nOR\nYour email is invalid", preferredStyle: UIAlertControllerStyle.Alert)
+            let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+            failAlert.addAction(okButton)
+            
+            // Present the message
+            self.presentViewController(failAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func registrationComplete(user:User?, message:String?)
+    {
+        if user != nil
+        {
+            print("user in registerViewController: " + String(user?.email))
+            
+//             present logged in view
+//                            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                            appDelegate.navigateToLoggedInViewController()
+        }
+        else if message != nil
+        {
+            let failAlert = UIAlertController(title: "Failure", message:
+                message, preferredStyle: UIAlertControllerStyle.Alert)
             let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
             failAlert.addAction(okButton)
             

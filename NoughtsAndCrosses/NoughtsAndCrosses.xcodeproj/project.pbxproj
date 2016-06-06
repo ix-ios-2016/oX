@@ -20,6 +20,8 @@
 		40AE92081D04AA180082CD96 /* NewNetworkGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE92061D04AA180082CD96 /* NewNetworkGameViewController.xib */; };
 		40EAD9B71D0565D200E0BEEC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 40EAD9B61D0565D200E0BEEC /* Podfile */; };
 		40EAD9B91D056FDA00E0BEEC /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EAD9B81D056FDA00E0BEEC /* ClosureExperiment.swift */; };
+		40EAD9BB1D05791000E0BEEC /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EAD9BA1D05791000E0BEEC /* WebService.swift */; };
+		40EAD9BD1D05867200E0BEEC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EAD9BC1D05867200E0BEEC /* UIViewControllerExtensions.swift */; };
 		40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */; };
 		40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */; };
 		40EF722F1CFDD0B6004EB4A8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF722D1CFDD0B6004EB4A8 /* LoginViewController.swift */; };
@@ -69,6 +71,8 @@
 		40AE92061D04AA180082CD96 /* NewNetworkGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNetworkGameViewController.xib; sourceTree = "<group>"; };
 		40EAD9B61D0565D200E0BEEC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		40EAD9B81D056FDA00E0BEEC /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
+		40EAD9BA1D05791000E0BEEC /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		40EAD9BC1D05867200E0BEEC /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		40EF72291CFDCFEA004EB4A8 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		40EF722A1CFDCFEA004EB4A8 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		40EF722D1CFDD0B6004EB4A8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -143,9 +147,11 @@
 		40AE92021D017EAD0082CD96 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				40EAD9BA1D05791000E0BEEC /* WebService.swift */,
 				40EF72351CFDD35C004EB4A8 /* UserController.swift */,
 				409F41391CFCDFFF00F9FF28 /* OXGame.swift */,
 				40AE92031D0189FA0082CD96 /* OXGameController.swift */,
+				40EAD9BC1D05867200E0BEEC /* UIViewControllerExtensions.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				40AE92071D04AA180082CD96 /* NewNetworkGameViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				402C1EE21CFF3F550022BFCB /* EasterEggController.swift in Sources */,
+				40EAD9BD1D05867200E0BEEC /* UIViewControllerExtensions.swift in Sources */,
 				402C1EDF1CFF31570022BFCB /* EasterEggViewController.swift in Sources */,
 				402C1EE41CFF8EA40022BFCB /* UIImage+Gif.swift in Sources */,
 				409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */,
@@ -444,6 +451,7 @@
 				40AE92041D0189FA0082CD96 /* OXGameController.swift in Sources */,
 				40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */,
 				40EF72331CFDD0FB004EB4A8 /* RegisterViewController.swift in Sources */,
+				40EAD9BB1D05791000E0BEEC /* WebService.swift in Sources */,
 				40EAD9B91D056FDA00E0BEEC /* ClosureExperiment.swift in Sources */,
 				40EF72361CFDD35C004EB4A8 /* UserController.swift in Sources */,
 				40EF722F1CFDD0B6004EB4A8 /* LoginViewController.swift in Sources */,

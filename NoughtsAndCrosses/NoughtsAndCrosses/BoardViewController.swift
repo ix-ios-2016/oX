@@ -306,7 +306,7 @@ class BoardViewController: UIViewController {
         {
             // logout the user and restart the game
             restartGame()
-            UserController.sharedInstance.logoutUser()
+            //UserController.sharedInstance.logoutUser()
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToLoggedOutViewController()
         }
