@@ -20,9 +20,11 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for game in OXGameController.sharedInstance.getListOfGames()! {
-            gamesList.append(game)
-        }
+//        for game in OXGameController.sharedInstance.getListOfGames()! {
+//            gamesList.append(game)
+//        }
+        
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gamesList, message) in self.populateTable(gamesList, message: message)})
         
 
         // Do any additional setup after loading the view.
@@ -79,6 +81,14 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         return "Available Online Games"
     }
     
-    
+    func populateTable(games: [OXGame]?, message: String?) {
+        print("Populated table function")
+        print("message: \(message)")
+        
+        if let newGames = games {
+            self.gamesList = newGames
+        }
+        self.tableView.reloadData()
+    }
 
 }

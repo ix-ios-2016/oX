@@ -67,14 +67,13 @@ class UserController: WebService {
             //Not only is the code in this block executed, but we are given 2 input parameters, int and JSON.
             //int is the response code from the server.
             //JSON is the response data received
-            
             print( json)
             var user:User = User(email: "", password: "",token:"", client: "")
             
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 //successfully loged in user. get the obtained data from the json response data and create the user object to give back to the calling ViewController
-                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue, client:json["data"]["client"].stringValue)
                 
                 //we need to get our user security token out of the request's header (remember from Postman, we need those values when making in app calls)
                 
@@ -126,7 +125,7 @@ class UserController: WebService {
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 //successfully registered user. get the obtained data from the json response data and create the user object to give back to the calling ViewController
-                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue, client:json["data"]["client"].stringValue)
                 
                 //we need to get our user security token out of the request's header (remember from Postman, we need those values when making in app calls)
                 
