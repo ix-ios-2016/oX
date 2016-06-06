@@ -57,10 +57,36 @@ class UserController: WebService {
     
     func loginUser(email:String, password:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(User?,String?) -> ()) {
         
+        let user = ["email":email,"password":password]
         
+        let request = self.createMutableAnonRequest(NSURL(string: "https://ox-backend.herokuapp.com/auth/sign_in"), method: "POST", parameters: user)
+        
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
+            
+            print( json)
+            var user:User = User(email: "", password: "",token:"", client: "")
+            
+            
+            if (responseCode / 100 == 2)   {
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                
+                
+                //Persist
+                self.storeUser(user)
+                self.setLoggedInUser(user)
+                self.logged_in_user = user
+                
+                viewControllerCompletionFunction(user,nil)
+            }   else    {
+                
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                viewControllerCompletionFunction(nil,errorMessage)
+            }
+        
+            viewControllerCompletionFunction(user,nil)
+        })
         
     }
-    
     
     func registerUser(email:String, password:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(User?,String?) -> ()) {
         
@@ -117,6 +143,7 @@ class UserController: WebService {
         //we are now done with the registerUser function. Note that this function doesnt return anything. But because of the viewControllerCompletionFunction closure we are given as an input parameter, we can set in motion a function in the calling class when it is needed.
         
     }
+    
     
     
     //MARK:- User Persistence Functions

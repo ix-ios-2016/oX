@@ -28,16 +28,29 @@ class RegistrationViewController: UIViewController {
     
     func registrationComplete(user: User?, message: String?) {
         //new registration code
-        if user != nil{
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.navigateToBoardNavigationController()
-        }
-        if message != nil{
-            Failure.text = message
-            print("\(message)")
-        }
-       
-    }
+            if let _ = user   {
+                
+                //successfully registered
+                let alert = UIAlertController(title:"Registration Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+                let action = UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default, handler: {(action) in
+                        //when the user clicks "Ok", do the following
+                        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                        appDelegate.navigateToBoardNavigationController()
+                    })
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }   else    {
+                    
+                    //registration failed
+                    let alert = UIAlertController(title:"Registration Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: {
+                        
+                    })
+                    
+                }
+            }
     
     
     @IBAction func RegisterButtontapped(sender: UIButton) {
@@ -53,24 +66,7 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-//        if (user != nil) {
-//            print("User registered view registration view")
-//        }
-//        if (failure_message != nil){
-//            Failure.text = failure_message
-//            print("\(failure_message)")
-//        }
-
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

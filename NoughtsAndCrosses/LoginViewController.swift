@@ -30,24 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
          UserController.sharedInstance.loginUser(emailGiven!, password: passwordGiven!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.logInComplete(user,message:message)})
 
-        
-//        if (user != nil) {
-//            print("User registered view registration view")
-//            
-//            // Store user
-//            NSUserDefaults.standardUserDefaults().setValue("sss", forKey: "userIsLoggedIn")
-//            
-//            // Move to the game
-//            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//            appDelegate.navigateToBoardNavigationController()
-//            
-//
-//        }
-//        if (failure_message != nil){
-//            Failure.text = failure_message
-//            print("\(failure_message)")
-//        }
-
     }
     
     
@@ -80,16 +62,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func logInComplete (user: User?,message: String?) {
-        if user != nil{
-            self.addLoadingOverlay()
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.navigateToBoardNavigationController()
+        if let _ = user   {
+            
+            //successfully login
+            let alert = UIAlertController(title:"Login Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style:UIAlertActionStyle.Default, handler: {(action) in
+                //when the user clicks "Ok", do the following
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToBoardNavigationController()
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }   else    {
+            
+            //login failed
+            let alert = UIAlertController(title:"Login Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
         }
-        if message != nil{
-            Failure.text = message
-            print("\(message)")
-        }
-
     }
     
     override func didReceiveMemoryWarning() {
