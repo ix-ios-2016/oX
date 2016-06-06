@@ -23,9 +23,16 @@ enum OXGameState:String {
 
 class OXGame {
     
-    private var board = [CellType] (count: 9, repeatedValue: CellType.EMPTY)
+    var board = [CellType] (count: 9, repeatedValue: CellType.EMPTY)
     
     private var startType = CellType.X
+    
+    var hostUser: User?
+    var guestUser: User?
+    
+    var backendState:OXGameState?
+    
+    var gameId: String?
     
     private func turn() -> Int {
         
@@ -99,5 +106,13 @@ class OXGame {
             board[index] = CellType.EMPTY
         }
     }
+    
+    /*func acceptgame() {
+        let request = self.createMutableAnonRequest(NSURL(string: "https://ox-backend.herokuapp.com/auth"), method: "POST", parameters: user)
+        
+        if (responseCode /100 == 2) {
+            let game = OXGame(json: json)
+        }
+    }*/
     
 }

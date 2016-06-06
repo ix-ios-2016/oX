@@ -33,14 +33,23 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        var (failure_message, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
+        UserController.sharedInstance.registerUser(emailField.text!, password: passwordField.text!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginComplete(user,message:message)})
         
-        if (failure_message == nil) {
+    }
+    
+    func loginComplete(user: User?, message:String?) {
+        if (message == nil) {
+            //login user
             print("User logged in in login view")
             appDelegate.navigateToBoardViewController()
+            
+            //store the persistant value in harddrive
+            //(this way user will not need to log in each time unless logged out)
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
         }
         else {
-            let alertController = UIAlertController(title: "Error", message: "\(failure_message!)", preferredStyle: .Alert)
+            //show error alert
+            let alertController = UIAlertController(title: "Error", message: "\(message!)", preferredStyle: .Alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
             alertController.addAction(cancelAction)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }

@@ -2,7 +2,7 @@
 //  RegistrationViewController.swift
 //  NoughtsAndCrosses
 //
-//  Created by Serene Mirza on 5/31/16.
+//  Created by Natalie Polk on 5/31/16.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
@@ -23,6 +23,7 @@ class RegistrationViewController: UIViewController {
         self.title = "Register"
 
         // Do any additional setup after loading the view.
+        //self.addLoadingOverlay()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,23 +35,31 @@ class RegistrationViewController: UIViewController {
         
         if emailField.validate() == true {
         
-        var (failure_message, user) = UserController.sharedInstance.registerUser(emailField.text!, newPassword: passwordField.text!)
+            UserController.sharedInstance.registerUser(emailField.text!, password: passwordField.text!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
         
-        if ((user?.email) != nil) {
+        
+        
+        }
+    }
+    
+    func registrationComplete(user: User?, message:String?) {
+        if message != nil && message != "" {
+            print("ERROR MESSAGE")
+            let alertController = UIAlertController(title: "Error", message: "\(message!)", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+            alertController.addAction(cancelAction)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true) {}
+        }
+        else if (user != nil) {
+            //successful registration
             print("User registered in registration view")
             appDelegate.navigateToBoardViewController()
-        }
-        else {
-            if failure_message != nil && failure_message != "" {
-                let alertController = UIAlertController(title: "Error", message: "\(failure_message!)", preferredStyle: .Alert)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
-                alertController.addAction(cancelAction)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
-                alertController.addAction(OKAction)
-                self.presentViewController(alertController, animated: true) {}
-            }
-        }
-        
+            
+            //store the persistant value in harddrive
+            //(this way user will not need to log in each time unless logged out)
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
         }
     }
 

@@ -19,6 +19,7 @@
                 <outlet property="button6" destination="wqL-6N-dzo" id="Sfm-cn-MyB"/>
                 <outlet property="button7" destination="5oJ-IG-Rbw" id="fJj-72-2Lt"/>
                 <outlet property="button8" destination="98z-PQ-N63" id="DHe-ED-oPe"/>
+                <outlet property="networkPlayButton" destination="E16-yK-SWc" id="emK-cU-clF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -426,9 +427,17 @@
                         <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="6Hi-5E-HbV"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E16-yK-SWc">
+                    <rect key="frame" x="23" y="0.0" width="91" height="30"/>
+                    <state key="normal" title="Network Play"/>
+                    <connections>
+                        <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="8PJ-z6-3fd"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="E16-yK-SWc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="3UU-LE-sec"/>
                 <constraint firstAttribute="trailing" secondItem="1cp-6n-plq" secondAttribute="trailing" constant="7" id="7yl-ag-XLQ"/>
                 <constraint firstAttribute="bottom" secondItem="1cp-6n-plq" secondAttribute="bottom" constant="7" id="EbT-TQ-Goc"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
@@ -437,6 +446,7 @@
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TEW-Or-WEp">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
+                <constraint firstItem="E16-yK-SWc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="TGC-xB-PA1"/>
                 <constraint firstAttribute="trailing" secondItem="qYi-hH-8b3" secondAttribute="trailing" constant="20" id="VOv-ac-lE8">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>

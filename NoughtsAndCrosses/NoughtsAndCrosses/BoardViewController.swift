@@ -24,6 +24,7 @@ class BoardViewController: UIViewController {
     @IBOutlet var button7: UIButton!
     @IBOutlet var button8: UIButton!
     
+    @IBOutlet weak var networkPlayButton: UIButton!
     var gameObject = OXGame()
     
     override func viewDidLoad() {
@@ -98,6 +99,10 @@ class BoardViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
     @IBAction func newGameTapped(sender: AnyObject) {
         print("new game button tapped")
         restartGame()
@@ -117,10 +122,16 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(sender: UIButton) {
-        UserController.sharedInstance.logged_in_user!.email = "";
-        UserController.sharedInstance.logged_in_user!.password = "";
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userIsLoggedIn")
+        //UserController.sharedInstance.logged_in_user!.email = "";
+        //UserController.sharedInstance.logged_in_user!.password = "";
         appDelegate.navigateToLandingViewController()
     }
     
+    @IBAction func networkPlayTapped(sender: AnyObject) {
+        
+        let nvc = NetworkPlayViewController(nibName:"NetworkPlayViewController",bundle:nil)
+        self.navigationController?.pushViewController(nvc, animated: true)
+    }
     
 }
