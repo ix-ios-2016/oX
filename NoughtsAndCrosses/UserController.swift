@@ -56,17 +56,65 @@ class UserController: WebService {
     var logged_in_user: User?
     
     func loginUser(email:String, password:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(User?,String?) -> ()) {
-        Alamofire.request(.GET, "https://ox-backend.herokuapp.com/auth", parameters: ["email": "kmp7qf@virginia.edu", "password":"reap0sew"])
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
+        
+        let user = ["email":email,"password":password]
+        
+        let request = self.createMutableAnonRequest(NSURL(string: "https://ox-backend.herokuapp.com/auth/sign_in"), method: "POST", parameters: user)
+        
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
+        
+            
+            print( json)
+            var user:User = User(email: "", password: "",token:"", client: "")
+            
+            
+            if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
+                //successfully registered user. get the obtained data from the json response data and create the user object to give back to the calling ViewController
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
                 
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
-        }
+                //we need to get our user security token out of the request's header (remember from Postman, we need those values when making in app calls)
+    
+                //Persist
+                //self.storeUser(user)
+                self.setLoggedInUser(user)
+                self.logged_in_user = user
+                
+                //Note that our registerUser function 4 parameters: email, password, presentingViewController and requestCompletionFunction
+                //requestCompletionFunction is a closure for what is to happen in the ViewController when we are done with the webservice.
+                
+                //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                viewControllerCompletionFunction(user,nil)
+            }   else    {
+                //the web service to create a user failed. Lets extract the error message to be displayed
+                
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                
+                //execute the closure in the ViewController
+                viewControllerCompletionFunction(nil,errorMessage)
+            }
+            
+            
+            //Not that our registerUser function 4 parameters: email, password, presentingViewController and completion
+            //completion is a closure for what is to happen in the ViewController when we are done with the webservice.
+            //lets go back to that closure now
+            //viewControllerCompletionFunction(user,nil)
+        })
+
+        
+        
+        
+//        Alamofire.request(.GET, "https://ox-backend.herokuapp.com/auth", parameters: ["email": email, "password":password])
+//            .responseJSON { response in
+//                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)   // result of response serialization
+//                
+//                if let JSON = response.result.value {
+//                    print("JSON: \(JSON)")
+//                }
+//        }
+    
         
     }
     

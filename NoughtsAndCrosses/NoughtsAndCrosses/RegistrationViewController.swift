@@ -26,46 +26,30 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func registrationComplete(user: User?, message:String?) {
-        if !userNameField.validate(){
-            return
+    func registrationComplete(user:User?,message:String?) {
+        
+        if let _ = user   {
             
-        } else if message != nil {
-            
-            print(message)
-            
-            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                // ...
-            }
-            alertController.addAction(cancelAction)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                // ...
-            }
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true) {
-                // ...
-            }
-            return
-        } else {
-            
-            let alertController = UIAlertController(title: "Success", message: "User registered", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-                // ...
-            }
-            alertController.addAction(cancelAction)
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            //successfully registered
+            let alert = UIAlertController(title:"Registration Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+                //when the user clicks "Ok", do the following
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                
-                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
-                
                 appDelegate.navigateToLoggedInNavigationController()
-            }
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true) {
-                // ...
-            }
-    }
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }   else    {
+            
+            //registration failed
+            let alert = UIAlertController(title:"Registration Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
     }
     
     @IBAction func registerButtonTapped(sender: UIButton) {

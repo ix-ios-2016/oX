@@ -429,7 +429,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ck-d7-IBt">
-                    <rect key="frame" x="8" y="13" width="86" height="30"/>
+                    <rect key="frame" x="0.0" y="13" width="140" height="30"/>
                     <state key="normal" title="Logout">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>

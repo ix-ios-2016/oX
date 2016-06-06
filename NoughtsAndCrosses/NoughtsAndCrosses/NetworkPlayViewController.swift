@@ -21,17 +21,34 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         self.navigationController?.navigationBarHidden = false
         tableView.dataSource = self
         tableView.delegate = self
-        let game1 = OXGame(); gamesList.append(game1)
-        let game2 = OXGame(); gamesList.append(game2)
-        let game3 = OXGame(); gamesList.append(game3)
+        if OXGameController.sharedInstance.getListOfGames()?.count != 0 {
+            for game in OXGameController.sharedInstance.getListOfGames()! {
+                gamesList.append(game)
+            }
+        }
         
+//        refreshControl = UIRefreshControl()
+//        refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh")
+//        refreshControl.addTarget(self, action:"refreshTable", forControlEcents:UIControlEvents.ValueChanged)
+//        tableView.addSubview(refreshControl)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
-
+//        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gamesListReceived(gameList, message:message)})
+        //need to instantiate gamesListRecieved
+        
     }
+    
+//    func glr(games:[OXGame]?, message:String?){
+//        if let newGames = games {
+//            self.gameList = newGames
+//        }
+//        self.tableView.reloadData()
+//    }
+    
+    
 
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +73,9 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "test cell label"
+        print(gamesList[indexPath.row].hostUser!.email)
+        //let hostEmail = gamesList[indexPath.row].hostUser!.email
+        cell.textLabel?.text = "hostEmail"
         return cell
         
     }
