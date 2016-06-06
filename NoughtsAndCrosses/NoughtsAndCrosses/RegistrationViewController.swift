@@ -49,24 +49,28 @@ class RegistrationViewController: UIViewController , UITextFieldDelegate {
             return
         }
         
-        let (failure_message , user) = UserController.sharedInstance.registerUser(emailSupplied, newPassword: passwordSupplied)
+        UserController.sharedInstance.registerUser(emailSupplied, password: passwordSupplied, presentingViewController: self , viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user!, message: message)})
+        
+        addLoadingOverlay()
         
         //        If one is not present, check to see if a failure message is present and then print    the failure message.
         
-        if let _ = user {
+        //if let _ = user {
             print (user)
             
             
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
             NSUserDefaults.standardUserDefaults().setValue("TRUE" , forKey: "userIsLoggedIn")
             appDelegate.navigateToGame()
-        } else {
-            if let temp2 = failure_message{ //temp2 is NOT optional. If it exists, now we can use it
-                print (temp2)
+        //} else {
+        //    if let temp2 = failure_message{ //temp2 is NOT optional. If it exists, now we can use it
+        //        print (temp2)
             }
-        }
+        //}
         
+    func registrationComplete(user : User , message : String?) {
+        //new registration code
         
     }
-}
 
+ }

@@ -37,30 +37,41 @@ class LoginViewController: UIViewController , UITextFieldDelegate {
         //let emailSupplied = String(UITextField.textInRange(emailField))
         let passwordSupplied = passwordField.text!
         
-        let (failure_message , user) = UserController.sharedInstance.loginUser(emailSupplied, suppliedPassword: passwordSupplied)
+        UserController.sharedInstance.loginUser(emailSupplied, password: passwordSupplied, presentingViewController: nil , viewControllerCompletionFunction: {(user,message) in self.loginCallComplete(user!, message: message)})
         
         //        If one is not present, check to see if a failure message is present and then print    the failure message.
-        
-        if let _ = user {
-            print (user)
-            
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
-            
-            appDelegate.navigateToGame()
-            //navigateToLoggedInNavigationController
-            
-            //This is how we store something in the harddrive
-            NSUserDefaults.standardUserDefaults().setValue("True" , forKey: "userIsLoggedIn")
-        } else {
-            if let temp2 = failure_message{ //temp2 is NOT optional. If it exists, now we can use it
-                print (temp2)
-            }
+
         }
         
         //print("Login Button Tapped")
-    }
-   
+    
+    func loginCallComplete(user : User? , message : String?) {
+        //new registration code
+        
+        
+        
+//        if (user != nil) {
+//            
+//            print (user)
+//            
+//            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //as! casts this returned value to type AppDelegate
+//            
+//            appDelegate.navigateToGame()
+//            //navigateToLoggedInNavigationController
+//            
+//            //This is how we store something in the harddrive
+//            NSUserDefaults.standardUserDefaults().setValue("True" , forKey: "userIsLoggedIn")
+//        } else {
+//            //if let temp2 = failure_message { //temp2 is NOT optional. If it exists, now we can use it
+//            //    print (temp2)
+//            }
+//        
+//    }
 
+    }
 }
 
+   
+
+//}
 

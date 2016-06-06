@@ -40,7 +40,7 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        let closureExperiment = ClosureExperiment()
         
         //allow for user interaction
         view.userInteractionEnabled = true

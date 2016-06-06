@@ -18,6 +18,7 @@
 		8DC115531D05661E00983A00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8DC115521D05661E00983A00 /* Podfile */; };
 		8DE6ACCC1D056FEE008A911A /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6ACCB1D056FEE008A911A /* ClosureExperiment.swift */; };
 		8DE6ACCF1D057DD8008A911A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6ACCE1D057DD8008A911A /* WebService.swift */; };
+		8DE6ACD11D058614008A911A /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6ACD01D058614008A911A /* UIViewControllerExtension.swift */; };
 		8DE7C50F1CFE2E9400286199 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C50D1CFE2E9400286199 /* LandingViewController.swift */; };
 		8DE7C5101CFE2E9400286199 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DE7C50E1CFE2E9400286199 /* LandingViewController.xib */; };
 		8DE7C5121CFE386F00286199 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7C5111CFE386F00286199 /* UserController.swift */; };
@@ -76,6 +77,7 @@
 		8DC115521D05661E00983A00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8DE6ACCB1D056FEE008A911A /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
 		8DE6ACCE1D057DD8008A911A /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		8DE6ACD01D058614008A911A /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		8DE7C50D1CFE2E9400286199 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		8DE7C50E1CFE2E9400286199 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		8DE7C5111CFE386F00286199 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				8DE6ACD01D058614008A911A /* UIViewControllerExtension.swift */,
 				8DE6ACCE1D057DD8008A911A /* WebService.swift */,
 				8DE6ACCB1D056FEE008A911A /* ClosureExperiment.swift */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
@@ -548,6 +551,7 @@
 			files = (
 				8DE7C51F1CFE4B1B00286199 /* LoginViewController.swift in Sources */,
 				8DE7C5351D01982100286199 /* BoardViewController.swift in Sources */,
+				8DE6ACD11D058614008A911A /* UIViewControllerExtension.swift in Sources */,
 				8DE6ACCF1D057DD8008A911A /* WebService.swift in Sources */,
 				8DE7C52C1CFF27B100286199 /* EasterEggController.swift in Sources */,
 				8DE7C5291CFF271700286199 /* EasterEggViewController.swift in Sources */,
