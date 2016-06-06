@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var gamesLIst: [OXGame] = []
+    var gamesList: [OXGame] = []
     
     //example games
     //var game1: OXGame
@@ -20,7 +20,9 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        for game in OXGameController.sharedInstance.getListOfGames()! {
+            gamesList.append(game)
+        }
         
 
         // Do any additional setup after loading the view.
@@ -63,14 +65,14 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return gamesList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "test cell label"
+        let hostEmail = gamesList[indexPath.row].hostUser!.email
+        cell.textLabel?.text = hostEmail
         return cell
-        
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

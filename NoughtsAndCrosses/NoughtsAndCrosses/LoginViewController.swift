@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        UserController.sharedInstance.registerUser(emailField.text!, password: passwordField.text!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginComplete(user,message:message)})
+        UserController.sharedInstance.loginUser(emailField.text!, password: passwordField.text!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginComplete(user,message:message)})
         
     }
     
