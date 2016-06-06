@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // Set up root view based on persistence
-        if let loggedInUser = UserController.sharedInstance.checkLoggedIn() {
+        if let loggedInUser = UserController.sharedInstance.getLoggedInUser() {
             UserController.sharedInstance.logged_in_user = loggedInUser
             self.window?.rootViewController = self.navigationController
             self.window?.makeKeyAndVisible()

@@ -41,19 +41,7 @@ class LoginViewController: UIViewController {
         
         if email != "" && password != "" {
             
-            let (failureMessage, user) = UserController.sharedInstance.loginUser(email!, suppliedPassword: password!)
-            
-            if user != nil {
-                print("Logged In")
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToGame()
-            }
-            else if failureMessage != nil {
-                let alert = UIAlertController(title: "Login Failed", message: failureMessage, preferredStyle: UIAlertControllerStyle.Alert)
-                let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
-                alert.addAction(closeAction)
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
+            UserController.sharedInstance.loginUser(email!, password: password!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginComplete(user,message:message)})
             
         }
         else {
@@ -62,6 +50,26 @@ class LoginViewController: UIViewController {
             let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
             alert.addAction(closeAction)
             self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
+    
+    func loginComplete(user: User?, message: String?) {
+        
+        if let _ = user {
+            print("Logged In")
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToGame()
+        }
+        else if let message = message {
+            let alert = UIAlertController(title: "Login Failed", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
             
         }
         

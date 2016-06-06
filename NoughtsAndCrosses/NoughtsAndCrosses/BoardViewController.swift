@@ -87,6 +87,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                     action -> Void in
                     if OXGameController.sharedInstance.getNetworkGame() {
                         self.navigationController?.popViewControllerAnimated(true)
+                        OXGameController.sharedInstance.setNetworkGame(false)
                     }
                     else {
                         self.restartGame()
@@ -103,6 +104,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                     action -> Void in
                     if OXGameController.sharedInstance.getNetworkGame() {
                         self.navigationController?.popViewControllerAnimated(true)
+                        OXGameController.sharedInstance.setNetworkGame(false)
                     }
                     else {
                         self.restartGame()
@@ -125,6 +127,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                             action -> Void in
                             if OXGameController.sharedInstance.getNetworkGame() {
                                 self.navigationController?.popViewControllerAnimated(true)
+                                OXGameController.sharedInstance.setNetworkGame(false)
                             }
                             else {
                                 self.restartGame()
@@ -140,6 +143,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                             action -> Void in
                             if OXGameController.sharedInstance.getNetworkGame() {
                                 self.navigationController?.popViewControllerAnimated(true)
+                                OXGameController.sharedInstance.setNetworkGame(false)
                             }
                             else {
                                 self.restartGame()
@@ -179,9 +183,10 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         if OXGameController.sharedInstance.getNetworkGame() {
             OXGameController.sharedInstance.finishCurrentGame()
             self.navigationController?.popViewControllerAnimated(true)
+            OXGameController.sharedInstance.setNetworkGame(false)
         }
         else {
-            UserController.sharedInstance.logout()
+            UserController.sharedInstance.logoutUser()
             print("Logged Out")
         
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
