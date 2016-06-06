@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class User: NSObject, NSCoding
 {
@@ -47,7 +48,31 @@ class UserController {
 
     
     // MARK: MAKE THIS A NSUSERDEFAULT
-    var logged_in_user: User?
+    //var logged_in_user: User?
+    
+    //MAKE A SET LOGIN USER ALSO
+    func setLoggedInUser(user:User) {
+        
+        // store the user data
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let encodedData = NSKeyedArchiver.archivedDataWithRootObject(user)
+        userDefaults.setObject(encodedData, forKey: "userLoggedIn")
+        userDefaults.synchronize()
+        
+    }
+    
+    // return optional User
+    func getLoggedInUser() -> User? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let decoded = userDefaults.objectForKey("userLoggedIn") as? NSData {
+            let decodedUser = NSKeyedUnarchiver.unarchiveObjectWithData(decoded) as? User
+            return decodedUser
+        }
+        else {
+            return nil
+        }
+    }
     
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?)
     {
@@ -59,11 +84,13 @@ class UserController {
             // store the user with persistence function
             storeUser(user)
             
-            logged_in_user = user
+            self.setLoggedInUser(user)
+            
             print("User with email: \(newEmail) has been registered by the UserManager.")
             
             // Log in that user
             loginUser(newEmail, suppliedPassword: newPassword)
+            
             
             return (nil, user)
         }
@@ -71,6 +98,21 @@ class UserController {
             return ("The email " + newEmail + " already taken", nil)
         }
     }
+    
+    func loginUser()    {
+        
+        Alamofire.request(.POST, "https://ox-backend.herokuapp.com/auth", parameters: ["email": "asdf@afd.com","password":"asdf"])
+            .responseJSON { response in
+
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+                print(response)
+        }
+
+    
+    }
+    
     
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
         
@@ -80,14 +122,11 @@ class UserController {
             {
                 if user.password == suppliedPassword
                 {
-                    logged_in_user = user
+                    if let logged_in_user = self.getLoggedInUser()
+                    {
+                        self.setLoggedInUser(logged_in_user)
+                    }
                     
-                    // keep the user data
-                    let userDefaults = NSUserDefaults.standardUserDefaults()
-                    let encodedData = NSKeyedArchiver.archivedDataWithRootObject(user)
-                    userDefaults.setObject(encodedData, forKey: "userLoggedIn")
-                    userDefaults.synchronize()
-
                     print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
                     return (nil, user)
                 }
@@ -110,6 +149,7 @@ class UserController {
     
     // store the user
     func storeUser(user:User) {
+        // store all users
         NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: user.email)
     }
         

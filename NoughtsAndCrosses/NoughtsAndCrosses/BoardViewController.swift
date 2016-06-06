@@ -36,6 +36,10 @@ class BoardViewController: UIViewController {
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
         rotation.delegate = EasterEggController.sharedInstance
         self.boardView.addGestureRecognizer(rotation)
+        
+        
+        // testing the loginuser thing
+        //UserController.sharedInstance.loginUser()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -198,6 +202,7 @@ class BoardViewController: UIViewController {
         // play with AI to simulate fun
         if OXGameController.sharedInstance.getNetworkMode()
         {
+            // disable interaction
             self.boardView.userInteractionEnabled = false
 
             let DELAY_TIME = Int32(1)
@@ -226,6 +231,7 @@ class BoardViewController: UIViewController {
                         }
                     }
                 }
+                // reenable interaction
                 self.boardView.userInteractionEnabled = true
             })
         }

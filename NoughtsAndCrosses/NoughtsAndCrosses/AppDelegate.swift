@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // check for user persistent data
-        let userLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userLoggedIn") as? NSData
+        let userLoggedIn = UserController.sharedInstance.getLoggedInUser()
+        
         print("App Delegate USerloggedin" + String(userLoggedIn))
         
         if userLoggedIn != nil

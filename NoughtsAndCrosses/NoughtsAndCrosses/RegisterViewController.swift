@@ -41,12 +41,14 @@ class RegisterViewController: UIViewController {
         {
             let (failure_message, user) = userController.registerUser(email!, newPassword: password!)
             
-            if user != nil{
+            print("user in registerViewController: " + String(user?.email))
+            
+            if user != nil {
                 print("User registered view registration view")
                 
                 // present logged in view
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToLoggedInViewController()
+//                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                appDelegate.navigateToLoggedInViewController()
             }
             else if failure_message != nil {
                 let failAlert = UIAlertController(title: "Failure", message:

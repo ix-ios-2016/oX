@@ -25,60 +25,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UserController.swift"
-            timestampString = "486852924.351352"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "User"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NoughtsAndCrosses.User.email.setter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
-                  moduleName = "NoughtsAndCrosses"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lukepetruzzi/Desktop/iXperience/oX/NoughtsAndCrosses/UserController.swift"
-                  timestampString = "486853223.677172"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "158">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NoughtsAndCrosses.User.init (email : Swift.String, password : Swift.String) -&gt; NoughtsAndCrosses.User"
-                  moduleName = "NoughtsAndCrosses"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lukepetruzzi/Desktop/iXperience/oX/NoughtsAndCrosses/UserController.swift"
-                  timestampString = "486853223.677304"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "90">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NoughtsAndCrosses/BoardViewController.swift"
-            timestampString = "486853307.676642"
+            timestampString = "486894881.887714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "logoutButtonTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
