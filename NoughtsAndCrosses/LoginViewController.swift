@@ -21,31 +21,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let emailGiven = email.text
         let passwordGiven = password.text
-        let (failure_message, user) = UserController.sharedInstance.loginUser(emailGiven!, suppliedPassword: passwordGiven!)
         
         // Validate the email
         if(!email.validate()){
             email.updateUI()
             return
         }
+        
+         UserController.sharedInstance.loginUser(emailGiven!, password: passwordGiven!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.logInComplete(user,message:message)})
 
         
-        if (user != nil) {
-            print("User registered view registration view")
-            
-            // Store user
-            NSUserDefaults.standardUserDefaults().setValue("sss", forKey: "userIsLoggedIn")
-            
-            // Move to the game
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.navigateToBoardNavigationController()
-            
-
-        }
-        if (failure_message != nil){
-            Failure.text = failure_message
-            print("\(failure_message)")
-        }
+//        if (user != nil) {
+//            print("User registered view registration view")
+//            
+//            // Store user
+//            NSUserDefaults.standardUserDefaults().setValue("sss", forKey: "userIsLoggedIn")
+//            
+//            // Move to the game
+//            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            appDelegate.navigateToBoardNavigationController()
+//            
+//
+//        }
+//        if (failure_message != nil){
+//            Failure.text = failure_message
+//            print("\(failure_message)")
+//        }
 
     }
     
@@ -76,6 +77,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func logInComplete (user: User?,message: String?) {
+        if user != nil{
+            self.addLoadingOverlay()
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToBoardNavigationController()
+        }
+        if message != nil{
+            Failure.text = message
+            print("\(message)")
+        }
+
     }
     
     override func didReceiveMemoryWarning() {

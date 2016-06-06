@@ -26,12 +26,25 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func registrationComplete(user: User?, message: String?) {
+        //new registration code
+        if user != nil{
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToBoardNavigationController()
+        }
+        if message != nil{
+            Failure.text = message
+            print("\(message)")
+        }
+       
+    }
+    
     
     @IBAction func RegisterButtontapped(sender: UIButton) {
         
         let email = emailField.text
         let password = passwordField.text
-        let (failure_message, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
+        UserController.sharedInstance.registerUser(email!, password: password!, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
         
         
         // Validate the email
@@ -40,13 +53,13 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        if (user != nil) {
-            print("User registered view registration view")
-        }
-        if (failure_message != nil){
-            Failure.text = failure_message
-            print("\(failure_message)")
-        }
+//        if (user != nil) {
+//            print("User registered view registration view")
+//        }
+//        if (failure_message != nil){
+//            Failure.text = failure_message
+//            print("\(failure_message)")
+//        }
 
     }
 

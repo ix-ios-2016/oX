@@ -96,7 +96,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     @IBAction func newGamePressed(sender: AnyObject) {
-        var newUser = User(email: "h@e.com", password: "1")
+        var newUser = User(email: "h@e.com", password: "1", token: "", client: "")
         OXGameController.sharedInstance.createNewGame(newUser)
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         bvc.networkMode = true

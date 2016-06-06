@@ -39,6 +39,7 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         places.append(target)
         places.append(target2)
         places.append(target3)
@@ -60,6 +61,8 @@ class BoardViewController: UIViewController {
         //        self.view.addGestureRecognizer(pinch)
         //
         self.lastRotation = 0.0
+        
+        let hey = ClosureExperiment()
         
     
     }
