@@ -25,6 +25,7 @@
 		CA35D72B1CFE32930030E246 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA35D7291CFE32930030E246 /* RegistrationViewController.xib */; };
 		CA3ED6D31D0565DC00765DA8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CA3ED6D21D0565DC00765DA8 /* Podfile */; };
 		CA3ED6D71D05700B00765DA8 /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */; };
+		CA3ED6D91D057E9C00765DA8 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ED6D81D057E9C00765DA8 /* WebService.swift */; };
 		CA47A89B1D016EA0005F66F3 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */; };
 		CA47A89C1D016EA0005F66F3 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */; };
 		CA5FE1C61D01BF04005DB249 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5FE1C51D01BF04005DB249 /* OXGameController.swift */; };
@@ -78,6 +79,7 @@
 		CA35D7291CFE32930030E246 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
 		CA3ED6D21D0565DC00765DA8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
+		CA3ED6D81D057E9C00765DA8 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		CA5FE1C51D01BF04005DB249 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				CA3ED6D81D057E9C00765DA8 /* WebService.swift */,
 				CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */,
 				CA1A82CC1CFEDED700BCBF24 /* EmailValidatedTextField.swift */,
 				42D447CC1CD765670070326E /* NoughtsAndCrosses */,
@@ -438,6 +441,7 @@
 			files = (
 				CA35D72A1CFE32930030E246 /* RegistrationViewController.swift in Sources */,
 				CA07DB251CFF66F6002895CF /* EasterEggController.swift in Sources */,
+				CA3ED6D91D057E9C00765DA8 /* WebService.swift in Sources */,
 				CA07DB211CFF6633002895CF /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				CA6C01BE1CFC63AE0090E679 /* OXGame.swift in Sources */,
