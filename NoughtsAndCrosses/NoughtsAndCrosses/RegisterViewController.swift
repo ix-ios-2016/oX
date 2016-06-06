@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
             registerLabel.text = "You have been registered!"
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
-                appDelegate.navigateToLandingNavigationController()
+                appDelegate.returnToOxGameNavigation()
             
             } else if failureMessage != nil {
             print("registration failed: " + failureMessage!)

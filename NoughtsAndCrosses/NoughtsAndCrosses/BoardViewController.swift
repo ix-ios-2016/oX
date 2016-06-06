@@ -13,7 +13,8 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var logOut: UIButton!
     @IBOutlet weak var networkButton: UIButton!
     @IBOutlet weak var boardView: UIView!
-    var gameObject = OXGame()
+    
+    var currentGame = OXGameController.sharedInstance.getCurrentGame()!
     
     var networkPlay: Bool = false
     
@@ -21,8 +22,8 @@ class BoardViewController: UIViewController {
         super.viewDidLoad()
        
         
-          let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
-            self.boardView.addGestureRecognizer(rotation)
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+        self.boardView.addGestureRecognizer(rotation)
         
         let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handlePinch(_:)))
         self.boardView.addGestureRecognizer(pinch)
@@ -66,7 +67,7 @@ class BoardViewController: UIViewController {
     
     
     func restartGame(){
-        let restart = String(gameObject.reset())
+        let restart = String(currentGame.reset())
         for button in boardView.subviews {
             if let vari = button as? UIButton {
                 vari.setTitle(restart, forState: UIControlState.Normal)
@@ -78,10 +79,10 @@ class BoardViewController: UIViewController {
         let tag = sender.tag
         print("Button Pressed \(tag)")
         
-        let player = String(gameObject.playMove(tag))
+        let player = String(OXGameController.sharedInstance.playMove(tag))
         sender.setTitle(player, forState: UIControlState.Normal)
-        gameObject.state()
-        gameObject.winDetection()
+        currentGame.state()
+        currentGame.winDetection()
         
         
     }
@@ -101,6 +102,7 @@ class BoardViewController: UIViewController {
         if networkPlay {
            logOut.setTitle("Cancel", forState: UIControlState.Normal)
             navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.navigationBarHidden = false
         } else {
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userLoggedIn")

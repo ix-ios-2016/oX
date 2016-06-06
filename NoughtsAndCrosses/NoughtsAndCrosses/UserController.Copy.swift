@@ -35,13 +35,13 @@ class UserController {
     var logged_in_user: User?
     
     func registerUser(newEmail: String, newPassword: String) -> (failureMessage: String?, user: User?) {
-        for user in users {
+        if let user = getStoredUser(newEmail) {
             if user.email == newEmail {
                 return ("Email taken", nil)
             }
         }
         let user = User(email: newEmail, password: newPassword)
-        users.append(user)
+        storeUser(user)
         logged_in_user = user
         NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userLoggedIn")
         print("User with email: \(newEmail) has been registered by the UserManager.")
@@ -49,22 +49,31 @@ class UserController {
     }
     
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
-        if let user = self.getStoredUser(suppliedEmail) {
-            
-          
-        for user in users {
-            if user.email == suppliedEmail {
-                if user.password == suppliedPassword {
-                    logged_in_user = user
-                    print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
-                    NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userLoggedIn")
-                    return (nil, user)}
-                    else {
-                    return ("Password incorrect", nil)
-                    }
+        if let user = getStoredUser(suppliedEmail) {
+            if user.password == suppliedPassword {
+                logged_in_user = user
+                print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userLoggedIn")
+                return (nil, user)}
+                else {
+                return ("Password incorrect", nil)
                 }
+
             }
-        }
+          
+//        for user in users {
+//            if user.email == suppliedEmail {
+//                if user.password == suppliedPassword {
+//                    logged_in_user = user
+//                    print("User with email: \(suppliedEmail) has been logged in by the UserManager.")
+//                    NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userLoggedIn")
+//                    return (nil, user)}
+//                    else {
+//                    return ("Password incorrect", nil)
+//                    }
+//                }
+//            }
+        
         
         return ("No user with that email", nil)
     }

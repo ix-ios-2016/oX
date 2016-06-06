@@ -25,9 +25,7 @@ class networkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         gameList = OXGameController.sharedInstance.getListOfGames()!
         
-        gameList.append(OXGame())
-        gameList.append(OXGame())
-        gameList.append(OXGame())
+      
         
         
 
@@ -46,6 +44,7 @@ class networkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         self.navigationController?.pushViewController(bvc, animated: true)
         self.navigationController?.navigationBarHidden = true
         bvc.networkPlay = true
+        OXGameController.sharedInstance.acceptGameWithId(gameList[indexPath.row].gameId!)
         
         
     }
@@ -55,7 +54,7 @@ class networkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if gameList.count > 0 {
+        if gameList.count != 0 {
             return gameList.count
         } else {
             return 0
