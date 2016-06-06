@@ -13,7 +13,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var gamesTableView: UITableView!
     
     // create list of all the OXGame instances
-    var gamesList = OXGameController.sharedInstance.getListOfGames()
+    var gamesList:[OXGame]? = []
     // Create a refresher
     var refreshControl:UIRefreshControl = UIRefreshControl()
     
@@ -30,7 +30,17 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         //refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
         refreshControl.addTarget(self, action: #selector(NetworkPlayViewController.refreshTable), forControlEvents: UIControlEvents.ValueChanged)
+        
         gamesTableView.addSubview(refreshControl)
+        
+        
+        
+        // create the gamesList
+        //gamesList = OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction:
+//            {(gamesList, message) in
+//                
+//        
+//        })
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -88,7 +98,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func refreshTable()
     {
-            self.gamesList = OXGameController.sharedInstance.getListOfGames()
+        self.gamesList = OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(games, message) in print("") })
             self.gamesTableView.reloadData()
             refreshControl.endRefreshing()
     }

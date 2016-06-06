@@ -348,7 +348,7 @@ class BoardViewController: UIViewController {
             }
         }
         
-        if OXGameController.sharedInstance.networkMode
+        if OXGameController.sharedInstance.getNetworkMode()
         {
             self.navigationController?.popViewControllerAnimated(true)
         }

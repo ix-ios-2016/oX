@@ -6,17 +6,18 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
+import SwiftyJSON
+
 
 class OXGameController: WebService {
     
-    var gameList:[OXGame]? = []
-    
-    
+    //    var gameList:[OXGame]? = []
     private var currentGame: OXGame = OXGame()
-    // create a network game mode boolean
-    var networkMode:Bool = false
+    
+    private var networkMode: Bool = false
+    
     
     class var sharedInstance: OXGameController {
         struct Static {
@@ -31,39 +32,29 @@ class OXGameController: WebService {
         
     }
     
-    func getListOfGames(presentingViewController:UIViewController? = nil) -> [OXGame]?
+    //    func getListOfGames() -> [OXGame]? {
+    ////        print("Getting list of games")
+    //
+    //        if(gameList?.count == 0){
+    //
+    //            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
+    //            //Create games
+    //            for _ in 1...random {
+    //                self.gameList?.append(createGameWithHostUser("hostuser@gmail.com"))
+    //
+    //            }
+    //
+    //        }
+    //
+    //        return gameList
+    //
+    //    }
+    
+    func gameList(presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:([OXGame]?,String?) -> ()) -> [OXGame]
     {
-        let request = self.createMutableRequest(NSURL(string:"https://ox-backend.herokuapp.com/games"), method: "GET", parameters: nil)
+        let foobar:[OXGame] = []
         
-        self.executeRequest(request, presentingViewController: presentingViewController, requestCompletionFunction:
-            {(responseCode, json) in
-                
-                // successful response code
-                if (responseCode / 100 == 2)
-                {
-                    self.gameList = json
-                }
-                
-                
-        })
-        
-        
-        
-        //        if(gameList?.count == 0)
-        //        {
-        //            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
-        //            //Create games
-        //            for _ in 1...random {
-        //                self.gameList?.append(OXGame())
-        //            }
-        //
-        //            for game in self.gameList! {
-        //                game.gameId = getRandomID()
-        //                //game.hostUser = User(email:"hostuser@gmail.com",password: "")
-        //            }
-        //        }
-        //
-        //        return gameList
+        return foobar
     }
     
     func setCurrentGame(game: OXGame){
@@ -73,118 +64,94 @@ class OXGameController: WebService {
     func getCurrentGame() -> OXGame? {
         //        print("Getting current game")
         
-        //if(currentGame == nil) {
-        //            setCurrentGame(OXGame())
-        //}
-        
         return currentGame
+    }
+    
+    func createGameWithHostUser(hostEmail: String) -> OXGame {
+        
+        let game = OXGame()
+        game.gameId = getRandomID()
+        game.hostUser = User(email:hostEmail,password: "",token:"",client:"")
+        return game
+        
     }
     
     
     //Can only be called when there is an active game
     func playMove(index: Int) -> CellType{
         //        print("PlayingMove on 'network'")
+        
         let cellType: CellType = currentGame.playMove(index)
         return cellType
     }
     
     //Simple random move, it will always try to play the first indexes
-    func playRandomMove() -> (CellType, Int)?
-    {
+    func playRandomMove() -> (CellType, Int)? {
         //        print("Playing random move")
-        let count = currentGame.board.count
-        for i in 0...count - 1 {
+        
+        for i in 0...currentGame.board.count - 1 {
             if (currentGame.board[i] == CellType.EMPTY){
                 let cellType: CellType = (currentGame.playMove(i))
-                
-                print(cellType)
-                print("Succesfully at: " + String(i))
-                
+                //                    print(cellType)
+                //                    print("Succesfully at: " + String(i))
                 return (cellType, i)
             }
         }
-        
         //        print("Unsuccesfully")
         return nil
         
     }
     
-    // used to have this as parameter: hostUser:User. I changed it
-    func createNewGame(hostUser:User)   {
+    func createNewGame(host:User, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ())   {
         print("Creating new network game")
         
-        let newGame = OXGame()
-        newGame.gameId = getRandomID()
-        newGame.hostUser = hostUser
-        
-        gameList?.append(newGame)
     }
     
-    func acceptGameWithId(gameId: String) -> OXGame? {
-        //        print("Accepting network game")
-        for game in self.gameList!    {
-            if (game.gameId == gameId)  {
-                setCurrentGame(game)
-                //                print("Succesfully")
-                return game
-            }
-            
-        }
-        //        print("Not succesfully")
-        return nil
+    
+    //    func acceptGameWithId(gameId: String) -> OXGame? {
+    ////        print("Accepting network game")
+    //        for game in self.gameList!    {
+    //            if (game.gameId == gameId)  {
+    //                setCurrentGame(game)
+    ////                print("Succesfully")
+    //                return game
+    //            }
+    //
+    //        }
+    ////        print("Not succesfully")
+    //        return nil
+    //    }
+    
+    
+    func acceptGame(id:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ()) {
+        
     }
     
     func finishCurrentGame(){
         print("Finishing current game")
         
-        if let game = self.getCurrentGame() {
-            game.reset()
-        }
-        
-        if networkMode
-        {
-            // get rid of the current game from the gameList
-            if(gameList != nil && gameList?.count != 0){
-                var reducer = 0
-                
-                print("PreGames LIST: ")
-                for game in gameList!
-                {
-                    print(game.gameId)
-                }
-                
-                for i in 0..<(gameList?.count)!
-                {
-                    
-                    if (getCurrentGame()?.gameId == gameList![i - reducer].gameId)
-                    {
-                        print("Actual Game: " + String(getCurrentGame()?.gameId ))
-                        print("In the list: " + String(gameList![i - reducer].gameId))
-                        
-                        
-                        gameList?.removeAtIndex(i)
-                        reducer += 1
-                        
-                        print("POSTGames LIST: ")
-                        for game in gameList!
-                        {
-                            print(game.gameId)
-                        }
-                    }
-                }
-            }
-        }
+        //        if(gameList != nil && gameList?.count != 0){
+        //            var reducer = 0
+        //            for i in 0...(gameList?.count)! - 1{
+        //                if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
+        //                    gameList?.removeAtIndex(i)
+        //                    reducer += 1
+        //                }
+        //            }
+        //        }
+        //
+        currentGame.reset()
         
         setCurrentGame(OXGame())
     }
     
-    
-    
-    //Create a getter and setter for this networkMode.
-    func getNetworkMode() -> Bool {
+    func getNetworkMode() -> Bool
+    {
         return networkMode
     }
-    func setNetworkMode(value:Bool) {
+    
+    func setNetworkMode(value:Bool)
+    {
         networkMode = value
     }
     

@@ -24,9 +24,9 @@ class NewNetworkGameViewController: UIViewController {
     @IBAction func createNewGameButtonTapped(sender: AnyObject)
     {
         // Create a new game with the current logged in user as the captain now
-        if let decodedUser = UserController.sharedInstance.getLoggedInUser() {
-            OXGameController.sharedInstance.createNewGame(decodedUser)
-        }
+//        if let decodedUser = UserController.sharedInstance.getLoggedInUser() {
+//            OXGameController.sharedInstance.createNewGame(decodedUser)
+//        }
     
         self.navigationController?.popViewControllerAnimated(true)
     }
