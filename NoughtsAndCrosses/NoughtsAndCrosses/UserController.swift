@@ -57,8 +57,30 @@ class UserController: WebService {
     
     func loginUser(email:String, password:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(User?,String?) -> ()) {
         
-        
-        
+        let user = ["email":email, "password":password]
+        let request = self.createMutableAnonRequest(NSURL(string: "https://ox-backend.herokuapp.com/auth/sign_in"), method: "POST", parameters: user)
+        self.executeRequest(request, presentingViewController: presentingViewController, requestCompletionFunction: {(responseCode, json) in
+            print(json)
+            var storedUser = User(email: "", password: "", token: "", client: "")
+            if (responseCode / 100 == 2) {
+                if let user = self.getStoredUser(email) {
+                    storedUser = user
+                } else {
+                    storedUser = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",
+                        token:json["data"]["token"].stringValue,client:json["data"]["client"].stringValue)
+                    self.storeUser(storedUser)
+                }
+                
+                self.setLoggedInUser(storedUser)
+                self.logged_in_user = storedUser
+                viewControllerCompletionFunction(storedUser, nil)
+                
+            } else {
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                viewControllerCompletionFunction(nil, errorMessage)
+            }
+            
+        })
     }
     
     

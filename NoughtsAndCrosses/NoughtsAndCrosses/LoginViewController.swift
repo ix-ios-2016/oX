@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         if user != nil {
             // go to game view
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.window!.rootViewController = appDelegate.boardNavigationController
+            appDelegate.navigateToLoggedInNavigationController()
         } else if message != nil {
             // display an alert with the provided message
             // create alert controller and OK action
