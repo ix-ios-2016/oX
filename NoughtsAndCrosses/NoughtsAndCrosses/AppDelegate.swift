@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authorizationNavController: UINavigationController?
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.navigationController?.navigationBarHidden = true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
+        navigateToLandingViewController()
         
         
         
@@ -51,7 +53,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    func  navigateToLandingViewController() {
+    
+    
+    
+    let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+    
+    authorizationNavController = UINavigationController(rootViewController: landingViewController)
+    
+    self.window?.rootViewController = self.authorizationNavController
+    
+    
+    
+    }
+    
+    
+    
+    func  navigateToBoardViewController() {
+        
+        
+        
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        
+        navigationController = UINavigationController(rootViewController: boardViewController)
+        
+        self.navigationController?.navigationBarHidden = true
+        
+        self.window?.rootViewController = self.navigationController
+        
+        
+        
+    }
+    
+    
+    
+        
+    
 }
+
 
