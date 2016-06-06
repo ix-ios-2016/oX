@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoughtsAndCrosses/RegisterViewController.swift"
+            timestampString = "486946278.017368"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "RegisterViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486948364.800153"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486948364.800787"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.init (NoughtsAndCrosses.RegisterViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; NoughtsAndCrosses.RegisterViewController"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486948364.801367"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.init (NoughtsAndCrosses.RegisterViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;NoughtsAndCrosses.RegisterViewController&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486948364.801888"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

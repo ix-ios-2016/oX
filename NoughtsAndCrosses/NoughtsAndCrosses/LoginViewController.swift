@@ -38,7 +38,6 @@ class LoginViewController: UIViewController {
             print("User failed to login")
             
         }
-    
     }
 
     /*
