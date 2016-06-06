@@ -224,8 +224,8 @@
 			children = (
 				5CD0D8381D057D72005CEE77 /* WebService.swift */,
 				5C3A76231CFE302200BAD76B /* UserController.swift */,
-				5C3A75DD1CFC6EDC00BAD76B /* OXGame.swift */,
 				5CD0D83D1D059A7E005CEE77 /* OXGameController.swift */,
+				5C3A75DD1CFC6EDC00BAD76B /* OXGame.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";

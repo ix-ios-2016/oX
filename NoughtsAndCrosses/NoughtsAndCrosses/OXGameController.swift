@@ -4,13 +4,16 @@
 //
 //  Created by Alejandro Castillejo on 6/2/16.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
-
+//
 
 import Foundation
+import UIKit
+import SwiftyJSON
 
-class OXGameController {
+
+class OXGameController: WebService {
     
-    var gameList:[OXGame]? = []
+    //    var gameList:[OXGame]? = []
     private var currentGame: OXGame = OXGame()
     
     
@@ -27,25 +30,46 @@ class OXGameController {
         
     }
     
-    func getListOfGames() -> [OXGame]? {
-        //        print("Getting list of games")
-        
-        if(gameList?.count == 0){
-            
-            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
-            //Create games
-            for _ in 1...random {
-                self.gameList?.append(OXGame())
+    //    func getListOfGames() -> [OXGame]? {
+    ////        print("Getting list of games")
+    //
+    //        if(gameList?.count == 0){
+    //
+    //            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
+    //            //Create games
+    //            for _ in 1...random {
+    //                self.gameList?.append(createGameWithHostUser("hostuser@gmail.com"))
+    //
+    //            }
+    //
+    //        }
+    //
+    //        return gameList
+    //
+    //    }
+    
+    func gameList(presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:([OXGame]?,String?) -> ()) {
+        let request = self.createMutableRequest(NSURL(string: "https://ox-backend.herokuapp.com/games"), method: "GET", parameters: nil)
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
+            print( json)
+            var games:[OXGame] = [OXGame]()
+            if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
+                //successfully registered user. get the obtained data from the json response data and create the user object to give back to the calling ViewController
+                var game = OXGame()
+                var i:Int = 0
+                while i < json.count {
+                    game = OXGame(json: json[i])
+                    games.append(game)
+                    i = i + 1
+                }
+                //Note that our registerUser function 4 parameters: email, password, presentingViewController and requestCompletionFunction
+                //requestCompletionFunction is a closure for what is to happen in the ViewController when we are done with the webservice.
+                
+                //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                viewControllerCompletionFunction(games,nil)
+
             }
-            
-            for game in self.gameList! {
-                game.gameId = getRandomID()
-                game.hostUser = User(email:"hostuser@gmail.com",password: "",token:"",client: "")
-            }
-            
-        }
-        
-        return gameList
+        })
         
     }
     
@@ -57,6 +81,15 @@ class OXGameController {
         //        print("Getting current game")
         
         return currentGame
+    }
+    
+    func createGameWithHostUser(hostEmail: String) -> OXGame {
+        
+        let game = OXGame()
+        game.gameId = getRandomID()
+        game.hostUser = User(email:hostEmail,password: "",token:"",client:"")
+        return game
+        
     }
     
     
@@ -74,9 +107,9 @@ class OXGameController {
         
         for i in 0...currentGame.board.count - 1 {
             if (currentGame.board[i] == CellType.EMPTY){
-                let cellType: CellType = (currentGame.playMove(i))
-                                    print(cellType)
-                                    print("Succesfully at: " + String(i))
+                let cellType: CellType = (currentGame.playMove(i))!
+                //                    print(cellType)
+                //                    print("Succesfully at: " + String(i))
                 return (cellType, i)
             }
         }
@@ -85,38 +118,44 @@ class OXGameController {
         
     }
     
-    func createNewGame(hostUser:User)   {
+    func createNewGame(host:User, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ())   {
         print("Creating new network game")
+        
     }
     
     
-    func acceptGameWithId(gameId: String) -> OXGame? {
-        //        print("Accepting network game")
-        for game in self.gameList!    {
-            if (game.gameId == gameId)  {
-                setCurrentGame(game)
-                //                print("Succesfully")
-                return game
-            }
-            
-        }
-        //        print("Not succesfully")
-        return nil
+    //    func acceptGameWithId(gameId: String) -> OXGame? {
+    ////        print("Accepting network game")
+    //        for game in self.gameList!    {
+    //            if (game.gameId == gameId)  {
+    //                setCurrentGame(game)
+    ////                print("Succesfully")
+    //                return game
+    //            }
+    //
+    //        }
+    ////        print("Not succesfully")
+    //        return nil
+    //    }
+    
+    
+    func acceptGame(id:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ()) {
+        
     }
     
     func finishCurrentGame(){
         print("Finishing current game")
         
-        if(gameList != nil && gameList?.count != 0){
-            var reducer = 0
-            for i in 0...(gameList?.count)! - 1{
-                if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
-                    gameList?.removeAtIndex(i)
-                    reducer += 1
-                }
-            }
-        }
-        
+        //        if(gameList != nil && gameList?.count != 0){
+        //            var reducer = 0
+        //            for i in 0...(gameList?.count)! - 1{
+        //                if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
+        //                    gameList?.removeAtIndex(i)
+        //                    reducer += 1
+        //                }
+        //            }
+        //        }
+        //
         currentGame.reset()
         
         setCurrentGame(OXGame())
