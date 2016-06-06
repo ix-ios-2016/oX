@@ -32,6 +32,8 @@ class LoginViewController: UIViewController {
         let (failure_message, user) = UserController.sharedInstance.loginUser(username, suppliedPassword: password)
         if let user = user {
             print("User logged in ")
+            let appdelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appdelegate.navigateToBoardViewController()
         } else {
             print("User failed to login")
             
