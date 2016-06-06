@@ -10,18 +10,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    
+    // the email and password fields
     @IBOutlet var emailField: EmailValidatedTextField!
     @IBOutlet var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
-        // KASRA'S LINE - line to load all past users
-//        UserController.sharedInstance.loadUsers()
-        
-//        self.emailField.delegate = self
-//        self.passwordField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -30,48 +25,32 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-//        if (textField == self.emailField) {
-//            print("EMAIL FIELD")
-//        } else if (textField == self.passwordField) {
-//            print("PASSWORD FIELD")
-//        } else {
-//            print("UNKNOWN FIELD")
-//        }
-//        print("Current text: \(textField.text!)")
-//        print("Typed text: \(string)")
-//        
-//        return true
-//    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
+    // action for the login button
     @IBAction func loginButtonTapped(sender: UIButton) {
-        if self.emailField.validate() {
-            let (failureMessage, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
-            if user != nil {
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToGame()
-                // save log in data
-            } else if failureMessage != nil {
-                let alertController = UIAlertController(title: "Could not log in",
-                                                        message: failureMessage, preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in}
-                alertController.addAction(OKAction)
-                self.presentViewController(alertController, animated: true, completion: nil)
-            }
+        if self.emailField.valid() {
+            UserController.sharedInstance.loginUser(emailField.text!, password: passwordField.text!, presentingViewController: self,
+                                                    viewControllerCompletionFunction: {(user, message) in self.loginComplete(user, message: message)})
         }
         
+    }
+    
+    // function to execute after login is completed
+    func loginComplete(user: User?, message: String?) {
+        if user != nil {
+            // go to game view
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.window!.rootViewController = appDelegate.boardNavigationController
+        } else if message != nil {
+            // display an alert with the provided message
+            // create alert controller and OK action
+            let alertController = UIAlertController(title: "Error", message: message!, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
+            // add OK action to alert controller
+            alertController.addAction(OKAction)
+            // display alert
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        }
     }
     
     

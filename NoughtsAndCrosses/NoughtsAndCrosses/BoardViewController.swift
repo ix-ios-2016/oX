@@ -22,18 +22,13 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create a rotation gesture recognizer
+        // create a rotation gesture recognizer and add it to the board
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(
             target: self, action: #selector(BoardViewController.handleRotation(_:)))
-//        rotation.delegate = self
-//        rotation.delegate = EasterEggController.sharedInstance
         self.boardContainer.addGestureRecognizer(rotation)
         
-        // create pinch gesture recognizer
-//        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
-//        self.boardContainer.addGestureRecognizer(pinch)
-        
         // check if network game
+        // if so, hide the new game button and network play buttons, and rename Logout to Cancel
         if (self.networkGame) {
             self.newGameButton.hidden = true
             self.logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
@@ -41,49 +36,42 @@ class BoardViewController: UIViewController {
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     override func viewWillAppear(animated: Bool) {
+        // hide the navigation bar whenever game board appears
         self.navigationController?.navigationBarHidden = true
     }
     
+    // rotation handler - rotates game board and then returns it back to normal
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
-        
+        // transform the board
         self.boardContainer.transform = CGAffineTransformMakeRotation(sender!.rotation)
         
-//        print("board rotation")
+        // once the gesture has ended, bring it back to normal (and animate)
         if (sender!.state == UIGestureRecognizerState.Ended) {
-            print("rotation ended at: \(sender!.rotation)")
             UIView.animateWithDuration(NSTimeInterval(0.5), animations: {
-                // can use CGFloat(M_PI)
                 self.boardContainer.transform = CGAffineTransformMakeRotation(0)
             })
             
         }
     }
     
-//    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
-//        print("pinch")
-//    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
+    // action for pressing any of the game board buttons
     @IBAction func buttonTapped(sender: AnyObject) {
-        // play the move
+        // play the move (and record which player executed it)
         let lastPlayer = OXGameController.sharedInstance.getCurrentGame()!.playMove(sender.tag)
         // update the board
         sender.setTitle(String(OXGameController.sharedInstance.getCurrentGame()!.typeAtIndex(sender.tag)),
                         forState: UIControlState.Normal)
-        print("button \(sender.tag) tapped")
         
-        // check the game state
-        let lastState = self.checkState(lastPlayer)
-        // if in network mode, play a move by a stupid AI
-        if (self.networkGame && lastState == OXGameState.inProgress) {
+        // if in network mode, and game is not over play a move by a stupid AI
+        if (self.checkState(lastPlayer) == OXGameState.inProgress && self.networkGame) {
             // play a move
             let (cell, index) = OXGameController.sharedInstance.playRandomMove()!
-            // update the board
-            print("button \(index) tapped by AI")
+            // update the boardView
             for subview in self.boardContainer.subviews {
                 if subview is UIButton && subview.tag == index {
                     (subview as! UIButton).setTitle(String(cell), forState: UIControlState.Normal)
@@ -95,24 +83,19 @@ class BoardViewController: UIViewController {
         
     }
     
+    // helper function to check the state of the game, and return an appropriate message given whomever made the most recent move
+    // if necessary, pop out to previous view controller
     private func checkState(lastPlayer: CellType) -> OXGameState {
         let currentState = OXGameController.sharedInstance.getCurrentGame()!.state()
         switch currentState {
         case OXGameState.complete_someone_won, OXGameState.complete_no_one_won:
-//            // create alert controller and OK action
-//            let alertController = UIAlertController(title: "Game over!", message: "Game is tied.", preferredStyle: .Alert)
-//            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in}
-//            // add OK action to alert controller
-//            alertController.addAction(OKAction)
-//            // display alert
-//            self.presentViewController(alertController, animated: true, completion: nil)
             // print end game message
             if (currentState == OXGameState.complete_someone_won) {
                 print("Winner is \(lastPlayer)")
             } else {
                 print("Game tied")
             }
-            // finish game
+            // finish game in backend
             OXGameController.sharedInstance.finishCurrentGame()
             // update view
             if (self.networkGame) {
@@ -124,29 +107,36 @@ class BoardViewController: UIViewController {
         return currentState
     }
     
+    // action for new game button
+    // finish the current game in the backend and reset the boardView
     @IBAction func newGameTapped(sender: AnyObject) {
         OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
     }
     
+    // action for log out button
+    // finish the current game in the backend and navigate to authentication screen
     @IBAction func logOutButtonTapped(sender: UIButton) {
         OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
         if (self.networkGame) {
-            self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController!.popViewControllerAnimated(true)
         } else {
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            UserController.sharedInstance.logoutUser()
+            // there is no logout user method yet in the UserController
+//            UserController.sharedInstance.logoutUser()
             appDelegate.navigateToLoggedOutNavigationController()
         }
     }
     
+    // action for network play button
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
         OXGameController.sharedInstance.finishCurrentGame()
         let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.pushViewController(networkPlayViewController, animated: true)
     }
     
+    // helper function to reset all the buttons in the boardView to empty
     private func resetBoard() {
         for item in boardContainer.subviews {
             if let button = item as? UIButton {

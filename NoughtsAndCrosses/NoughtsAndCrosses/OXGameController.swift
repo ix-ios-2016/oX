@@ -40,7 +40,7 @@ class OXGameController {
             
             for game in self.gameList! {
                 game.gameId = getRandomID()
-                game.hostUser = User(email:"hostuser@gmail.com",password: "")
+                game.hostUser = User(email:"hostuser@gmail.com",password: "", token: "", client: "")
             }
             
         }

@@ -81,7 +81,8 @@ class UserController: WebService {
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 //successfully registered user. get the obtained data from the json response data and create the user object to give back to the calling ViewController
-                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",
+                    token:json["data"]["token"].stringValue,client:json["data"]["client"].stringValue)
                 
                 //we need to get our user security token out of the request's header (remember from Postman, we need those values when making in app calls)
                 
@@ -106,12 +107,6 @@ class UserController: WebService {
                 //execute the closure in the ViewController
                 viewControllerCompletionFunction(nil,errorMessage)
             }
-            
-            
-            //Not that our registerUser function 4 parameters: email, password, presentingViewController and completion
-            //completion is a closure for what is to happen in the ViewController when we are done with the webservice.
-            //lets go back to that closure now
-            viewControllerCompletionFunction(user,nil)
         })
         
         //we are now done with the registerUser function. Note that this function doesnt return anything. But because of the viewControllerCompletionFunction closure we are given as an input parameter, we can set in motion a function in the calling class when it is needed.

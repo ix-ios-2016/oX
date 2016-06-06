@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-enum gesture: Int {
-    case CLOCKWISE = 0
-    case DOWN = 1
-    case RIGHT = 2
-    case COUNTERCLOCKWISE = 3
-    case LONG = 4
+enum gesture {
+    case CLOCKWISE
+    case DOWN
+    case RIGHT
+    case COUNTERCLOCKWISE
+    case LONG
 }
 
 class EasterEggController: NSObject, UIGestureRecognizerDelegate {
@@ -50,17 +50,12 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         
         let rotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleRotation(_:)))
         rotation.delegate = self
-//        let clockWiseRotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleClockWiseRotation(_:)))
-//        
-//        let counterClockWiseRotation = UIRotationGestureRecognizer(target: self, action: #selector(EasterEggController.handleCounterClockWiseRotation(_:)))
         
         // add gesture recognizers to view
         view.addGestureRecognizer(longPress)
         view.addGestureRecognizer(rightSwipe)
         view.addGestureRecognizer(twoFingerDownSwipe)
         view.addGestureRecognizer(rotation)
-//        view.addGestureRecognizer(clockWiseRotation)
-//        view.addGestureRecognizer(counterClockWiseRotation)
     }
     
     func handleLongPress(sender: UILongPressGestureRecognizer) {
@@ -91,14 +86,12 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
     
     func handleRotation(sender: UIRotationGestureRecognizer) {
         if (sender.rotation > 0) {
-//            print("clock wise rotation")
             if (sender.state == UIGestureRecognizerState.Ended) {
                 print("clock wise rotation")
 
                 self.currentOrder.append(gesture.CLOCKWISE)
             }
         } else {
-//            print("counter clock wise rotation")
             if (sender.state == UIGestureRecognizerState.Ended) {
                 self.currentOrder.append(gesture.COUNTERCLOCKWISE)
                 print("counter clock wise rotation")
@@ -107,26 +100,14 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         self.validate()
     }
     
-//    func handleClockWiseRotation(sender: UIRotationGestureRecognizer) {
-//        if (sender.rotation > 0) {
-//            print("clock wise rotation")
-//        }
-//        self.validate()
-//    }
-//    
-//    func handleCounterClockWiseRotation(sender: UIRotationGestureRecognizer) {
-//        if (sender.rotation < 0) {
-//            print("counter clock wise rotation")
-//        }
-//        self.validate()
-//    }
-    
     //Allow to recognize multiple gestures of the same type
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
+    
+    // Check if valid sequence of gestures has been input
     func validate() {
         let length = self.correctOrder.count
         let (start, end) = (self.currentOrder.endIndex - length, self.currentOrder.endIndex)
@@ -137,15 +118,5 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
             self.currentOrder = []
         }
     }
-    
-    
-    
-//    func appendToOrder(nextGesture: gesture) {
-//        if (currentOrder == []) {
-//            self.currentOrder.append(nextGesture)
-//        } else if (nextGesture != self.currentOrder[self.currentOrder.endIndex - 1]) {
-//            self.currentOrder.append(nextGesture)
-//        }
-//    }
     
 }

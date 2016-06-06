@@ -10,6 +10,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
+    // email and password fields
     @IBOutlet var emailField: EmailValidatedTextField!
     @IBOutlet var passwordField: UITextField!
     
@@ -26,60 +27,43 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    // action for the register button
     @IBAction func registerButtonTapped(sender: UIButton) {
         let email = emailField.text
         let password = passwordField.text
         
-        if self.emailField.validate() {
-            var (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
-            
-            if user != nil {
-                // create alert controller and OK action
-                let alertController = UIAlertController(title: "User registered",
-                                                        message: "Your username is \(user!.email). Tap to play.",
-                                                        preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
-                // add OK action to alert controller
-                alertController.addAction(OKAction)
-                // display alert
-                self.presentViewController(alertController, animated: true, completion: nil)
-                // now try to log in
-                (failureMessage, user) = UserController.sharedInstance.loginUser(emailField.text!, suppliedPassword: passwordField.text!)
-                if user != nil {
-                    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                    appDelegate.navigateToGame()
-                    // save log in data
-                } else if failureMessage != nil {
-                    let alertController = UIAlertController(title: "Could not log in",
-                                                            message: failureMessage, preferredStyle: .Alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .Default) { _ in}
-                    alertController.addAction(OKAction)
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                }
-            } else if failureMessage != nil {
-                // create alert controller and OK action
-                let alertController = UIAlertController(title: "Error", message: failureMessage!, preferredStyle: .Alert)
-                let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
-                // add OK action to alert controller
-                alertController.addAction(OKAction)
-                // display alert
-                self.presentViewController(alertController, animated: true, completion: nil)
-                
-            }
-            
+        if self.emailField.valid() {
+            // register user in the UserController class
+            UserController.sharedInstance.registerUser(email!,password: password!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
         }
         
+    }
+    
+    
+    // function to execute after registration is completed
+    func registrationComplete(user:User?,message:String?) {
+        if user != nil {
+            // go to game view
+            let alert = UIAlertController(title:"Registration Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+                //when the user clicks "Ok", do the following
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToLoggedInNavigationController()
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else if message != nil {
+            // display an alert with the returned message
+            // create alert controller and OK action
+            let alertController = UIAlertController(title: "Error", message: message!, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) {_ in }
+            // add OK action to alert controller
+            alertController.addAction(OKAction)
+            // display alert
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+        }
+
     }
 
 }

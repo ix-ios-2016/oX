@@ -15,6 +15,7 @@
 		A15513301CFF2C79003C958C /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A155132E1CFF2C79003C958C /* EasterEggViewController.swift */; };
 		A15513311CFF2C79003C958C /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A155132F1CFF2C79003C958C /* EasterEggViewController.xib */; };
 		A15513331CFF2C92003C958C /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15513321CFF2C92003C958C /* EasterEggController.swift */; };
+		A161D3B01D059322001B0D8D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161D3AF1D059322001B0D8D /* UIViewControllerExtension.swift */; };
 		A171257B1CFEDAEC0002D506 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */; };
 		A1A925F81D056FD400CE9DCE /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A925F71D056FD400CE9DCE /* ClosureExperiment.swift */; };
 		A1B5792E1CFC758D00621F30 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B5792D1CFC758D00621F30 /* OXGame.swift */; };
@@ -69,6 +70,7 @@
 		A155132E1CFF2C79003C958C /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		A155132F1CFF2C79003C958C /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		A15513321CFF2C92003C958C /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
+		A161D3AF1D059322001B0D8D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		A1A925F71D056FD400CE9DCE /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
 		A1B5792D1CFC758D00621F30 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
@@ -145,13 +147,14 @@
 				A1DCC6A81CFDEB7600236776 /* Authentication */,
 				A1DCC6A71CFDEB0700236776 /* Screens */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
-				A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
-				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				A1C6682C1D018A5500EDD1B1 /* ModelControllers */,
+				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				A1A925F71D056FD400CE9DCE /* ClosureExperiment.swift */,
 				A1EB774E1D057ED400C13860 /* WebService.swift */,
+				A161D3AF1D059322001B0D8D /* UIViewControllerExtension.swift */,
+				A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				A15513331CFF2C92003C958C /* EasterEggController.swift in Sources */,
+				A161D3B01D059322001B0D8D /* UIViewControllerExtension.swift in Sources */,
 				A1EB774F1D057ED400C13860 /* WebService.swift in Sources */,
 				A15513301CFF2C79003C958C /* EasterEggViewController.swift in Sources */,
 				A1B5792E1CFC758D00621F30 /* OXGame.swift in Sources */,

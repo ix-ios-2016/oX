@@ -87,19 +87,8 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     @IBAction func newGameButtonTapped(sender: UIButton) {
-        let user = User(email: "host", password: "host")
+        let user = User(email: "host", password: "host", token: "host", client: "host")
         OXGameController.sharedInstance.createNewGame(user)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
