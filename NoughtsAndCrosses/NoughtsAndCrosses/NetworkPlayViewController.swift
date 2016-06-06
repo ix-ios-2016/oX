@@ -77,7 +77,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text =
-            "ID: \(self.gameList![indexPath.row].gameId!), Email: \(self.gameList![indexPath.row].hostUser!.email)"
+            "ID: \(self.gameList![indexPath.row].gameId!), Email: \(self.gameList![indexPath.row].hostUser?.email)"
         return cell
     }
     
