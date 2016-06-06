@@ -39,9 +39,9 @@ class BoardViewController: UIViewController {
         self.view.addGestureRecognizer(twoFingerSwipeDown)
         */
         
-        if (networkGame == false) {
-            print("hi")
-        }
+
+//        let test = ClosureExperiment()
+        
     }
     /*
     func twoFingerDownSwipe(sender: UISwipeGestureRecognizer? = nil) {
@@ -125,7 +125,12 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
-        print(networkGame)
+        if  networkGame {
+            networkGameButton.hidden = true
+            logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
+        } else {
+            logOutButton.setTitle("Log Out", forState: UIControlState.Normal)
+        }
 
     }
     
@@ -133,13 +138,17 @@ class BoardViewController: UIViewController {
         restartGame()
     }
     @IBAction func logOut(sender: AnyObject) {
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToLandingViewConrtoller()
+        if !networkGame {
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToLandingViewConrtoller()
+        } else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
     }
     @IBAction func networkGame(sender: AnyObject) {
         let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.pushViewController(networkPlayViewController, animated: true)
-        networkGame = true
         print(networkGame)
     }
 }

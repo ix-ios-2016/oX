@@ -39,11 +39,15 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         self.navigationController?.pushViewController(bvc, animated: true)
-        
+        bvc.networkGame = true
         print("did select row \(indexPath.row)")
     }
     

@@ -43,10 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
         if let loggedIn = userIsLoggedIn {
-            
-            self.window?.rootViewController = self.boardViewController
-
-
+            navigateToBoardViewController()
         }   else {
             let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
             self.authorisationNavigationController = UINavigationController(rootViewController: landingViewController)

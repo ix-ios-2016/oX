@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         
             let username = self.emailTextField.text
             let password = self.passwordTextField.text
+            
         
             let (failureMessage, user) = UserController.sharedInstance.loginUser(username!, suppliedPassword: password!)
         
@@ -50,6 +51,7 @@ class LoginViewController: UIViewController {
         } else {
             emailTextField.updateUI()
         }
+        
     }
 }
     /*

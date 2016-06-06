@@ -29,8 +29,11 @@
 		562A68031CFF2F49004D378E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562A68011CFF2F49004D378E /* LoginViewController.xib */; };
 		562A68061CFF2F6F004D378E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A68041CFF2F6F004D378E /* RegistrationViewController.swift */; };
 		562A68071CFF2F6F004D378E /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562A68051CFF2F6F004D378E /* RegistrationViewController.xib */; };
+		5641DC0A1D059B3A00258EAC /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641DC091D059B3A00258EAC /* WebServices.swift */; };
+		5641DC0C1D059B8E00258EAC /* UIViewControllweExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641DC0B1D059B8E00258EAC /* UIViewControllweExtensions.swift */; };
 		564D08751CFF72EC00C46F88 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D08741CFF72EC00C46F88 /* UserController.swift */; };
 		5697EF541D056FDA0010BF3B /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5697EF531D056FDA0010BF3B /* ClosureExperiment.swift */; };
+		56B8C2C31D06377F003FF641 /* UserController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8C2C21D06377F003FF641 /* UserController2.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -81,8 +84,11 @@
 		562A68011CFF2F49004D378E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		562A68041CFF2F6F004D378E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		562A68051CFF2F6F004D378E /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		5641DC091D059B3A00258EAC /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		5641DC0B1D059B8E00258EAC /* UIViewControllweExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllweExtensions.swift; sourceTree = "<group>"; };
 		564D08741CFF72EC00C46F88 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5697EF531D056FDA0010BF3B /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
+		56B8C2C21D06377F003FF641 /* UserController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController2.swift; sourceTree = "<group>"; };
 		77596BA0D43A4EEE7C246B06 /* Pods-NoughtsAndCrossesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrossesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrossesUITests/Pods-NoughtsAndCrossesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3920F39D3A01FFBF840DC2E /* Pods_NoughtsAndCrossesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FBF3D0BC5F645E45FDF15B /* Pods-NoughtsAndCrosses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 				42D447D91CD765670070326E /* Info.plist */,
 				5611F1241CFF82A100773D57 /* EmailValidatedTextField.swift */,
 				5697EF531D056FDA0010BF3B /* ClosureExperiment.swift */,
+				5641DC091D059B3A00258EAC /* WebServices.swift */,
+				5641DC0B1D059B8E00258EAC /* UIViewControllweExtensions.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 				561C39871CFC7A64002F3637 /* OXGame.swift */,
 				564D08741CFF72EC00C46F88 /* UserController.swift */,
 				5602E81D1D055D5800A45214 /* OXGameController.swift */,
+				56B8C2C21D06377F003FF641 /* UserController2.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -523,8 +532,10 @@
 			files = (
 				562A68061CFF2F6F004D378E /* RegistrationViewController.swift in Sources */,
 				5611F1391D00676200773D57 /* EasterEggController.swift in Sources */,
+				5641DC0A1D059B3A00258EAC /* WebServices.swift in Sources */,
 				5611F1361D00671D00773D57 /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
+				56B8C2C31D06377F003FF641 /* UserController2.swift in Sources */,
 				561C39881CFC7A64002F3637 /* OXGame.swift in Sources */,
 				562A67FE1CFF2F36004D378E /* LandingViewController.swift in Sources */,
 				564D08751CFF72EC00C46F88 /* UserController.swift in Sources */,
@@ -534,6 +545,7 @@
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
 				5602E81E1D055D5800A45214 /* OXGameController.swift in Sources */,
 				5611F1251CFF82A100773D57 /* EmailValidatedTextField.swift in Sources */,
+				5641DC0C1D059B8E00258EAC /* UIViewControllweExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
