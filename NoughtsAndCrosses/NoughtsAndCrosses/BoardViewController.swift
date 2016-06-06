@@ -76,14 +76,34 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: AnyObject) {
+//        if networkPlay {
+//        if currentGame.state() == OXGameState.inProgress  {
+//            let tag = sender.tag
+//            let player = String(OXGameController.sharedInstance.playMove(tag))
+//            sender.setTitle(player, forState: UIControlState.Normal)
+//            let (cellType,int) = OXGameController.sharedInstance.playRandomMove()!
+//            sender.setTitle(cellType, forState: UIControlState.Normal)
+//           
+//        } else {
+//            navigationController?.popViewControllerAnimated(true)
+//            }
+//         
+//        } else {
+//            let tag = sender.tag
+//            print("Button Pressed \(tag)")
+//            let player = String(OXGameController.sharedInstance.playMove(tag))
+//            sender.setTitle(player, forState: UIControlState.Normal)
+//            currentGame.state()
+//            currentGame.winDetection()
+//            
+//        }
+        
         let tag = sender.tag
         print("Button Pressed \(tag)")
-        
         let player = String(OXGameController.sharedInstance.playMove(tag))
         sender.setTitle(player, forState: UIControlState.Normal)
         currentGame.state()
         currentGame.winDetection()
-        
         
     }
 
