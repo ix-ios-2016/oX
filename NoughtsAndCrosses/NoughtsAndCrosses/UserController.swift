@@ -6,7 +6,14 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
+import SwiftyJSON
+import Alamofire
 import Foundation
+
+struct User {
+    var email: String
+    var password: String
+}
 
 class UserController {
     // Singleton design pattern
@@ -22,10 +29,7 @@ class UserController {
         return Static.instance!
     }
     
-    struct User {
-        var email: String
-        var password: String
-    }
+
     
     private var users: [User] = []
     
@@ -58,4 +62,16 @@ class UserController {
         }
         return ("No user with that email", nil)
     }
+    
+    
+    
+//    func storeUser(user:User) {
+//        NSUserDefaults.standardUserDefaults().setObject(user.password, forKey: "\(user.eamil)")
+//    }
+//    
+//    func getStoredUser(id:String) -> User? {
+//        if let userPassword:String = NSUserDefaults.standardUserDefaults().objectForKey("\(id)") as? String {
+//            
+//        }
+//    }
 }

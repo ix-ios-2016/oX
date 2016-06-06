@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="board" destination="qYi-hH-8b3" id="NHW-0k-QRZ"/>
+                <outlet property="logOutButton" destination="b5V-nT-eNb" id="zWq-BB-Mfx"/>
+                <outlet property="networkGameButton" destination="yux-46-us4" id="izc-FW-qc2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="OQt-02-Fl8"/>
             </connections>
         </placeholder>
@@ -18,6 +20,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o_X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-si-s1J">
+                    <rect key="frame" x="137" y="40" width="100" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Tdd-xZ-kHf"/>
+                        <constraint firstAttribute="width" constant="100" id="UmC-ng-EUh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYi-hH-8b3">
                     <rect key="frame" x="20" y="189" width="335" height="330"/>
                     <subviews>
@@ -398,16 +410,25 @@
                         <action selector="newGame:" destination="-1" eventType="touchUpInside" id="Ovd-lH-jjO"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o_X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-si-s1J">
-                    <rect key="frame" x="137" y="40" width="100" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="Tdd-xZ-kHf"/>
-                        <constraint firstAttribute="width" constant="100" id="UmC-ng-EUh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5V-nT-eNb">
+                    <rect key="frame" x="8" y="40" width="72" height="30"/>
+                    <state key="normal" title="Log Out">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="eoG-ix-gTH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yux-46-us4">
+                    <rect key="frame" x="263" y="40" width="104" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Network Game">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="networkGame:" destination="-1" eventType="touchUpInside" id="dB2-aF-FgL"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -437,7 +458,7 @@
                     <exclude reference="d8s-qj-E3B"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="197" y="261"/>
+            <point key="canvasLocation" x="196.5" y="260.5"/>
         </view>
     </objects>
 </document>

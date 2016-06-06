@@ -22,25 +22,33 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: EmailValidatedTextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
     @IBAction func logInButtonTapped(sender: AnyObject) {
         print("Login here!")
         
-        let username = self.emailTextField.text
-        let password = self.passwordTextField.text
+        if (emailTextField.valid()) {
         
-        let (failureMessage, user) = UserController.sharedInstance.loginUser(username!, suppliedPassword: password!)
+            let username = self.emailTextField.text
+            let password = self.passwordTextField.text
         
-        if (user != nil) {
-            print("User registered in registration view")
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.navigateToBoardViewController()
-        }   else {
-                if (failureMessage != nil) {
-                    print(failureMessage)
+            let (failureMessage, user) = UserController.sharedInstance.loginUser(username!, suppliedPassword: password!)
+        
+            if (user != nil) {
+                print("User registered in registration view")
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToBoardViewController()
+                // at this point we are happy to login the user, so let's store that persistent valaue
+                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggenIn")
+            }   else {
+                    if (failureMessage != nil) {
+                        print(failureMessage)
+                }
             }
+            emailTextField.validate()
+        } else {
+            emailTextField.updateUI()
         }
     }
 }

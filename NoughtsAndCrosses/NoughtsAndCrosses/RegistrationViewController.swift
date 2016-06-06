@@ -27,23 +27,31 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func registrationButtonTapped(sender: AnyObject) {
-        let username = emailTextField.text
-        let password = passwordTextField.text
+
         
-        if (EmailValidatedTextField().validate()) {
-            return
-        }
-        
-        let (failureMessage, user) = UserController.sharedInstance.registerUser(username!, newPassword: password!)
-        
-        if (user != nil) {
-            print("User registered in registration view")
-        }   else {
-            if (failureMessage != nil) {
-                print(failureMessage)
+        if (emailTextField.valid()) {
+            
+            let username = emailTextField.text
+            let password = passwordTextField.text
+            
+            
+            let (failureMessage, user) = UserController.sharedInstance.registerUser(username!, newPassword: password!)
+            
+            
+            if (user != nil) {
+                print("User registered in registration view")
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToBoardViewController()
+            }   else {
+                    if (failureMessage != nil) {
+                        print(failureMessage)
+                }
             }
+            emailTextField.validate()
+            print("Register here!")
+        } else {
+            emailTextField.updateUI()
         }
-        print("Register here!")
     }
     /*
     // MARK: - Navigation

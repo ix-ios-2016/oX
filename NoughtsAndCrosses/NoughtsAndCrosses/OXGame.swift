@@ -20,6 +20,14 @@ enum OXGameState:String {
     case complete_someone_won
 }
 
+struct UserType {
+    var hostUser: User
+    var guestUser: User
+}
+
+var gameId:String? = nil
+
+
 class OXGame {
 
     private var board = [CellType] (count: 9, repeatedValue: CellType.EMPTY)

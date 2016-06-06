@@ -8,16 +8,52 @@
 
 import UIKit
 
+
 class BoardViewController: UIViewController {
+
+    var networkGame:Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
+        /*
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
         self.board.addGestureRecognizer(rotation)
         
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(BoardViewController.handlePinch(_:)))
         self.view.addGestureRecognizer(pinch)
+        
+        let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action:
+            #selector(BoardViewController.handleLongPress(_:)))
+        self.view.addGestureRecognizer(longPress)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action:
+            #selector(BoardViewController.handleRightSwipe(_:)))
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let twoFingerSwipeDown = UISwipeGestureRecognizer(target: self, action:
+            #selector(BoardViewController.twoFingerDownSwipe(_:)))
+        twoFingerSwipeDown.numberOfTouchesRequired = 2
+        twoFingerSwipeDown.direction = UISwipeGestureRecognizerDirection.Down
+        self.view.addGestureRecognizer(twoFingerSwipeDown)
+        */
+        
+        if (networkGame == false) {
+            print("hi")
+        }
+    }
+    /*
+    func twoFingerDownSwipe(sender: UISwipeGestureRecognizer? = nil) {
+            print("Two finger down swipe")
+    }
+    
+    func handleLongPress(sender: UILongPressGestureRecognizer? = nil) {
+        print("Long press")
+    }
+    
+    func handleRightSwipe(sender: UISwipeGestureRecognizer? = nil) {
+            print("Right swipe")
     }
     
     func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
@@ -42,12 +78,17 @@ class BoardViewController: UIViewController {
     
     func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
         print("pinch")
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToEasterEggController()
     }
     
+    */
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    @IBOutlet weak var networkGameButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var board: UIView!
     
     var gameObject = OXGame()
@@ -82,7 +123,23 @@ class BoardViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        print(networkGame)
+
+    }
+    
     @IBAction func newGame(sender: AnyObject) {
         restartGame()
+    }
+    @IBAction func logOut(sender: AnyObject) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToLandingViewConrtoller()
+    }
+    @IBAction func networkGame(sender: AnyObject) {
+        let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+        self.navigationController?.pushViewController(networkPlayViewController, animated: true)
+        networkGame = true
+        print(networkGame)
     }
 }

@@ -12,9 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+//    var navigationController: UINavigationController?
     var authorisationNavigationController = UINavigationController()
     var boardViewController = UINavigationController()
+    var easterEggNavigationController = UINavigationController()
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -33,22 +35,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window?.rootViewController = self.navigationController
 //        self.window?.makeKeyAndVisible()
         
-        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
-        self.authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
-       
+        
         let boardViewController = BoardViewController(nibName: "BoardViewController", bundle: nil)
         self.boardViewController = UINavigationController(rootViewController: boardViewController)
+        self.boardViewController.navigationBarHidden = true
+
         
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        if let loggedIn = userIsLoggedIn {
+            
+            self.window?.rootViewController = self.boardViewController
+
+
+        }   else {
+            let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+            self.authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
+            self.window?.rootViewController = self.authorisationNavigationController
+        }
+        
+
         // copied from "Building out the navigation for authorisation flow: 1D"
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.authorisationNavigationController
         self.window?.makeKeyAndVisible()
         
+        
+        EasterEggController.sharedInstance.initiate(self.window!)
+
         return true
+    }
+    
+    func navigateToEasterEggController() {
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        self.easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        self.easterEggNavigationController.navigationBarHidden = true
+
+        self.window?.rootViewController = self.easterEggNavigationController
+
+    }
+    
+    func returnToGameController() {
+        self.window?.rootViewController = self.boardViewController
     }
 
     func navigateToBoardViewController() {
         self.window?.rootViewController = self.boardViewController
+    }
+    
+    func navigateToLandingViewConrtoller() {
+        self.window?.rootViewController = self.authorisationNavigationController
     }
     
     func applicationWillResignActive(application: UIApplication) {
