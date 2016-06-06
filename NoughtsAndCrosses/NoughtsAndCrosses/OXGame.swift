@@ -106,5 +106,6 @@ class OXGame {
         for index in 0...8 {
             board[index] = CellType.EMPTY
         }
+        turnCount = 0
     }
 }

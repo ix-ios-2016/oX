@@ -17,9 +17,8 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
-    var gameObject = OXGame()
+    //var gameObject = OXGame()
     var lastRotation: Float!
-    var networkMode:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,7 @@ class BoardViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
         
-        if (networkMode) {
+        if (OXGameController.sharedInstance.getNetworkMode()) {
             networkPlayButton.hidden = true
             logOutButton.setTitle("Leave Game", forState: .Normal)
         }
@@ -72,27 +71,52 @@ class BoardViewController: UIViewController {
     }
     
     // Action for all game board buttons clicked
-    @IBAction func buttonClicked(sender: AnyObject) {
-        sender.setTitle(String(gameObject.whosTurn()), forState: .Normal)
-
-        gameObject.playMove(sender.tag)
+    @IBAction func buttonClicked(sender: UIButton) {
+        var gameObject = OXGameController.sharedInstance.getCurrentGame()
+        var index = sender.tag
         
-        let state = gameObject.state()
-        if state == OXGameState.complete_someone_won {
-            let winMessage = UIAlertController(title: "Game over!", message: "Congratulations, player " + String(gameObject.typeAtIndex(sender.tag)) + ". You won!", preferredStyle: UIAlertControllerStyle.Alert)
-            let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
-            winMessage.addAction(okButton)
+        if (gameObject!.board[sender.tag] == CellType.EMPTY)
+        {
+            sender.setTitle(String(gameObject!.whosTurn()), forState: .Normal)
+            OXGameController.sharedInstance.playMove(sender.tag)
+            var state = gameObject!.state()
             
-            self.presentViewController(winMessage, animated: true, completion: nil)
-        }
-        else if state == OXGameState.complete_no_one_won {
-            let tieMessage = UIAlertController(title: "Tie game.", message: "Play again!", preferredStyle: UIAlertControllerStyle.Alert)
-            let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
-            tieMessage.addAction(okButton)
+            if (state == OXGameState.inProgress) && (OXGameController.sharedInstance.getNetworkMode()){
+                let (randomCellType, randomIndex):(CellType, Int) = OXGameController.sharedInstance.playRandomMove()!
+                
+                for button in self.boardView.subviews as [UIView] {
+                    if let button = button as? UIButton {
+                        if button.tag == randomIndex{
+                            button.setTitle(String(randomCellType), forState: .Normal)
+                        }
+                    }
+                }
+                index = randomIndex
+            }
             
-            self.presentViewController(tieMessage, animated: true, completion: nil)
-        }
-        else if state == OXGameState.inProgress {
+            gameObject = OXGameController.sharedInstance.getCurrentGame()
+            state = gameObject!.state()
+            
+            if state == OXGameState.complete_someone_won {
+                let winMessage = UIAlertController(title: "Game over!", message: "Congratulations, player " + String(gameObject!.typeAtIndex(index)) + ". You won!", preferredStyle: UIAlertControllerStyle.Alert)
+                let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
+                winMessage.addAction(okButton)
+                
+                OXGameController.sharedInstance.finishCurrentGame()
+                
+                self.presentViewController(winMessage, animated: true, completion: nil)
+            }
+            else if state == OXGameState.complete_no_one_won {
+                let tieMessage = UIAlertController(title: "Tie game.", message: "Play again!", preferredStyle: UIAlertControllerStyle.Alert)
+                let okButton = UIAlertAction(title: "Okay", style: .Default, handler: {(UIAlertAction) -> Void in self.restartGame()})
+                tieMessage.addAction(okButton)
+                
+                OXGameController.sharedInstance.finishCurrentGame()
+
+                self.presentViewController(tieMessage, animated: true, completion: nil)
+            }
+            else if state == OXGameState.inProgress {
+            }
         }
     }
     
@@ -105,7 +129,7 @@ class BoardViewController: UIViewController {
     
     // Action for new game click
     @IBAction func newGameClicked(sender: AnyObject) {
-        if (networkMode) {
+        if (OXGameController.sharedInstance.getNetworkMode()) {
             newGameButton.enabled = false
         }
         else {
@@ -115,7 +139,9 @@ class BoardViewController: UIViewController {
     
     // Action for Log out button tapped
     @IBAction func logoutTapped(sender: UIButton) {
-        if (networkMode) {
+        OXGameController.sharedInstance.finishCurrentGame()
+        
+        if (OXGameController.sharedInstance.getNetworkMode()) {
             self.navigationController?.popViewControllerAnimated(true)
         }
         else {
@@ -132,8 +158,10 @@ class BoardViewController: UIViewController {
     }
 
     func restartGame () {
-        gameObject.reset()
-        gameObject = OXGame()
+        var gameObject = OXGameController.sharedInstance.getCurrentGame()
+
+        gameObject!.reset()
+        gameObject! = OXGame()
         
         for button in self.boardView.subviews as [UIView] {
             if let button = button as? UIButton {

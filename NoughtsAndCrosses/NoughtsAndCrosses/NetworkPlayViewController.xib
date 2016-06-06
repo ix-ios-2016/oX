@@ -23,7 +23,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="egB-qJ-aEF"/>
                     </constraints>
-                    <state key="normal" title="Start Network Game">
+                    <state key="normal" title="Start Your Own Network Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
@@ -36,6 +36,9 @@
                             <include reference="egB-qJ-aEF"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="startNewNetworkGameTapped:" destination="-1" eventType="touchUpInside" id="uoC-vI-WbQ"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YrY-fu-fri">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
