@@ -16,7 +16,9 @@ class LandingViewController: UIViewController {
 //    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let experiment = ClosureExperiment()
+        
         // Do any additional setup after loading the view.
     }
 

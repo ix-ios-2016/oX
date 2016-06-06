@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 
 struct User {
@@ -45,6 +46,20 @@ class UserController {
         logged_in_user = user
         print("User with email: \(newEmail) has been registered by the UserManager.")
         return (nil, user)
+    }
+    
+    func loginUser() {
+        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+        }
     }
     
     func loginUser(suppliedEmail: String, suppliedPassword: String) -> (failureMessage: String?, user: User?){
