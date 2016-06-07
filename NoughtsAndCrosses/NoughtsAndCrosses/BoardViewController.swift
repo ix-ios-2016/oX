@@ -14,9 +14,6 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var networkPlayButton: UIButton!
     
-    
-    
-    
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     
@@ -62,26 +59,43 @@ class BoardViewController: UIViewController {
     
     // action for pressing any of the game board buttons
     @IBAction func buttonTapped(sender: AnyObject) {
-        // play the move (and record which player executed it)
-        let lastPlayer = self.currentGame.playMove(sender.tag)
-        // update the board
-        sender.setTitle(String(self.currentGame.typeAtIndex(sender.tag)),
-                        forState: UIControlState.Normal)
+        if (currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
+            return
+        }
         
-        // if in network mode, and game is not over play a move by a stupid AI
-//        if (self.checkState(lastPlayer) == OXGameState.inProgress && self.networkGame) {
-//            // play a move
-//            let (cell, index) = OXGameController.sharedInstance.playRandomMove()!
-//            // update the boardView
-//            for subview in self.boardContainer.subviews {
-//                if subview is UIButton && subview.tag == index {
-//                    (subview as! UIButton).setTitle(String(cell), forState: UIControlState.Normal)
-//                }
-//            }
-//            // check state again
-//            self.checkState(cell)
-//        }
+        var lastMove: CellType?
         
+        if (self.networkGame) {
+            
+            lastMove = self.currentGame.playMove(sender.tag)
+            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message:message)})
+            
+            if !self.gameEnded(lastMove!) {
+                
+                
+            } else {
+                return
+            }
+        } else {
+            lastMove = self.currentGame.playMove(sender.tag)
+            if let moveToPrint = lastMove {
+                sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
+            }
+        }
+        
+    }
+    
+    func gameEnded(move: CellType) -> Bool {
+        return false
+    }
+    
+    func playMoveComplete(game: OXGame?, message: String?) {
+        if let newGame = game {
+            self.currentGame = newGame
+            self.updateUI()
+        } else {
+            print("something went wrong")
+        }
     }
     
     // helper function to check the state of the game, and return an appropriate message given whomever made the most recent move
@@ -175,15 +189,11 @@ class BoardViewController: UIViewController {
             self.networkPlayButton.setTitle("Refresh", forState: UIControlState.Normal)
         }
         
-        for i in 0..<9 {
-            let str = self.currentGame.board[i].rawValue
-            print(str)
-            for view in self.boardContainer.subviews {
-                if let button = view as? UIButton {
-                    if button.tag == i {
-                        button.setTitle(str, forState: UIControlState.Normal)
-                    }
-                }
+        
+        for view in self.boardContainer.subviews {
+            if let button = view as? UIButton {
+                let str = self.currentGame.board[button.tag].rawValue
+                button.setTitle(str, forState: UIControlState.Normal)
             }
         }
     }
