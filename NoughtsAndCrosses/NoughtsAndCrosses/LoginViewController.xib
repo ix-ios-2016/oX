@@ -14,29 +14,50 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-bY-xvn">
-                    <rect key="frame" x="168" y="252" width="38" height="30"/>
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="agi-U2-ZuZ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdp-zp-gg9" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="47" y="285" width="519.5" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-3l-aGd">
+                    <rect key="frame" x="47" y="335" width="519.5" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="83.5" id="UhL-Md-WbJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-bY-xvn">
+                    <rect key="frame" x="281.5" y="365" width="38" height="30"/>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="9S5-8Y-ThD"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdp-zp-gg9" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="139" y="101" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-3l-aGd">
-                    <rect key="frame" x="139" y="177" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <color key="backgroundColor" red="0.014188933186233044" green="0.50512975454330444" blue="0.97877174615859985" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kZF-3l-aGd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="50" id="0KI-NG-WE9"/>
+                <constraint firstItem="agi-U2-ZuZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3wy-PY-lf2"/>
+                <constraint firstItem="cdp-zp-gg9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L5n-Aw-G4M"/>
+                <constraint firstItem="6gv-bY-xvn" firstAttribute="centerY" secondItem="agi-U2-ZuZ" secondAttribute="centerY" constant="80" id="Px1-ud-fzC"/>
+                <constraint firstAttribute="trailing" secondItem="agi-U2-ZuZ" secondAttribute="trailing" id="QF3-4u-lEl"/>
+                <constraint firstItem="kZF-3l-aGd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="S3l-LD-OyF"/>
+                <constraint firstAttribute="bottom" secondItem="agi-U2-ZuZ" secondAttribute="bottom" id="cul-RT-R2k"/>
+                <constraint firstItem="agi-U2-ZuZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="mfO-SI-UJx"/>
+                <constraint firstItem="agi-U2-ZuZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nRl-YR-bTd"/>
+                <constraint firstItem="cdp-zp-gg9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tRh-Kj-NVF"/>
+                <constraint firstItem="6gv-bY-xvn" firstAttribute="centerX" secondItem="agi-U2-ZuZ" secondAttribute="centerX" id="vgX-gr-lEi"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="Image" width="1920" height="1371"/>
+    </resources>
 </document>

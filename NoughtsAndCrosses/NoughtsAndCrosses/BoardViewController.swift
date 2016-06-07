@@ -28,6 +28,7 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var Buttons: [UIButton]!
     
+    var currentGame = OXGame()
     
     @IBOutlet weak var logoutButton: UIButton!
     
@@ -77,6 +78,7 @@ class BoardViewController: UIViewController {
         if (!networkGame) {
             let lvc = LandingViewController(nibName: "LandingViewController", bundle: nil)
             self.navigationController?.pushViewController(lvc, animated: true)
+            let userIsLoggedIn = UserController.sharedInstance.setLoggedInUser(nil)
             
         } else {
             //let nvc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)

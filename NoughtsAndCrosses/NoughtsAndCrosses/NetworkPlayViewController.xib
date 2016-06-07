@@ -14,15 +14,18 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFe-QZ-xvw">
-                    <rect key="frame" x="0.0" y="48" width="375" height="540"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TFe-QZ-xvw">
+                    <rect key="frame" x="0.0" y="48" width="600" height="504"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="398" id="5m1-Vi-37O"/>
+                    </constraints>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cZ-72-bNl">
-                    <rect key="frame" x="0.0" y="523" width="375" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cZ-72-bNl">
+                    <rect key="frame" x="-5" y="555" width="597" height="45"/>
                     <state key="normal" title="Start New Game"/>
                     <connections>
                         <action selector="createNewNetworkGame:" destination="-1" eventType="touchUpInside" id="AA0-L3-6E1"/>
@@ -30,7 +33,17 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5cZ-72-bNl" secondAttribute="bottom" constant="40" id="KXk-45-5NY"/>
+                <constraint firstAttribute="trailing" secondItem="TFe-QZ-xvw" secondAttribute="trailing" id="SAD-Gw-v05"/>
+                <constraint firstItem="TFe-QZ-xvw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="SCX-BT-3XW"/>
+                <constraint firstItem="5cZ-72-bNl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="VTo-fL-E4e"/>
+                <constraint firstItem="5cZ-72-bNl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-5" id="myw-ka-djT"/>
+                <constraint firstAttribute="trailing" secondItem="5cZ-72-bNl" secondAttribute="trailing" constant="8" id="sim-s0-kAt"/>
+                <constraint firstItem="TFe-QZ-xvw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uKy-iA-IY0"/>
+                <constraint firstItem="TFe-QZ-xvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zgr-vX-gp3"/>
+            </constraints>
+            <point key="canvasLocation" x="279" y="221"/>
         </view>
     </objects>
 </document>

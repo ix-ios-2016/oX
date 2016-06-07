@@ -28,8 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame : UIScreen.mainScreen().bounds)
         
         //set to stored persistent value
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
-      
+        let userIsLoggedIn = UserController.sharedInstance.getLoggedInUser()
         if let _ = (userIsLoggedIn) {
             navigateToGame()
         } else {

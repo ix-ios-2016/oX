@@ -21,8 +21,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource , UITab
         self.title = "Network Play"
         // Do any additional setup after loading the view.
         
-        gamesList = OXGameController.sharedInstance.getListOfGames()!
-        
+        OXGameController.sharedInstance.gameList(self,viewControllerCompletionFunction: {(gameList,message) in self.gameListFetchComplete(gameList, message: message)})
         //Setting the controller as the data source and delegate
         tableView.dataSource = self
         tableView.delegate = self
@@ -51,8 +50,18 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource , UITab
     @IBAction func createNewNetworkGame(sender: UIButton) {
     }
     
+    
+    func gameListFetchComplete(list : [OXGame]? , message : String?) {
+        
+        if let validList = list {
+            self.gamesList = validList
+        }
+        self.tableView.reloadData()
+        
+    }
+    
     func refreshTable() {
-        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
+        //Closure call goes here
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -61,13 +70,15 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource , UITab
         
         print("did select row \(indexPath.row)")
         
-        OXGameController.sharedInstance.acceptGameWithId(gamesList[indexPath.row].gameId!)
+        //OXGameController.sharedInstance.acceptGameWithId(gamesList[indexPath.row].gameId!)
+        //Closure call goes here
+
         let networkGameBVC = BoardViewController(nibName: "BoardViewController", bundle: nil)
         self.navigationController?.pushViewController(networkGameBVC, animated: true)
         networkGameBVC.networkGame = true
         
         //So that the gameList data updates upon refresh
-        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
+        //Closure call goes here
         self.tableView.reloadData()
         refreshControl.endRefreshing()
         
@@ -93,7 +104,9 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource , UITab
         let cell = UITableViewCell()
         
         var game = OXGameController.sharedInstance //if we didn't have sharedInstance() the variable would be empty
-        cell.textLabel?.text =  (game.getListOfGames()![indexPath.row].gameId)! + " " + game.getListOfGames()![indexPath.row].hostUser!.email //the getListOfGames() method returns an array so you can basically think of it as an array
+        
+        //Closure call goes here
+        cell.textLabel?.text = self.gamesList[indexPath.row].hostUser!.email
         return cell
     }
     

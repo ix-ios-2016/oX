@@ -14,7 +14,6 @@
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
 		68FA4A56FAECB22A7EB083F1 /* Pods_NoughtsAndCrosses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 109D0C846A0A442AA9FB8E76 /* Pods_NoughtsAndCrosses.framework */; };
 		83691FB9E9E6C62866FCA8D6 /* Pods_NoughtsAndCrossesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2676F8F6CC4790684BB6A9 /* Pods_NoughtsAndCrossesUITests.framework */; };
-		8D0E55761CFC707E00B3499E /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E55751CFC707E00B3499E /* OXGame.swift */; };
 		8DC115531D05661E00983A00 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8DC115521D05661E00983A00 /* Podfile */; };
 		8DE6ACCC1D056FEE008A911A /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6ACCB1D056FEE008A911A /* ClosureExperiment.swift */; };
 		8DE6ACCF1D057DD8008A911A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE6ACCE1D057DD8008A911A /* WebService.swift */; };
@@ -73,7 +72,6 @@
 		73D55C5E1909F3FDB2693592 /* Pods-NoughtsAndCrosses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.debug.xcconfig"; sourceTree = "<group>"; };
 		7E2676F8F6CC4790684BB6A9 /* Pods_NoughtsAndCrossesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F136C9FC77D80681F7E2C60 /* Pods-NoughtsAndCrosses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.release.xcconfig"; sourceTree = "<group>"; };
-		8D0E55751CFC707E00B3499E /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		8DC115521D05661E00983A00 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8DE6ACCB1D056FEE008A911A /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
 		8DE6ACCE1D057DD8008A911A /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		427A5B651CE0FF4A00328EE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D0E55751CFC707E00B3499E /* OXGame.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -557,7 +554,6 @@
 				8DE7C5291CFF271700286199 /* EasterEggViewController.swift in Sources */,
 				8DE7C51A1CFE42AC00286199 /* RegistrationViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
-				8D0E55761CFC707E00B3499E /* OXGame.swift in Sources */,
 				8DE7C5121CFE386F00286199 /* UserController.swift in Sources */,
 				8DE7C5341D01977800286199 /* NetworkPlayViewController.swift in Sources */,
 				8DE6ACCC1D056FEE008A911A /* ClosureExperiment.swift in Sources */,
