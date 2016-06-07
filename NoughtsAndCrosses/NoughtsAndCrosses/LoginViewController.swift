@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(sender: UIButton) {
         var password = passwordFIeld.text!
-        var username = usernameField.text!
+        let username = usernameField.text!
         let (failure_message, user) = UserController.sharedInstance.loginUser(username, suppliedPassword: password)
         if let user = user {
             print("User logged in ")

@@ -27,7 +27,9 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFB-bd-ERQ">
                     <rect key="frame" x="202" y="285" width="38" height="30"/>
-                    <state key="normal" title="Login"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="WZd-NU-oMJ"/>
                     </connections>
@@ -41,7 +43,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="0.14865491140000001" blue="0.99688427000000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ElZ-gM-knz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="218" id="8sL-Zi-Xlg"/>
                 <constraint firstItem="ElZ-gM-knz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8uC-sc-iYJ"/>

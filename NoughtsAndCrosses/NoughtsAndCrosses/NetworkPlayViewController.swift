@@ -1,48 +1,42 @@
 //
-//  RegisterViewController.swift
+//  NetworkPlayViewController.swift
 //  NoughtsAndCrosses
 //
-//  Created by Eden Mekonnen on 6/6/16.
+//  Created by Eden Mekonnen on 6/7/16.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
-    
-    @IBOutlet var passwordField: UITextField!
-    
-   @IBOutlet var emailField: EmailValidatedTextField!
-    
+class NetworkPlayViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Register"
 
         // Do any additional setup after loading the view.
     }
 
+  //  *** 
+//func gameListReceived (games:[OXGame}?,message:String?) {
+    //print ("games received\(games)") 
+      //  if let newGames = games {
+      //  }
+       //  self.tableView.reloadData()
+      //  }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func registerButtonTapped(sender: UIButton) {
-        
-        var password = passwordField.text!
-        var username = emailField.text!
-        let (failure_message, user) = UserController.sharedInstance.registerUser(username, newPassword: password)
-
-        if(!emailField.valid()) {
-            return
-        }
-        
-        if let user = user {
-            print("User registered in registration view")
-        } else {
-            print("User failed to register")
-
-        }
+    
+    override func viewDidAppear(animated:Bool) {
+        self.title = "Network Play"
+        self.navigationController?.navigationBarHidden = false
     }
+        
+        //**** OXGameController.sharedInstance.gameList(self.viewCOntrollerCompletionFunction: ((gameList,message)
+        // in self.gameListReceived(gameList, message:message)})
 
     /*
     // MARK: - Navigation
@@ -53,6 +47,5 @@ class RegisterViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 
 }

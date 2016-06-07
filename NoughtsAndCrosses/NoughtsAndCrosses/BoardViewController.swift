@@ -10,7 +10,8 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
-    var gameObject = OXGame()
+    var currentGame = OXGame()
+    //OXGameController.sharedInstance.getCurrentGame()
     
     @IBOutlet weak var boardView: UIView!
     
@@ -31,6 +32,9 @@ class BoardViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //Rotation 
+    
+    // let rotation: UIRotationGestureRecognizer: UIRoationGestureRecognizer(target:self,action:)
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -38,33 +42,34 @@ class BoardViewController: UIViewController {
     @IBAction func boardTapped(sender: AnyObject) {
         print("board tapped \(sender.tag)")
         
-        
-        
-        
-        
-        
-        
+        //if(string(gameObject.typeAtIndex(sender:tag)) !="EMPTY" }
+            //return
+   // {
+    
+    //var lastMove:CellType?
+    
+    //lastMove = currentGame.playMove(sender.tag)
+
         //determine state
         
-        let status = String (gameObject.state())
-        
+        let status = String (currentGame.state())
         
         
         if status == "inProgress"{
             
             //set to X or O
             
-            sender.setTitle("\(String (gameObject.playMove(sender.tag)))", forState: UIControlState.Normal)
+            sender.setTitle("\(String (currentGame.playMove(sender.tag)))", forState: UIControlState.Normal)
             
             
             
             //check if finished
             
-            let new_status = String (gameObject.state())
+            let new_status = String (currentGame.state())
             
             if new_status == "complete_someone_won" {
                 
-                let xo = String (gameObject.whosTurn())
+                let xo = String (currentGame.whosTurn())
                 
                 if xo == "X" {
                     
