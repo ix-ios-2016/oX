@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // check for user persistent data
         let userLoggedIn = UserController.sharedInstance.getLoggedInUser()
         
-        print("App Delegate USerloggedin" + String(userLoggedIn))
+        print("App Delegate USerloggedin: " + String(userLoggedIn))
         
         if userLoggedIn != nil
         {

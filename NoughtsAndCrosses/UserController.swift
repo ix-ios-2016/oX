@@ -175,7 +175,8 @@ class UserController: WebService {
         if let userId = NSUserDefaults.standardUserDefaults().stringForKey("loggedInUser")    {
             //a user is logged in, return the User object for this user id
             return self.getStoredUser(userId)
-        }   else    {
+        }   else
+        {
             //else user not found
             return nil
         }

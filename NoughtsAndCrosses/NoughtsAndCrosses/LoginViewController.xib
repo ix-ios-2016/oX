@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6pv-nx-zvV" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="201" y="74" width="198" height="30"/>
+                    <rect key="frame" x="201" y="8" width="198" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="198" id="dJV-Kh-IKN"/>
                     </constraints>
@@ -26,12 +26,12 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ac-Cs-nTv">
-                    <rect key="frame" x="201" y="117" width="198" height="30"/>
+                    <rect key="frame" x="201" y="51" width="198" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-Fw-DeR">
-                    <rect key="frame" x="255" y="155" width="90" height="29"/>
+                    <rect key="frame" x="255" y="89" width="90" height="29"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="29" id="A3k-X9-FK9"/>
                         <constraint firstAttribute="width" constant="90" id="N8s-c2-YF1"/>
@@ -49,7 +49,7 @@
             <constraints>
                 <constraint firstItem="iV6-Fw-DeR" firstAttribute="top" secondItem="1ac-Cs-nTv" secondAttribute="bottom" constant="8" symbolic="YES" id="CAb-hS-IUK"/>
                 <constraint firstItem="6pv-nx-zvV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qbc-tk-QCM"/>
-                <constraint firstItem="6pv-nx-zvV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="YO0-D1-UvF"/>
+                <constraint firstItem="6pv-nx-zvV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="YO0-D1-UvF"/>
                 <constraint firstItem="6pv-nx-zvV" firstAttribute="trailing" secondItem="1ac-Cs-nTv" secondAttribute="trailing" id="Zal-EL-vto"/>
                 <constraint firstItem="6pv-nx-zvV" firstAttribute="leading" secondItem="1ac-Cs-nTv" secondAttribute="leading" id="am9-vC-nRt"/>
                 <constraint firstItem="1ac-Cs-nTv" firstAttribute="centerX" secondItem="iV6-Fw-DeR" secondAttribute="centerX" id="ctj-sp-prX"/>
