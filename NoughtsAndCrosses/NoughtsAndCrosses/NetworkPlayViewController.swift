@@ -6,11 +6,14 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
+
 import UIKit
 
 class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var gamesList: [OXGame] = []
     
     
     override func viewDidLoad() {
@@ -20,6 +23,9 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.dataSource = self
         tableView.delegate = self
+      
+        
+        gamesList = OXGameController.sharedInstance.getListOfGames()!
         
     }
     
@@ -36,7 +42,8 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 2
+        print (gamesList.count)
+        return gamesList.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
@@ -47,13 +54,15 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Test"
+        cell.textLabel?.text = gamesList[indexPath.row].hostUser!.email
         return cell
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
         print("hi")
+        OXGameController.sharedInstance.setCurrentGame(OXGameController.sharedInstance.acceptGameWithId(gamesList[indexPath.row].gameId!)!)
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         bvc.networkMode = true
         self.navigationController?.pushViewController(bvc, animated: true)

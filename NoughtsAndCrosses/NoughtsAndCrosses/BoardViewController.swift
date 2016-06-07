@@ -11,13 +11,21 @@ import UIKit
 class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
-    var game = OXGame()
     
     var networkMode = false
     
     @IBOutlet weak var boardView: UIView!
     
     @IBOutlet weak var logoutButton: UIButton!
+    
+    @IBOutlet var buttonArray: [UIButton]!
+    
+    @IBOutlet var viewOutlet: UIView!
+    
+    @IBOutlet weak var networkPlayButton: UIButton!
+
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,16 +88,14 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    var gameObject = OXGame()
     
-    @IBOutlet var viewOutlet: UIView!
     
     
     @IBAction func buttonTapped(sender: UIButton)
     {
-        //print(gameObject.whoseTurn())
+        //print(OXGameController.sharedInstance.getCurrentGame()!.whoseTurn())
         
-        let currentPlayer = gameObject.whoseTurn()
+        let currentPlayer = OXGameController.sharedInstance.getCurrentGame()!.whoseTurn()
         
         
         if (sender.currentTitle == nil)
@@ -104,35 +110,77 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        
         print("Button \(sender.tag) tapped")
-        gameObject.playMove(sender.tag)
+        OXGameController.sharedInstance.playMove(sender.tag)
         
-        //print(gameObject.whoseTurn())
         
-        let winner = gameObject.state()
+        //print(OXGameController.sharedInstance.getCurrentGame()!.whoseTurn())
+        
+        let winner = OXGameController.sharedInstance.getCurrentGame()!.state()
         
         if (winner == OXGameState.complete_someone_won)
         {
             print("Congratulations \(currentPlayer) player, you've won!")
-            resetGame()
+            OXGameController.sharedInstance.finishCurrentGame()
+            resetBoard()
+            if (networkMode == true)
+            {
+            self.navigationController?.popViewControllerAnimated(true)
+            }
         }
         else if (winner == OXGameState.complete_no_one_won)
         {
             print("Tie Game")
-            resetGame()
+            OXGameController.sharedInstance.finishCurrentGame()
+            resetBoard()
+            if (networkMode == true)
+            {
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
+        else if (winner == OXGameState.inProgress && networkMode == true)
+        {
+            let (moveCellType, moveIndex) = OXGameController.sharedInstance.playRandomMove()!
+            buttonArray[moveIndex].setTitle("\(moveCellType)", forState: UIControlState.Normal)
+            
+            let compWinCheck = OXGameController.sharedInstance.getCurrentGame()!.state()
+            
+            if (compWinCheck == OXGameState.complete_someone_won)
+            {
+                print("THE COMPUTER WON. THEY ARE TAKING OVER")
+                OXGameController.sharedInstance.finishCurrentGame()
+                resetBoard()
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+            else if (winner == OXGameState.complete_no_one_won)
+            {
+                print("Tie Game. THE MACHINES ARE LEARNING")
+                OXGameController.sharedInstance.finishCurrentGame()
+                resetBoard()
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+
         }
         
     }
     
     
 
-    @IBOutlet var buttonArray: [UIButton]!
+    func resetBoard()
+    {
+        
+        for button in buttonArray
+        {
+            button.setTitle("", forState: UIControlState.Normal)
+        }
+    }
+    
+    
     
     func resetGame()
     {
         
-        gameObject.reset()
+        OXGameController.sharedInstance.getCurrentGame()!.reset()
         for button in buttonArray
         {
             button.setTitle("", forState: UIControlState.Normal)
@@ -172,7 +220,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
-    @IBOutlet weak var networkPlayButton: UIButton!
     
     @IBAction func networkPlayTapped(sender: UIButton)
     {

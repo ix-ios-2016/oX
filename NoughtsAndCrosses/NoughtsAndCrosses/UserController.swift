@@ -6,8 +6,17 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
+import Alamofire
 
 import Foundation
+
+
+struct User {
+    var email: String
+    var password: String
+}
+
+
 
 class UserController {
     // Singleton design pattern
@@ -23,12 +32,7 @@ class UserController {
         return Static.instance!
     }
     
-    struct User {
-        var email: String
-        var password: String
-    }
-    
-    private var users: [User] = []
+        private var users: [User] = []
     
     var logged_in_user: User?
     

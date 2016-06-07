@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // changing so that we dont hav to log in everytime
        
-        //self.window?.rootViewController = self.authorisationNavigationController
-        navigateToBoardNavigationController()
+        self.window?.rootViewController = self.authorisationNavigationController
+        //navigateToBoardNavigationController()
 
         self.window?.makeKeyAndVisible()
         
@@ -50,9 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //persistence
         
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        //let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        var userIsLoggedIn: String?
         
-        /*
         if let _ = userIsLoggedIn
         {
             navigateToBoardNavigationController()
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             self.window?.rootViewController = self.authorisationNavigationController
         }
-        */
+        
         
         return true
     }

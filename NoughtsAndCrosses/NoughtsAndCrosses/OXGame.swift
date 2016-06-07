@@ -5,6 +5,7 @@
 //  Created by Alexander Ge on 5/31/16.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
+/*
 
 import Foundation
 
@@ -26,12 +27,21 @@ enum OXGameState: String
 
 
 
+
 class OXGame
 {
     
-    private var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+    var hostUser: User?
+    var guestUser: User?
+    
+    var backendState: OXGameState?
+    
+    var gameId: String?
+    
+    var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
     
     private var startType: CellType = CellType.X
+    private var secondType: CellType = CellType.O
     
     
     func turn() -> Int
@@ -56,11 +66,11 @@ class OXGame
         
         if (turn() % 2 == 0)
         {
-            return CellType.X
+            return startType
         }
         else
         {
-            return CellType.O
+            return secondType
         }
     }
     
@@ -157,11 +167,34 @@ class OXGame
         }
     }
     
+    func printBoard()
+    {
+        var printout: String = ""
+        var count = 0
+        while (count < board.count)
+        {
+            if (board[count] == CellType.X)
+            {
+                printout = printout + "X"
+            }
+            else if (board[count] == CellType.O)
+            {
+                printout = printout + "O"
+            }
+            else
+            {
+                printout = printout + "_"
+            }
+            count += 1
+        }
+        print(printout)
+    }
+
 }
 
 
 
-
+*/
 
 
 
