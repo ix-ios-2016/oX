@@ -101,6 +101,10 @@ class OXGame    {
     //returns if its X or O's turn to play
     func whosTurn()  -> CellType {
         let count = turn()
+        
+        print("Current Count in whos turn: " + String(count))
+        
+        
         if (count % 2 == 0)   {
             return startType
         }   else    {
@@ -126,13 +130,13 @@ class OXGame    {
     func localUsersTurn() -> Bool  {
         
         let XorO = whosTurn()
-        if (self.hostUser?.email == UserController.sharedInstance.getLoggedInUser()?.email)  {
-            
-            
+        if (self.hostUser?.email == UserController.sharedInstance.getLoggedInUser()?.email)
+        {
             return (XorO == CellType.X)
-        }   else    {
+        }
+        else
+        {
             return (XorO == CellType.O)
-            
         }
     }
     
@@ -214,8 +218,6 @@ class OXGame    {
 class OXGameController: WebService {
     
     private var currentGame: OXGame?
-    
-    var networkMode:Bool = false
     
     class var sharedInstance: OXGameController {
         struct Static {
@@ -520,13 +522,6 @@ class OXGameController: WebService {
         
         
     }
-    
-    func setNetworkMode(value:Bool)
-    {
-        networkMode = value
-    }
-    func getNetworkMode() -> Bool{
-        return networkMode
-    }
+
     
 }

@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NetworkPlayViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
-                <outlet property="gamesTableView" destination="Xi8-BF-I53" id="lEX-9L-jEb"/>
+                <outlet property="networkTable" destination="Xio-fq-0b6" id="hd7-f9-bek"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,48 +16,39 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9H-04-6cd">
-                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xio-fq-0b6">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                     <color key="backgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="8Dy-Y5-Slx"/>
-                    </constraints>
-                    <state key="normal" title="Start New Network Game">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                    </variation>
-                    <connections>
-                        <action selector="startNewNetworkGame:" destination="-1" eventType="touchUpInside" id="bgj-MB-EdR"/>
-                    </connections>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-BF-I53">
-                    <rect key="frame" x="0.0" y="64" width="600" height="476"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="0.0" y="62" width="375" height="555"/>
+                    <color key="separatorColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="8" y="68" width="384" height="524"/>
                     </variation>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-p6-glB">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                    <color key="backgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="New Network Game">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="newGameButtonTapped:" destination="-1" eventType="touchUpInside" id="NQT-q6-xOS"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.89600759744644165" green="0.094709701836109161" blue="0.50539934635162354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="x9H-04-6cd" firstAttribute="top" secondItem="Xi8-BF-I53" secondAttribute="bottom" id="MK4-gD-23z"/>
-                <constraint firstAttribute="bottom" secondItem="x9H-04-6cd" secondAttribute="bottom" id="eau-KW-KYl"/>
-                <constraint firstItem="Xi8-BF-I53" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="feL-JB-qVm"/>
-                <constraint firstItem="Xi8-BF-I53" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n1m-T7-8bb"/>
-                <constraint firstAttribute="bottom" secondItem="x9H-04-6cd" secondAttribute="bottom" id="pjG-6K-N90"/>
-                <constraint firstItem="x9H-04-6cd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qpI-Yx-nSK"/>
-                <constraint firstAttribute="trailing" secondItem="x9H-04-6cd" secondAttribute="trailing" id="t0y-J2-h8Z"/>
-                <constraint firstAttribute="trailing" secondItem="Xi8-BF-I53" secondAttribute="trailing" id="uZ8-hZ-YYH"/>
+                <constraint firstItem="Xio-fq-0b6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="68w-XC-T2b"/>
+                <constraint firstAttribute="bottom" secondItem="Oki-p6-glB" secondAttribute="bottom" id="8Xw-8I-n8i"/>
+                <constraint firstAttribute="bottom" secondItem="Xio-fq-0b6" secondAttribute="bottom" constant="50" id="9as-EB-Ey1"/>
+                <constraint firstItem="Xio-fq-0b6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D83-Ha-G68"/>
+                <constraint firstAttribute="trailing" secondItem="Xio-fq-0b6" secondAttribute="trailing" id="GcZ-YV-rth"/>
+                <constraint firstAttribute="trailing" secondItem="Oki-p6-glB" secondAttribute="trailing" id="OOt-ez-M6A"/>
+                <constraint firstItem="Oki-p6-glB" firstAttribute="top" secondItem="Xio-fq-0b6" secondAttribute="bottom" id="PB9-ll-1cq"/>
+                <constraint firstItem="Oki-p6-glB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uwa-fD-KeS"/>
+                <constraint firstItem="Oki-p6-glB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vG1-Vn-kjd"/>
             </constraints>
-            <variation key="widthClass=compact">
-                <mask key="subviews">
-                    <include reference="x9H-04-6cd"/>
-                    <include reference="Xi8-BF-I53"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="266" y="307"/>
         </view>
     </objects>
 </document>

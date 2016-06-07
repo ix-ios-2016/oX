@@ -68,7 +68,6 @@ class LoginViewController: UIViewController {
                 message, preferredStyle: UIAlertControllerStyle.Alert)
             let okButton = UIAlertAction(title: "Okay", style: .Default, handler: nil)
             failAlert.addAction(okButton)
-            
             // Present the message
             self.presentViewController(failAlert, animated: true, completion: nil)
         }

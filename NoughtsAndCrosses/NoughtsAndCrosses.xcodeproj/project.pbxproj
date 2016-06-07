@@ -15,8 +15,6 @@
 		40AE92001D016EE20082CD96 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */; };
 		40AE92011D016EE20082CD96 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */; };
 		40AE92041D0189FA0082CD96 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE92031D0189FA0082CD96 /* OXGameController.swift */; };
-		40AE92071D04AA180082CD96 /* NewNetworkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE92051D04AA180082CD96 /* NewNetworkGameViewController.swift */; };
-		40AE92081D04AA180082CD96 /* NewNetworkGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE92061D04AA180082CD96 /* NewNetworkGameViewController.xib */; };
 		40EAD9B71D0565D200E0BEEC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 40EAD9B61D0565D200E0BEEC /* Podfile */; };
 		40EAD9B91D056FDA00E0BEEC /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EAD9B81D056FDA00E0BEEC /* ClosureExperiment.swift */; };
 		40EAD9BB1D05791000E0BEEC /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EAD9BA1D05791000E0BEEC /* WebService.swift */; };
@@ -65,8 +63,6 @@
 		40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		40AE92031D0189FA0082CD96 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
-		40AE92051D04AA180082CD96 /* NewNetworkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewNetworkGameViewController.swift; sourceTree = "<group>"; };
-		40AE92061D04AA180082CD96 /* NewNetworkGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNetworkGameViewController.xib; sourceTree = "<group>"; };
 		40EAD9B61D0565D200E0BEEC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		40EAD9B81D056FDA00E0BEEC /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
 		40EAD9BA1D05791000E0BEEC /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -173,8 +169,6 @@
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */,
 				40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */,
-				40AE92051D04AA180082CD96 /* NewNetworkGameViewController.swift */,
-				40AE92061D04AA180082CD96 /* NewNetworkGameViewController.xib */,
 			);
 			name = "LoggedIn Screens";
 			sourceTree = "<group>";
@@ -362,7 +356,6 @@
 				40EF722C1CFDCFEA004EB4A8 /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 				40EF72341CFDD0FB004EB4A8 /* RegisterViewController.xib in Resources */,
-				40AE92081D04AA180082CD96 /* NewNetworkGameViewController.xib in Resources */,
 				40AE91FD1D0046AF0082CD96 /* oneDance.mp3 in Resources */,
 				40EAD9B71D0565D200E0BEEC /* Podfile in Resources */,
 			);
@@ -437,7 +430,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40AE92071D04AA180082CD96 /* NewNetworkGameViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				402C1EE21CFF3F550022BFCB /* EasterEggController.swift in Sources */,
 				40EAD9BD1D05867200E0BEEC /* UIViewControllerExtensions.swift in Sources */,

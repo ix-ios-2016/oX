@@ -2,53 +2,40 @@
 //  NetworkPlayViewController.swift
 //  NoughtsAndCrosses
 //
-//  Created by Luke Petruzzi on 6/3/16.
+//  Created by Kasra Koushan on 2016-06-03.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
 import UIKit
 
 class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var gamesTableView: UITableView!
     
-    // create list of all the OXGame instances
-    var gamesList:[OXGame]? = []
-    // Create a refresher
-    var refreshControl:UIRefreshControl = UIRefreshControl()
+    
+    @IBOutlet weak var networkTable: UITableView!
+    var gameList: [OXGame]?
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        self.title = "Network Play"
-        // set the table's data source
-        gamesTableView.dataSource = self
-        // set the table's delegate???
-        gamesTableView.delegate = self
         
-        //refreshControl = UIRefreshControl()
+        // instantiate the table
+        self.title = "Choose a Game"
+        self.networkTable.dataSource = self
+        self.networkTable.delegate = self
+        //        self.gameList = OXGameController.sharedInstance.getListOfGames()
+        
+        // set up refresher controller
+        refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
-        refreshControl.addTarget(self, action: #selector(NetworkPlayViewController.refreshTable), forControlEvents: UIControlEvents.ValueChanged)
-        
-        gamesTableView.addSubview(refreshControl)
-        
-        
-        
-        // create the gamesList
-        //gamesList = OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction:
-//            {(gamesList, message) in
-//                
-//        
-//        })
+        refreshControl.addTarget(self, action: #selector(NetworkPlayViewController.refreshTable),
+                                 forControlEvents: UIControlEvents.ValueChanged)
+        networkTable.addSubview(refreshControl)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = false
-        
-        // reload the data
-        self.refreshTable()
-
+    func refreshTable() {
+        //        self.gameList = OXGameController.sharedInstance.getListOfGames()
+        self.networkTable.reloadData()
+        refreshControl.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,56 +43,86 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.title = "Network Play"
+        self.navigationController?.navigationBarHidden = false
+        
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gameListReceived(gameList, message:message)})
+        
+    }
     
-    // set number of secitons in the table
+    func gameListReceived(games:[OXGame]?, message: String?) {
+        //        print("games received \(games)")
+        if let newGames = games {
+            self.gameList = newGames
+        }
+        self.networkTable.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        // hide navigation bar
+        self.navigationController?.navigationBarHidden = false
+        
+        // refresh table
+        //        self.gameList = OXGameController.sharedInstance.getListOfGames()
+        self.networkTable.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("did select row \(indexPath.row)")
+        OXGameController.sharedInstance.acceptGame(self.gameList![indexPath.row].gameId!, presentingViewController: self, viewControllerCompletionFunction: {(gameList, message) in self.acceptGameComplete(gameList, message: message)})
+        
+    }
+    
+    func acceptGameComplete(game: OXGame?, message: String?) {
+        print("accept game complete")
+        
+        if let gameAcceptedSuccess = game {
+            let networkBoardView = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            networkBoardView.networkGame = true
+            networkBoardView.currentGame = gameAcceptedSuccess
+            self.navigationController?.pushViewController(networkBoardView, animated: true)
+        }
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    // set number of rows in each section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gamesList!.count
+        if let rows = self.gameList?.count {
+            return rows
+        } else {
+            return 0
+        }
     }
     
-    // return the cell at the index path???
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        // create a cell for the row at index
-        let cell:UITableViewCell = UITableViewCell()
-        
-        cell.textLabel?.text = String(gamesList![indexPath.item].gameId!) + "  By: " + String(gamesList![indexPath.item].hostUser!.email)
+        let cell = UITableViewCell()
+        cell.textLabel?.text =
+            "ID: \(self.gameList![indexPath.row].gameId!), Email: \(self.gameList![indexPath.row].hostUser!.email)"
         return cell
     }
-    
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Available Online Games"
     }
     
-    // perform actions for row selection
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("did select row \(indexPath.row)")
+    
+    @IBAction func newGameButtonTapped(sender: UIButton) {
+        //        OXGameController.sharedInstance.createNewGame(user)
+        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.getLoggedInUser()!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.newGameCompleted(game, message:message)})
         
-        let networkGameView = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        
-        OXGameController.sharedInstance.setNetworkMode(true)
-        
-        // set the current game to the one that was selected in the table
-        OXGameController.sharedInstance.setCurrentGame(gamesList![indexPath.item])
-        
-        self.navigationController?.pushViewController(networkGameView, animated: true)
     }
     
-    func refreshTable()
-    {
-        self.gamesList = OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(games, message) in print("") })
-            self.gamesTableView.reloadData()
-            refreshControl.endRefreshing()
+    func newGameCompleted(game: OXGame?, message:String?) {
+        if let newGame = game {
+            let networkBoardView = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            networkBoardView.networkGame = true
+            networkBoardView.currentGame = newGame
+            self.navigationController?.pushViewController(networkBoardView, animated: true)
+        }
     }
-
-    // Allow the player to make a new network game
-    @IBAction func startNewNetworkGame(sender: AnyObject) {
-        let newNetworkGameViewController = NewNetworkGameViewController(nibName: "NewNetworkGameViewController", bundle: nil)
-        self.navigationController?.pushViewController(newNetworkGameViewController, animated: true)
-    }
+    
 }

@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // controllers for when logged in
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        boardViewController.networkGame = false
         loggedinNavigationController = UINavigationController(rootViewController: boardViewController)
         loggedinNavigationController?.navigationBarHidden = true
         
@@ -56,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func navigateToLoggedInViewController()
     {
         self.window?.rootViewController = self.loggedinNavigationController
+        
         // allow for the easterEgg to be visible only when logged in
         EasterEggController.sharedInstance.initiate(self.window!)
 
