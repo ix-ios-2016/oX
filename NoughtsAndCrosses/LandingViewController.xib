@@ -15,28 +15,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oi-Ss-Kg8">
-                    <rect key="frame" x="168" y="216" width="38" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oi-Ss-Kg8">
+                    <rect key="frame" x="168" y="319" width="38" height="30"/>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="LoginButtonTapped:" destination="-1" eventType="touchUpInside" id="tB1-bc-PTd"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T14-uN-daR">
-                    <rect key="frame" x="159" y="254" width="57" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T14-uN-daR">
+                    <rect key="frame" x="159" y="357" width="57" height="30"/>
                     <state key="normal" title="Register"/>
                     <connections>
                         <action selector="RegisterButtonTapped:" destination="-1" eventType="touchUpInside" id="pET-Ja-eV2"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Knots and Crosses!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-dX-F1O">
-                    <rect key="frame" x="62" y="100" width="250" height="44"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Knots and Crosses!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-dX-F1O">
+                    <rect key="frame" x="45" y="100" width="295" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="lhI-iw-Qg1"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.7675395308574291" green="0.79033723456171956" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="LTJ-dX-F1O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="45" id="HJk-Ta-9mJ"/>
+                <constraint firstItem="T14-uN-daR" firstAttribute="leading" secondItem="2oi-Ss-Kg8" secondAttribute="trailing" constant="-47" id="Pyv-Vx-tBq"/>
+                <constraint firstItem="T14-uN-daR" firstAttribute="top" secondItem="2oi-Ss-Kg8" secondAttribute="bottom" constant="8" id="QN8-gz-OOq"/>
+                <constraint firstItem="2oi-Ss-Kg8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TVf-sJ-tNu"/>
+                <constraint firstItem="LTJ-dX-F1O" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="5" id="kbG-CO-2lJ"/>
+                <constraint firstItem="LTJ-dX-F1O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="xUr-et-TY7"/>
+                <constraint firstItem="2oi-Ss-Kg8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yHP-1H-rN3"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="279.5" y="250.5"/>
         </view>

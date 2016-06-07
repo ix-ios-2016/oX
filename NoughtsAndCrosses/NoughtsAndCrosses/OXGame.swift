@@ -2,119 +2,194 @@
 //  OXGame.swift
 //  NoughtsAndCrosses
 //
-//  Created by Justin on 5/30/16.
+//  Created by Julian Hulme on 2016/05/09.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
-
 import Foundation
-
-enum CellType:String {
+import SwiftyJSON
+enum CellType : String {
     
-    case O = "0"
+    case O = "O"
     case X = "X"
     case EMPTY = ""
+    
 }
-
-enum OXGameState:String {
+enum OXGameState : String {
     
     case inProgress
     case complete_no_one_won
-    case complete_someone_one
+    case complete_someone_won
+    case open
+    
 }
-class OXGame {
+class OXGame    {
     
-    var hostUser: User?
-    var guestUser: User?
-    var backednState: OXGameState?
-    var gameId: String?
-    
+    //the board data, stored in a 1D array
     
     var board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+    //the type of O or X that plays first
+    private var startType:CellType = CellType.X
     
-    private var startType: CellType = CellType.X
+    var gameId: String?
+    var hostUser: User?
+    var guestUser: User?
+    var backendState: OXGameState?
     
-    private func turn() -> Int {
+    //default constructor
+    init()  {
         
-        var count = 0
-        for cell in board {
-            if cell != CellType.EMPTY {
-                count = count + 1
+    }
+    
+    //constructor from JSON
+    init(json:JSON)  {
+        print("json init")
+        self.gameId = json["id"].stringValue
+        self.backendState = OXGameState(rawValue: json["state"].stringValue)
+        self.board = deserialiseBoard(json["board"].stringValue)
+        self.hostUser = User(json:json["host_user"])
+        self.guestUser = User(json:json["guest_user"])
+        
+    }
+    
+    private func deserialiseBoard(boardString:String) -> [CellType] {
+        
+        var newBoard:[CellType] = []
+        for (index, char) in boardString.characters.enumerate() {
+            print (char)
+            
+            if (char == "_")   {
+                //EMPTY
+                newBoard.append(CellType.EMPTY)
+            }   else if (char == "x")  {
+                newBoard.append(CellType.X)
+            }   else if (char == "o")  {
+                newBoard.append(CellType.O)
             }
         }
-        print ("turn is \(count)")
-        return count
+        return newBoard
     }
     
-    func whosTurn() -> CellType {
-        if turn() % 2 == 0 {
-            return CellType.X
-        } else {
-            return CellType.O
+    func serialiseBoard() -> String  {
+        
+        var resultBoard = ""
+        for cell in self.board  {
+            if (cell == CellType.EMPTY) {
+                resultBoard = resultBoard + "_"
+            }   else if (cell == CellType.O)  {
+                resultBoard = resultBoard + "o"
+            }   else    {
+                resultBoard = resultBoard + "x"
+            }
+        }
+        
+        return resultBoard
+    }
+    
+    
+    //returns the number of turns the players have had on the board
+    private func turn() -> Int {
+        return board.filter{(pos) in (pos != CellType.EMPTY)}.count
+    }
+    
+    //returns if its X or O's turn to play
+    func whosTurn()  -> CellType {
+        let count = turn()
+        if (count % 2 == 0)   {
+            return startType
+        }   else    {
+            
+            if (startType == CellType.X)    {
+                return CellType.O
+            }   else    {
+                return CellType.X
+            }
+        }
+        
+    }
+    
+    func localUsersTurn() -> Bool  {
+        
+        let XorO = whosTurn()
+        if (self.hostUser?.email == UserController.sharedInstance.getLoggedInUser()?.email)  {
+            
+            
+            return (XorO == CellType.X)
+        }   else    {
+            return (XorO == CellType.O)
+            
         }
     }
     
-    func typeAtIndex(index: Int) -> CellType {
-        return board[index]
+    //returns user type at a specific board index
+    func typeAtIndex(pos:Int) -> CellType! {
+        return board[pos]
     }
     
-    func playMove(index: Int) -> CellType {
-        if(board[index] == CellType.EMPTY){
-            board[index] = whosTurn()
-            return board[index]
-        }
-        else{
-        return board[index]
-        }
+    //one of the later functions created in the demo
+    //execute the move in the game
+    func playMove(position:Int) -> CellType! {
+        board[position] = whosTurn()
+        return board[position]
     }
     
     func winDetection() -> Bool {
-        // Vertical
-        if(board[0] != CellType.EMPTY && board[0] == board[3] && board[3] == board[6]){
+        
+        //Check rows
+        for i in 0...2 {
+            if((board[3*i] == board[3*i + 1]) && (board[3*i] == board[3*i + 2]) && !(String(board[3*i]) == "EMPTY")){
+                print("Someone won at row i")
+                print(i)
+                print( board[i])
+                return true
+            }
+        }
+        
+        //Check columns
+        for j in 0...2 {
+            if((board[j] == board[j + 3]) && (board[j] == board[j + 6]) && !(String(board[j]) == "EMPTY")){
+                print("Someone won at column j")
+                print(j)
+                print( board[j])
+                return true
+            }
+        }
+        
+        //Check diagonals
+        if((board[0] == board[4]) && (board[0] == board[8]) && !(String(board[0]) == "EMPTY")){
+            print("Someone won at diagonal 1")
             return true
         }
-        if(board[1] != CellType.EMPTY && board[1] == board[4] && board[4] == board[7]){
+        if((board[2] == board[4]) && (board[2] == board[6]) && !(String(board[2]) == "EMPTY")){
+            print("Someone won at diagonal 2")
             return true
         }
-        if(board[2] != CellType.EMPTY && board[2] == board[5] && board[5] == board[8]){
-            return true
-        }
-        //Horizontal
-        if(board[0] != CellType.EMPTY && board[0] == board[1] && board[1] == board[2]){
-            return true
-        }
-        if(board[3] != CellType.EMPTY && board[3] == board[4] && board[4] == board[5]){
-            return true
-        }
-        if(board[6] != CellType.EMPTY && board[6] == board[7] && board[7] == board[8]){
-            return true
-        }
-        //Diag
-        if(board[0] != CellType.EMPTY && board[0] == board[4] && board[4] == board[8]){
-            return true
-        }
-        if(board[2] != CellType.EMPTY && board[2] == board[4] && board[4] == board[6]){
-            return true
-        }
+        
         return false
+        
     }
     
-    func state() -> OXGameState{
+    //the current state of the game
+    func state() -> OXGameState    {
+        
+        //check if someone won on this turn
         let win = winDetection()
         
-        if win == true {
-            return OXGameState.complete_someone_one
-        }
-        else if(win == false && turn() == 9){
+        //if noone won, game is still in progress
+        if (win)   {
+            return OXGameState.complete_someone_won
+        } else if (turn() == 9) {
             return OXGameState.complete_no_one_won
-        }
-        else{
+        } else    {
             return OXGameState.inProgress
         }
+        
     }
     
-    func reset(){
-        for index in 0...8 {
-            board[index] = CellType.EMPTY
-        }
+    //restart the game
+    func reset()    {
+        board = [CellType](count: 9, repeatedValue: CellType.EMPTY)
+        print("Reseting")
     }
+    
+    
 }

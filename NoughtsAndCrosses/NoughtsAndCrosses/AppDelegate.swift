@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let loggedIn = userIsLoggedIn {
             
-            self.window?.rootViewController = self.authorizationNavigationContoller
+            self.window?.rootViewController = self.navigationController
 
         }
         else{

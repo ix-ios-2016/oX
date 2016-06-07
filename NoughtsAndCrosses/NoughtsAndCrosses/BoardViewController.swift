@@ -129,11 +129,11 @@ class BoardViewController: UIViewController {
         sender.setTitle(String(type), forState: UIControlState.Normal)
         
         let state = OXGameController.sharedInstance.getCurrentGame()!.state()
-        if state == OXGameState.complete_someone_one && type == CellType.X {
+        if state == OXGameState.complete_someone_won && type == CellType.X {
             print("Player 1 has won!")
             restartgame()
         }
-        else if state == OXGameState.complete_someone_one && type == CellType.O {
+        else if state == OXGameState.complete_someone_won && type == CellType.O {
             print("player 2 has won!")
             restartgame()
         }
@@ -146,17 +146,17 @@ class BoardViewController: UIViewController {
         }
         
         if networkMode {
-            if state != OXGameState.complete_someone_one || state != OXGameState.complete_no_one_won {
+            if state != OXGameState.complete_someone_won || state != OXGameState.complete_no_one_won {
                 if current.whosTurn() == CellType.O{
                     var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
                     current.board[place] = newMove
                     places[place].setTitle(String("O"), forState: UIControlState.Normal)
                     let state = OXGameController.sharedInstance.getCurrentGame()!.state()
-                    if state == OXGameState.complete_someone_one && type == CellType.X {
+                    if state == OXGameState.complete_someone_won && type == CellType.X {
                         print("Player 1 has won!")
                         restartgame()
                     }
-                    else if state == OXGameState.complete_someone_one && type == CellType.O {
+                    else if state == OXGameState.complete_someone_won && type == CellType.O {
                         print("player 2 has won!")
                         restartgame()
                     }

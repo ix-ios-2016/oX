@@ -26,7 +26,12 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         
-        gamesList = OXGameController.sharedInstance.getListOfGames()!
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction:{(gameList,message) in self.getListComplete(gameList,message:message)})
+
+        
+        
+//        UserController.sharedInstance.loginUser(emailGiven!, password: passwordGiven!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.logInComplete(user,message:message)})
+        
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
@@ -34,6 +39,26 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.addSubview(refreshControl)
         
         
+    }
+    
+    func getListComplete (gameListIn:[OXGame]?, message: String?) {
+        
+        
+        print("Set game list here")
+        if let gameListSuccessful = gameListIn  {
+            //if the game list call succeeded
+            gamesList = gameListSuccessful
+            tableView.reloadData()
+            
+        }    else{
+            
+            //tbe call did not succeed
+        }
+        
+        
+        
+        
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +69,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
 
-        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
+//        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -68,8 +93,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let game = OXGameController.sharedInstance
-        cell.textLabel!.text = "\(game.getListOfGames()![indexPath.row].hostUser!.email), ID: \(game.getListOfGames()![indexPath.row].gameId!)"
+        cell.textLabel!.text = "\(self.gamesList[indexPath.row].hostUser!.email), ID: \(self.gamesList[indexPath.row].gameId!)"
         return cell
     }
     
@@ -81,7 +105,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("did select row \(indexPath.row)")
-        var game = OXGameController.sharedInstance.acceptGameWithId(self.gamesList[indexPath.row].gameId!) //Need to do something with this
+//        var game = OXGameController.sharedInstance.acceptGameWithId(self.gamesList[indexPath.row].gameId!) //Need to do something with this
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         bvc.networkMode = true
         self.navigationController?.pushViewController(bvc, animated: true)
@@ -89,7 +113,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func refreshTable(){
-        self.gamesList = OXGameController.sharedInstance.getListOfGames()!
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction:{(user,message) in self.getListComplete(user, message:message)})
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -97,7 +121,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func newGamePressed(sender: AnyObject) {
         var newUser = User(email: "h@e.com", password: "1", token: "", client: "")
-        OXGameController.sharedInstance.createNewGame(newUser)
+//        OXGameController.sharedInstance.createNewGame(newUser)
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         bvc.networkMode = true
         self.navigationController?.pushViewController(bvc, animated: true)

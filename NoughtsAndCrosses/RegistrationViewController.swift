@@ -57,7 +57,7 @@ class RegistrationViewController: UIViewController {
         
         let email = emailField.text
         let password = passwordField.text
-        UserController.sharedInstance.registerUser(email!, password: password!, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
+        UserController.sharedInstance.registerUser(email!, password: password!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
         
         
         // Validate the email
