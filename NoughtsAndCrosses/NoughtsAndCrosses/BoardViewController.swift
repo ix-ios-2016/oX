@@ -26,6 +26,8 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var Button7: UIButton!
     @IBOutlet weak var Button8: UIButton!
     
+
+    
     @IBOutlet var Buttons: [UIButton]!
     
     var currentGame = OXGame()
@@ -35,13 +37,14 @@ class BoardViewController: UIViewController {
     //We want access to this button to be able to set it to hidden once a game starts
     @IBOutlet weak var networkPlayButton: UIButton!
     
+    @IBOutlet weak var refreshButton: UIButton!
     
     var lastRotation : Float!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let closureExperiment = ClosureExperiment()
+        
         
         //allow for user interaction
         view.userInteractionEnabled = true
@@ -52,25 +55,24 @@ class BoardViewController: UIViewController {
         
         //Initialize lastRotation
         self.lastRotation = 0.0
-        
-        if(networkGame) {
-            
-            logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
-            networkPlayButton.hidden = true
-            
-//            if (OXGameController.sharedInstance.getCurrentGame()?.state() == OXGameState.inProgress) {
-//                if (OXGameController.sharedInstance.getCurrentGame()?.whosTurn() == CellType.O) {
-//                    OXGameController.sharedInstance.playRandomMove()
-//                }
-//            
-//            }
-        }
+    
+        updateUI()
     }
     
     override func viewWillAppear(animated: Bool) {
         //self.gameNavigationController.navigationBarHidden = true
+        updateUI()
+    }
+    
+    @IBAction func refreshButtonTapped(sender: UIButton) {
+        OXGameController.sharedInstance.getGame(self.currentGame.gameId!, viewControllerCompletionFunction: {(user,message) in self.refreshCompleted(user, message: message)})
         
-        self.navigationController?.navigationBarHidden = true
+        //updateUI()
+    }
+    
+    func refreshCompleted(game : OXGame?, message : String?){
+        self.currentGame = game!
+        self.updateUI()
     }
     
     @IBAction func logoutButtonTapped(sender: UIButton) {
@@ -86,19 +88,50 @@ class BoardViewController: UIViewController {
         }
         
         //I think this should happen if you click reset OR cancel
-        OXGameController.sharedInstance.finishCurrentGame()
+        //OXGameController.sharedInstance.finishCurrentGame()
     }
     
-    
+    func updateUI() {
+        //constantly checking the state which we have currentGame.state() to work with
+        
+        for view in boardView.subviews {
+            if let button = view as? UIButton {
+                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
+            }
+        }
+        
+        if(networkGame) {
+            
+            logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
+            networkPlayButton.hidden = true
+            refreshButton.hidden = false
+            
+            if (self.currentGame.guestUser?.email != "") {
+                //there is 2 players so we can start playing
+                if (self.currentGame.localUsersTurn()) {
+                    self.newGameButton.setTitle("Your turn to play" , forState: UIControlState.Normal)
+                    self.boardView.userInteractionEnabled = true
+                } else {
+                    self.newGameButton.setTitle("Awaiting opponents move", forState: UIControlState.Normal)
+                    self.boardView.userInteractionEnabled = false
+                }
+            } else {
+                self.newGameButton.setTitle("Awaiting opponent to join", forState: UIControlState.Normal)
+            }
+
+            
+        }
+        if (!networkGame) {
+            refreshButton.hidden = true
+        }
+        self.navigationController?.navigationBarHidden = true
+
+    }
     
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
         let npc = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.pushViewController(npc, animated: true)
     }
-//    func handlePinch(sender: UIPinchGestureRecognizer? = nil){
-//        print("Pinch recognized")
-//    }
-    
     
     func handleRotation(sender : UIRotationGestureRecognizer? = nil) {
        
@@ -135,22 +168,12 @@ class BoardViewController: UIViewController {
         let tag = sender.tag
         
         print ("Button: \(tag) was tapped")
-        let result = String(OXGameController.sharedInstance.playMove(tag))
-        sender.setTitle(result, forState: UIControlState.Normal)
+        //let result = String(OXGameController.sharedInstance.playMove(tag))
+        //sender.setTitle(result, forState: UIControlState.Normal)
         
-        let gameState = OXGameController.sharedInstance.getCurrentGame()?.state()
+        let gameState = self.currentGame//OXGameController.sharedInstance.getCurrentGame()?.state()
         
-        if (networkGame) {
-            if (OXGameController.sharedInstance.getCurrentGame() != nil) {
-                if (OXGameController.sharedInstance.getCurrentGame()?.state() == OXGameState.inProgress) {
-                    if let tmp = OXGameController.sharedInstance.playRandomMove() {
-                        buttons[tmp.1].setTitle(String(tmp.0), forState: UIControlState.Normal)
-                    }
-                }
-            }
-        } 
-        
-        if (gameState == OXGameState.complete_someone_won){
+        /*if (gameState == OXGameState.complete_someone_won){
             
             if (OXGameController.sharedInstance.getCurrentGame()?.whosTurn() == CellType.X){
                 
@@ -177,29 +200,58 @@ class BoardViewController: UIViewController {
         if (gameState == OXGameState.complete_no_one_won) {
             print ("This game was a tie")
         }
+     */
         
+        if (currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
+            return
+        }
+        var lastMove : CellType?
+        
+        if (networkGame) {
+            lastMove = currentGame.playMove(sender.tag)
+            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId! , presentingViewController: self , viewControllerCompletionFunction: {(game , message) in self.playMoveComplete(game , message : message)})
+            
+            if (!gameEnded(lastMove!)) {
+                
+            } else {
+                //Game ended
+                return
+            }
+        } else {
+            lastMove = currentGame.playMove(sender.tag)
+            if let moveToPrint = lastMove {
+                print("Setting button to: \(moveToPrint)")
+            }
+        }
+        
+        
+    }
     
+    func gameEnded(cell : CellType) -> Bool {
+        if (currentGame.state() == OXGameState.inProgress) {
+            return false
+        }
+        return true
+    }
+    
+    func playMoveComplete(game : OXGame? , message : String?) {
+        if let gameBack = game {
+            //success
+            self.currentGame = gameBack
+            
+            //update the board
+            updateUI()
+        }
     }
 //    Create a function called restartGame that calls the reset function on the game object and sets the titles of the cell buttons to “”.
     func resetGame() {
         let settingToBlank = [Button0, Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8]
         
-        OXGameController.sharedInstance.getCurrentGame()?.reset()
+        //OXGameController.sharedInstance.getCurrentGame()?.reset()
         
         for button in settingToBlank{
             button.setTitle("" , forState: UIControlState.Normal)
         }
-        
-        /*
-            another way
-         
-         gameObject.reset()
-         
-         few view in boardview.subviews(){
-         `
-         }
-        */
-            
     }
         
     @IBOutlet weak var newGameButton: UIButton!
