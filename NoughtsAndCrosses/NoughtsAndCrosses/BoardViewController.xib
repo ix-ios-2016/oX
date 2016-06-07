@@ -444,6 +444,15 @@
                         <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="P5r-PY-4CD"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-4C-61B">
+                    <rect key="frame" x="295" y="46" width="53" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButton:" destination="-1" eventType="touchUpInside" id="6gN-VJ-eTD"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

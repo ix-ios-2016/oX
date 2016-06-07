@@ -191,6 +191,7 @@ class UserController: WebService {
         }
     }
     
+    
     func getStoredUser(id:String) -> User?    {
         
         if let userDict:Dictionary = NSUserDefaults.standardUserDefaults().objectForKey(id) as? Dictionary<String, String>   {

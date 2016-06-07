@@ -13,6 +13,7 @@ class BoardViewController: UIViewController {
     var networkMode : Bool = false
     var lastRotation: Float!
     var places = [UIButton]()
+    var currentGame = OXGame()
     
     @IBOutlet weak var logOutButton: UIButton!
     
@@ -119,58 +120,144 @@ class BoardViewController: UIViewController {
             networkPlayButton.hidden = true
         }
     }
+    
+    func gameCancelComplete(success: Bool, message: String?){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func gameUpdateReceived(game: OXGame?, message: String){
+        if let gameReceived = game{
+            self.currentGame = gameReceived
+        }
+        
+        self.updateUI()
+    }
+    
+    func updateUI() {
+        
+        for view in boardView.subviews {
+            if let button = view as? UIButton {
+                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
+            }
+        }
+        
+        if (networkMode) {
+            self.logOutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
+            networkPlayButton.hidden = true
+        }
+        
+        
+        
+        if (self.currentGame.guestUser?.email != ""){
+            if(self.currentGame.localUsersTurn()) {
+                self.networkPlayButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
+                self.boardView.userInteractionEnabled = true
+            }
+            else{
+                self.networkPlayButton.setTitle("Awaiting Opponent Move...", forState: UIControlState.Normal)
+                self.boardView.userInteractionEnabled = false
+            }
+        }
+        else{
+            self.networkPlayButton.setTitle("Awaiting Opponent to Join...", forState: UIControlState.Normal)
+            self.boardView.userInteractionEnabled = false
+        }
+    }
 
     @IBAction func buttonPressed(sender: UIButton) {
         
-        let current = OXGameController.sharedInstance.getGame()!
         
-        let type = OXGameController.sharedInstance.playMove(sender.tag)
-        print("Button \(sender.tag) pressed")
-        sender.setTitle(String(type), forState: UIControlState.Normal)
+//        if(String(currentGame.typeAtIndex(sender.tag)) != "Empty"){
+//            return
+//        }
+//        
+//        var lastMove: CellType?
+//        
+//        if(networkMode){
+//            lastMove = currentGame.playMove(sender.tag)
+//            
+//            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message: message)})
+//            
+//            if(!gameEnded(lastMove!)){
+//                
+//            }
+//            else{
+//                return
+//            }
+//        }
+//        else{
+//            lastMove = currentGame.playMove(sender.tag)
+//            if let moveToPrint = lastMove{
+//                print("Setting button to: \(moveToPrint)")
+//                sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
+//            }
+//        }
         
-        let state = OXGameController.sharedInstance.getGame()!.state()
-        if state == OXGameState.complete_someone_won && type == CellType.X {
-            print("Player 1 has won!")
-            restartgame()
-        }
-        else if state == OXGameState.complete_someone_won && type == CellType.O {
-            print("player 2 has won!")
-            restartgame()
-        }
-        else if state == OXGameState.complete_no_one_won {
-            print("The game is a tie.")
-            restartgame()
-        }
-        else {
-            print("Game in progress")
-        }
+        
+        
+        
+        
+        
+        let current = self.currentGame
+        
+        
+        var type: CellType
         
         if networkMode {
-            if state != OXGameState.complete_someone_won || state != OXGameState.complete_no_one_won {
-                if current.whosTurn() == CellType.O{
-                    var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
-                    current.board[place] = newMove
-                    places[place].setTitle(String("O"), forState: UIControlState.Normal)
-                    let state = OXGameController.sharedInstance.getGame()!.state()
-                    if state == OXGameState.complete_someone_won && type == CellType.X {
-                        print("Player 1 has won!")
-                        restartgame()
-                    }
-                    else if state == OXGameState.complete_someone_won && type == CellType.O {
-                        print("player 2 has won!")
-                        restartgame()
-                    }
-                    else if state == OXGameState.complete_no_one_won {
-                        print("The game is a tie.")
-                        restartgame()
-                    }
-                    else {
-                        print("Game in progress")
-                    }
-
-                }
+            
+            
+//            if state != OXGameState.complete_someone_won || state != OXGameState.complete_no_one_won {
+//                if current.whosTurn() == CellType.O{
+//                    var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
+//                    current.board[place] = newMove
+//                    places[place].setTitle(String("O"), forState: UIControlState.Normal)
+//                    let state = self.currentGame.state()
+//                    if state == OXGameState.complete_someone_won && type == CellType.X {
+//                        print("Player 1 has won!")
+//                        restartgame()
+//                    }
+//                    else if state == OXGameState.complete_someone_won && type == CellType.O {
+//                        print("player 2 has won!")
+//                        restartgame()
+//                    }
+//                    else if state == OXGameState.complete_no_one_won {
+//                        print("The game is a tie.")
+//                        restartgame()
+//                    }
+//                    else {
+//                        print("Game in progress")
+//                    }
+//                    
+//                }
+//            }
+        } else {
+            type = OXGameController.sharedInstance.playMove(sender.tag)
+            print("Button \(sender.tag) pressed")
+            print(type)
+            sender.setTitle(String(type), forState: UIControlState.Normal)
+            
+            let state = self.currentGame.state()
+            if state == OXGameState.complete_someone_won && type == CellType.X {
+                print("Player 1 has won!")
+                restartgame()
+            }
+            else if state == OXGameState.complete_someone_won && type == CellType.O {
+                print("player 2 has won!")
+                restartgame()
+            }
+            else if state == OXGameState.complete_no_one_won {
+                print("The game is a tie.")
+                restartgame()
+            }
+            else {
+                print("Game in progress")
             }
         }
+        
+        
+        
+        
+
         //print(OXGameController.sharedInstance.gameList?.endIndex)
         
     }
@@ -180,7 +267,7 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func logOutPressed(sender: UIButton) {
-        OXGameController.sharedInstance.finishCurrentGame()
+//        OXGameController.sharedInstance.finishCurrentGame()
         if(networkMode){
            self.navigationController?.popViewControllerAnimated(true)
         }
@@ -188,7 +275,7 @@ class BoardViewController: UIViewController {
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToLandingNavigationController()
             
-            UserController.sharedInstance.logoutCurrentUser()
+            UserController.sharedInstance.setLoggedInUser(nil)
         }
     }
     
@@ -197,9 +284,11 @@ class BoardViewController: UIViewController {
         self.navigationController?.pushViewController(npc, animated: true)
     }
     
+    @IBAction func refreshButton(sender: UIButton) {
+    }
 
     func restartgame() {
-        OXGameController.sharedInstance.getGame()!.reset()
+//        OXGameController.sharedInstance.getGame()!.reset()
         target.setTitle("", forState: UIControlState.Normal)
         target2.setTitle("", forState: UIControlState.Normal)
         target9.setTitle("", forState: UIControlState.Normal)
@@ -209,7 +298,7 @@ class BoardViewController: UIViewController {
         target7.setTitle("", forState: UIControlState.Normal)
         target8.setTitle("", forState: UIControlState.Normal)
         target3.setTitle("", forState: UIControlState.Normal)
-        OXGameController.sharedInstance.finishCurrentGame()
+//        OXGameController.sharedInstance.finishCurrentGame()
         if networkMode{
             self.navigationController?.popViewControllerAnimated(true)
         }
