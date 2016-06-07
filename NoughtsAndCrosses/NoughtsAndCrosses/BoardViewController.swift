@@ -72,6 +72,21 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func playMoveComplete(game: OXGame?, message: String?){
+        if let gameBack = game{
+            self.currentGame = gameBack
+            
+             updateUI()
+        }
+    }
+    
+    func gameEnded(cell: CellType) -> Bool {
+        if currentGame.state() == OXGameState.inProgress{
+            return false
+        }
+        return true
+    }
+    
 
     func handlePinch(sender: UIPinchGestureRecognizer? = nil){
         print("Pinch Detected")
@@ -206,6 +221,36 @@ class BoardViewController: UIViewController {
         
         if networkMode {
             
+                    if(String(currentGame.typeAtIndex(sender.tag)) != "Empty"){
+                        return
+                    }
+            
+                    var lastMove: CellType?
+            
+                    if(networkMode){
+                        lastMove = currentGame.playMove(sender.tag)
+            
+                        OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message: message)})
+            
+                        if(!gameEnded(lastMove!)){
+            
+                        }
+                        else{
+                            return
+                        }
+                    }
+                    else{
+                        lastMove = currentGame.playMove(sender.tag)
+                        if let moveToPrint = lastMove{
+                            print("Setting button to: \(moveToPrint)")
+                            sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
+                        }
+                    }
+
+            
+            
+            
+            
             
 //            if state != OXGameState.complete_someone_won || state != OXGameState.complete_no_one_won {
 //                if current.whosTurn() == CellType.O{
@@ -232,12 +277,13 @@ class BoardViewController: UIViewController {
 //                }
 //            }
         } else {
-            type = OXGameController.sharedInstance.playMove(sender.tag)
+            type = currentGame.playMove(sender.tag)
             print("Button \(sender.tag) pressed")
             print(type)
             sender.setTitle(String(type), forState: UIControlState.Normal)
             
             let state = self.currentGame.state()
+            print("\(state)")
             if state == OXGameState.complete_someone_won && type == CellType.X {
                 print("Player 1 has won!")
                 restartgame()
@@ -252,6 +298,7 @@ class BoardViewController: UIViewController {
             }
             else {
                 print("Game in progress")
+                print("\(state)")
             }
         }
         
@@ -294,7 +341,7 @@ class BoardViewController: UIViewController {
     }
 
     func restartgame() {
-//        OXGameController.sharedInstance.getGame()!.reset()
+        currentGame.reset()
         target.setTitle("", forState: UIControlState.Normal)
         target2.setTitle("", forState: UIControlState.Normal)
         target9.setTitle("", forState: UIControlState.Normal)

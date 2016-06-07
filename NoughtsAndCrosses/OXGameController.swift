@@ -122,6 +122,7 @@ class OXGame    {
             return CellType.X
         }
     }
+
     
     func localUsersTurn() -> Bool  {
         
