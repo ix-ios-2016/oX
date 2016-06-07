@@ -17,38 +17,41 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-If-jDx" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="89" y="39" width="423" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vY7-1f-GQ0">
+                    <rect key="frame" x="88" y="77" width="423" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID0-cO-dz1">
-                    <rect key="frame" x="272" y="372" width="57" height="30"/>
-                    <state key="normal" title="Register"/>
+                    <rect key="frame" x="260" y="115" width="80" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="ziZ-TB-VVn"/>
+                    </constraints>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.49803921569999998" green="0.44705882349999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="7Yr-ER-F1V"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vY7-1f-GQ0">
-                    <rect key="frame" x="225" y="272" width="150" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="NOE-kL-oOz"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8xm-If-jDx" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="225" y="234" width="150" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="Yia-R0-ytc"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.49803921568627452" green="0.40784313725490196" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="ID0-cO-dz1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="87" id="G3c-fd-Q0U"/>
-                <constraint firstItem="8xm-If-jDx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-51" id="JKc-sK-c0j"/>
-                <constraint firstItem="8xm-If-jDx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NsG-RL-uHr"/>
-                <constraint firstItem="vY7-1f-GQ0" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-13" id="cxO-zz-csM"/>
-                <constraint firstItem="ID0-cO-dz1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nLE-0c-blM"/>
-                <constraint firstItem="vY7-1f-GQ0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ne5-x6-ota"/>
+                <constraint firstItem="8xm-If-jDx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="44m-mO-q8c"/>
+                <constraint firstItem="ID0-cO-dz1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5FG-3J-poz"/>
+                <constraint firstAttribute="trailing" secondItem="vY7-1f-GQ0" secondAttribute="trailing" constant="89" id="6Kp-lf-DmL"/>
+                <constraint firstItem="vY7-1f-GQ0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="88" id="AUG-oN-7MF"/>
+                <constraint firstItem="8xm-If-jDx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="39" id="LRH-qi-qVG"/>
+                <constraint firstAttribute="trailing" secondItem="8xm-If-jDx" secondAttribute="trailing" constant="88" id="WwD-lf-TC0"/>
+                <constraint firstItem="ID0-cO-dz1" firstAttribute="top" secondItem="vY7-1f-GQ0" secondAttribute="bottom" constant="8" id="XxX-jr-Vff"/>
+                <constraint firstItem="ID0-cO-dz1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dgq-Ul-khe"/>
+                <constraint firstItem="vY7-1f-GQ0" firstAttribute="top" secondItem="8xm-If-jDx" secondAttribute="bottom" constant="8" id="u4G-dP-XVO"/>
             </constraints>
         </view>
     </objects>

@@ -15,35 +15,47 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X's and O's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWl-DS-O8s">
-                    <rect key="frame" x="257" y="190" width="87" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X's and O's" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWl-DS-O8s">
+                    <rect key="frame" x="235" y="184" width="131" height="33"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-4I-EzT">
-                    <rect key="frame" x="272" y="235" width="57" height="30"/>
-                    <state key="normal" title="Login"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-4I-EzT">
+                    <rect key="frame" x="240" y="225" width="120" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="tBb-mA-TVh"/>
+                    </constraints>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.49803921568627452" green="0.44705882352941173" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="dAi-sx-GD9"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFp-L8-QBm">
-                    <rect key="frame" x="272" y="285" width="57" height="30"/>
-                    <state key="normal" title="Register"/>
+                    <rect key="frame" x="240" y="263" width="120" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="vtR-4s-Nsh"/>
+                    </constraints>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.49803921568627452" green="0.44705882352941173" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="BSI-wr-pNH"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.49803921568627452" green="0.40784313725490196" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="lFp-L8-QBm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6wi-Ck-d7V"/>
-                <constraint firstItem="lFp-L8-QBm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="NHr-3M-eug"/>
                 <constraint firstItem="oWl-DS-O8s" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OOr-5U-D5N"/>
                 <constraint firstItem="oWl-DS-O8s" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="R5o-jr-FWf"/>
-                <constraint firstItem="CcJ-4I-EzT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="SqB-vB-L2v"/>
                 <constraint firstItem="CcJ-4I-EzT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="V1D-jl-SS2"/>
+                <constraint firstItem="lFp-L8-QBm" firstAttribute="top" secondItem="CcJ-4I-EzT" secondAttribute="bottom" constant="8" id="Y8J-wv-iYi"/>
+                <constraint firstItem="CcJ-4I-EzT" firstAttribute="top" secondItem="oWl-DS-O8s" secondAttribute="bottom" constant="8" id="fAL-vv-txn"/>
             </constraints>
         </view>
     </objects>

@@ -412,12 +412,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNx-7K-Mex">
-                    <rect key="frame" x="500" y="43" width="80" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.3458618249" blue="0.48096406219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="502" y="28" width="90" height="30"/>
+                    <color key="backgroundColor" red="0.85490196080000003" green="0.0" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="CWU-g0-HNw"/>
                         <constraint firstAttribute="height" constant="30" id="LSI-bw-OrH"/>
+                        <constraint firstAttribute="width" constant="90" id="pOG-bS-Zb1"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Log out">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -426,12 +427,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07k-br-mwb">
-                    <rect key="frame" x="22" y="71" width="104" height="30"/>
-                    <color key="backgroundColor" red="1" green="0.3458618249" blue="0.48096406219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="502" y="63" width="90" height="30"/>
+                    <color key="backgroundColor" red="0.85490196080000003" green="0.0" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="104" id="U0k-hH-GRH"/>
+                        <constraint firstAttribute="width" constant="90" id="nte-eJ-jOg"/>
                         <constraint firstAttribute="height" constant="30" id="uOS-NT-dmG"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Network Play">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -442,28 +444,28 @@
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="aNx-7K-Mex" secondAttribute="trailing" constant="8" id="BAi-eC-sYp"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
-                <constraint firstItem="07k-br-mwb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="22" id="Q7p-El-XYp"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RNm-oP-Ohl"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="TEW-Or-WEp">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
-                <constraint firstItem="aNx-7K-Mex" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="43" id="TSo-kT-Oi4"/>
-                <constraint firstAttribute="trailing" secondItem="aNx-7K-Mex" secondAttribute="trailing" constant="20" id="Tc8-fs-Dcz"/>
                 <constraint firstAttribute="trailing" secondItem="qYi-hH-8b3" secondAttribute="trailing" constant="20" id="VOv-ac-lE8">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="qSP-P1-uv7" secondAttribute="trailing" id="W88-YP-PUV"/>
+                <constraint firstItem="07k-br-mwb" firstAttribute="top" secondItem="aNx-7K-Mex" secondAttribute="bottom" constant="5" id="bWD-N6-FEw"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="cOI-dQ-zgP">
                     <variation key="heightClass=regular" constant="40"/>
                 </constraint>
+                <constraint firstAttribute="trailing" secondItem="07k-br-mwb" secondAttribute="trailing" constant="8" id="caf-en-PRv"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
-                <constraint firstItem="07k-br-mwb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="jAq-Sr-QgJ"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
                 <constraint firstItem="qSP-P1-uv7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wYo-EN-HYZ"/>
+                <constraint firstItem="aNx-7K-Mex" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="yii-3S-aaE"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <variation key="default">
@@ -471,6 +473,7 @@
                     <exclude reference="d8s-qj-E3B"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="365" y="311"/>
         </view>
     </objects>
 </document>
