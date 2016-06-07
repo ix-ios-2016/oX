@@ -23,11 +23,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         
         super.viewDidLoad()
         
-        if self.networkGame {
-            logoutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
-            newGameButton.setTitle("Update Board", forState: UIControlState.Normal)
-            networkPlayButton.hidden = true
-        }
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
         self.boardView.addGestureRecognizer(rotation)
         
@@ -68,7 +63,27 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // hide navigation bar every time view appears
     override func viewWillAppear(animated: Bool) {
+        
         self.navigationController?.navigationBarHidden = true
+        if self.networkGame {
+            logoutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
+            newGameButton.setTitle("Update Board", forState: UIControlState.Normal)
+            networkPlayButton.enabled = false
+            
+            if OXGameController.sharedInstance.getCurrentGame()?.guestUser?.email == "" {
+                for button in buttons {
+                    button.enabled = false
+                    networkPlayButton.setTitle("Awaiting User", forState: UIControlState.Normal)
+                }
+            }
+            else {
+                for button in buttons {
+                    button.enabled = true
+                    networkPlayButton.setTitle("\(OXGameController.sharedInstance.getCurrentGame()!.whosTurn().rawValue) Player's Turn", forState: UIControlState.Normal)
+                }
+            }
+        }
+        
     }
     
     
@@ -286,6 +301,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 button.setTitle(game.board[i].rawValue, forState: UIControlState.Normal)
                 i += 1
             }
+            
+            networkPlayButton.setTitle("\(OXGameController.sharedInstance.getCurrentGame()!.whosTurn().rawValue) Player's Turn", forState: UIControlState.Normal)
         }
         else if let message = message {
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
