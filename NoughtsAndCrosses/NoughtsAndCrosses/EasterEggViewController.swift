@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import MediaPlayer
+import AVFoundation
 
 class EasterEggViewController: UIViewController {
     
-    var musicPlayer: MPMusicPlayerController!
-
+    var audioPlayer = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,10 +26,19 @@ class EasterEggViewController: UIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: (Int)(UIScreen.mainScreen().bounds.width), height: (Int)(UIScreen.mainScreen().bounds.height))
         
         // make a music player
-        musicPlayer = MPMusicPlayerController.applicationMusicPlayer()
-        // need to make a queue for the music player
+        let drakeSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("oneDance", ofType: "mp3")!)
+        print(drakeSound)
         
-        
+        // play the sound
+        do {
+            let player = try AVAudioPlayer(contentsOfURL: drakeSound)
+           // guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
         
         
         
