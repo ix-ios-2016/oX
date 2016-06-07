@@ -14,6 +14,9 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var networkPlayButton: UIButton!
     
+    
+    
+    
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     
@@ -29,13 +32,9 @@ class BoardViewController: UIViewController {
             target: self, action: #selector(BoardViewController.handleRotation(_:)))
         self.boardContainer.addGestureRecognizer(rotation)
         
-        // check if network game
-        // if so, hide the new game button and network play buttons, and rename Logout to Cancel
-        if (self.networkGame) {
-            self.newGameButton.hidden = true
-            self.logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
-            self.networkPlayButton.hidden = true
-        }
+        
+        
+        self.updateUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,18 +69,18 @@ class BoardViewController: UIViewController {
                         forState: UIControlState.Normal)
         
         // if in network mode, and game is not over play a move by a stupid AI
-        if (self.checkState(lastPlayer) == OXGameState.inProgress && self.networkGame) {
-            // play a move
-            let (cell, index) = OXGameController.sharedInstance.playRandomMove()!
-            // update the boardView
-            for subview in self.boardContainer.subviews {
-                if subview is UIButton && subview.tag == index {
-                    (subview as! UIButton).setTitle(String(cell), forState: UIControlState.Normal)
-                }
-            }
-            // check state again
-            self.checkState(cell)
-        }
+//        if (self.checkState(lastPlayer) == OXGameState.inProgress && self.networkGame) {
+//            // play a move
+//            let (cell, index) = OXGameController.sharedInstance.playRandomMove()!
+//            // update the boardView
+//            for subview in self.boardContainer.subviews {
+//                if subview is UIButton && subview.tag == index {
+//                    (subview as! UIButton).setTitle(String(cell), forState: UIControlState.Normal)
+//                }
+//            }
+//            // check state again
+//            self.checkState(cell)
+//        }
         
     }
     
@@ -112,7 +111,6 @@ class BoardViewController: UIViewController {
     // action for new game button
     // finish the current game in the backend and reset the boardView
     @IBAction func newGameTapped(sender: AnyObject) {
-//        OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
     }
     
@@ -124,6 +122,8 @@ class BoardViewController: UIViewController {
         if (self.networkGame) {
             self.navigationController!.popViewControllerAnimated(true)
         } else {
+            // persistence
+            NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "loggedInUser")
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             // there is no logout user method yet in the UserController
 //            UserController.sharedInstance.logoutUser()
@@ -134,8 +134,58 @@ class BoardViewController: UIViewController {
     // action for network play button
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
 //        OXGameController.sharedInstance.finishCurrentGame()
-        let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
-        self.navigationController?.pushViewController(networkPlayViewController, animated: true)
+        if self.networkGame {
+            // refresh in network mode
+            OXGameController.sharedInstance.getGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.gameUpdateReceived(game, message:message)})
+        } else {
+            // go into network play when in local mode
+            let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
+            self.navigationController?.pushViewController(networkPlayViewController, animated: true)
+        }
+    }
+    
+    func gameUpdateReceived(game: OXGame?, message: String?) {
+        if let gameReceived = game {
+            self.currentGame = gameReceived
+        }
+        self.updateUI()
+        
+        if (self.currentGame.guestUser?.email != "") {
+            if (self.currentGame.localUsersTurn()) {
+                self.newGameButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
+                self.boardContainer.userInteractionEnabled = true
+            } else {
+                self.newGameButton.setTitle("Awaiting opponent move...", forState: UIControlState.Normal)
+                self.boardContainer.userInteractionEnabled = false
+            }
+        } else {
+            self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
+            self.boardContainer.userInteractionEnabled = false
+        }
+    }
+    
+    func updateUI() {
+        
+        // check if network game
+        // if so, hide the new game button and network play buttons, and rename Logout to Cancel
+        if (self.networkGame) {
+            self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
+            self.newGameButton.userInteractionEnabled = false
+            self.logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
+            self.networkPlayButton.setTitle("Refresh", forState: UIControlState.Normal)
+        }
+        
+        for i in 0..<9 {
+            let str = self.currentGame.board[i].rawValue
+            print(str)
+            for view in self.boardContainer.subviews {
+                if let button = view as? UIButton {
+                    if button.tag == i {
+                        button.setTitle(str, forState: UIControlState.Normal)
+                    }
+                }
+            }
+        }
     }
     
     // helper function to reset all the buttons in the boardView to empty

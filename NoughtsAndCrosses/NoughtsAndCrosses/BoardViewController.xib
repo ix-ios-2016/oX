@@ -38,7 +38,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="182" height="179"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="8gE-si-58i"/>
@@ -48,7 +48,7 @@
                             <rect key="frame" x="187" y="0.0" width="187" height="179"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="vTp-wU-7dg"/>
@@ -58,7 +58,7 @@
                             <rect key="frame" x="379" y="0.0" width="181" height="179"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="M7K-Hy-Lcf"/>
@@ -68,7 +68,7 @@
                             <rect key="frame" x="0.0" y="184" width="182" height="186"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="rhI-eU-J9i"/>
@@ -84,7 +84,7 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <variation key="default">
                                 <mask key="constraints">
@@ -102,7 +102,7 @@
                             <rect key="frame" x="379" y="184" width="181" height="186"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="7YC-Gg-G4m"/>
@@ -112,7 +112,7 @@
                             <rect key="frame" x="0.0" y="375" width="182" height="180"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="76L-J7-lqD"/>
@@ -122,7 +122,7 @@
                             <rect key="frame" x="187" y="375" width="187" height="180"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="vsD-uD-aSn"/>
@@ -132,7 +132,7 @@
                             <rect key="frame" x="379" y="375" width="181" height="180"/>
                             <fontDescription key="fontDescription" type="system" pointSize="60"/>
                             <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="Zve-oP-Sl9"/>

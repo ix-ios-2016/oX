@@ -72,10 +72,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("did select row \(indexPath.row)")
         OXGameController.sharedInstance.acceptGame(self.gameList![indexPath.row].gameId!, presentingViewController: self, viewControllerCompletionFunction: {(gameList, message) in self.acceptGameComplete(gameList, message: message)})
-//        OXGameController.sharedInstance.acceptGameWithId(self.gameList[indexPath.row].gameId!)
-        let newBoardView = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        newBoardView.networkGame = true
-        self.navigationController?.pushViewController(newBoardView, animated: true)
         
     }
     
@@ -115,8 +111,18 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     @IBAction func newGameButtonTapped(sender: UIButton) {
-        let user = User(email: "host", password: "host", token: "host", client: "host")
 //        OXGameController.sharedInstance.createNewGame(user)
+        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.getLoggedInUser()!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.newGameCompleted(game, message:message)})
+        
+    }
+    
+    func newGameCompleted(game: OXGame?, message:String?) {
+        if let newGame = game {
+            let networkBoardView = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            networkBoardView.networkGame = true
+            networkBoardView.currentGame = newGame
+            self.navigationController?.pushViewController(networkBoardView, animated: true)
+        }
     }
 
 }
