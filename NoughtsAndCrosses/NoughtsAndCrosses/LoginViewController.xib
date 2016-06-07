@@ -17,18 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcx-xF-bdT" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="88" y="39" width="423" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVz-16-YJR">
-                    <rect key="frame" x="88" y="77" width="423" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDm-mI-hfL">
-                    <rect key="frame" x="260" y="115" width="80" height="30"/>
+                    <rect key="frame" x="261" y="169" width="80" height="30"/>
                     <color key="backgroundColor" red="1" green="0.89411764705882346" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="fVu-VO-2tW"/>
@@ -40,18 +30,29 @@
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="EtJ-1N-CrU"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcx-xF-bdT" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="89" y="93" width="423" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVz-16-YJR">
+                    <rect key="frame" x="89" y="131" width="423" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.49803921568627452" green="0.40784313725490196" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="bcx-xF-bdT" secondAttribute="trailing" constant="89" id="LkF-wF-UZ4"/>
+                <constraint firstAttribute="trailing" secondItem="bcx-xF-bdT" secondAttribute="trailing" constant="88" id="LkF-wF-UZ4"/>
                 <constraint firstItem="uVz-16-YJR" firstAttribute="top" secondItem="bcx-xF-bdT" secondAttribute="bottom" constant="8" id="Net-71-Wlq"/>
                 <constraint firstItem="EDm-mI-hfL" firstAttribute="top" secondItem="uVz-16-YJR" secondAttribute="bottom" constant="8" id="Vc6-K3-z03"/>
-                <constraint firstAttribute="trailing" secondItem="uVz-16-YJR" secondAttribute="trailing" constant="89" id="VuA-k3-ENZ"/>
-                <constraint firstItem="bcx-xF-bdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="88" id="XAZ-Er-gVd"/>
-                <constraint firstItem="EDm-mI-hfL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="giA-bX-5od"/>
-                <constraint firstItem="uVz-16-YJR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="88" id="iwa-Rk-yqo"/>
-                <constraint firstItem="bcx-xF-bdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="39" id="odp-9i-R1x"/>
+                <constraint firstAttribute="trailing" secondItem="uVz-16-YJR" secondAttribute="trailing" constant="88" id="VuA-k3-ENZ"/>
+                <constraint firstItem="bcx-xF-bdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="XAZ-Er-gVd"/>
+                <constraint firstItem="EDm-mI-hfL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="1" id="giA-bX-5od"/>
+                <constraint firstItem="uVz-16-YJR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="iwa-Rk-yqo"/>
+                <constraint firstItem="bcx-xF-bdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="odp-9i-R1x"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
 </document>

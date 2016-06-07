@@ -18,7 +18,6 @@
 		A161D3B01D059322001B0D8D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A161D3AF1D059322001B0D8D /* UIViewControllerExtension.swift */; };
 		A171257B1CFEDAEC0002D506 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */; };
 		A1A925F81D056FD400CE9DCE /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A925F71D056FD400CE9DCE /* ClosureExperiment.swift */; };
-		A1B5792E1CFC758D00621F30 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B5792D1CFC758D00621F30 /* OXGame.swift */; };
 		A1C668291D016ECA00EDD1B1 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C668271D016ECA00EDD1B1 /* NetworkPlayViewController.swift */; };
 		A1C6682A1D016ECA00EDD1B1 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C668281D016ECA00EDD1B1 /* NetworkPlayViewController.xib */; };
 		A1C6682E1D0198AC00EDD1B1 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C6682D1D0198AC00EDD1B1 /* OXGameController.swift */; };
@@ -73,7 +72,6 @@
 		A161D3AF1D059322001B0D8D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A171257A1CFEDAEC0002D506 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
 		A1A925F71D056FD400CE9DCE /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
-		A1B5792D1CFC758D00621F30 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		A1C668271D016ECA00EDD1B1 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		A1C668281D016ECA00EDD1B1 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		A1C6682D1D0198AC00EDD1B1 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 		A1C6682C1D018A5500EDD1B1 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1B5792D1CFC758D00621F30 /* OXGame.swift */,
 				A1DCC6B51CFE082D00236776 /* UserController.swift */,
 				A1C6682D1D0198AC00EDD1B1 /* OXGameController.swift */,
 			);
@@ -431,7 +428,6 @@
 				A161D3B01D059322001B0D8D /* UIViewControllerExtension.swift in Sources */,
 				A1EB774F1D057ED400C13860 /* WebService.swift in Sources */,
 				A15513301CFF2C79003C958C /* EasterEggViewController.swift in Sources */,
-				A1B5792E1CFC758D00621F30 /* OXGame.swift in Sources */,
 				A1DCC6AB1CFDEB9000236776 /* LandingViewController.swift in Sources */,
 				A1DCC6B31CFDFCBC00236776 /* RegisterViewController.swift in Sources */,
 				A1DCC6B61CFE082D00236776 /* UserController.swift in Sources */,

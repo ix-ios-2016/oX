@@ -17,6 +17,8 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     
+    var currentGame = OXGame()
+    
     var networkGame = false
     
     override func viewDidLoad() {
@@ -62,9 +64,9 @@ class BoardViewController: UIViewController {
     // action for pressing any of the game board buttons
     @IBAction func buttonTapped(sender: AnyObject) {
         // play the move (and record which player executed it)
-        let lastPlayer = OXGameController.sharedInstance.getCurrentGame()!.playMove(sender.tag)
+        let lastPlayer = self.currentGame.playMove(sender.tag)
         // update the board
-        sender.setTitle(String(OXGameController.sharedInstance.getCurrentGame()!.typeAtIndex(sender.tag)),
+        sender.setTitle(String(self.currentGame.typeAtIndex(sender.tag)),
                         forState: UIControlState.Normal)
         
         // if in network mode, and game is not over play a move by a stupid AI
@@ -86,7 +88,7 @@ class BoardViewController: UIViewController {
     // helper function to check the state of the game, and return an appropriate message given whomever made the most recent move
     // if necessary, pop out to previous view controller
     private func checkState(lastPlayer: CellType) -> OXGameState {
-        let currentState = OXGameController.sharedInstance.getCurrentGame()!.state()
+        let currentState = self.currentGame.state()
         switch currentState {
         case OXGameState.complete_someone_won, OXGameState.complete_no_one_won:
             // print end game message
@@ -96,7 +98,7 @@ class BoardViewController: UIViewController {
                 print("Game tied")
             }
             // finish game in backend
-            OXGameController.sharedInstance.finishCurrentGame()
+//            OXGameController.sharedInstance.finishCurrentGame()
             // update view
             if (self.networkGame) {
                 self.navigationController?.popViewControllerAnimated(true)
@@ -110,14 +112,14 @@ class BoardViewController: UIViewController {
     // action for new game button
     // finish the current game in the backend and reset the boardView
     @IBAction func newGameTapped(sender: AnyObject) {
-        OXGameController.sharedInstance.finishCurrentGame()
+//        OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
     }
     
     // action for log out button
     // finish the current game in the backend and navigate to authentication screen
     @IBAction func logOutButtonTapped(sender: UIButton) {
-        OXGameController.sharedInstance.finishCurrentGame()
+//        OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
         if (self.networkGame) {
             self.navigationController!.popViewControllerAnimated(true)
@@ -131,7 +133,7 @@ class BoardViewController: UIViewController {
     
     // action for network play button
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
-        OXGameController.sharedInstance.finishCurrentGame()
+//        OXGameController.sharedInstance.finishCurrentGame()
         let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.pushViewController(networkPlayViewController, animated: true)
     }
