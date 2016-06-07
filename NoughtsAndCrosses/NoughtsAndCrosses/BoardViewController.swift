@@ -32,9 +32,6 @@ class BoardViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //Rotation 
-    
-    // let rotation: UIRotationGestureRecognizer: UIRoationGestureRecognizer(target:self,action:)
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
