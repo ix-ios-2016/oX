@@ -17,15 +17,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-v6-9Ic">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-v6-9Ic">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zf7-5S-hFd">
                             <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                             <color key="backgroundColor" red="0.81176470588235294" green="0.0" blue="0.35294117647058826" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZl-2N-a2E">
-                            <rect key="frame" x="143" y="345" width="97" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZl-2N-a2E">
+                            <rect key="frame" x="139" y="345" width="97" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="97" id="bT7-AR-kiD"/>
+                                <constraint firstAttribute="height" constant="30" id="n52-AB-HXR"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <state key="normal" title="Register">
                                 <color key="titleColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,8 +38,8 @@
                                 <action selector="registrationButtonTapped:" destination="-1" eventType="touchUpInside" id="fsE-OJ-4Ri"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="o_X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbn-nm-aSr">
-                            <rect key="frame" x="143" y="170" width="100" height="42"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o_X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbn-nm-aSr">
+                            <rect key="frame" x="138" y="170" width="100" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="hqv-kL-OP6"/>
                                 <constraint firstAttribute="width" constant="100" id="jox-b9-7gx"/>
@@ -44,23 +48,52 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-8Y-PKh" userLabel="Password Field">
-                            <rect key="frame" x="100" y="292" width="206" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6zd-8Y-PKh" userLabel="Password Field">
+                            <rect key="frame" x="69" y="292" width="237" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="237" id="ByS-qP-f5W"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="237" id="Jpz-3o-RNX"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-KT-XjD" userLabel="Email Field" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                            <rect key="frame" x="100" y="230" width="206" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-KT-XjD" userLabel="Email Field" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                            <rect key="frame" x="69" y="230" width="237" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="237" id="8N2-Mb-qOP"/>
+                                <constraint firstAttribute="width" constant="237" id="d6u-bD-huM"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="qZl-2N-a2E" firstAttribute="centerX" secondItem="9R2-v6-9Ic" secondAttribute="centerX" id="3nq-yc-PJC"/>
+                        <constraint firstItem="D1x-KT-XjD" firstAttribute="top" secondItem="xbn-nm-aSr" secondAttribute="bottom" constant="18" id="D3Z-qh-Rde"/>
+                        <constraint firstItem="qZl-2N-a2E" firstAttribute="top" secondItem="xbn-nm-aSr" secondAttribute="bottom" constant="133" id="Isa-hf-sI1"/>
+                        <constraint firstItem="qZl-2N-a2E" firstAttribute="top" secondItem="6zd-8Y-PKh" secondAttribute="bottom" constant="23" id="Km8-xX-heu"/>
+                        <constraint firstItem="xbn-nm-aSr" firstAttribute="top" secondItem="9R2-v6-9Ic" secondAttribute="top" constant="170" id="LSg-7e-HSy"/>
+                        <constraint firstItem="D1x-KT-XjD" firstAttribute="top" secondItem="9R2-v6-9Ic" secondAttribute="top" constant="230" id="MhV-Xl-eBS"/>
+                        <constraint firstItem="D1x-KT-XjD" firstAttribute="leading" secondItem="6zd-8Y-PKh" secondAttribute="leading" id="Olm-4a-6ud"/>
+                        <constraint firstItem="xbn-nm-aSr" firstAttribute="centerX" secondItem="9R2-v6-9Ic" secondAttribute="centerX" id="QW0-gR-tqI"/>
+                        <constraint firstItem="6zd-8Y-PKh" firstAttribute="top" secondItem="xbn-nm-aSr" secondAttribute="bottom" constant="80" id="aLg-2G-k0D"/>
+                        <constraint firstItem="6zd-8Y-PKh" firstAttribute="centerX" secondItem="9R2-v6-9Ic" secondAttribute="centerX" id="ctY-qy-hwr"/>
+                        <constraint firstAttribute="trailing" secondItem="D1x-KT-XjD" secondAttribute="trailing" constant="69" id="g4V-b8-M1Y"/>
+                        <constraint firstItem="6zd-8Y-PKh" firstAttribute="top" secondItem="D1x-KT-XjD" secondAttribute="bottom" constant="32" id="nsl-gP-8G9"/>
+                        <constraint firstItem="D1x-KT-XjD" firstAttribute="centerX" secondItem="9R2-v6-9Ic" secondAttribute="centerX" id="veK-yA-w5D"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="9R2-v6-9Ic" secondAttribute="trailing" id="6JX-Kk-G6M"/>
+                <constraint firstAttribute="bottom" secondItem="9R2-v6-9Ic" secondAttribute="bottom" id="YUN-wN-bTT"/>
+                <constraint firstItem="9R2-v6-9Ic" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dQb-yd-3vL"/>
+                <constraint firstItem="9R2-v6-9Ic" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uS6-y8-3ST"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="279.5" y="267.5"/>
         </view>

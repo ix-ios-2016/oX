@@ -16,19 +16,31 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-oE-bVz">
+                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-oE-bVz">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Kdg-vg-16M"/>
+                    </constraints>
                     <state key="normal" title="Play Network Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-9H-aE1">
-                    <rect key="frame" x="0.0" y="64" width="392" height="543"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-9H-aE1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hf6-oE-bVz" firstAttribute="leading" secondItem="bUz-9H-aE1" secondAttribute="leading" id="T52-mh-Edt"/>
+                <constraint firstItem="bUz-9H-aE1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZB9-g0-Shz"/>
+                <constraint firstItem="hf6-oE-bVz" firstAttribute="trailing" secondItem="bUz-9H-aE1" secondAttribute="trailing" id="fIp-gI-yYh"/>
+                <constraint firstItem="hf6-oE-bVz" firstAttribute="centerX" secondItem="bUz-9H-aE1" secondAttribute="centerX" id="gXt-Vc-kbX"/>
+                <constraint firstItem="bUz-9H-aE1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lMl-n8-UmB"/>
+                <constraint firstAttribute="bottom" secondItem="hf6-oE-bVz" secondAttribute="bottom" id="tbC-b5-FjA"/>
+                <constraint firstAttribute="trailing" secondItem="bUz-9H-aE1" secondAttribute="trailing" id="wcw-1Q-Mco"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="482.5" y="267.5"/>
         </view>

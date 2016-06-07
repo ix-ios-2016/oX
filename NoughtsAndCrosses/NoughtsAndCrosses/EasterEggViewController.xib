@@ -15,32 +15,54 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-8O-6Nf">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-8O-6Nf">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ralph_easter_egg" translatesAutoresizingMaskIntoConstraints="NO" id="YMP-1x-tYi">
-                    <rect key="frame" x="67" y="159" width="240" height="240"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Easter Egg!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14e-1Q-3Ea">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easter Egg!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14e-1Q-3Ea">
                     <rect key="frame" x="109" y="407" width="156" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="156" id="18w-Xd-aPS"/>
+                        <constraint firstAttribute="height" constant="40" id="Egn-1T-tU9"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                     <color key="textColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpY-j9-kVN">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpY-j9-kVN">
                     <rect key="frame" x="134" y="91" width="107" height="30"/>
-                    <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="4D0-Ia-Hbm"/>
+                        <constraint firstAttribute="width" constant="107" id="ybT-ez-Li6"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <state key="normal" title="Return">
-                        <color key="titleColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="returnToGame:" destination="-1" eventType="touchUpInside" id="Udr-c1-buH"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ralph_easter_egg" translatesAutoresizingMaskIntoConstraints="NO" id="YMP-1x-tYi">
+                    <rect key="frame" x="67" y="143" width="240" height="240"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Wy6-8O-6Nf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Oh-0e-fZ0"/>
+                <constraint firstItem="Wy6-8O-6Nf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="617" id="8EK-wM-pfV"/>
+                <constraint firstItem="CpY-j9-kVN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Tu-kk-imk"/>
+                <constraint firstItem="YMP-1x-tYi" firstAttribute="top" secondItem="CpY-j9-kVN" secondAttribute="bottom" constant="22" id="AFP-8A-gaA"/>
+                <constraint firstItem="14e-1Q-3Ea" firstAttribute="top" secondItem="CpY-j9-kVN" secondAttribute="bottom" constant="286" id="Frv-qI-FVZ"/>
+                <constraint firstItem="CpY-j9-kVN" firstAttribute="centerX" secondItem="Wy6-8O-6Nf" secondAttribute="centerX" id="Ibc-qH-eCG"/>
+                <constraint firstItem="14e-1Q-3Ea" firstAttribute="centerX" secondItem="Wy6-8O-6Nf" secondAttribute="centerX" id="MLC-SK-NXB"/>
+                <constraint firstAttribute="bottom" secondItem="Wy6-8O-6Nf" secondAttribute="bottom" id="UsL-DU-6fb"/>
+                <constraint firstItem="CpY-j9-kVN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="91" id="XRW-xw-XBG"/>
+                <constraint firstItem="YMP-1x-tYi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a2a-SC-fbo"/>
+                <constraint firstItem="YMP-1x-tYi" firstAttribute="centerX" secondItem="Wy6-8O-6Nf" secondAttribute="centerX" id="wSz-qW-bEn"/>
+                <constraint firstItem="14e-1Q-3Ea" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zft-Bj-fd2"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="279.5" y="267.5"/>
         </view>

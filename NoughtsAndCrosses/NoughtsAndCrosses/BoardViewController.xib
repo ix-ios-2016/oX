@@ -410,17 +410,8 @@
                         <action selector="newGame:" destination="-1" eventType="touchUpInside" id="Ovd-lH-jjO"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5V-nT-eNb">
-                    <rect key="frame" x="8" y="40" width="72" height="30"/>
-                    <state key="normal" title="Log Out">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="eoG-ix-gTH"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yux-46-us4">
-                    <rect key="frame" x="263" y="40" width="104" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yux-46-us4">
+                    <rect key="frame" x="263" y="46" width="104" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Network Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -429,9 +420,21 @@
                         <action selector="networkGame:" destination="-1" eventType="touchUpInside" id="dB2-aF-FgL"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5V-nT-eNb">
+                    <rect key="frame" x="8" y="46" width="104" height="30"/>
+                    <state key="normal" title="Log Out">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="eoG-ix-gTH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="b5V-nT-eNb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="0rW-0z-XYw"/>
+                <constraint firstItem="b5V-nT-eNb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2HL-NP-FrL"/>
+                <constraint firstItem="k6O-si-s1J" firstAttribute="leading" secondItem="b5V-nT-eNb" secondAttribute="trailing" constant="25" id="DyD-wc-Wso"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RNm-oP-Ohl"/>
@@ -446,6 +449,9 @@
                     <variation key="heightClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
+                <constraint firstItem="yux-46-us4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="fEf-bM-KCq"/>
+                <constraint firstAttribute="trailing" secondItem="yux-46-us4" secondAttribute="trailing" constant="8" id="gp1-NZ-uiD"/>
+                <constraint firstItem="yux-46-us4" firstAttribute="leading" secondItem="k6O-si-s1J" secondAttribute="trailing" constant="26" id="pmz-OC-Dwx"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
