@@ -13,6 +13,7 @@
                 <outlet property="logoutButton" destination="pjw-IL-dLQ" id="hO9-8k-eFc"/>
                 <outlet property="networkPlayButton" destination="YVa-gn-UEJ" id="XHf-oa-suc"/>
                 <outlet property="newGameButton" destination="qSP-P1-uv7" id="RTQ-I3-WEs"/>
+                <outlet property="refreshButton" destination="3mt-tW-C4W" id="ZLH-HB-xPf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewOutlet" destination="i5M-Pr-FkT" id="711-IA-KNI"/>
                 <outletCollection property="buttonArray" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="lyS-Mb-9Ci"/>
@@ -461,6 +462,15 @@
                     </variation>
                     <connections>
                         <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="WUj-R5-adC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mt-tW-C4W">
+                    <rect key="frame" x="252" y="151" width="98" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="2Zm-lo-pgi"/>
                     </connections>
                 </button>
             </subviews>

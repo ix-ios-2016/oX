@@ -26,6 +26,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var networkPlayButton: UIButton!
 
+    @IBOutlet weak var refreshButton: UIButton!
 
 
     
@@ -44,12 +45,15 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(animated: Bool)
     {
+    
+        refreshButton.hidden = true
         
         self.navigationController?.navigationBarHidden = true
         
         if (networkMode)
         {
             networkPlayButton.hidden = true
+            refreshButton.hidden = false
             newGameButton.setTitle("Network Game in Progress", forState: UIControlState.Normal)
             logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
             
@@ -97,55 +101,76 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func buttonTapped(sender: UIButton)
     {
         //print(OXGameController.sharedInstance.getCurrentGame()!.whoseTurn())
+
+        print("Button \(sender.tag) tapped")
         
-        let currentPlayer = OXGameController.sharedInstance.getCurrentGame()!.whoseTurn()
-        
-        
-        if (sender.currentTitle == "" || sender.currentTitle == nil)
+        if (networkMode)
         {
-            if (currentPlayer == CellType.X)
+            
+            if OXGameController.sharedInstance.getCurrentGame()?.guestUser!.email == ""
             {
-                sender.setTitle("X", forState: UIControlState.Normal)
+                print("No User Accepted")
             }
-            else
+            else if (OXGameController.sharedInstance.getCurrentGame()?.whosTurn() == CellType.X && UserController.sharedInstance.logged_in_user?.email == OXGameController.sharedInstance.getCurrentGame()?.hostUser?.email) || (OXGameController.sharedInstance.getCurrentGame()?.whosTurn() == CellType.O && UserController.sharedInstance.logged_in_user?.email == OXGameController.sharedInstance.getCurrentGame()?.guestUser?.email)
             {
-                sender.setTitle("O", forState: UIControlState.Normal)
+                OXGameController.sharedInstance.getCurrentGame()?.playMove(sender.tag)
+            
+            OXGameController.sharedInstance.playNetworkMove((OXGameController.sharedInstance.getCurrentGame()?.serialiseBoard())!, gameId:
+                OXGameController.sharedInstance.getCurrentGame()!.gameId!, viewControllerCompletionFunction: {(game, message) in self.playNetworkMoveComplete(game, message: message)})
             }
         }
         else
         {
-            return
-        }
-        
-        print("Button \(sender.tag) tapped")
-        
-        OXGameController.sharedInstance.playMove(sender.tag)
-        
-        
-        //print(OXGameController.sharedInstance.getCurrentGame()!.whoseTurn())
-        
-        let winner = OXGameController.sharedInstance.getCurrentGame()!.state()
-        
-        if (winner == OXGameState.complete_someone_won)
-        {
-            print("Congratulations \(currentPlayer) player, you've won!")
-            OXGameController.sharedInstance.finishCurrentGame()
-            resetBoard()
-            if (networkMode == true)
+            
+            let currentPlayer = OXGameController.sharedInstance.getCurrentGame()!.whosTurn()
+            
+            
+            if (sender.currentTitle == "" || sender.currentTitle == nil)
             {
-            self.navigationController?.popViewControllerAnimated(true)
+                if (currentPlayer == CellType.X)
+                {
+                    sender.setTitle("X", forState: UIControlState.Normal)
+                }
+                else
+                {
+                    sender.setTitle("O", forState: UIControlState.Normal)
+                }
+            }
+            else
+            {
+                return
+            }
+            
+            OXGameController.sharedInstance.playMove(sender.tag)
+            
+            
+            //print(OXGameController.sharedInstance.getCurrentGame()!.whoseTurn())
+            
+            let winner = OXGameController.sharedInstance.getCurrentGame()!.state()
+            
+            if (winner == OXGameState.complete_someone_won)
+            {
+                print("Congratulations \(currentPlayer) player, you've won!")
+                OXGameController.sharedInstance.finishCurrentGame()
+                resetBoard()
+                if (networkMode == true)
+                {
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            }
+            else if (winner == OXGameState.complete_no_one_won)
+            {
+                print("Tie Game")
+                OXGameController.sharedInstance.finishCurrentGame()
+                resetBoard()
+                if (networkMode == true)
+                {
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
             }
         }
-        else if (winner == OXGameState.complete_no_one_won)
-        {
-            print("Tie Game")
-            OXGameController.sharedInstance.finishCurrentGame()
-            resetBoard()
-            if (networkMode == true)
-            {
-                self.navigationController?.popViewControllerAnimated(true)
-            }
-        }
+        
+        /*
         else if (winner == OXGameState.inProgress && networkMode == true)
         {
             let (moveCellType, moveIndex) = OXGameController.sharedInstance.playRandomMove()!
@@ -169,9 +194,22 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             }
 
         }
+        */
         
     }
     
+    
+    func playNetworkMoveComplete(game: OXGame?, message: String?) {
+        
+        if let _ = game {
+            print("hey")
+        }
+        else {
+            print("Invalid Move")
+        }
+        updateUI()
+        
+    }
     
 
     func resetBoard()
@@ -231,8 +269,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
-    
-    
     @IBAction func networkPlayTapped(sender: UIButton)
     {
         
@@ -241,19 +277,53 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
+    func updateUI()
+    {
+        let game = OXGameController.sharedInstance.getCurrentGame()
+        for button in buttonArray
+        {
+            let title = game?.board[button.tag]
+            if (title == CellType.X)
+            {
+                button.setTitle("X", forState: UIControlState.Normal)
+            }
+            else if (title == CellType.O)
+            {
+                button.setTitle("O", forState: UIControlState.Normal)
+            }
+            else
+            {
+                button.setTitle("", forState: UIControlState.Normal)
+            }
+        }
+    }
+    
+    
+    @IBAction func refreshButtonTapped(sender: UIButton)
+    {
+        
+        let game = OXGameController.sharedInstance.getCurrentGame()
+        
+        OXGameController.sharedInstance.getGame((game?.gameId)!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.getGameComplete(game, message: message)})
+        
+    }
+    
+    func getGameComplete(game: OXGame?, message: String?) {
+        
+        if let _ = game {
+            updateUI()
+        }
+        else {
+            print("Did not get game")
+        }
+        
+    }
+    
+    
     
     
     
 }
-
-
-
-
-
-
-
-
-
 
 
 

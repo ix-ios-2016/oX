@@ -27,8 +27,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
       
         
-        gameList = OXGameController.sharedInstance.getListOfGames()!
-        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
         refreshControl.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
@@ -40,15 +38,44 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         self.navigationController?.navigationBarHidden = false
         
-        self.gameList = OXGameController.sharedInstance.getListOfGames()!
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameListComplete, message) in self.gameListComplete(gameListComplete, message:message)})
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func refreshTable() {
+        
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameListComplete, message) in self.gameListComplete(gameListComplete, message: message)})
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
+        
+    }
+    
+    func gameListComplete(gameListComplete:[OXGame]?,message:String?) {
+        
+        if let _ = gameListComplete
+        {
+            
+            gameList = gameListComplete!
+            tableView.reloadData()
+            refreshControl.endRefreshing()
+
+            
+        }   else    {
+            
+            //registration failed
+            let alert = UIAlertController(title:"Table Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
+    }
+
     
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -69,24 +96,63 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
+    func acceptGameComplete(game: OXGame?, message: String?)
+    {
+        if let _ = game
+        {
+            
+            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            bvc.networkMode = true
+            self.navigationController?.pushViewController(bvc, animated: true)
+            
+            
+        }   else    {
+            
+            //registration failed
+            let alert = UIAlertController(title:"Table Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
+
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         print("hi")
-        OXGameController.sharedInstance.setCurrentGame(OXGameController.sharedInstance.acceptGameWithId(gameList[indexPath.row].gameId!)!)
-        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        bvc.networkMode = true
-        self.navigationController?.pushViewController(bvc, animated: true)
+        OXGameController.sharedInstance.acceptGame(gameList[indexPath.row].gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.acceptGameComplete(game, message: message)})
     }
     
     @IBAction func networkPlayTapped(sender: UIButton)
     {
         
-        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.logged_in_user!)
+        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.logged_in_user!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.createNewGameComplete(game, message: message)})
+
+    }
+    
+    func createNewGameComplete(game: OXGame?, message: String?) {
         
-        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        bvc.networkMode = true
-        self.navigationController?.pushViewController(bvc, animated: true)
+        if let _ = game
+        {
+            
+            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            bvc.networkMode = true
+            self.navigationController?.pushViewController(bvc, animated: true)
+            
+            
+        }   else    {
+            
+            //registration failed
+            let alert = UIAlertController(title:"Table Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
+        
     }
     
 }

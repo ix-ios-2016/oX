@@ -71,7 +71,7 @@ class UserController: WebService {
             if (responseCode / 100 == 2)
             {
                 
-                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:json["data"]["client"].stringValue)
                 
                 self.storeUser(user)
                 self.setLoggedInUser(user)
