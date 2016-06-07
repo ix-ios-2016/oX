@@ -34,26 +34,44 @@ class LoginViewController: UIViewController {
             let password = self.passwordTextField.text
             
         
-            let (failureMessage, user) = UserController.sharedInstance.loginUser(username!, suppliedPassword: password!)
+            UserController.sharedInstance.loginUser(username!,password: password!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.logInComplete(user,message:message)})
         
-            if (user != nil) {
-                print("User registered in registration view")
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToBoardViewController()
-                // at this point we are happy to login the user, so let's store that persistent valaue
-                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggenIn")
-            }   else {
-                    if (failureMessage != nil) {
-                        print(failureMessage)
-                }
-            }
+//            if (user != nil) {
+//                print("User registered in registration view")
+//                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                appDelegate.navigateToBoardViewController()
+//                // at this point we are happy to login the user, so let's store that persistent valaue
+//                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggenIn")
+//            }   else {
+//                    if (failureMessage != nil) {
+//                        print(failureMessage)
+//                }
+//            }
             emailTextField.validate()
         } else {
             emailTextField.updateUI()
         }
-        
     }
+    func logInComplete(user:User?,message:String?) {
+        if (message == nil) {
+            print("User registered in registration view")
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.navigateToBoardViewController()
+            // at this point we are happy to login the user, so let's store that persistent valaue
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggenIn")
+        } else {
+            let alert = UIAlertController(title:"Connection Error", message:"Not connected", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            
+        }
+    }
+    
+    
+    
 }
+
+
+
     /*
     // MARK: - Navigation
 

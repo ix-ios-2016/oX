@@ -12,6 +12,7 @@
                 <outlet property="board" destination="qYi-hH-8b3" id="NHW-0k-QRZ"/>
                 <outlet property="logOutButton" destination="b5V-nT-eNb" id="zWq-BB-Mfx"/>
                 <outlet property="networkGameButton" destination="yux-46-us4" id="izc-FW-qc2"/>
+                <outlet property="refreshButton" destination="Wyx-RV-LIs" id="zaa-9I-7yL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="OQt-02-Fl8"/>
             </connections>
         </placeholder>
@@ -429,11 +430,21 @@
                         <action selector="logOut:" destination="-1" eventType="touchUpInside" id="eoG-ix-gTH"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyx-RV-LIs">
+                    <rect key="frame" x="161" y="115" width="54" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="Tdj-PB-QPU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="b5V-nT-eNb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="0rW-0z-XYw"/>
                 <constraint firstItem="b5V-nT-eNb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2HL-NP-FrL"/>
+                <constraint firstItem="Wyx-RV-LIs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8sp-V5-3hV"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="leading" secondItem="b5V-nT-eNb" secondAttribute="trailing" constant="25" id="DyD-wc-Wso"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
@@ -451,6 +462,7 @@
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
                 <constraint firstItem="yux-46-us4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="fEf-bM-KCq"/>
                 <constraint firstAttribute="trailing" secondItem="yux-46-us4" secondAttribute="trailing" constant="8" id="gp1-NZ-uiD"/>
+                <constraint firstItem="Wyx-RV-LIs" firstAttribute="top" secondItem="k6O-si-s1J" secondAttribute="bottom" constant="33" id="jgr-oO-d6S"/>
                 <constraint firstItem="yux-46-us4" firstAttribute="leading" secondItem="k6O-si-s1J" secondAttribute="trailing" constant="26" id="pmz-OC-Dwx"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>

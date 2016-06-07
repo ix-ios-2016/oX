@@ -25,19 +25,24 @@
                     <state key="normal" title="Play Network Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="startNetworkGameButtonTapped:" destination="-1" eventType="touchUpInside" id="ql3-A7-Wzi"/>
+                    </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-9H-aE1">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-9H-aE1">
+                    <rect key="frame" x="0.0" y="62" width="375" height="555"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="bUz-9H-aE1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="7r5-Uf-ORB"/>
                 <constraint firstItem="hf6-oE-bVz" firstAttribute="leading" secondItem="bUz-9H-aE1" secondAttribute="leading" id="T52-mh-Edt"/>
                 <constraint firstItem="bUz-9H-aE1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZB9-g0-Shz"/>
                 <constraint firstItem="hf6-oE-bVz" firstAttribute="trailing" secondItem="bUz-9H-aE1" secondAttribute="trailing" id="fIp-gI-yYh"/>
                 <constraint firstItem="hf6-oE-bVz" firstAttribute="centerX" secondItem="bUz-9H-aE1" secondAttribute="centerX" id="gXt-Vc-kbX"/>
                 <constraint firstItem="bUz-9H-aE1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lMl-n8-UmB"/>
+                <constraint firstItem="hf6-oE-bVz" firstAttribute="top" secondItem="bUz-9H-aE1" secondAttribute="bottom" id="qN4-9x-6FF"/>
                 <constraint firstAttribute="bottom" secondItem="hf6-oE-bVz" secondAttribute="bottom" id="tbC-b5-FjA"/>
                 <constraint firstAttribute="trailing" secondItem="bUz-9H-aE1" secondAttribute="trailing" id="wcw-1Q-Mco"/>
             </constraints>
