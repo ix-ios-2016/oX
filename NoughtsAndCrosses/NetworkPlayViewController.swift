@@ -126,10 +126,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         
         OXGameController.sharedInstance.acceptGame(gameRowSelected.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.acceptGameComplete(game, message: message)})
         print("did select row \(indexPath.row)")
-//        var game = OXGameController.sharedInstance.acceptGameWithId(self.gamesList[indexPath.row].gameId!) //Need to do something with this
-        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        bvc.networkMode = true
-        self.navigationController?.pushViewController(bvc, animated: true)
         
     }
     

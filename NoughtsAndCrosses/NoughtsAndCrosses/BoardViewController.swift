@@ -10,6 +10,7 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet weak var refresh: UIButton!
     var networkMode : Bool = false
     var lastRotation: Float!
     var places = [UIButton]()
@@ -63,7 +64,6 @@ class BoardViewController: UIViewController {
         //
         self.lastRotation = 0.0
         
-        let hey = ClosureExperiment()
         
     
     }
@@ -118,6 +118,9 @@ class BoardViewController: UIViewController {
         if(networkMode){
             logOutButton.setTitle("cancel", forState: UIControlState.Normal)
             networkPlayButton.hidden = true
+            
+        }   else    {
+            refresh.hidden = true
         }
     }
     
@@ -125,7 +128,7 @@ class BoardViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func gameUpdateReceived(game: OXGame?, message: String){
+    func gameUpdateReceived(game: OXGame?, message: String?){
         if let gameReceived = game{
             self.currentGame = gameReceived
         }
@@ -134,19 +137,11 @@ class BoardViewController: UIViewController {
     }
     
     func updateUI() {
-        
-        for view in boardView.subviews {
-            if let button = view as? UIButton {
-                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
-            }
-        }
-        
+    
         if (networkMode) {
             self.logOutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
             networkPlayButton.hidden = true
         }
-        
-        
         
         if (self.currentGame.guestUser?.email != ""){
             if(self.currentGame.localUsersTurn()) {
@@ -161,6 +156,12 @@ class BoardViewController: UIViewController {
         else{
             self.networkPlayButton.setTitle("Awaiting Opponent to Join...", forState: UIControlState.Normal)
             self.boardView.userInteractionEnabled = false
+        }
+        
+        for view in boardView.subviews {
+            if let button = view as? UIButton {
+                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
+            }
         }
     }
 
@@ -285,6 +286,11 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func refreshButton(sender: UIButton) {
+        
+        print("Refresh button tapped")
+        
+        OXGameController.sharedInstance.getGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.gameUpdateReceived(game, message: message)})
+        
     }
 
     func restartgame() {

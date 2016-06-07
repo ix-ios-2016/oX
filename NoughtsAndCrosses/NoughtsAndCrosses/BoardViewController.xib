@@ -12,6 +12,7 @@
                 <outlet property="boardView" destination="qYi-hH-8b3" id="xkc-kZ-XrK"/>
                 <outlet property="logOutButton" destination="jew-nw-eFS" id="LIB-Sj-Yts"/>
                 <outlet property="networkPlayButton" destination="HF8-MZ-vbb" id="c4t-th-qUk"/>
+                <outlet property="refresh" destination="L1g-4C-61B" id="7uc-FP-O3W"/>
                 <outlet property="target" destination="Lgl-eZ-ME1" id="wHh-qC-oEB"/>
                 <outlet property="target2" destination="N6c-yA-Xo4" id="bSA-4g-E24"/>
                 <outlet property="target3" destination="ouQ-ap-EjW" id="RPt-nt-nhj"/>
