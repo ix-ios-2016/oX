@@ -58,7 +58,10 @@ class RegistrationViewController: UIViewController {
     func registrationComplete(user: User?, message: String?) {
         
         if let _ = user {
-            print("Registered")
+            let alert = UIAlertController(title: "Registration Successful", message: "You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.navigateToGame()
         }

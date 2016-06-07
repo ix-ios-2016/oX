@@ -14,14 +14,18 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var boardView: UIView!
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
+    
+    var networkGame: Bool = false
     
     // upon load initialize rotation and logout/cancel button
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        if OXGameController.sharedInstance.getNetworkGame() {
+        if self.networkGame {
             logoutButton.setTitle("Cancel Game", forState: UIControlState.Normal)
+            newGameButton.setTitle("Update Board", forState: UIControlState.Normal)
             networkPlayButton.hidden = true
         }
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(BoardViewController.handleRotation(_:)))
@@ -85,9 +89,9 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 let alert = UIAlertController(title: "Game Over!", message: "Winner: Player \(String(turn))", preferredStyle: UIAlertControllerStyle.Alert)
                 let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                     action -> Void in
-                    if OXGameController.sharedInstance.getNetworkGame() {
+                    if self.networkGame {
                         self.navigationController?.popViewControllerAnimated(true)
-                        OXGameController.sharedInstance.setNetworkGame(false)
+                        self.networkGame = false
                     }
                     else {
                         self.restartGame()
@@ -102,9 +106,9 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 let alert = UIAlertController(title: "Game Over!", message: "Tie Game, no winner!", preferredStyle: UIAlertControllerStyle.Alert)
                 let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                     action -> Void in
-                    if OXGameController.sharedInstance.getNetworkGame() {
+                    if self.networkGame {
                         self.navigationController?.popViewControllerAnimated(true)
-                        OXGameController.sharedInstance.setNetworkGame(false)
+                        self.networkGame = false
                     }
                     else {
                         self.restartGame()
@@ -116,7 +120,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             }
                 
                 // if networkGame, play computer move automatically
-            else if OXGameController.sharedInstance.getNetworkGame() {
+            else if self.networkGame {
                 turn = OXGameController.sharedInstance.getCurrentGame()!.whosTurn()
                 if let (cellType, index) = OXGameController.sharedInstance.playRandomMove() {
                     buttons[index].setTitle(String(cellType), forState: UIControlState.Normal)
@@ -125,9 +129,9 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                         let alert = UIAlertController(title: "Game Over!", message: "Winner: Player \(String(turn))", preferredStyle: UIAlertControllerStyle.Alert)
                         let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                             action -> Void in
-                            if OXGameController.sharedInstance.getNetworkGame() {
+                            if self.networkGame {
                                 self.navigationController?.popViewControllerAnimated(true)
-                                OXGameController.sharedInstance.setNetworkGame(false)
+                                self.networkGame = false
                             }
                             else {
                                 self.restartGame()
@@ -141,9 +145,9 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                         let alert = UIAlertController(title: "Game Over!", message: "Tie Game, no winner!", preferredStyle: UIAlertControllerStyle.Alert)
                         let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                             action -> Void in
-                            if OXGameController.sharedInstance.getNetworkGame() {
+                            if self.networkGame {
                                 self.navigationController?.popViewControllerAnimated(true)
-                                OXGameController.sharedInstance.setNetworkGame(false)
+                                self.networkGame = false
                             }
                             else {
                                 self.restartGame()
@@ -171,19 +175,33 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // start newGame iff not in network mode
     @IBAction func newGame(sender: UIButton) {
-        if !OXGameController.sharedInstance.getNetworkGame() {
+        if !self.networkGame {
             restartGame()
         }
+        else {
+            OXGameController.sharedInstance.getGame((OXGameController.sharedInstance.getCurrentGame()?.gameId!)!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.refreshBoard(game, message: message)})
+        }
+    }
+    
+    func refreshBoard(game: OXGame?, message: String?) {
+        
+        OXGameController.sharedInstance.getCurrentGame()?.board = game!.board
+        var i = 0
+        for button in buttons {
+            button.setTitle(String(game!.board[i]), forState: UIControlState.Normal)
+            i += 1
+        }
+        
     }
     
     
     // control logout/cancel button actions
     @IBAction func logoutButtonTapped(sender: UIButton) {
         
-        if OXGameController.sharedInstance.getNetworkGame() {
+        if self.networkGame {
             OXGameController.sharedInstance.finishCurrentGame()
             self.navigationController?.popViewControllerAnimated(true)
-            OXGameController.sharedInstance.setNetworkGame(false)
+            self.networkGame = false
         }
         else {
             UserController.sharedInstance.logoutUser()

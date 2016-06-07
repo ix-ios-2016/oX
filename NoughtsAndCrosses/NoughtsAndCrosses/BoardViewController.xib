@@ -12,6 +12,7 @@
                 <outlet property="boardView" destination="qYi-hH-8b3" id="Khd-Tg-dln"/>
                 <outlet property="logoutButton" destination="y8j-nh-Q8Q" id="Po0-2r-ogd"/>
                 <outlet property="networkPlayButton" destination="Hak-Br-h7E" id="rYd-OD-Yp2"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="J1S-XH-0NA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="buttons" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="eLZ-0g-9JM"/>
                 <outletCollection property="buttons" destination="N6c-yA-Xo4" collectionClass="NSMutableArray" id="xMw-bE-mMx"/>

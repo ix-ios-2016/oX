@@ -19,6 +19,7 @@ extension UIViewController  {
         
         self.makeViewDropKeyboard()
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.userInteractionEnabled = false
         
         //add an overlay screen
         let overlayImage = UIImageView(frame: self.view.frame)
@@ -44,6 +45,7 @@ extension UIViewController  {
                 view.removeFromSuperview()
             }
         }
+        appDelegate.window?.userInteractionEnabled = true
         
         
     }

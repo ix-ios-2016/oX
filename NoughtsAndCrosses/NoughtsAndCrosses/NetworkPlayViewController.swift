@@ -22,12 +22,20 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         self.title = "Network Play"
         tableView.dataSource = self
         tableView.delegate = self
-        gameList = OXGameController.sharedInstance.getListOfGames()
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
         refreshControl.addTarget(self, action: #selector(NetworkPlayViewController.refreshTable), forControlEvents:
             UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+    }
+    
+    func gameListReceived(games: [OXGame]?, message: String?) {
+        
+        if let newGames = games {
+            self.gameList = newGames
+        }
+        self.tableView.reloadData()
+        
     }
 
 
@@ -40,7 +48,8 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     // refresh table and show navigation bar
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
-        self.gameList = OXGameController.sharedInstance.getListOfGames()
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(games, message) in self.gameListReceived(games, message: message)})
+        self.refreshTable()
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
@@ -78,10 +87,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     // control row selected action, navigate to game or show failure alert
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if gameList![indexPath.row].hostUser!.email != UserController.sharedInstance.logged_in_user!.email {
-            OXGameController.sharedInstance.acceptGameWithId(gameList![indexPath.row].gameId!)
-            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
-            OXGameController.sharedInstance.setNetworkGame(true)
-            self.navigationController?.pushViewController(bvc, animated: true)
+            OXGameController.sharedInstance.acceptGame(gameList![indexPath.row].gameId!, viewControllerCompletionFunction: {(game, message) in self.acceptGameWithId(self.gameList![indexPath.row], message: message)})
         }
         else {
             let alert = UIAlertController(title: "Wrong Game", message: "You can't play yourself!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -89,6 +95,14 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
             alert.addAction(closeAction)
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+ 
+    func acceptGameWithId(game: OXGame?, message: String?) {
+        
+        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        bvc.networkGame = true
+        self.navigationController?.pushViewController(bvc, animated: true)
+
     }
 
     
@@ -103,14 +117,20 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
                 return
             }
         }
-        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.logged_in_user!)
+        let game = OXGameController.sharedInstance.createGameWithHostUser(UserController.sharedInstance.logged_in_user!.email)
+        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.logged_in_user!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.createGame(game, message: message)})
+        self.refreshTable()
+    }
+    
+    
+    func createGame(game: OXGame?, message: String?) {
         self.refreshTable()
     }
     
     
     // refresh table of available games
     func refreshTable() {
-        self.gameList = OXGameController.sharedInstance.getListOfGames()
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gameListReceived(self.gameList, message: message)})
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }
