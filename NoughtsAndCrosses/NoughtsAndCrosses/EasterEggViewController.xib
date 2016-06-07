@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4w-Xb-0Tc">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4w-Xb-0Tc">
                     <rect key="frame" x="158" y="319" width="59" height="30"/>
                     <state key="normal" title="Return"/>
                     <connections>
@@ -24,6 +24,10 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="j4w-Xb-0Tc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="F7a-uZ-7NN"/>
+                <constraint firstItem="j4w-Xb-0Tc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eIV-e0-wFs"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="498.5" y="299.5"/>
         </view>

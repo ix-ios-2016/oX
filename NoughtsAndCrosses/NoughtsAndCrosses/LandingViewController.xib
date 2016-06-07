@@ -12,27 +12,44 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnY-tI-2h2">
-                    <rect key="frame" x="168" y="181" width="38" height="30"/>
-                    <state key="normal" title="Login"/>
-                    <connections>
-                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="F7R-86-5LM"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10h-9S-6pH">
-                    <rect key="frame" x="159" y="245" width="57" height="30"/>
-                    <state key="normal" title="Register"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10h-9S-6pH">
+                    <rect key="frame" x="266" y="345" width="70" height="30"/>
+                    <color key="backgroundColor" red="0.1398639395410203" green="0.30561462571636816" blue="0.91451498865641034" alpha="0.7015894396551724" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="wXB-BR-doO"/>
+                    </constraints>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.99294871790000006" green="0.99294871790000006" blue="0.99294871790000006" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="RSf-ug-5wy"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnY-tI-2h2">
+                    <rect key="frame" x="265" y="285" width="70" height="30"/>
+                    <color key="backgroundColor" red="0.14665520664486259" green="0.30277811644689873" blue="0.91451498865641034" alpha="0.7015894396551724" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="3ry-Uv-Z5d"/>
+                    </constraints>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="F7R-86-5LM"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="313.5" y="299.5"/>
+            <color key="backgroundColor" red="0.38574657316472488" green="0.91451498865641034" blue="0.73340158894544927" alpha="0.7015894396551724" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="lnY-tI-2h2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0kZ-Wc-Pvf"/>
+                <constraint firstItem="10h-9S-6pH" firstAttribute="top" secondItem="lnY-tI-2h2" secondAttribute="bottom" constant="30" id="V0G-2W-l9y"/>
+                <constraint firstItem="10h-9S-6pH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dZy-Dy-8Bd"/>
+                <constraint firstItem="lnY-tI-2h2" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hdW-gf-F1D"/>
+            </constraints>
+            <point key="canvasLocation" x="306" y="328"/>
         </view>
     </objects>
 </document>
