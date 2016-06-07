@@ -9,10 +9,12 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    
+    
 
     @IBOutlet var passwordField: UITextField!
     
-    @IBOutlet var emailField: UITextField!
+   @IBOutlet var emailField: EmailValidatedTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

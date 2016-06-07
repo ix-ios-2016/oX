@@ -9,5 +9,22 @@
 import UIKit
 
 class EmailValidatedTextField:UITextField {
-
+    var ImageView : UIImageView = UIImageView()
+    
+    
+    func valid ()->Bool {
+        return true
+        print("email from the text field")
+    }
+    
+    func updateUI() {
+    
+    }
+    
+    override func drawRect(rect: CGRect) {
+        var imageView = UIImageView(frame: CGRectMake(self.frame.width-30, 5, 22, 22))
+        self.addSubview(imageView)
+        
+}
+    
 }

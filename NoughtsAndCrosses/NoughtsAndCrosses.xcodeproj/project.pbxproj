@@ -95,7 +95,6 @@
 		427A5B651CE0FF4A00328EE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -123,16 +122,15 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				F2ECA1181D06C9EC00CD9F14 /* Screens */,
+				F2ECA1171D06C9C400CD9F14 /* ModelControllers */,
 				F2ECA1021D06119C00CD9F14 /* Authentication */,
 				F2ECA1011D06119100CD9F14 /* LoggedIn */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
-				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
-				F2ECA10F1D06179100CD9F14 /* UserController.swift */,
 				F2ECA1111D06247500CD9F14 /* EmailValidatedTextField.swift */,
 			);
 			path = NoughtsAndCrosses;
@@ -174,6 +172,24 @@
 				F2ECA10C1D06152800CD9F14 /* RegisterViewController.xib */,
 			);
 			name = Authentication;
+			sourceTree = "<group>";
+		};
+		F2ECA1171D06C9C400CD9F14 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2ECA10F1D06179100CD9F14 /* UserController.swift */,
+				F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */,
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		F2ECA1181D06C9EC00CD9F14 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -417,6 +417,13 @@
                         <action selector="newGameTapped:" destination="-1" eventType="touchUpInside" id="c9x-Ip-Nbz"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oK7-T8-XaI">
+                    <rect key="frame" x="462" y="18" width="48" height="30"/>
+                    <state key="normal" title="Logout"/>
+                    <connections>
+                        <action selector="LogoutButtonTapped:" destination="-1" eventType="touchUpInside" id="63S-Sa-gOr"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

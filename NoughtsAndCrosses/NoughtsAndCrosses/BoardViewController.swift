@@ -25,6 +25,8 @@ class BoardViewController: UIViewController {
     @IBOutlet var button8: UIButton!
     
     
+    @IBAction func LogoutButtonTapped(sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }

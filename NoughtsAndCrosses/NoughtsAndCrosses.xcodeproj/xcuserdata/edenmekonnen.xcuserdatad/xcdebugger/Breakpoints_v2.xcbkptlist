@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NoughtsAndCrosses/RegisterViewController.swift"
@@ -19,14 +19,14 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.passwordField.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
                   moduleName = "NoughtsAndCrosses"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
-                  timestampString = "486948364.800153"
+                  timestampString = "486987116.750259"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -34,14 +34,14 @@
                   offsetFromSymbolStart = "26">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.passwordField.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
                   moduleName = "NoughtsAndCrosses"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
-                  timestampString = "486948364.800787"
+                  timestampString = "486987116.75069"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -49,33 +49,126 @@
                   offsetFromSymbolStart = "28">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "NoughtsAndCrosses.RegisterViewController.init (NoughtsAndCrosses.RegisterViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; NoughtsAndCrosses.RegisterViewController"
                   moduleName = "NoughtsAndCrosses"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
-                  timestampString = "486948364.801367"
+                  timestampString = "486987116.7511"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
-                  offsetFromSymbolStart = "114">
+                  offsetFromSymbolStart = "77">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "NoughtsAndCrosses.RegisterViewController.init (NoughtsAndCrosses.RegisterViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;NoughtsAndCrosses.RegisterViewController&gt;"
                   moduleName = "NoughtsAndCrosses"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
-                  timestampString = "486948364.801888"
+                  timestampString = "486987116.751412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "15"
                   endingLineNumber = "15"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NoughtsAndCrosses/RegisterViewController.swift"
+            timestampString = "486987231.93323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "RegisterViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.getter : Swift.ImplicitlyUnwrappedOptional&lt;NoughtsAndCrosses.EmailValidatedTextField&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486987231.94532"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.setter : Swift.ImplicitlyUnwrappedOptional&lt;NoughtsAndCrosses.EmailValidatedTextField&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486987231.945672"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.emailField.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;NoughtsAndCrosses.EmailValidatedTextField&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486987231.945852"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.init (NoughtsAndCrosses.RegisterViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; NoughtsAndCrosses.RegisterViewController"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486987231.946032"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NoughtsAndCrosses.RegisterViewController.init (NoughtsAndCrosses.RegisterViewController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;NoughtsAndCrosses.RegisterViewController&gt;"
+                  moduleName = "NoughtsAndCrosses"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenmekonnen/noughts/NoughtsAndCrosses/NoughtsAndCrosses/RegisterViewController.swift"
+                  timestampString = "486987231.946212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "56">
                </Location>
             </Locations>
