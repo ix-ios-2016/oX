@@ -593,6 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "youtube-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -608,6 +609,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "youtube-Bridging-Header.h";
 			};
 			name = Release;
 		};

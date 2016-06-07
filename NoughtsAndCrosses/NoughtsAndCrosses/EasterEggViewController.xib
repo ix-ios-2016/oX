@@ -3,21 +3,26 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EasterEggViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="youtubePlayer" destination="CPd-1R-R0h" id="rHI-US-GP5"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhD-MY-N4r">
-                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhD-MY-N4r">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                     <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="96A-gX-OqO"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="Return To Game">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,9 +31,23 @@
                         <action selector="returnToGameButtonTapped:" destination="-1" eventType="touchUpInside" id="AqL-nU-sQA"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPd-1R-R0h" customClass="YTPlayerView">
+                    <rect key="frame" x="50" y="112" width="501" height="376"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="CPd-1R-R0h" secondAttribute="height" multiplier="4:3" id="4hD-3L-Iby"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.32715745540000002" blue="0.79745527329999999" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hhD-MY-N4r" secondAttribute="bottom" id="7Q8-np-rMI"/>
+                <constraint firstItem="hhD-MY-N4r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bBl-iY-jwg"/>
+                <constraint firstItem="CPd-1R-R0h" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="cin-db-iBK"/>
+                <constraint firstItem="hhD-MY-N4r" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gZJ-7r-EN9"/>
+                <constraint firstItem="CPd-1R-R0h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sul-VQ-Lhl"/>
+                <constraint firstItem="CPd-1R-R0h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xNd-B8-20F"/>
+            </constraints>
         </view>
     </objects>
 </document>

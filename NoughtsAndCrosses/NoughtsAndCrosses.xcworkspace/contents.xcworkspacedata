@@ -7,4 +7,16 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:YTPlayerView.h">
+   </FileRef>
+   <FileRef
+      location = "group:YTPlayerView.m">
+   </FileRef>
+   <FileRef
+      location = "group:youtube-Bridging-Header.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../Desktop/youtube-ios-player-helper/youtube-ios-player-helper/Assets.bundle/Assets">
+   </FileRef>
 </Workspace>

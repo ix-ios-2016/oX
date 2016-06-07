@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8A29DA7057736C875D47E25C1221D68557445C94" : 0,
+    "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "830732C9-19E3-4887-AF6F-F122FF25A372",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8A29DA7057736C875D47E25C1221D68557445C94" : "..\/..\/..\/Desktop\/youtube-ios-player-helper",
+    "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328" : "oX\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NoughtsAndCrosses",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "NoughtsAndCrosses\/NoughtsAndCrosses.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/youtube\/youtube-ios-player-helper.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8A29DA7057736C875D47E25C1221D68557445C94"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/briange1997\/oX.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328"
+    }
+  ]
+}

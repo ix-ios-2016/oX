@@ -8,10 +8,12 @@
 
 import UIKit
 
-class EasterEggViewController: UIViewController {
+
+class EasterEggViewController: UIViewController, YTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        youtubePlayer.loadWithVideoId("RqY27aqUJ2s")
 
         // Do any additional setup after loading the view.
     }
@@ -35,4 +37,5 @@ class EasterEggViewController: UIViewController {
         
     }
 
+    @IBOutlet weak var youtubePlayer: YTPlayerView!
 }

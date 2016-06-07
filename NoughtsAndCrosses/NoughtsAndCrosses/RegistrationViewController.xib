@@ -14,16 +14,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqF-lT-fjn" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="84" y="200" width="207" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqF-lT-fjn" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="196" y="135" width="207" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="207" id="1Uf-4T-Gck"/>
+                        <constraint firstAttribute="height" constant="30" id="jPV-j4-5xc"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYJ-Jn-sUb">
-                    <rect key="frame" x="150" y="347" width="74" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYJ-Jn-sUb">
+                    <rect key="frame" x="263" y="282" width="74" height="36"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <state key="normal" title="Register">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,14 +36,25 @@
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="83O-iI-2qi"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-uo-grY">
-                    <rect key="frame" x="84" y="275" width="207" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cq7-uo-grY">
+                    <rect key="frame" x="196" y="210" width="207" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ZxN-5r-ynU"/>
+                        <constraint firstAttribute="width" constant="207" id="cWU-fd-5MR"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <constraints>
+                <constraint firstItem="cq7-uo-grY" firstAttribute="top" secondItem="aqF-lT-fjn" secondAttribute="bottom" constant="45" id="14B-Mg-ryz"/>
+                <constraint firstItem="aYJ-Jn-sUb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="53K-rx-jLq"/>
+                <constraint firstItem="aYJ-Jn-sUb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="66l-uA-2DE"/>
+                <constraint firstItem="cq7-uo-grY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8hU-Yf-hVW"/>
+                <constraint firstItem="aYJ-Jn-sUb" firstAttribute="top" secondItem="cq7-uo-grY" secondAttribute="bottom" constant="42" id="Aev-JL-OYu"/>
+                <constraint firstItem="aqF-lT-fjn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sDp-Fp-4ot"/>
+            </constraints>
         </view>
     </objects>
 </document>

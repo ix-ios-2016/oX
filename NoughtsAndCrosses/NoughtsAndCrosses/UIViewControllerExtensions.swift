@@ -22,7 +22,7 @@ extension UIViewController  {
         appDelegate.window?.userInteractionEnabled = false
         
         //add an overlay screen
-        let overlayImage = UIImageView(frame: self.view.frame)
+        let overlayImage = UIImageView(frame: (appDelegate.window?.frame)!)
         overlayImage.backgroundColor = UIColor.blackColor()
         overlayImage.alpha = 0.5
         overlayImage.tag = LOADING_OVERLAY_VIEW_TAG
