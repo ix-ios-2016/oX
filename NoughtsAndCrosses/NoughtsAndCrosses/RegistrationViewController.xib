@@ -25,29 +25,27 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RnP-za-Xft">
-                    <rect key="frame" x="88" y="269" width="200" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="EHM-gJ-BJU"/>
-                    </constraints>
+                    <rect key="frame" x="50" y="269" width="275" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EU2-N6-HqK" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="88" y="219" width="200" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="qFh-Cb-oiV"/>
-                    </constraints>
+                    <rect key="frame" x="50" y="219" width="275" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="EU2-N6-HqK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="3xj-3u-zCF"/>
                 <constraint firstItem="RnP-za-Xft" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="8Ip-3l-Sjs"/>
                 <constraint firstItem="RnP-za-Xft" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H12-0l-Qgj"/>
                 <constraint firstItem="EU2-N6-HqK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MDA-nc-Dh3"/>
+                <constraint firstAttribute="trailing" secondItem="EU2-N6-HqK" secondAttribute="trailing" constant="50" id="XbE-oF-yGK"/>
+                <constraint firstAttribute="trailing" secondItem="RnP-za-Xft" secondAttribute="trailing" constant="50" id="a4f-hB-IHj"/>
                 <constraint firstItem="eNz-BC-xZz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kDV-hg-MLi"/>
                 <constraint firstItem="EU2-N6-HqK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="mPg-qd-M0U"/>
+                <constraint firstItem="RnP-za-Xft" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="obb-30-BXL"/>
                 <constraint firstItem="eNz-BC-xZz" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ukN-dC-Mhg"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

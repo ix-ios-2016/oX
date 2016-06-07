@@ -17,25 +17,35 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIv-Eh-15B" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="87" y="231" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIv-Eh-15B" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="50" y="219" width="275" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olr-41-zDl">
-                    <rect key="frame" x="168" y="319" width="38" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olr-41-zDl">
+                    <rect key="frame" x="169" y="319" width="38" height="30"/>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="9sN-cl-Hnr"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-md-Xra">
-                    <rect key="frame" x="87" y="281" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-md-Xra">
+                    <rect key="frame" x="50" y="269" width="275" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bu7-md-Xra" secondAttribute="trailing" constant="50" id="0Bm-0y-BFe"/>
+                <constraint firstItem="olr-41-zDl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FnI-Ao-K98"/>
+                <constraint firstItem="olr-41-zDl" firstAttribute="top" secondItem="bu7-md-Xra" secondAttribute="bottom" constant="20" id="Ndq-WJ-IIu"/>
+                <constraint firstItem="bu7-md-Xra" firstAttribute="top" secondItem="HIv-Eh-15B" secondAttribute="bottom" constant="20" id="PEJ-f6-4Um"/>
+                <constraint firstAttribute="trailing" secondItem="HIv-Eh-15B" secondAttribute="trailing" constant="50" id="VwK-KA-nKj"/>
+                <constraint firstItem="bu7-md-Xra" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ZgT-mG-wYO"/>
+                <constraint firstItem="HIv-Eh-15B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="c5f-Bp-TtB"/>
+                <constraint firstItem="olr-41-zDl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="taD-g5-iBE"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="287.5" y="354.5"/>
         </view>
