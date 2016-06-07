@@ -27,6 +27,10 @@ class EasterEggViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
 
     /*
     // MARK: - Navigation

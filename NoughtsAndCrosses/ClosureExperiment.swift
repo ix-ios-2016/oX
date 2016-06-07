@@ -6,8 +6,6 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
-
-
 import Foundation
 
 class ClosureExperiment {

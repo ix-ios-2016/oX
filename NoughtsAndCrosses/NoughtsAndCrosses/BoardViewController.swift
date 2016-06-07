@@ -122,13 +122,13 @@ class BoardViewController: UIViewController {
 
     @IBAction func buttonPressed(sender: UIButton) {
         
-        let current = OXGameController.sharedInstance.getCurrentGame()!
+        let current = OXGameController.sharedInstance.getGame()!
         
         let type = OXGameController.sharedInstance.playMove(sender.tag)
         print("Button \(sender.tag) pressed")
         sender.setTitle(String(type), forState: UIControlState.Normal)
         
-        let state = OXGameController.sharedInstance.getCurrentGame()!.state()
+        let state = OXGameController.sharedInstance.getGame()!.state()
         if state == OXGameState.complete_someone_won && type == CellType.X {
             print("Player 1 has won!")
             restartgame()
@@ -151,7 +151,7 @@ class BoardViewController: UIViewController {
                     var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
                     current.board[place] = newMove
                     places[place].setTitle(String("O"), forState: UIControlState.Normal)
-                    let state = OXGameController.sharedInstance.getCurrentGame()!.state()
+                    let state = OXGameController.sharedInstance.getGame()!.state()
                     if state == OXGameState.complete_someone_won && type == CellType.X {
                         print("Player 1 has won!")
                         restartgame()
@@ -199,7 +199,7 @@ class BoardViewController: UIViewController {
     
 
     func restartgame() {
-        OXGameController.sharedInstance.getCurrentGame()!.reset()
+        OXGameController.sharedInstance.getGame()!.reset()
         target.setTitle("", forState: UIControlState.Normal)
         target2.setTitle("", forState: UIControlState.Normal)
         target9.setTitle("", forState: UIControlState.Normal)
