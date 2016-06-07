@@ -31,10 +31,18 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     func gameListReceived(games: [OXGame]?, message: String?) {
         
-        if let newGames = games {
-            self.gameList = newGames
+        
+        if let games = games {
+            self.gameList = games
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
+        else if let _ = message {
+            let alert = UIAlertController(title: "Error", message: "Unable load games, please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
         
     }
 
@@ -98,10 +106,18 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
  
     func acceptGameWithId(game: OXGame?, message: String?) {
-        
-        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        bvc.networkGame = true
-        self.navigationController?.pushViewController(bvc, animated: true)
+
+        if let _ = game {
+            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            bvc.networkGame = true
+            self.navigationController?.pushViewController(bvc, animated: true)
+        }
+        else if let _ = message {
+            let alert = UIAlertController(title: "Error", message: "Game unavailable, please refresh page", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
 
     }
 
@@ -117,20 +133,31 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
                 return
             }
         }
-        let game = OXGameController.sharedInstance.createGameWithHostUser(UserController.sharedInstance.logged_in_user!.email)
+        //let game = OXGameController.sharedInstance.createGameWithHostUser(UserController.sharedInstance.logged_in_user!.email)
         OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.logged_in_user!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.createGame(game, message: message)})
-        self.refreshTable()
     }
     
     
     func createGame(game: OXGame?, message: String?) {
-        self.refreshTable()
+        
+        if let _ = game {
+            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            bvc.networkGame = true
+            self.navigationController?.pushViewController(bvc, animated: true)
+        }
+        else if let _ = message {
+            let alert = UIAlertController(title: "Error", message: "Unable to create game, please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+            let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil)
+            alert.addAction(closeAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
     }
     
     
     // refresh table of available games
     func refreshTable() {
-        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gameListReceived(self.gameList, message: message)})
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gameListReceived(gameList, message: message)})
         self.tableView.reloadData()
         refreshControl.endRefreshing()
     }

@@ -60,7 +60,7 @@ class OXGame    {
     private func deserialiseBoard(boardString:String) -> [CellType] {
         
         var newBoard:[CellType] = []
-        for (index, char) in boardString.characters.enumerate() {
+        for (_, char) in boardString.characters.enumerate() {
             //print (char)
             
             if (char == "_")   {

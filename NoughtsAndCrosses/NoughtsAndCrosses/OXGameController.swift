@@ -1,3 +1,4 @@
+
 //
 //  OXGameController.swift
 //  NoughtsAndCrosses
@@ -30,23 +31,49 @@ class OXGameController: WebService {
         
     }
     
-    //    func getListOfGames() -> [OXGame]? {
-    ////        print("Getting list of games")
-    //
-    //        if(gameList?.count == 0){
-    //
-    //            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
-    //            //Create games
-    //            for _ in 1...random {
-    //                self.gameList?.append(createGameWithHostUser("hostuser@gmail.com"))
-    //
-    //            }
-    //
-    //        }
-    //
-    //        return gameList
-    //
-    //    }
+    //Called when an user in an active game want to end the game before its finished
+    func cancelGame(gameId:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(Bool,String?) -> ()) {
+        
+        //remember a request has 4 things:
+        //1: A endpoint
+        //2: A method
+        //3: input data (optional)
+        //4: A response
+        
+        let user: Dictionary<String, String> = ["email":(UserController.sharedInstance.logged_in_user?.email)!,"password":(UserController.sharedInstance.logged_in_user?.password)!, "token":(UserController.sharedInstance.logged_in_user?.token)!, "client":(UserController.sharedInstance.logged_in_user?.client)!]
+        
+        let request = self.createMutableRequest(NSURL(string: "https://ox-backend.herokuapp.com/games/\(gameId)"), method: "DELETE", parameters: user)
+        
+        //execute request is a function we are able to call in OXGameController, because OXGameController extends WebService (See top of file, where OXGameController is defined)
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
+            
+            //Here is our completion closure for the web request. when the web service is done, this is what is executed.
+            //Not only is the code in this block executed, but we are given 2 input parameters, responseCode and json.
+            //responseCode is the response code from the server.
+            //json is the response data received
+            
+            print(json)
+            
+            if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
+                
+                //successfully deleted the game, no data to return needed
+                
+                //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                viewControllerCompletionFunction(true,nil)
+            }   else    {
+                //the web service to create a user failed. Lets extract the error message to be displayed
+                
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                
+                //execute the closure in the ViewController
+                viewControllerCompletionFunction(false, errorMessage)
+            }
+            
+        })
+        
+        //we are now done with the registerUser function. Note that this function doesnt return anything. But because of the viewControllerCompletionFunction closure we are given as an input parameter, we can set in motion a function in the calling class when it is needed.
+        
+    }
     
     func gameList(presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:([OXGame]?,String?) -> ()) {
         
@@ -98,11 +125,48 @@ class OXGameController: WebService {
     
     
     //Can only be called when there is an active game
-    func playMove(index: Int) -> CellType{
-        //        print("PlayingMove on 'network'")
+    func playMove(board: String, gameId:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ())  {
         
-        let cellType: CellType = currentGame.playMove(index)
-        return cellType
+        
+        //remember a request has 4 things:
+        //1: A endpoint
+        //2: A method
+        //3: input data (optional)
+        //4: A response
+        
+        let params = ["board":board,"email":(UserController.sharedInstance.logged_in_user?.email)!,"password":(UserController.sharedInstance.logged_in_user?.password)!, "token":(UserController.sharedInstance.logged_in_user?.token)!, "client":(UserController.sharedInstance.logged_in_user?.client)!]
+        let request = self.createMutableRequest(NSURL(string: "https://ox-backend.herokuapp.com/games/\(gameId)"), method: "PUT", parameters: params)
+        
+        //execute request is a function we are able to call in OXGameController, because OXGameController extends WebService (See top of file, where OXGameController is defined)
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
+            
+            //Here is our completion closure for the web request. when the web service is done, this is what is executed.
+            //Not only is the code in this block executed, but we are given 2 input parameters, responseCode and json.
+            //responseCode is the response code from the server.
+            //json is the response data received
+            
+            print(json)
+            
+            if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
+                
+                let game = OXGame(json: json)
+                
+                //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                viewControllerCompletionFunction(game,nil)
+            }   else    {
+                //the web service to create a user failed. Lets extract the error message to be displayed
+                
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                
+                //execute the closure in the ViewController
+                viewControllerCompletionFunction(nil, errorMessage)
+            }
+            
+        })
+        
+        //we are now done with the registerUser function. Note that this function doesnt return anything. But because of the viewControllerCompletionFunction closure we are given as an input parameter, we can set in motion a function in the calling class when it is needed.
+        
+        
     }
     
     //Simple random move, it will always try to play the first indexes
@@ -155,6 +219,7 @@ class OXGameController: WebService {
         self.executeRequest(request, presentingViewController: presentingViewController, requestCompletionFunction: {(responseCode, json) in
             
             if (responseCode / 100) == 2 {
+                self.setCurrentGame(OXGame(json: json))
                 viewControllerCompletionFunction(OXGame(json: json), nil)
             }
             else {
@@ -192,6 +257,7 @@ class OXGameController: WebService {
         self.executeRequest(request, presentingViewController: presentingViewController, requestCompletionFunction: {(responseCode, json) in
             
             if (responseCode / 100) == 2 {
+                self.setCurrentGame(OXGame(json: json))
                 viewControllerCompletionFunction(OXGame(json: json), nil)
             }
             else {
@@ -238,3 +304,6 @@ class OXGameController: WebService {
     }
     
 }
+
+
+
