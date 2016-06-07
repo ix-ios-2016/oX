@@ -57,11 +57,25 @@ class OXGame {
         return board[tag]
         }
     //Create a function called playMove() that takes an Int as an input, updates the board, and returns the CellType of that move
-        func playMove(tag:Int) -> CellType {
-            
+    func playMove(tag:Int) -> CellType {
+        
+        if winDetection() {
+            //BoardViewController().disableButtons()
+            return .EMPTY
+        } else {
             board[tag] = whosTurn()
             return board[tag]
         }
+    }
+    
+    func whosTurn() -> CellType {
+        if (self.turn() % 2 == 0) {
+            return .X
+        } else {
+            return .O
+        }
+        
+    }
     func winDetection()-> Bool {
         
         if (typeAtIndex(0) == typeAtIndex(1)) && (typeAtIndex(1) == typeAtIndex(2) && (typeAtIndex(0) != CellType.EMPTY) ) {
@@ -106,7 +120,6 @@ class OXGame {
     func state() -> OXGameState {
         let winner = winDetection()
         if winner {
-            print("The Winner is \(whosTurn())")
             return .complete_someone_won
         }
         else if self.turn() == 9 {
@@ -118,14 +131,7 @@ class OXGame {
         }
     }
     
-    func whosTurn() -> CellType {
-        if (self.turn() % 2 == 0) {
-            return .X
-        } else {
-            return .O
-        }
-        
-    }
+    
 
     
     

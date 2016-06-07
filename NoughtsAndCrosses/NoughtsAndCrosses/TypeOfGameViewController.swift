@@ -1,14 +1,14 @@
 //
-//  LandingViewController.swift
+//  TypeOfGameViewController.swift
 //  NoughtsAndCrosses
 //
-//  Created by Salomon serfati on 5/31/16.
+//  Created by Salomon serfati on 6/7/16.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
 import UIKit
 
-class LandingViewController: UIViewController {
+class TypeOfGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +21,22 @@ class LandingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButtonTapped(sender: UIButton) {
-        print("let's go to login screen")
-        let lvc = LoginViewController(nibName:"LoginViewController",bundle:nil)
-        self.navigationController?.pushViewController(lvc, animated: true)
+    @IBAction func logout(sender: UIButton) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userLoggedIn")
+        appDelegate.navigateToLandingNavigationController()
     }
-    @IBAction func RegisterButtonPressed(sender: UIButton) {
-        let rvc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        self.navigationController?.pushViewController(rvc, animated: true)
+    
+    
+    @IBAction func soloPlay(sender: UIButton) {
+        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        navigationController?.pushViewController(bvc, animated: true)
     }
 
+    @IBAction func computerPlay(sender: UIButton) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 

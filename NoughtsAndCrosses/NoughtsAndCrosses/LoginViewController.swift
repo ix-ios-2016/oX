@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginLabel: UILabel!
@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.title = "Login"
         emailField.delegate = self
         passwordField.delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,28 +44,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let password = passwordField.text!
         let (failureMessage, user) = UserController.sharedInstance.loginUser(email, suppliedPassword: password)
         if emailField.validate(){
-        if user != nil {
-            print("User is logged in")
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.returnToOxGameNavigation()
-            
-        } else if failureMessage != nil {
-            print("Login failed: " + failureMessage!)
-            loginLabel.text = "Login failed: " + failureMessage!
-            
-        }
+            if user != nil {
+                print("User is logged in")
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                
+                appDelegate.returnToOxGameNavigation()
+                
+            } else if failureMessage != nil {
+                print("Login failed: " + failureMessage!)
+                loginLabel.text = "Login failed: " + failureMessage!
+                
+            }
         }
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -10,9 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
                 <outlet property="boardView" destination="qYi-hH-8b3" id="vjD-P9-Q6f"/>
-                <outlet property="logOut" destination="DTg-ol-7nQ" id="gxC-w9-i4F"/>
-                <outlet property="networkButton" destination="HnS-d4-MD9" id="je2-xW-aiD"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="Zvj-w5-97h"/>
+                <outlet property="nineButtons" destination="l4o-we-hNW" id="hkT-9s-fYT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="dnd-9K-wWP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -311,18 +310,18 @@
                             <exclude reference="d6L-bh-QIQ"/>
                             <exclude reference="sD2-h9-PZS"/>
                             <exclude reference="trE-dq-DFs"/>
-                            <exclude reference="DfF-Kz-Ebs"/>
-                            <exclude reference="EpK-Ar-NoN"/>
-                            <exclude reference="Rd5-NZ-eJe"/>
-                            <exclude reference="Vn6-P1-ODH"/>
-                            <exclude reference="g0Y-9K-Rm1"/>
-                            <exclude reference="ugk-Mv-eg3"/>
                             <exclude reference="Oq2-Tx-S6I"/>
                             <exclude reference="Q7t-8K-AY4"/>
                             <exclude reference="ZnZ-EB-jug"/>
                             <exclude reference="gtH-cR-huh"/>
                             <exclude reference="nSd-Qj-yls"/>
                             <exclude reference="zmz-PF-2BN"/>
+                            <exclude reference="DfF-Kz-Ebs"/>
+                            <exclude reference="EpK-Ar-NoN"/>
+                            <exclude reference="Rd5-NZ-eJe"/>
+                            <exclude reference="Vn6-P1-ODH"/>
+                            <exclude reference="g0Y-9K-Rm1"/>
+                            <exclude reference="ugk-Mv-eg3"/>
                             <exclude reference="1fS-pV-xa2"/>
                             <exclude reference="KPm-ry-XlB"/>
                             <exclude reference="MQR-7V-1EJ"/>
@@ -417,22 +416,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-ol-7nQ">
-                    <rect key="frame" x="30" y="18" width="57" height="32"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="Log Out">
+                    <rect key="frame" x="11" y="19" width="42" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <state key="normal" title="&lt;">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="logOut:" destination="-1" eventType="touchUpInside" id="vBD-0k-hcS"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnS-d4-MD9">
-                    <rect key="frame" x="245" y="18" width="105" height="30"/>
-                    <state key="normal" title="Network Play">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="networkButtonPressed:" destination="-1" eventType="touchUpInside" id="nvN-ow-BET"/>
+                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="euG-nM-y2P"/>
                     </connections>
                 </button>
             </subviews>
@@ -464,7 +454,7 @@
                     <exclude reference="d8s-qj-E3B"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="305" y="251"/>
+            <point key="canvasLocation" x="304.5" y="250.5"/>
         </view>
     </objects>
 </document>

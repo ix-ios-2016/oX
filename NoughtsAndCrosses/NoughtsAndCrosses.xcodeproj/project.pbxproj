@@ -19,8 +19,9 @@
 		252045EA1CFF2F1F004AEC2E /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045E81CFF2F1F004AEC2E /* EasterEggViewController.swift */; };
 		252045EB1CFF2F1F004AEC2E /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252045E91CFF2F1F004AEC2E /* EasterEggViewController.xib */; };
 		252045ED1CFF2F79004AEC2E /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252045EC1CFF2F79004AEC2E /* EasterEggController.swift */; };
-		25B772801D04B900001D7EBD /* networkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B7727E1D04B900001D7EBD /* networkPlayViewController.swift */; };
-		25B772811D04B900001D7EBD /* networkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B7727F1D04B900001D7EBD /* networkPlayViewController.xib */; };
+		2546FF4C1D0710BB00CDD81E /* TypeOfGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546FF4A1D0710BB00CDD81E /* TypeOfGameViewController.swift */; };
+		2546FF4D1D0710BB00CDD81E /* TypeOfGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2546FF4B1D0710BB00CDD81E /* TypeOfGameViewController.xib */; };
+		2546FF4F1D07153A00CDD81E /* Tic-Tac-Toe-Cartoon-200.png in Resources */ = {isa = PBXBuildFile; fileRef = 2546FF4E1D07153A00CDD81E /* Tic-Tac-Toe-Cartoon-200.png */; };
 		25B772841D04CCC2001D7EBD /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B772831D04CCC2001D7EBD /* OXGameController.swift */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
@@ -61,8 +62,9 @@
 		252045E81CFF2F1F004AEC2E /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		252045E91CFF2F1F004AEC2E /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		252045EC1CFF2F79004AEC2E /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
-		25B7727E1D04B900001D7EBD /* networkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = networkPlayViewController.swift; sourceTree = "<group>"; };
-		25B7727F1D04B900001D7EBD /* networkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = networkPlayViewController.xib; sourceTree = "<group>"; };
+		2546FF4A1D0710BB00CDD81E /* TypeOfGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeOfGameViewController.swift; sourceTree = "<group>"; };
+		2546FF4B1D0710BB00CDD81E /* TypeOfGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeOfGameViewController.xib; sourceTree = "<group>"; };
+		2546FF4E1D07153A00CDD81E /* Tic-Tac-Toe-Cartoon-200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Tic-Tac-Toe-Cartoon-200.png"; path = "../../Navigation Views/Navigation Views/Images/Tic-Tac-Toe-Cartoon-200.png"; sourceTree = "<group>"; };
 		25B772831D04CCC2001D7EBD /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,10 +122,10 @@
 		252045D71CFE2C4F004AEC2E /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				2546FF4A1D0710BB00CDD81E /* TypeOfGameViewController.swift */,
+				2546FF4B1D0710BB00CDD81E /* TypeOfGameViewController.xib */,
 				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
-				25B7727E1D04B900001D7EBD /* networkPlayViewController.swift */,
-				25B7727F1D04B900001D7EBD /* networkPlayViewController.xib */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -178,6 +180,7 @@
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
 				252045E61CFEDCC8004AEC2E /* EmailValidatedTextField.swift */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
+				2546FF4E1D07153A00CDD81E /* Tic-Tac-Toe-Cartoon-200.png */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
 			);
@@ -311,7 +314,8 @@
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				252045EB1CFF2F1F004AEC2E /* EasterEggViewController.xib in Resources */,
 				252045DB1CFE2C95004AEC2E /* LandingViewController.xib in Resources */,
-				25B772811D04B900001D7EBD /* networkPlayViewController.xib in Resources */,
+				2546FF4D1D0710BB00CDD81E /* TypeOfGameViewController.xib in Resources */,
+				2546FF4F1D07153A00CDD81E /* Tic-Tac-Toe-Cartoon-200.png in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 				252045E31CFE2CF5004AEC2E /* RegisterViewController.xib in Resources */,
 			);
@@ -339,11 +343,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
+				2546FF4C1D0710BB00CDD81E /* TypeOfGameViewController.swift in Sources */,
 				252045ED1CFF2F79004AEC2E /* EasterEggController.swift in Sources */,
 				252045EA1CFF2F1F004AEC2E /* EasterEggViewController.swift in Sources */,
 				2520457C1CFC7018004AEC2E /* OXGame.swift in Sources */,
 				252045E51CFE2EBE004AEC2E /* UserController.Copy.swift in Sources */,
-				25B772801D04B900001D7EBD /* networkPlayViewController.swift in Sources */,
 				252045DA1CFE2C95004AEC2E /* LandingViewController.swift in Sources */,
 				252045E21CFE2CF5004AEC2E /* RegisterViewController.swift in Sources */,
 				252045DE1CFE2CEA004AEC2E /* LoginViewController.swift in Sources */,

@@ -10,29 +10,19 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
-    @IBOutlet weak var logOut: UIButton!
-    @IBOutlet weak var networkButton: UIButton!
     @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var nineButtons: UIButton!
+    var gameObject = OXGame()
     
-    var currentGame = OXGameController.sharedInstance.getCurrentGame()!
-    
-    var networkPlay: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
         self.boardView.addGestureRecognizer(rotation)
         
         let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handlePinch(_:)))
         self.boardView.addGestureRecognizer(pinch)
-        
-        
-        if networkPlay {
-            logOut.setTitle("Cancel", forState: UIControlState.Normal)
-            networkButton.hidden = true
-        }
         
     }
     func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
@@ -48,13 +38,13 @@ class BoardViewController: UIViewController {
             print("rotation \(sender!.rotation)")
             
             
-             if sender!.rotation > CGFloat(M_PI)/6 {
+            if sender!.rotation > CGFloat(M_PI)/6 {
                 UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))})
-             } else /*if sender!.rotation < CGFloat(M_PI)/6*/ {
+            } else /*if sender!.rotation < CGFloat(M_PI)/6*/ {
                 UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(0)})
-
+                
             }
- 
+            
             
         }
         
@@ -63,11 +53,11 @@ class BoardViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     
     
     func restartGame(){
-        let restart = String(currentGame.reset())
+        let restart = String(gameObject.reset())
         for button in boardView.subviews {
             if let vari = button as? UIButton {
                 vari.setTitle(restart, forState: UIControlState.Normal)
@@ -75,66 +65,30 @@ class BoardViewController: UIViewController {
         }
     }
     
+    func disableButtons() {
+        nineButtons.enabled = false
+    }
+    
     @IBAction func buttonPressed(sender: AnyObject) {
-//        if networkPlay {
-//        if currentGame.state() == OXGameState.inProgress  {
-//            let tag = sender.tag
-//            let player = String(OXGameController.sharedInstance.playMove(tag))
-//            sender.setTitle(player, forState: UIControlState.Normal)
-//            let (cellType,int) = OXGameController.sharedInstance.playRandomMove()!
-//            sender.setTitle(cellType, forState: UIControlState.Normal)
-//           
-//        } else {
-//            navigationController?.popViewControllerAnimated(true)
-//            }
-//         
-//        } else {
-//            let tag = sender.tag
-//            print("Button Pressed \(tag)")
-//            let player = String(OXGameController.sharedInstance.playMove(tag))
-//            sender.setTitle(player, forState: UIControlState.Normal)
-//            currentGame.state()
-//            currentGame.winDetection()
-//            
-//        }
-        
         let tag = sender.tag
         print("Button Pressed \(tag)")
-        let player = String(OXGameController.sharedInstance.playMove(tag))
+        let player = String(gameObject.playMove(tag))
         sender.setTitle(player, forState: UIControlState.Normal)
-        currentGame.state()
-        currentGame.winDetection()
         
-    }
-
-    @IBAction func newGame(sender: AnyObject) {
-        if networkPlay {
-            print("Dont Start A New Game. You are in Network Mode")
-        } else {
-            print("New Game Pressed")
-            restartGame()
+        if gameObject.winDetection() {
+            print( "The Winner is \(player)")
+            nineButtons.enabled = false
         }
         
     }
     
-    @IBAction func logOut(sender: UIButton) {
-        
-        if networkPlay {
-           logOut.setTitle("Cancel", forState: UIControlState.Normal)
-            navigationController?.popViewControllerAnimated(true)
-            self.navigationController?.navigationBarHidden = false
-        } else {
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "userLoggedIn")
-            appDelegate.navigateToLandingNavigationController()
-        }
-        
-        
+    @IBAction func newGame(sender: AnyObject) {
+        print("New Game Pressed")
+        restartGame()
     }
-
-    @IBAction func networkButtonPressed(sender: UIButton) {
-        let nvc = networkPlayViewController(nibName:"networkPlayViewController",bundle:nil)
-        self.navigationController?.pushViewController(nvc, animated: true)
-        networkPlay = true
+    
+    @IBAction func backButton(sender: UIButton) {
+        navigationController?.popViewControllerAnimated(true)
     }
+    
 }
