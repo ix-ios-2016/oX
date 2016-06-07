@@ -16,6 +16,7 @@
 		F2AA1F1E1D06EA0500299DB6 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AA1F1C1D06EA0500299DB6 /* NetworkPlayViewController.xib */; };
 		F2AA1F241D075F9A00299DB6 /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA1F221D075F9A00299DB6 /* EasterEggViewController.swift */; };
 		F2AA1F251D075F9A00299DB6 /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AA1F231D075F9A00299DB6 /* EasterEggViewController.xib */; };
+		F2AA1F2A1D07868A00299DB6 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA1F291D07868A00299DB6 /* OXGameController.swift */; };
 		F2ECA1001D060C8900CD9F14 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */; };
 		F2ECA1051D0611C400CD9F14 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ECA1031D0611C400CD9F14 /* LandingViewController.swift */; };
 		F2ECA1061D0611C400CD9F14 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2ECA1041D0611C400CD9F14 /* LandingViewController.xib */; };
@@ -62,6 +63,7 @@
 		F2AA1F1C1D06EA0500299DB6 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		F2AA1F221D075F9A00299DB6 /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
 		F2AA1F231D075F9A00299DB6 /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
+		F2AA1F291D07868A00299DB6 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
 		F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		F2ECA1031D0611C400CD9F14 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		F2ECA1041D0611C400CD9F14 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				F2ECA10F1D06179100CD9F14 /* UserController.swift */,
 				F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */,
+				F2AA1F291D07868A00299DB6 /* OXGameController.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				F2ECA1001D060C8900CD9F14 /* OXGame.swift in Sources */,
 				F2ECA1051D0611C400CD9F14 /* LandingViewController.swift in Sources */,
+				F2AA1F2A1D07868A00299DB6 /* OXGameController.swift in Sources */,
 				F2ECA10D1D06152800CD9F14 /* RegisterViewController.swift in Sources */,
 				F2ECA1101D06179100CD9F14 /* UserController.swift in Sources */,
 				F2ECA1091D06151800CD9F14 /* LoginViewController.swift in Sources */,
