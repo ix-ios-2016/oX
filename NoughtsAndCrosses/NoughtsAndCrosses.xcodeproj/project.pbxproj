@@ -14,6 +14,8 @@
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
 		F2AA1F1D1D06EA0500299DB6 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA1F1B1D06EA0500299DB6 /* NetworkPlayViewController.swift */; };
 		F2AA1F1E1D06EA0500299DB6 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AA1F1C1D06EA0500299DB6 /* NetworkPlayViewController.xib */; };
+		F2AA1F241D075F9A00299DB6 /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AA1F221D075F9A00299DB6 /* EasterEggViewController.swift */; };
+		F2AA1F251D075F9A00299DB6 /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2AA1F231D075F9A00299DB6 /* EasterEggViewController.xib */; };
 		F2ECA1001D060C8900CD9F14 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */; };
 		F2ECA1051D0611C400CD9F14 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ECA1031D0611C400CD9F14 /* LandingViewController.swift */; };
 		F2ECA1061D0611C400CD9F14 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2ECA1041D0611C400CD9F14 /* LandingViewController.xib */; };
@@ -58,6 +60,8 @@
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AA1F1B1D06EA0500299DB6 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		F2AA1F1C1D06EA0500299DB6 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
+		F2AA1F221D075F9A00299DB6 /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
+		F2AA1F231D075F9A00299DB6 /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		F2ECA0FF1D060C8900CD9F14 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		F2ECA1031D0611C400CD9F14 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		F2ECA1041D0611C400CD9F14 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
@@ -164,6 +168,15 @@
 			name = LoggedIn;
 			sourceTree = "<group>";
 		};
+		F2AA1F281D07612000299DB6 /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				F2AA1F221D075F9A00299DB6 /* EasterEggViewController.swift */,
+				F2AA1F231D075F9A00299DB6 /* EasterEggViewController.xib */,
+			);
+			name = EasterEgg;
+			sourceTree = "<group>";
+		};
 		F2ECA1021D06119C00CD9F14 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +207,7 @@
 				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				F2AA1F1B1D06EA0500299DB6 /* NetworkPlayViewController.swift */,
 				F2AA1F1C1D06EA0500299DB6 /* NetworkPlayViewController.xib */,
+				F2AA1F281D07612000299DB6 /* EasterEgg */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -304,6 +318,7 @@
 			files = (
 				F2ECA10A1D06151800CD9F14 /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
+				F2AA1F251D075F9A00299DB6 /* EasterEggViewController.xib in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
 				F2ECA1061D0611C400CD9F14 /* LandingViewController.xib in Resources */,
 				F2AA1F1E1D06EA0500299DB6 /* NetworkPlayViewController.xib in Resources */,
@@ -333,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2AA1F241D075F9A00299DB6 /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				F2ECA1001D060C8900CD9F14 /* OXGame.swift in Sources */,
 				F2ECA1051D0611C400CD9F14 /* LandingViewController.swift in Sources */,
