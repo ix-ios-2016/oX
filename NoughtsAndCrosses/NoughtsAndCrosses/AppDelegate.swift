@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         EasterEggController.sharedInstance.initiate(self.window!)
         
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIdLoggedIn")
+        let userIsLoggedIn = UserController.sharedInstance.getLoggedInUser()
         
         let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
         self.GameNavigationController = UINavigationController(rootViewController: boardViewController)

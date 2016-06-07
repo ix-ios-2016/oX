@@ -30,7 +30,6 @@
 		CA47A89B1D016EA0005F66F3 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */; };
 		CA47A89C1D016EA0005F66F3 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */; };
 		CA5FE1C61D01BF04005DB249 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5FE1C51D01BF04005DB249 /* OXGameController.swift */; };
-		CA6C01BE1CFC63AE0090E679 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6C01BD1CFC63AE0090E679 /* OXGame.swift */; };
 		CAE1B4661CFE3A0700887A64 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE1B4651CFE3A0700887A64 /* UserController.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
@@ -85,7 +84,6 @@
 		CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		CA5FE1C51D01BF04005DB249 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
-		CA6C01BD1CFC63AE0090E679 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		CAE1B4651CFE3A0700887A64 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 		CA5FE1C31D01BC3C005DB249 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CA6C01BD1CFC63AE0090E679 /* OXGame.swift */,
 				CAE1B4651CFE3A0700887A64 /* UserController.swift */,
 				CA5FE1C51D01BF04005DB249 /* OXGameController.swift */,
 			);
@@ -447,7 +444,6 @@
 				CA3ED6D91D057E9C00765DA8 /* WebService.swift in Sources */,
 				CA07DB211CFF6633002895CF /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
-				CA6C01BE1CFC63AE0090E679 /* OXGame.swift in Sources */,
 				CA35D7221CFE2C420030E246 /* LandingViewController.swift in Sources */,
 				CA3ED6DB1D05862800765DA8 /* UIViewControllerExtensions.swift in Sources */,
 				CAE1B4661CFE3A0700887A64 /* UserController.swift in Sources */,
@@ -596,7 +592,7 @@
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
+				PRODUCT_BUNDLE_IDENTIFIER = katz.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -609,7 +605,7 @@
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
+				PRODUCT_BUNDLE_IDENTIFIER = katz.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -16,20 +16,24 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECb-Vg-8X6">
                     <rect key="frame" x="281" y="285" width="38" height="30"/>
-                    <state key="normal" title="Login"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="DlE-Dd-0Xb"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-QQ-b7L">
                     <rect key="frame" x="272" y="333" width="57" height="30"/>
-                    <state key="normal" title="Register"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="qhs-Ku-7Ko"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.41143827109999997" green="0.3368596284" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ECb-Vg-8X6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="4hW-Mx-mnL"/>
                 <constraint firstItem="EUh-QQ-b7L" firstAttribute="top" secondItem="ECb-Vg-8X6" secondAttribute="bottom" constant="18" id="80A-r8-fsJ" userLabel="Register.top = Login.bottom + 7"/>

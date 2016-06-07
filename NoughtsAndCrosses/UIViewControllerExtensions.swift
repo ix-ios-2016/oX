@@ -22,7 +22,7 @@ extension UIViewController  {
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         //add an overlay screen
-        let overlayImage = UIImageView(frame: self.view.frame)
+        let overlayImage = UIImageView(frame: appDelegate.window!.frame)
         overlayImage.backgroundColor = UIColor.blackColor()
         overlayImage.alpha = 0.5
         overlayImage.tag = LOADING_OVERLAY_VIEW_TAG
@@ -31,6 +31,10 @@ extension UIViewController  {
         
         let loadingSpinner = UIActivityIndicatorView(frame: overlayImage.frame)
         loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        
+        
+//        loadingSpinner.center = CGPoint(x:self.overlay.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
+        
         loadingSpinner.startAnimating()
         overlayImage.addSubview(loadingSpinner)
         

@@ -11,42 +11,42 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ayU-HH-o6v">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyN-SX-xFh">
-                            <rect key="frame" x="49" y="195" width="276" height="194"/>
-                            <attributedString key="attributedText">
-                                <fragment content="while ( ! ( suceed = try() ) );">
-                                    <attributes>
-                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <font key="NSFont" size="21" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dep-JK-LZ5">
-                            <rect key="frame" x="112" y="341" width="150" height="28"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="Return to Game">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="ReturnButtonWasTapped:" destination="-1" eventType="touchUpInside" id="BCl-Ab-e8R"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.55221416089999997" green="0.57976438419999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Easter_Egg_Background" translatesAutoresizingMaskIntoConstraints="NO" id="lkq-KJ-OJY">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dep-JK-LZ5">
+                    <rect key="frame" x="246" y="511" width="108" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Return to Game">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ReturnButtonWasTapped:" destination="-1" eventType="touchUpInside" id="BCl-Ab-e8R"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iX_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="cw0-dJ-bvG">
+                    <rect key="frame" x="45" y="42" width="106" height="72"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="334.5" y="284.5"/>
+            <constraints>
+                <constraint firstItem="lkq-KJ-OJY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="163-6K-eP5"/>
+                <constraint firstItem="dep-JK-LZ5" firstAttribute="centerX" secondItem="lkq-KJ-OJY" secondAttribute="centerX" id="M1v-4c-f9A"/>
+                <constraint firstAttribute="trailing" secondItem="lkq-KJ-OJY" secondAttribute="trailing" id="Vah-BJ-55L"/>
+                <constraint firstItem="lkq-KJ-OJY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cPt-zH-693"/>
+                <constraint firstItem="dep-JK-LZ5" firstAttribute="top" secondItem="lkq-KJ-OJY" secondAttribute="bottom" constant="-89" id="fIi-Am-ggv"/>
+                <constraint firstAttribute="bottom" secondItem="lkq-KJ-OJY" secondAttribute="bottom" id="ops-WM-eG3"/>
+                <constraint firstItem="cw0-dJ-bvG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="45" id="v5Z-rU-4O8"/>
+                <constraint firstItem="cw0-dJ-bvG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="42" id="xoX-aZ-Gor"/>
+            </constraints>
+            <point key="canvasLocation" x="334" y="284"/>
         </view>
     </objects>
+    <resources>
+        <image name="Easter_Egg_Background" width="1088" height="816"/>
+        <image name="iX_Logo" width="50" height="34"/>
+    </resources>
 </document>

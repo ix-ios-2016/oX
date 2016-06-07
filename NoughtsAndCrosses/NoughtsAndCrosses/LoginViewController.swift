@@ -26,18 +26,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        print(string)
+        //print(string)
         if( textField == emailField ){
-            print("email field was updated: " + emailField.text! + string)
-        }
-        else if ( textField == passwordField ){
-            print("password field was updated: \(passwordField.text!)")
+            //print("email field was updated: " + emailField.text! + string)
         }
         return true
     }

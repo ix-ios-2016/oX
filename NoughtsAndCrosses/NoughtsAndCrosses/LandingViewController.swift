@@ -18,6 +18,13 @@ class LandingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,7 +45,7 @@ class LandingViewController: UIViewController {
     
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        print("login Button was tapped")
+        //print("login Button was tapped")
         let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
         self.navigationController?.pushViewController(lvc, animated: true)
     }

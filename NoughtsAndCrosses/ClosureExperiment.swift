@@ -17,12 +17,12 @@ class ClosureExperiment {
     }
     
     func thisIsAFunction(withAnInputVariable:String, withAClosure: () -> ()){
-        print("thisIsAFunction is executing")
+        //print("thisIsAFunction is executing")
         withAClosure()
     }
     
     func anotherFunction(){
-        print("Another Function is executing")
+        //print("Another Function is executing")
     }
     
     

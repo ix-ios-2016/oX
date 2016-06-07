@@ -11,6 +11,8 @@
                 <outlet property="BoardView" destination="qYi-hH-8b3" id="d3o-41-B9q"/>
                 <outlet property="logoutButton" destination="B6J-er-fGi" id="p1P-dT-CX8"/>
                 <outlet property="networkPlay" destination="lrP-oF-QRR" id="PCn-jG-rIW"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="Gcl-m6-lOK"/>
+                <outlet property="refreshButton" destination="7Nj-YF-0un" id="vZv-MK-xgZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="allButtons" destination="Lgl-eZ-ME1" collectionClass="NSMutableArray" id="b8b-jI-6ri"/>
                 <outletCollection property="allButtons" destination="N6c-yA-Xo4" collectionClass="NSMutableArray" id="UJ3-9X-tp4"/>
@@ -437,8 +439,17 @@
                         <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="lBZ-dA-Jd3"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Nj-YF-0un">
+                    <rect key="frame" x="50" y="76" width="53" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="yyh-tw-OJG"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.41143827109999997" green="0.3368596284" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:94" constant="5" id="HaJ-BB-quF"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
