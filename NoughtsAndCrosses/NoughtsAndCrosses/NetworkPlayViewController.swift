@@ -52,7 +52,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func gameListReceived(games:[OXGame]?, message: String?) {
-        print("games received \(games)")
+//        print("games received \(games)")
         if let newGames = games {
             self.gameList = newGames
         }

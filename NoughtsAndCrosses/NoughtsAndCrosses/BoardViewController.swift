@@ -12,9 +12,13 @@ class BoardViewController: UIViewController {
     
     @IBOutlet var boardContainer: UIView!
     
+    // refresh/network play button
     @IBOutlet var networkPlayButton: UIButton!
     
+    // log out/cancel network game button
     @IBOutlet weak var logOutButton: UIButton!
+    
+    // new game/status button
     @IBOutlet weak var newGameButton: UIButton!
     
     var currentGame = OXGame()
@@ -30,7 +34,7 @@ class BoardViewController: UIViewController {
         self.boardContainer.addGestureRecognizer(rotation)
         
         
-        
+        // update the UI
         self.updateUI()
     }
     
@@ -59,73 +63,76 @@ class BoardViewController: UIViewController {
     
     // action for pressing any of the game board buttons
     @IBAction func buttonTapped(sender: AnyObject) {
-        if (currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
+        // if the button is already filled, don't do anything
+        if (self.currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
             return
         }
         
         var lastMove: CellType?
         
+        // check if in network mode
         if (self.networkGame) {
-            
+            // play the prescribed move
             lastMove = self.currentGame.playMove(sender.tag)
             OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message:message)})
-            
-            if !self.gameEnded(lastMove!) {
-                
-                
-            } else {
-                return
-            }
         } else {
+            // simply update our board
             lastMove = self.currentGame.playMove(sender.tag)
-            if let moveToPrint = lastMove {
-                sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
+            if let _ = lastMove {
+                self.updateUI()
             }
         }
         
     }
     
-    func gameEnded(move: CellType) -> Bool {
-        return false
+    func gameEnded() -> Bool {
+        return self.currentGame.state() == OXGameState.complete_no_one_won || self.currentGame.state() == OXGameState.complete_someone_won
     }
     
     func playMoveComplete(game: OXGame?, message: String?) {
         if let newGame = game {
+            if newGame.guestUser == nil || newGame.hostUser == nil {
+                // someone cancelled
+            }
             self.currentGame = newGame
             self.updateUI()
-        } else {
-            print("something went wrong")
-        }
-    }
-    
-    // helper function to check the state of the game, and return an appropriate message given whomever made the most recent move
-    // if necessary, pop out to previous view controller
-    private func checkState(lastPlayer: CellType) -> OXGameState {
-        let currentState = self.currentGame.state()
-        switch currentState {
-        case OXGameState.complete_someone_won, OXGameState.complete_no_one_won:
-            // print end game message
-            if (currentState == OXGameState.complete_someone_won) {
-                print("Winner is \(lastPlayer)")
-            } else {
-                print("Game tied")
+            
+            if self.gameEnded() {
+                // alert the user that the game is over and leave
+                var messageToUser: String
+                var opponentUsername: String
+                
+                if UserController.sharedInstance.getLoggedInUser()!.email == self.currentGame.hostUser?.email {
+                    opponentUsername = self.currentGame.guestUser!.email
+                } else {
+                    opponentUsername = self.currentGame.hostUser!.email
+                }
+                
+                if self.currentGame.state() == OXGameState.complete_someone_won {
+                    messageToUser = "You won! You defeated \(opponentUsername)."
+                } else {
+                    messageToUser = "You tied the game with \(opponentUsername)."
+                }
+                
+                let alertController = UIAlertController(title: "Game Over",
+                                                        message: messageToUser, preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+                alertController.addAction(OKAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                
             }
-            // finish game in backend
-//            OXGameController.sharedInstance.finishCurrentGame()
-            // update view
-            if (self.networkGame) {
-                self.navigationController?.popViewControllerAnimated(true)
-            }
-        default:
-            break
         }
-        return currentState
     }
     
     // action for new game button
     // finish the current game in the backend and reset the boardView
     @IBAction func newGameTapped(sender: AnyObject) {
+        // reset back end and view
         self.resetBoard()
+        self.currentGame.reset()
     }
     
     // action for log out button
@@ -134,7 +141,7 @@ class BoardViewController: UIViewController {
 //        OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
         if (self.networkGame) {
-            self.navigationController!.popViewControllerAnimated(true)
+            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(cancelled, message) in self.cancelGameComplete(cancelled, message: message)})
         } else {
             // persistence
             NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "loggedInUser")
@@ -145,9 +152,12 @@ class BoardViewController: UIViewController {
         }
     }
     
+    func cancelGameComplete(cancelled: Bool, message: String?) {
+        self.navigationController!.popViewControllerAnimated(true)
+    }
+    
     // action for network play button
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
-//        OXGameController.sharedInstance.finishCurrentGame()
         if self.networkGame {
             // refresh in network mode
             OXGameController.sharedInstance.getGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.gameUpdateReceived(game, message:message)})
@@ -161,20 +171,57 @@ class BoardViewController: UIViewController {
     func gameUpdateReceived(game: OXGame?, message: String?) {
         if let gameReceived = game {
             self.currentGame = gameReceived
+            if self.currentGame.backendState == OXGameState.abandoned {
+                var opponentUsername: String
+                
+                if UserController.sharedInstance.getLoggedInUser()!.email == self.currentGame.hostUser?.email {
+                    opponentUsername = self.currentGame.guestUser!.email
+                } else {
+                    opponentUsername = self.currentGame.hostUser!.email
+                }
+                
+                
+                let messageToUser = "Sorry! \(opponentUsername) cancelled the game."
+                let alertController = UIAlertController(title: "Game Cancelled",
+                                                        message: messageToUser, preferredStyle: .Alert)
+                let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+                alertController.addAction(OKAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        } else {
+            print("something went wrong")
         }
         self.updateUI()
         
-        if (self.currentGame.guestUser?.email != "") {
-            if (self.currentGame.localUsersTurn()) {
-                self.newGameButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
-                self.boardContainer.userInteractionEnabled = true
+        // similar block as in playMoveComplete
+        if self.gameEnded() {
+            // alert the user that the game is over and leave
+            var messageToUser: String
+            var opponentUsername: String
+            
+            if UserController.sharedInstance.getLoggedInUser()!.email == self.currentGame.hostUser?.email {
+                opponentUsername = self.currentGame.guestUser!.email
             } else {
-                self.newGameButton.setTitle("Awaiting opponent move...", forState: UIControlState.Normal)
-                self.boardContainer.userInteractionEnabled = false
+                opponentUsername = self.currentGame.hostUser!.email
             }
-        } else {
-            self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
-            self.boardContainer.userInteractionEnabled = false
+            
+            if self.currentGame.state() == OXGameState.complete_someone_won {
+                messageToUser = "You lost! You were defeated by \(opponentUsername)."
+            } else {
+                messageToUser = "You tied the game with \(opponentUsername)."
+            }
+            
+            let alertController = UIAlertController(title: "Game Over",
+                                                    message: messageToUser, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            
         }
     }
     
@@ -183,19 +230,35 @@ class BoardViewController: UIViewController {
         // check if network game
         // if so, hide the new game button and network play buttons, and rename Logout to Cancel
         if (self.networkGame) {
-            self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
             self.newGameButton.userInteractionEnabled = false
+            if (self.currentGame.guestUser?.email != "") {
+                if (self.gameEnded()) {
+                    self.newGameButton.setTitle("Game over", forState: UIControlState.Normal)
+                    self.boardContainer.userInteractionEnabled = false
+                }
+                else if (self.currentGame.localUsersTurn()) {
+                    self.newGameButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
+                    self.boardContainer.userInteractionEnabled = true
+                } else {
+                    self.newGameButton.setTitle("Awaiting opponent move...", forState: UIControlState.Normal)
+                    self.boardContainer.userInteractionEnabled = false
+                }
+            } else {
+                self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
+                self.boardContainer.userInteractionEnabled = false
+            }
             self.logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
             self.networkPlayButton.setTitle("Refresh", forState: UIControlState.Normal)
         }
         
-        
+        // update the game board
         for view in self.boardContainer.subviews {
             if let button = view as? UIButton {
                 let str = self.currentGame.board[button.tag].rawValue
                 button.setTitle(str, forState: UIControlState.Normal)
             }
         }
+        
     }
     
     // helper function to reset all the buttons in the boardView to empty

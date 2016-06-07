@@ -49,7 +49,7 @@ class OXGame    {
     
     //constructor from JSON
     init(json:JSON)  {
-        print("json init")
+//        print("json init")
         self.gameId = json["id"].stringValue
         self.backendState = OXGameState(rawValue: json["state"].stringValue)
         self.board = deserialiseBoard(json["board"].stringValue)
@@ -61,8 +61,8 @@ class OXGame    {
     private func deserialiseBoard(boardString:String) -> [CellType] {
         
         var newBoard:[CellType] = []
-        for (index, char) in boardString.characters.enumerate() {
-            print (char)
+        for (_, char) in boardString.characters.enumerate() {
+//            print (char)
             
             if (char == "_")   {
                 //EMPTY
@@ -248,6 +248,7 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
+            print("game cancelled")
             print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
@@ -290,8 +291,8 @@ class OXGameController: WebService {
             //Not only is the code in this block executed, but we are given 2 input parameters, responseCode and json.
             //responseCode is the response code from the server.
             //json is the response data received
-            
-            print(json)
+//            
+//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -299,7 +300,7 @@ class OXGameController: WebService {
                 var list:[OXGame]? = []
                 
                 //lets populate the list var with the game data received
-                for (str, game) in json    {
+                for (_, game) in json    {
                     var game = OXGame(json: game)
                     if (game.backendState == OXGameState.open)   {
                         list?.append(game)
@@ -346,7 +347,7 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-            print(json)
+//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -390,7 +391,7 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-            print(json)
+//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -456,7 +457,7 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-            print(json)
+//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -500,7 +501,7 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-            print(json)
+//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
