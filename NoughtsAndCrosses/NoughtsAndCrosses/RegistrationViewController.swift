@@ -32,6 +32,33 @@ class RegistrationViewController: UIViewController {
     }
     
 
+    func registrationComplete(user:User?,message:String?) {
+        
+        if let _ = user   {
+            
+            //successfully registered
+            let alert = UIAlertController(title:"Registration Successful", message:"You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+                //when the user clicks "Ok", do the following
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToBoardNavigationController()
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }   else    {
+            
+            //registration failed
+            let alert = UIAlertController(title:"Registration Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
+    }
+    
+    
     
     @IBAction func registrationButtonTapped(sender: UIButton)
     {
@@ -55,9 +82,11 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        let (failureMessage, user) = UserController.sharedInstance.registerUser(email, newPassword: password)
+        UserController.sharedInstance.registerUser(email,password: password, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.registrationComplete(user,message:message)})
         
+
         
+        /*
         if (user != nil)
         {
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -80,6 +109,7 @@ class RegistrationViewController: UIViewController {
         {
             print("failed")
         }
+ */
 
     }
     

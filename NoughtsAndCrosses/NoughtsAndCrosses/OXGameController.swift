@@ -41,7 +41,7 @@ class OXGameController {
             
             for game in self.gameList! {
                 game.gameId = getRandomID()
-                game.hostUser = User(email:"hostuser@gmail.com",password: "")
+                game.hostUser = User(email:"hostuser@gmail.com",password: "", token: "", client: "")
             }
             
         }
@@ -91,7 +91,7 @@ class OXGameController {
     {
         
         print("Creating new network game")
-        var newGame = OXGame()
+        let newGame = OXGame()
         newGame.hostUser = hostUser
         newGame.gameId = getRandomID()
         setCurrentGame(newGame)

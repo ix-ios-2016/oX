@@ -34,6 +34,35 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func loginComplete(user:User?,message:String?) {
+        
+        if let _ = user
+        {
+            
+            //successful login
+            let alert = UIAlertController(title:"Login Successful", message:"You are now logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+                //when the user clicks "Ok", do the following
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToBoardNavigationController()
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            
+            //login failed
+            let alert = UIAlertController(title:"Login Failed", message:message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: {
+                
+            })
+            
+        }
+    }
+    
 
     @IBAction func loginButtonTapped(sender: UIButton)
     {
@@ -57,9 +86,10 @@ class LoginViewController: UIViewController {
         }
 
         
-        let (failureMessage, user) = UserController.sharedInstance.loginUser(email, suppliedPassword: password)
+        UserController.sharedInstance.loginUser(email,password: password, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginComplete(user,message:message)})
+
         
-        
+        /*
         if (user != nil)
         {
             
@@ -86,7 +116,7 @@ class LoginViewController: UIViewController {
             print("failed")
         }
 
-        
+        */
         
     }
 
