@@ -11,7 +11,6 @@
 		402C1EE01CFF31570022BFCB /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402C1EDE1CFF31570022BFCB /* EasterEggViewController.xib */; };
 		402C1EE21CFF3F550022BFCB /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EE11CFF3F550022BFCB /* EasterEggController.swift */; };
 		402C1EE41CFF8EA40022BFCB /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */; };
-		409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409F41391CFCDFFF00F9FF28 /* OXGame.swift */; };
 		40AE91FD1D0046AF0082CD96 /* oneDance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */; };
 		40AE92001D016EE20082CD96 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */; };
 		40AE92011D016EE20082CD96 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */; };
@@ -62,7 +61,6 @@
 		402C1EDE1CFF31570022BFCB /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
 		402C1EE11CFF3F550022BFCB /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
 		402C1EE31CFF8EA40022BFCB /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "../../SwiftGif/SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
-		409F41391CFCDFFF00F9FF28 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		40AE91FC1D0046AF0082CD96 /* oneDance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oneDance.mp3; path = ../../../../../Downloads/oneDance.mp3; sourceTree = "<group>"; };
 		40AE91FE1D016EE20082CD96 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		40AE91FF1D016EE20082CD96 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			children = (
 				40EAD9BA1D05791000E0BEEC /* WebService.swift */,
 				40EF72351CFDD35C004EB4A8 /* UserController.swift */,
-				409F41391CFCDFFF00F9FF28 /* OXGame.swift */,
 				40AE92031D0189FA0082CD96 /* OXGameController.swift */,
 				40EAD9BC1D05867200E0BEEC /* UIViewControllerExtensions.swift */,
 			);
@@ -446,7 +443,6 @@
 				40EAD9BD1D05867200E0BEEC /* UIViewControllerExtensions.swift in Sources */,
 				402C1EDF1CFF31570022BFCB /* EasterEggViewController.swift in Sources */,
 				402C1EE41CFF8EA40022BFCB /* UIImage+Gif.swift in Sources */,
-				409F413A1CFCDFFF00F9FF28 /* OXGame.swift in Sources */,
 				40AE92001D016EE20082CD96 /* NetworkPlayViewController.swift in Sources */,
 				40AE92041D0189FA0082CD96 /* OXGameController.swift in Sources */,
 				40EF722B1CFDCFEA004EB4A8 /* LandingViewController.swift in Sources */,
