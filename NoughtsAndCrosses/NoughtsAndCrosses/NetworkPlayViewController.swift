@@ -14,27 +14,30 @@ import UIKit
 class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var networkGameButton: UIButton!
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     var gameList = [OXGame]()
     var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Network Play"
-        TableView.dataSource = self
-        TableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
-        refreshControl.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
-        TableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(NetworkPlayViewController.refreshTable), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
 
 
     }
     func refreshTable(){
-        self.gameList = OXGameController.sharedInstance.getListOfGames()!
-        self.TableView.reloadData()
+        
+        OXGameController.sharedInstance.gameList( self, viewControllerCompletionFunction: {(gameList , message) in self.getListOfGamesCompletion(gameList, message: message )})
+        
+        self.tableView.reloadData()
         refreshControl.endRefreshing()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,12 +47,18 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
-        gameList = OXGameController.sharedInstance.getListOfGames()!
+         OXGameController.sharedInstance.gameList( self, viewControllerCompletionFunction: {(gameList , message) in self.getListOfGamesCompletion(gameList, message: message )})
         
-        self.gameList = OXGameController.sharedInstance.getListOfGames()!
-        self.TableView.reloadData()
+        self.tableView.reloadData()
         refreshControl.endRefreshing()
 
+    }
+    
+    func getListOfGamesCompletion(gameList: [OXGame]?, message: String?){
+        if let newGames = gameList {
+            self.gameList = newGames
+        }
+        self.tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,18 +91,24 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         //2c: How do you show the specific game you created to the user?
         
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil )
-        OXGameController.sharedInstance.acceptGameWithId(String(gameList[indexPath.row].gameID))
+        //OXGameController.sharedInstance.acceptGameWithId(String(gameList[indexPath.row].gameID))
         bvc.networkMode = true
         self.navigationController?.pushViewController(bvc, animated: true)
     }
     
     
     @IBAction func networkGameButtonTapped(sender: UIButton) {
-        OXGameController.sharedInstance.createNewGame( (UserController.sharedInstance.logged_in_user)! )
+        //OXGameController.sharedInstance.createNewGame( (UserController.sharedInstance.logged_in_user)! )
+        
+        
+        
+       // /games/{game_id}}/join
 //        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil )
 //        bvc.networkMode = true
 //        self.navigationController?.pushViewController(bvc, animated: true)
     }
+    
+    
     
 
 }

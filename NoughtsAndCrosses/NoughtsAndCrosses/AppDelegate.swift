@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EasterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
 
         
-        if let loggedIn = userIsLoggedIn {
+        if userIsLoggedIn != nil {
   
             self.window?.rootViewController = self.GameNavigationController
         } else {

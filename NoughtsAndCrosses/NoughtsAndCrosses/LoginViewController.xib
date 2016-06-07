@@ -13,29 +13,38 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-wi-6Vy" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="139" y="183" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up0-ir-Hfy">
+                    <rect key="frame" x="75" y="241" width="450" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Up0-ir-Hfy">
-                    <rect key="frame" x="139" y="230" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-XQ-Sye">
-                    <rect key="frame" x="169" y="297" width="38" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIa-XQ-Sye">
+                    <rect key="frame" x="281" y="308" width="38" height="30"/>
                     <state key="normal" title="Login"/>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="1xN-ne-KCY"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGw-wi-6Vy" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="75" y="164" width="450" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <constraints>
+                <constraint firstItem="Up0-ir-Hfy" firstAttribute="top" secondItem="LGw-wi-6Vy" secondAttribute="bottom" constant="47" id="Ara-Uu-syu"/>
+                <constraint firstItem="LGw-wi-6Vy" firstAttribute="centerX" secondItem="cIa-XQ-Sye" secondAttribute="centerX" id="CHU-aB-Dix"/>
+                <constraint firstItem="LGw-wi-6Vy" firstAttribute="leading" secondItem="Up0-ir-Hfy" secondAttribute="leading" id="Gry-F3-nOm"/>
+                <constraint firstItem="LGw-wi-6Vy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="75" id="N3z-Fw-EqU"/>
+                <constraint firstItem="LGw-wi-6Vy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="164" id="VeZ-1D-Evl"/>
+                <constraint firstItem="LGw-wi-6Vy" firstAttribute="trailing" secondItem="Up0-ir-Hfy" secondAttribute="trailing" id="hzj-Fd-TK0"/>
+                <constraint firstAttribute="trailing" secondItem="LGw-wi-6Vy" secondAttribute="trailing" constant="75" id="j2V-pT-BMr"/>
+                <constraint firstItem="cIa-XQ-Sye" firstAttribute="top" secondItem="Up0-ir-Hfy" secondAttribute="bottom" constant="37" id="oUK-wy-yWu"/>
+            </constraints>
         </view>
     </objects>
 </document>

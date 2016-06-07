@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import UIKit
+import SwiftyJSON
 
-class OXGameController {
+
+class OXGameController: WebService {
     
-    var gameList:[OXGame]? = []
+    //    var gameList:[OXGame]? = []
     private var currentGame: OXGame = OXGame()
     
     
@@ -27,25 +30,136 @@ class OXGameController {
         
     }
     
-    func getListOfGames() -> [OXGame]? {
-        //        print("Getting list of games")
+    
+    
+    /**
+    
+    func registerUser(email:String, password:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(User?,String?) -> ()) {
+       
         
-        if(gameList?.count == 0){
+     
+        let user = ["email":email,"password":password]
+        
+        let request = self.createMutableAnonRequest(NSURL(string: "https://ox-backend.herokuapp.com/auth"), method: "POST", parameters: user)
+        
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
             
-            let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
-            //Create games
-            for _ in 1...random {
-                self.gameList?.append(OXGame())
+            //Here is our completion closure for the web request. when the web service is done, this is what is executed.
+            //Not only is the code in this block executed, but we are given 2 input parameters, int and JSON.
+            //int is the response code from the server.
+            //JSON is the response data received
+            
+            print( json)
+            var user:User = User(email: "", password: "",token:"", client: "")
+            
+            
+            if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
+                //successfully registered user. get the obtained data from the json response data and create the user object to give back to the calling ViewController
+                user = User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                
+                //we need to get our user security token out of the request's header (remember from Postman, we need those values when making in app calls)
+                
+                
+                
+                
+                //Persist
+                self.storeUser(user)
+                self.setLoggedInUser(user)
+                self.logged_in_user = user
+                
+                //Note that our registerUser function 4 parameters: email, password, presentingViewController and requestCompletionFunction
+                //requestCompletionFunction is a closure for what is to happen in the ViewController when we are done with the webservice.
+                
+                //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                viewControllerCompletionFunction(user,nil)
+            }   else    {
+                //the web service to create a user failed. Lets extract the error message to be displayed
+                
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                
+                //execute the closure in the ViewController
+                viewControllerCompletionFunction(nil,errorMessage)
             }
             
-            for game in self.gameList! {
-                game.gameID = getRandomID()
-                game.hostUser = User(email:"hostuser@gmail.com",password: "")
+            
+            //Not that our registerUser function 4 parameters: email, password, presentingViewController and completion
+            //completion is a closure for what is to happen in the ViewController when we are done with the webservice.
+            //lets go back to that closure now
+            viewControllerCompletionFunction(user,nil)
+        })
+        
+        //we are now done with the registerUser function. Note that this function doesnt return anything. But because of the viewControllerCompletionFunction closure we are given as an input parameter, we can set in motion a function in the calling class when it is needed.
+        
+ 
+        
+    }
+    
+     */
+
+    
+    
+    
+//        func getListOfGames() -> [OXGame]? {
+//    //        print("Getting list of games")
+//    
+//            if(gameList?.count == 0){
+//    
+//                let random: Int = Int(arc4random_uniform(UInt32(3)) + 2)
+//                //Create games
+//                for _ in 1...random {
+//                    self.gameList?.append(createGameWithHostUser("hostuser@gmail.com"))
+//    
+//                }
+//    
+//            }
+//    
+//            return gameList
+//    
+//        }
+    
+    func gameList(presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:([OXGame]?,String?) -> ()) {
+        let request = self.createMutableRequest(NSURL(string: "https://ox-backend.herokuapp.com/games"), method: "GET", parameters: nil)
+        
+        self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
+            
+            print(json)
+            print(responseCode)
+            
+            if (responseCode / 100 == 2)   {
+                
+                
+                //User(email: json["data"]["email"].stringValue,password:"not_given_and_not_stored",token:json["data"]["token"].stringValue,client:"||")
+                
+                
+                //Persist
+                    /**
+                self.storeUser(user)
+                self.setLoggedInUser(user)
+                self.logged_in_user = user
+ */
+                
+                //Note that our registerUser function 4 parameters: email, password, presentingViewController and requestCompletionFunction
+                //requestCompletionFunction is a closure for what is to happen in the ViewController when we are done with the webservice.
+                
+                //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                
+                //viewControllerCompletionFunction(user,nil)
+                
+            }   else    {
+                //the web service to create a user failed. Lets extract the error message to be displayed
+                
+                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                
+                //execute the closure in the ViewController
+                viewControllerCompletionFunction(nil,errorMessage)
             }
             
-        }
+            
+        })
         
-        return gameList
+        
+        
+        
         
     }
     
@@ -57,6 +171,15 @@ class OXGameController {
         //        print("Getting current game")
         
         return currentGame
+    }
+    
+    func createGameWithHostUser(hostEmail: String) -> OXGame {
+        
+        let game = OXGame()
+        game.gameID = getRandomID()
+        game.hostUser = User(email:hostEmail,password: "",token:"",client:"")
+        return game
+        
     }
     
     
@@ -74,8 +197,8 @@ class OXGameController {
         
         for i in 0...currentGame.board.count - 1 {
             if (currentGame.board[i] == CellType.EMPTY){
-                let cellType: CellType = ( currentGame.playMove(i) )
-                                    //print(cellType)
+                let cellType: CellType = (currentGame.playMove(i))!
+                //                    print(cellType)
                 //                    print("Succesfully at: " + String(i))
                 return (cellType, i)
             }
@@ -85,43 +208,44 @@ class OXGameController {
         
     }
     
-    func createNewGame(hostUser:User)   {
+    func createNewGame(host:User, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ())   {
         print("Creating new network game")
-        let game = OXGame()
-        gameList?.append(game)
-        setCurrentGame(game)
-        game.gameID = getRandomID()
-        game.hostUser = hostUser
+        
     }
     
     
-    func acceptGameWithId(gameId: String) -> OXGame? {
-        //        print("Accepting network game")
-        for game in self.gameList!    {
-            if (game.gameID == gameId)  {
-                setCurrentGame(game)
-                                print("Succesfully")
-                return game
-            }
-            
-        }
-        //        print("Not succesfully")
-        return nil
+    //    func acceptGameWithId(gameId: String) -> OXGame? {
+    ////        print("Accepting network game")
+    //        for game in self.gameList!    {
+    //            if (game.gameId == gameId)  {
+    //                setCurrentGame(game)
+    ////                print("Succesfully")
+    //                return game
+    //            }
+    //
+    //        }
+    ////        print("Not succesfully")
+    //        return nil
+    //    }
+    
+    
+    func acceptGame(id:String, presentingViewController:UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ()) {
+        
     }
     
     func finishCurrentGame(){
         print("Finishing current game")
         
-        if(gameList != nil && gameList?.count != 0){
-            var reducer = 0
-            for i in 0...(gameList?.count)! - 1{
-                if ( getCurrentGame()?.gameID == gameList![i - reducer].gameID){
-                    gameList?.removeAtIndex(i)
-                    reducer += 1
-                }
-            }
-        }
-        
+        //        if(gameList != nil && gameList?.count != 0){
+        //            var reducer = 0
+        //            for i in 0...(gameList?.count)! - 1{
+        //                if (getCurrentGame()?.gameId == gameList![i - reducer].gameId){
+        //                    gameList?.removeAtIndex(i)
+        //                    reducer += 1
+        //                }
+        //            }
+        //        }
+        //
         currentGame.reset()
         
         setCurrentGame(OXGame())

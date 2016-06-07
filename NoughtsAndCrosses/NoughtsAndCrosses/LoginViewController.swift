@@ -45,41 +45,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonTapped(sender: UIButton) {
         let email = emailField.text!
         let password = passwordField.text!
-        if ( !emailField.validate() ){
+        
+        if !emailField.validate() {
             return
         }
         
-        let ( failureMessage , user ) = UserController.sharedInstance.loginUser(email, suppliedPassword: password )
+        UserController.sharedInstance.loginUser(email, password: password, presentingViewController: nil, viewControllerCompletionFunction: {(user,message) in self.loginCallComplete(user,message:message)})
         
-        if let userObject = user  {
-            //you have been returned a valid user
-            print("user login successful")
-            
-            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            appDelegate.navigateToBoardNavigationController()
-            //at this point we are happy to log in the user, so let's implement persistence
-          NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIdLoggedIn")
-            
-            
-            
-            
-            
-        }   else    {
-            if let failureMessage = failureMessage   {
-                let alertController = UIAlertController(title: "WARNING", message: failureMessage, preferredStyle: .Alert)
-                
-                let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                
-                alertController.addAction(OKAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-            }
-        }
-
+        
         
         
     }
-
+    func loginCallComplete(user: User?, message: String?){
+        
+        if let _ = user {
+            let alert = UIAlertController(title: "Login Sucessful", message: "You will now be logged in", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: {(action) in
+                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.navigateToBoardNavigationController()
+            
+            })
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Login Failed", message: message!, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil ))
+            self.presentViewController(alert, animated: true, completion: {
+        
+             })
     
+        }
+        
+    }
 }

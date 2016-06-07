@@ -115,6 +115,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         else if ( gameState == OXGameState.inProgress ) {
             if ( networkMode ){
                 let ( celltype, index ) = OXGameController.sharedInstance.playRandomMove()!
+                print(OXGameController.sharedInstance.getCurrentGame()?.whosTurn())
                 
                 
                 
@@ -142,7 +143,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     func restartGame() {
         OXGameController.sharedInstance.getCurrentGame()!.reset()
-        OXGameController.sharedInstance.getCurrentGame()!.currTurn = CellType.X
+        //OXGameController.sharedInstance.getCurrentGame()!.currTurn = CellType.X
         
         for cell in allButtons {
             cell.setTitle("", forState: UIControlState.Normal)

@@ -26,6 +26,7 @@
 		CA3ED6D31D0565DC00765DA8 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CA3ED6D21D0565DC00765DA8 /* Podfile */; };
 		CA3ED6D71D05700B00765DA8 /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */; };
 		CA3ED6D91D057E9C00765DA8 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ED6D81D057E9C00765DA8 /* WebService.swift */; };
+		CA3ED6DB1D05862800765DA8 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ED6DA1D05862800765DA8 /* UIViewControllerExtensions.swift */; };
 		CA47A89B1D016EA0005F66F3 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */; };
 		CA47A89C1D016EA0005F66F3 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */; };
 		CA5FE1C61D01BF04005DB249 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5FE1C51D01BF04005DB249 /* OXGameController.swift */; };
@@ -77,9 +78,10 @@
 		CA35D7251CFE2CEF0030E246 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		CA35D7281CFE32930030E246 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		CA35D7291CFE32930030E246 /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
-		CA3ED6D21D0565DC00765DA8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		CA3ED6D21D0565DC00765DA8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
 		CA3ED6D81D057E9C00765DA8 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		CA3ED6DA1D05862800765DA8 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CA47A8991D016EA0005F66F3 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		CA47A89A1D016EA0005F66F3 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		CA5FE1C51D01BF04005DB249 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		42D447C11CD765670070326E = {
 			isa = PBXGroup;
 			children = (
+				CA3ED6DA1D05862800765DA8 /* UIViewControllerExtensions.swift */,
 				CA3ED6D81D057E9C00765DA8 /* WebService.swift */,
 				CA3ED6D61D05700B00765DA8 /* ClosureExperiment.swift */,
 				CA1A82CC1CFEDED700BCBF24 /* EmailValidatedTextField.swift */,
@@ -446,6 +449,7 @@
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
 				CA6C01BE1CFC63AE0090E679 /* OXGame.swift in Sources */,
 				CA35D7221CFE2C420030E246 /* LandingViewController.swift in Sources */,
+				CA3ED6DB1D05862800765DA8 /* UIViewControllerExtensions.swift in Sources */,
 				CAE1B4661CFE3A0700887A64 /* UserController.swift in Sources */,
 				CA47A89B1D016EA0005F66F3 /* NetworkPlayViewController.swift in Sources */,
 				CA35D7261CFE2CEF0030E246 /* LoginViewController.swift in Sources */,

@@ -71,16 +71,6 @@
                                 <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="dhc-m3-bEU"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-Ia-fSQ">
-                            <rect key="frame" x="0.0" y="151" width="182" height="152"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <state key="normal">
-                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="HGY-Vy-5TZ"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-k9-j6J">
                             <rect key="frame" x="187" y="151" width="187" height="152"/>
                             <constraints>
@@ -171,6 +161,16 @@
                             </state>
                             <connections>
                                 <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="GiV-eI-NST"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-Ia-fSQ">
+                            <rect key="frame" x="0.0" y="151" width="182" height="152"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="HGY-Vy-5TZ"/>
                             </connections>
                         </button>
                     </subviews>

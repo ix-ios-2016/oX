@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
@@ -13,29 +13,47 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TVO-Hl-zWV" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
-                    <rect key="frame" x="139" y="154" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63u-pA-gvo">
+                    <rect key="frame" x="75" y="241" width="450" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63u-pA-gvo">
-                    <rect key="frame" x="139" y="232" width="97" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htW-4y-Ehf">
-                    <rect key="frame" x="159" y="299" width="57" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htW-4y-Ehf">
+                    <rect key="frame" x="272" y="309" width="57" height="30"/>
                     <state key="normal" title="Register"/>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="PVG-1j-QtI"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TVO-Hl-zWV" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="75" y="164" width="450" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <constraints>
+                <constraint firstItem="TVO-Hl-zWV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-4.5" id="4Bc-fF-YSP"/>
+                <constraint firstAttribute="trailing" secondItem="63u-pA-gvo" secondAttribute="trailing" constant="75" id="QlY-4u-UHN" userLabel="trailing = Password Field.trailing + 50"/>
+                <constraint firstItem="TVO-Hl-zWV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="164" id="Rqt-Tm-Kd7"/>
+                <constraint firstItem="63u-pA-gvo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-4.5" id="cYM-yv-SNW"/>
+                <constraint firstItem="htW-4y-Ehf" firstAttribute="top" secondItem="63u-pA-gvo" secondAttribute="bottom" constant="38" id="cws-S1-c6Y"/>
+                <constraint firstAttribute="trailing" secondItem="TVO-Hl-zWV" secondAttribute="trailing" constant="75" id="dQa-Uh-bjQ" userLabel="trailing = Email Field.trailing + 50"/>
+                <constraint firstItem="TVO-Hl-zWV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="75" id="geC-2d-wjW" userLabel="Email Field.leading = leading + 50"/>
+                <constraint firstItem="htW-4y-Ehf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iXo-Wr-hEF"/>
+                <constraint firstItem="63u-pA-gvo" firstAttribute="top" secondItem="TVO-Hl-zWV" secondAttribute="bottom" constant="47" id="kKR-Qa-1DL"/>
+                <constraint firstItem="63u-pA-gvo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="75" id="tMi-ST-ICD" userLabel="Password Field.leading = leading + 50"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="4Bc-fF-YSP"/>
+                    <exclude reference="cYM-yv-SNW"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="242" y="264"/>
         </view>
     </objects>
 </document>
