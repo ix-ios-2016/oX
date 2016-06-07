@@ -5,7 +5,7 @@
 //  Created by Alejandro Castillejo on 6/2/16.
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
-/*
+
 import Foundation
 
 class OXGameController {
@@ -87,8 +87,15 @@ class OXGameController {
         
     }
     
-    func createNewGame(hostUser:User)   {
+    func createNewGame(hostUser:User)
+    {
+        
         print("Creating new network game")
+        var newGame = OXGame()
+        newGame.hostUser = hostUser
+        newGame.gameId = getRandomID()
+        setCurrentGame(newGame)
+        
     }
     
     
@@ -140,7 +147,7 @@ class OXGameController {
     }
     
 }
- */
+/*
 //
 //  OXGameController.swift
 //  NoughtsAndCrosses
@@ -664,3 +671,4 @@ class OXGameController: WebService {
     }
     
 }
+ */

@@ -27,7 +27,7 @@
                         <constraint firstAttribute="height" constant="50" id="aMM-RC-WrE"/>
                     </constraints>
                     <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
-                    <state key="normal" title="Start Network Play">
+                    <state key="normal" title="New Network Game">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
                     <connections>

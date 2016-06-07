@@ -18,6 +18,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var logoutButton: UIButton!
     
+    @IBOutlet weak var newGameButton: UIButton!
+    
     @IBOutlet var buttonArray: [UIButton]!
     
     @IBOutlet var viewOutlet: UIView!
@@ -48,6 +50,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         if (networkMode)
         {
             networkPlayButton.hidden = true
+            newGameButton.setTitle("Network Game in Progress", forState: UIControlState.Normal)
             logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
             
         }
@@ -98,7 +101,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         let currentPlayer = OXGameController.sharedInstance.getCurrentGame()!.whoseTurn()
         
         
-        if (sender.currentTitle == nil)
+        if (sender.currentTitle == "" || sender.currentTitle == nil)
         {
             if (currentPlayer == CellType.X)
             {
@@ -109,8 +112,13 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 sender.setTitle("O", forState: UIControlState.Normal)
             }
         }
+        else
+        {
+            return
+        }
         
         print("Button \(sender.tag) tapped")
+        
         OXGameController.sharedInstance.playMove(sender.tag)
         
         
@@ -191,8 +199,11 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func newGameTapped(sender: UIButton)
     {
-        print("New Game button tapped")
-        resetGame()
+        if (!networkMode)
+        {
+            print("New Game button tapped")
+            resetGame()
+        }
     }
     
     
@@ -203,6 +214,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         if (self.networkMode)
         {
             self.navigationController?.popViewControllerAnimated(true)
+            OXGameController.sharedInstance.finishCurrentGame()
             networkMode = false
         }
         else
