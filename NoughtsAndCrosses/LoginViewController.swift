@@ -39,9 +39,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonTapped(sender: AnyObject) {
         if emailField.valid() {
-            let email = emailField.text
-            let password = passwordField.text
-            let (failureMessage, user) = UserController.sharedInstance.loginUser(email!, suppliedPassword: password!)
+            let email = emailField.text!
+            let password = passwordField.text!
+            UserController.sharedInstance.loginUser(email, password: password, presentingViewController: nil, viewControllerCompletionFunction: {(user, message) in self.loginCallComplete(user,message:message)})
+            /*
             if (user != nil) {
                 print("User registered view registration view")
                 let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -54,9 +55,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             emailField.validate()
             }
+            */
         } else {
             failureDisplay.text = "Invalid Email"
         }
+    }
+    
+    func loginCallComplete(user:User?, message:String?) {
+        // We're getting this
     }
 
 }

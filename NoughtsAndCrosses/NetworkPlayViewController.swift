@@ -36,6 +36,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // let game = OXGameController().acceptGameWithId()
         let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
         self.navigationController?.pushViewController(bvc, animated: true)
         print("did select row \(indexPath.row)")
@@ -48,13 +49,13 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gamesList.count
+        return gamesList!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let index = indexPath.item
-        let user = gamesList[index]
+        let user = gamesList![index]
         cell.textLabel?.text = user.hostUser?.email
         return cell
     }

@@ -17,13 +17,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-2H-ENp">
-                    <rect key="frame" x="8" y="63" width="367" height="540"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-2H-ENp">
+                    <rect key="frame" x="0.0" y="55" width="375" height="556"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ili-ST-4W6">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ili-ST-4W6">
                     <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="puU-OH-V8m"/>
+                    </constraints>
                     <state key="normal" title="Start Network Game">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -33,7 +36,29 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="top" secondItem="6rY-2H-ENp" secondAttribute="bottom" id="IVz-o3-I8W"/>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="top" secondItem="6rY-2H-ENp" secondAttribute="bottom" id="JO7-SU-UFP"/>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KaI-vN-qwv"/>
+                <constraint firstAttribute="trailing" secondItem="Ili-ST-4W6" secondAttribute="trailing" id="Lvw-ZW-FXK"/>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MMr-Up-mjW"/>
+                <constraint firstAttribute="bottom" secondItem="Ili-ST-4W6" secondAttribute="bottom" id="MQR-CP-byr"/>
+                <constraint firstItem="6rY-2H-ENp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YzD-lg-mP2"/>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="trailing" secondItem="6rY-2H-ENp" secondAttribute="trailing" id="fML-bn-AEc"/>
+                <constraint firstAttribute="trailing" secondItem="6rY-2H-ENp" secondAttribute="trailing" id="iuy-yq-nTX"/>
+                <constraint firstAttribute="bottom" secondItem="Ili-ST-4W6" secondAttribute="bottom" id="lQF-XS-x0G"/>
+                <constraint firstItem="6rY-2H-ENp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="xVq-C0-1bO"/>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="top" secondItem="6rY-2H-ENp" secondAttribute="bottom" constant="8" symbolic="YES" id="xoM-Hc-8Bu"/>
+                <constraint firstItem="Ili-ST-4W6" firstAttribute="top" secondItem="6rY-2H-ENp" secondAttribute="bottom" constant="8" id="zEb-la-Juf"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="IVz-o3-I8W"/>
+                    <exclude reference="xoM-Hc-8Bu"/>
+                    <exclude reference="zEb-la-Juf"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

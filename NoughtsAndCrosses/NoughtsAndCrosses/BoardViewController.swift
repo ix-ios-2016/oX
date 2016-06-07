@@ -10,8 +10,6 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
-    var game = OXGame()
-    
     @IBOutlet weak var networkPlay: UIButton!
     @IBOutlet weak var boardView: UIView!
     @IBOutlet weak var button0: UIButton!
@@ -29,6 +27,7 @@ class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let _ = ClosureExperiment()
         view.userInteractionEnabled = true
         let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
         self.boardView.addGestureRecognizer(rotation)
@@ -64,33 +63,38 @@ class BoardViewController: UIViewController {
     }
     
     @IBAction func boardTapped(sender: AnyObject) {
-        game.playMove(sender.tag)
+        let gameController = OXGameController()
+        let game = gameController.getCurrentGame()
+        gameController.playMove(sender.tag)
         var cellType = ""
-        if (game.whosTurn() == CellType.X) {
+        if (game!.whosTurn() == CellType.X) {
             cellType = "X"
-        } else if (game.whosTurn() == CellType.O) {
+        } else if (game!.whosTurn() == CellType.O) {
             cellType = "O"
         }
-        let gameState = game.state()
+        let gameState = game!.state()
         if (gameState == OXGameState.complete_no_one_won) {
             winningMessage.text = "Tie! No player wins."
         } else if (gameState == OXGameState.complete_someone_won) {
-            if (game.whosTurn() == CellType.X) {
+            if (game!.whosTurn() == CellType.X) {
                 winningMessage.text = "Player X wins"
-            } else if (game.whosTurn() == CellType.O){
+            } else if (game!.whosTurn() == CellType.O){
                 winningMessage.text = "Player O wins"
             }
+        } else if (gameState == OXGameState.inProgress) {
+            let (cellType, int) = gameController.playRandomMove()!
+            game!.board[int] = cellType
         }
         sender.setTitle(cellType, forState: UIControlState.Normal)
     }
     
     func restartGame() {
+        OXGameController.sharedInstance.getCurrentGame()!.reset()
         winningMessage.text = ""
         let buttons = [button0, button1, button2, button3, button4, button5, button6, button7, button8]
         for button in buttons {
             button.setTitle("", forState: UIControlState.Normal)
         }
-        game.reset()
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {

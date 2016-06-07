@@ -27,7 +27,7 @@ class OXGameController {
         
     }
     
-    func getListOfGames() -> [OXGame] {
+    func getListOfGames() -> [OXGame]? {
         //        print("Getting list of games")
         
         if(gameList?.count == 0){
@@ -40,12 +40,12 @@ class OXGameController {
             
             for game in self.gameList! {
                 game.gameID = getRandomID()
-                game.hostUser = User(email:"hostuser@gmail.com",password: "")
+                game.hostUser = User(email: "hostuser@gmail.com", password: "", token: "123", client: "idk")
             }
             
         }
         
-        return gameList!
+        return gameList
         
     }
     
@@ -65,11 +65,13 @@ class OXGameController {
     
     
     //Can only be called when there is an active game
-    func playMove(index: Int) -> CellType{
-        //        print("PlayingMove on 'network'")
-        let cellType: CellType = (currentGame?.playMove(index))!
+    func playMove(index: Int) -> CellType {
+        // print("PlayingMove on 'network'")
+        
+        let cellType: CellType = currentGame!.playMove(index)
         return cellType
     }
+
     
     //Simple random move, it will always try to play the first indexes
     func playRandomMove() -> (CellType, Int)? {

@@ -30,7 +30,8 @@ class RegistrationViewController: UIViewController {
         if emailField.valid() {
             let email = emailField.text
             let password = passwordField.text
-            let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, newPassword: password!)
+            /*
+            let (failureMessage, user) = UserController.sharedInstance.registerUser(email!, password: password!, viewControllerCompletionFunction: nil)
             if (user != nil) {
                 print("User registered view registration view")
                 failureDisplay.text = ""
@@ -39,6 +40,7 @@ class RegistrationViewController: UIViewController {
                     failureDisplay.text = failureMessage
             }
             emailField.validate()
+            */
         } else {
             emailField.updateUI()
             failureDisplay.text = "Invalid Email"
