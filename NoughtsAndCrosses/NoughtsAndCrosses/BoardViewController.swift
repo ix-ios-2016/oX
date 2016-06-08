@@ -43,6 +43,7 @@ class BoardViewController: UIViewController {
                 
                 currentGame.playMove(sender.tag)
                 OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMove(game, message: message)})
+                
             }
             
         } else {
@@ -125,6 +126,8 @@ class BoardViewController: UIViewController {
         if  networkGame {
             networkGameButton.hidden = true
             logOutButton.setTitle("Cancel", forState: UIControlState.Normal)
+            
+
             
         } else {
             logOutButton.setTitle("Log Out", forState: UIControlState.Normal)
