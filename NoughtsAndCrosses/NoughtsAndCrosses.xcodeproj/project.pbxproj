@@ -13,7 +13,6 @@
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
-		5C3A75DE1CFC6EDC00BAD76B /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A75DD1CFC6EDC00BAD76B /* OXGame.swift */; };
 		5C3A76131CFE209400BAD76B /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A76111CFE209400BAD76B /* LandingViewController.swift */; };
 		5C3A76141CFE209400BAD76B /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C3A76121CFE209400BAD76B /* LandingViewController.xib */; };
 		5C3A76191CFE214800BAD76B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A76171CFE214800BAD76B /* LoginViewController.swift */; };
@@ -66,7 +65,6 @@
 		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5C3A75DD1CFC6EDC00BAD76B /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		5C3A76111CFE209400BAD76B /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		5C3A76121CFE209400BAD76B /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		5C3A76171CFE214800BAD76B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				5CD0D8381D057D72005CEE77 /* WebService.swift */,
 				5C3A76231CFE302200BAD76B /* UserController.swift */,
 				5CD0D83D1D059A7E005CEE77 /* OXGameController.swift */,
-				5C3A75DD1CFC6EDC00BAD76B /* OXGame.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -443,7 +440,6 @@
 				5C536EB51D056FD300297744 /* ClosureExperiment.swift in Sources */,
 				5CD0D83B1D0585EB005CEE77 /* UIViewControllerExtensions.swift in Sources */,
 				5C3A76241CFE302200BAD76B /* UserController.swift in Sources */,
-				5C3A75DE1CFC6EDC00BAD76B /* OXGame.swift in Sources */,
 				5C3A76131CFE209400BAD76B /* LandingViewController.swift in Sources */,
 				5C536EAF1D01706800297744 /* NetworkPlayViewController.swift in Sources */,
 				5C3A76191CFE214800BAD76B /* LoginViewController.swift in Sources */,

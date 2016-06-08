@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         
-        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        let userIsLoggedIn = UserController.sharedInstance.getLoggedInUser()
         if let loggedIn = userIsLoggedIn {
             self.window?.rootViewController = self.loggedInNavigationController
         } else {

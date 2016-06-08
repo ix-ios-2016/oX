@@ -22,9 +22,12 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="DBx-Rq-lGk"/>
                     </constraints>
-                    <state key="normal">
+                    <state key="normal" title="Start Network Game">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="startNetworkGameButtonTapped:" destination="-1" eventType="touchUpInside" id="0qe-PB-Lus"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u6b-JI-itJ">
                     <rect key="frame" x="0.0" y="65" width="600" height="485"/>

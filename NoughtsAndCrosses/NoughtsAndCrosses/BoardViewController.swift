@@ -25,12 +25,17 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var button8: UIButton!
     @IBOutlet weak var networkPlayButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var refreshButton: UIButton!
     
     var gameObject = OXGame()
     var networkGame:Bool = false
     
+    var currentGame = OXGame()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
 //        EasterEggController.sharedInstance.initiate(view)
 //        EasterEggController.sharedInstance.checkEasterEgg()
@@ -40,7 +45,12 @@ class BoardViewController: UIViewController {
         self.navigationController?.navigationBarHidden = true
         if networkGame {
             networkPlayButton.hidden = true
+            refreshButton.hidden = false
             logoutButton.setTitle("Cancel game", forState: UIControlState.Normal)
+            self.updateUI()
+            
+        } else {
+            refreshButton.hidden = true
         }
     }
     //enum/ array of gestures? variable arraycombo
@@ -48,7 +58,58 @@ class BoardViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+
+    
+    
+    func updateUI() {
+        for view in boardView.subviews {
+            if let button = view as? UIButton {
+                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
+            }
+        }
+        
+        
+        if networkGame {
+            if currentGame.guestUser?.email != "" {
+                if (self.currentGame.localUsersTurn()) {
+                    self.newGameButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
+                    self.boardView.userInteractionEnabled = true
+                } else {
+                    self.newGameButton.setTitle("Awaiting Opponent Move...", forState: UIControlState.Normal)
+                    self.boardView.userInteractionEnabled = false
+                }
+            } else {
+                self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
+                self.boardView.userInteractionEnabled = false
+            }
+        }
+        
+        //check currentGame.state
+        
+    }
     @IBAction func buttonTapped(sender: AnyObject) {
+//        if String(currentGame.typeAtIndex(sender.tag)) != "EMPTY") {
+//            return
+//        }
+//        var lastMove = CellType?
+//        
+//        if networkGame {
+//            lastMove = currentGame.playMove(sender.tag)
+//            
+//            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.playMoveComplete(game,message:message)})
+//            
+//            if !gameEnded(lastMove)) {
+//                
+//                
+//            } else {
+//                lastMove = currentGame.playMove(sender.tag)
+//                if let moveToPrint = lastMove {
+//                    print ("Setting button to: \(moveToPrint)")
+//                    sender.setTitle(moveToPrint, forState: UIControlState.Normal)
+//                }
+//            }
+//
+        
         let gameState = String(gameObject.state())
         if gameState == "inProgress" {
             gameObject.playMove(sender.tag)
@@ -106,6 +167,29 @@ class BoardViewController: UIViewController {
 //            }
 //        } or make an array of outlet objects
         
+    }
+    
+    func playMoveComplete(game:OXGame?, message: String?) {
+        if let gameBack = game {
+            self.currentGame = gameBack
+        } else {
+            //fail
+        }
+    }
+    
+    func gameCancelCompletion(success:Bool, message:String?) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func refreshButtonTapped(sender: UIButton) {
+        OXGameController.sharedInstance.getGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.gameUpdateRecieved(game,message: message)})
+    }
+    
+    func gameUpdateRecieved(game:OXGame?, message: String?) {
+        if let gameRecieved = game {
+            self.currentGame = gameRecieved
+        }
+        self.updateUI()
     }
     
 }
