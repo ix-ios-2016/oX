@@ -67,12 +67,12 @@ class BoardViewController: UIViewController {
     @IBAction func refreshButtonTapped(sender: UIButton) {
         OXGameController.sharedInstance.getGame(self.currentGame.gameId!, viewControllerCompletionFunction: {(user,message) in self.refreshCompleted(user, message: message)})
         
-        //updateUI()
+        updateUI()
     }
     
     func refreshCompleted(game : OXGame?, message : String?){
         self.currentGame = game!
-        self.updateUI()
+        updateUI()
     }
     
     @IBAction func logoutButtonTapped(sender: UIButton) {
@@ -221,6 +221,37 @@ class BoardViewController: UIViewController {
             lastMove = currentGame.playMove(sender.tag)
             if let moveToPrint = lastMove {
                 print("Setting button to: \(moveToPrint)")
+                buttons[tag].setTitle(String(lastMove!), forState: UIControlState.Normal)
+//                
+//                let gameState = self.currentGame
+//                if (gameEnded()){
+//                    
+//                    if (OXGameController.sharedInstance.getCurrentGame()?.whosTurn() == CellType.X){
+//                        
+//                        let alert = UIAlertView()
+//                        alert.title = "Victory!"
+//                        alert.message = "Congrats 0, you won!"
+//                        alert.addButtonWithTitle("Exit")
+//                        alert.show()
+//                        
+//                        print("Congrats O, you won")
+//                        
+//                        
+//                    } else {
+//                        
+//                        let alert = UIAlertView()
+//                        alert.title = "Victory!"
+//                        alert.message = "Congrats X, you won!"
+//                        alert.addButtonWithTitle("Exit")
+//                        alert.show()
+//                        print("Congrats X, you won")
+//                        
+//                    }
+//                }
+//                if (gameState == OXGameState.complete_no_one_won) {
+//                    print ("This game was a tie")
+//                }
+
             }
         }
         

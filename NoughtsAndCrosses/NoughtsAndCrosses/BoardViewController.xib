@@ -177,14 +177,6 @@
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="250-Ah-bHu"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbf-Ol-5MY">
-                            <rect key="frame" x="81" y="8" width="53" height="30"/>
-                            <color key="backgroundColor" red="0.98431372549999996" green="0.14901960780000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Refresh"/>
-                            <connections>
-                                <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="jfM-aT-a1B"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="wqL-6N-dzo" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="width" multiplier="0.333" id="09T-Bw-3Cz"/>
@@ -455,6 +447,16 @@
                     </variation>
                     <connections>
                         <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="e22-dZ-VeZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbf-Ol-5MY">
+                    <rect key="frame" x="163" y="5" width="53" height="30"/>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.14901960780000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="jfM-aT-a1B"/>
                     </connections>
                 </button>
             </subviews>

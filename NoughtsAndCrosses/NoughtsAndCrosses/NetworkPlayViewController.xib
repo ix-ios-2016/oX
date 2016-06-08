@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NetworkPlayViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
@@ -30,8 +29,11 @@
                         </mask>
                     </variation>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cZ-72-bNl">
-                    <rect key="frame" x="8" y="33" width="576" height="559"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cZ-72-bNl">
+                    <rect key="frame" x="43" y="544" width="526" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="9h2-EU-qzs"/>
+                    </constraints>
                     <state key="normal" title="Start New Game"/>
                     <connections>
                         <action selector="createNewNetworkGame:" destination="-1" eventType="touchUpInside" id="AA0-L3-6E1"/>
@@ -41,14 +43,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="TFe-QZ-xvw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BcI-UI-l5u"/>
-                <constraint firstAttribute="trailingMargin" secondItem="5cZ-72-bNl" secondAttribute="trailing" constant="8" id="GJu-eC-Wsj"/>
-                <constraint firstItem="5cZ-72-bNl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="25" id="OV4-ZQ-E9E"/>
                 <constraint firstItem="TFe-QZ-xvw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ycl-c1-Z8Z"/>
                 <constraint firstItem="TFe-QZ-xvw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z18-Ie-Nx3"/>
+                <constraint firstItem="5cZ-72-bNl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="43" id="aOo-lw-bb8"/>
                 <constraint firstItem="TFe-QZ-xvw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="b18-Df-o4G"/>
                 <constraint firstAttribute="trailing" secondItem="TFe-QZ-xvw" secondAttribute="trailing" id="oRj-HY-uWq"/>
-                <constraint firstItem="5cZ-72-bNl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="twU-XD-Gy2"/>
-                <constraint firstAttribute="bottomMargin" secondItem="5cZ-72-bNl" secondAttribute="bottom" id="w4n-lW-jOI"/>
+                <constraint firstAttribute="trailing" secondItem="5cZ-72-bNl" secondAttribute="trailing" constant="31" id="xDB-O7-AYH"/>
+                <constraint firstAttribute="bottom" secondItem="5cZ-72-bNl" secondAttribute="bottom" id="xWZ-3r-Omu"/>
             </constraints>
             <point key="canvasLocation" x="281" y="227"/>
         </view>
