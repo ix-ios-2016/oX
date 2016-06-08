@@ -187,8 +187,6 @@ class OXGameController: WebService {
     
     func getGame(id: String, presentingViewController: UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ()) {
         
-        print("fuckkk")
-        
         let user: Dictionary<String, String> = ["email":(UserController.sharedInstance.logged_in_user?.email)!,"password":(UserController.sharedInstance.logged_in_user?.password)!, "token":(UserController.sharedInstance.logged_in_user?.token)!, "client":(UserController.sharedInstance.logged_in_user?.client)!]
         
         let request = self.createMutableRequest(NSURL(string: "https://ox-backend.herokuapp.com/games/\(id)"), method: "GET", parameters: user)

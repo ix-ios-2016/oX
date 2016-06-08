@@ -301,8 +301,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func refreshBoard(game: OXGame?, message: String?) {
         
-        print("fuck")
-        
         let s: String
         
         if let game = game {
@@ -324,13 +322,22 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 networkPlayButton.setTitle("\(OXGameController.sharedInstance.getCurrentGame()!.whosTurn().rawValue) Player's (\(s)) Turn", forState: UIControlState.Normal)
                 
-                let gameState = OXGameController.sharedInstance.getCurrentGame()!.backendState
-                print(gameState)
+                let gameState = game.backendState
                 
-                let turn = OXGameController.sharedInstance.getCurrentGame()?.whosTurn()
-                
-                if gameState == OXGameState.complete_someone_won {
-                    let alert = UIAlertController(title: "Game Over!", message: "Winner: Player \(String(turn!))", preferredStyle: UIAlertControllerStyle.Alert)
+                if gameState == OXGameState.x_win {
+                    let alert = UIAlertController(title: "Game Over!", message: "Winner: Player X!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
+                        action -> Void in
+                        self.navigationController?.popViewControllerAnimated(true)
+                        self.networkGame = false
+                    }
+                    alert.addAction(closeAction)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    OXGameController.sharedInstance.finishCurrentGame()
+                    
+                }
+                else if gameState == OXGameState.o_win {
+                    let alert = UIAlertController(title: "Game Over!", message: "Winner: Player O!", preferredStyle: UIAlertControllerStyle.Alert)
                     let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                         action -> Void in
                         self.navigationController?.popViewControllerAnimated(true)
@@ -374,8 +381,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
             alert.addAction(closeAction)
             self.presentViewController(alert, animated: true, completion: nil)
         }
-        
-        
         
     }
     
