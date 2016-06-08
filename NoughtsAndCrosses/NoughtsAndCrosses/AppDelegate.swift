@@ -29,8 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
         self.authenticationNavigationController?.navigationBarHidden = true
         
-        easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         // Set up root view based on persistence
@@ -59,9 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Navigate to the homepage
     func navigateToLandingView() {
-        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
         
-        authenticationNavigationController?.pushViewController(landingViewController, animated: true)
         self.window?.rootViewController = self.authenticationNavigationController
         
     }
@@ -69,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Navigate to the easter egg screen
     func navigateToEasterEgg() {
+        self.easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
         self.window?.rootViewController = self.easterEggViewController
     }
 

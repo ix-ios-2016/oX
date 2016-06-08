@@ -16,13 +16,13 @@ class ClosureExperiment {
     
     func thisIsAFunction(withAnInputVariable: String, withAClosure: () -> ()) {
         
-        print("thisIsAFunction is executing \(withAnInputVariable)")
+        //print("thisIsAFunction is executing \(withAnInputVariable)")
         withAClosure()
         
     }
     
     func anotherFunction() {
-        print("another function is executing")
+        //print("another function is executing")
     }
     
     

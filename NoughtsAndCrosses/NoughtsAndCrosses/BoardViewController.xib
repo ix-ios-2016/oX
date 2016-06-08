@@ -422,7 +422,6 @@
                     <state key="normal" title="Logout"/>
                     <connections>
                         <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="lus-Kg-2YP"/>
-                        <action selector="newGame:" destination="-1" eventType="touchUpInside" id="Yrw-bl-WJW"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvz-My-SRc">

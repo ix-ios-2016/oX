@@ -24,6 +24,7 @@ enum OXGameState : String {
     case complete_no_one_won
     case complete_someone_won
     case open
+    case abandoned
     
     
 }

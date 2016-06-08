@@ -52,13 +52,12 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-            print(json)
-            
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
                 //successfully deleted the game, no data to return needed
                 
                 //lets execute that closure now - Lets me be clear. This is 1 step more advanced than normal. We are executing a closure inside a closure (we are executing the viewControllerCompletionFunction from within the requestCompletionFunction.
+                self.finishCurrentGame()
                 viewControllerCompletionFunction(true,nil)
             }   else    {
                 //the web service to create a user failed. Lets extract the error message to be displayed
@@ -145,7 +144,6 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -189,6 +187,8 @@ class OXGameController: WebService {
     
     func getGame(id: String, presentingViewController: UIViewController? = nil, viewControllerCompletionFunction:(OXGame?,String?) -> ()) {
         
+        print("fuckkk")
+        
         let user: Dictionary<String, String> = ["email":(UserController.sharedInstance.logged_in_user?.email)!,"password":(UserController.sharedInstance.logged_in_user?.password)!, "token":(UserController.sharedInstance.logged_in_user?.token)!, "client":(UserController.sharedInstance.logged_in_user?.client)!]
         
         let request = self.createMutableRequest(NSURL(string: "https://ox-backend.herokuapp.com/games/\(id)"), method: "GET", parameters: user)
@@ -196,6 +196,7 @@ class OXGameController: WebService {
         self.executeRequest(request, presentingViewController: presentingViewController, requestCompletionFunction: {(responseCode, json) in
             
             if (responseCode / 100) == 2 {
+                self.setCurrentGame(OXGame(json: json))
                 viewControllerCompletionFunction(OXGame(json: json), nil)
             }
             else {

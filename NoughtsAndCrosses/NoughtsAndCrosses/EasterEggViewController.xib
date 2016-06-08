@@ -32,18 +32,29 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPd-1R-R0h" customClass="YTPlayerView">
-                    <rect key="frame" x="50" y="112" width="501" height="376"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="50" y="159" width="501" height="282"/>
+                    <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="CPd-1R-R0h" secondAttribute="height" multiplier="4:3" id="4hD-3L-Iby"/>
+                        <constraint firstAttribute="width" secondItem="CPd-1R-R0h" secondAttribute="height" multiplier="16:9" id="4hD-3L-Iby"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIREBALL" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFI-Ba-eI8">
+                    <rect key="frame" x="163" y="451" width="275" height="33.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="275" id="d30-pi-W4Q"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.81176470590000005" green="0.0" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hhD-MY-N4r" secondAttribute="bottom" id="7Q8-np-rMI"/>
+                <constraint firstItem="JFI-Ba-eI8" firstAttribute="top" secondItem="CPd-1R-R0h" secondAttribute="bottom" constant="10" id="Ndm-bm-ePS"/>
                 <constraint firstItem="hhD-MY-N4r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bBl-iY-jwg"/>
                 <constraint firstItem="CPd-1R-R0h" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="cin-db-iBK"/>
+                <constraint firstItem="JFI-Ba-eI8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="erd-aE-6j0"/>
                 <constraint firstItem="hhD-MY-N4r" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gZJ-7r-EN9"/>
                 <constraint firstItem="CPd-1R-R0h" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sul-VQ-Lhl"/>
                 <constraint firstItem="CPd-1R-R0h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xNd-B8-20F"/>

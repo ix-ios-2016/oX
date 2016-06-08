@@ -95,7 +95,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     // control row selected action, navigate to game or show failure alert
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if gameList![indexPath.row].hostUser!.email != UserController.sharedInstance.logged_in_user!.email {
-            OXGameController.sharedInstance.acceptGame(gameList![indexPath.row].gameId!, viewControllerCompletionFunction: {(game, message) in self.acceptGameWithId(self.gameList![indexPath.row], message: message)})
+            OXGameController.sharedInstance.acceptGame(gameList![indexPath.row].gameId!, presentingViewController: self,viewControllerCompletionFunction: {(game, message) in self.acceptGameWithId(self.gameList![indexPath.row], message: message)})
         }
         else {
             let alert = UIAlertController(title: "Wrong Game", message: "You can't play yourself!", preferredStyle: UIAlertControllerStyle.Alert)

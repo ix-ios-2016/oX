@@ -17,6 +17,6 @@
       location = "group:youtube-Bridging-Header.h">
    </FileRef>
    <FileRef
-      location = "group:../../../../../Desktop/youtube-ios-player-helper/youtube-ios-player-helper/Assets.bundle/Assets">
+      location = "group:Assets">
    </FileRef>
 </Workspace>

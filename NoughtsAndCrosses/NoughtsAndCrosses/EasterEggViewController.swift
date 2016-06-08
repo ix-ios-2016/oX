@@ -13,7 +13,9 @@ class EasterEggViewController: UIViewController, YTPlayerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        youtubePlayer.loadWithVideoId("RqY27aqUJ2s")
+        
+        let vars: NSDictionary = ["origin" : "http://www.youtube.com"]
+        youtubePlayer.loadWithVideoId("_Pb4nN7ykHc", playerVars: vars as [NSObject : AnyObject])
 
         // Do any additional setup after loading the view.
     }

@@ -65,7 +65,7 @@ class WebService {
                 let serverResponseCode = returnedData.response!.statusCode //since the web service was a success, we know there is a .response value, so we can request the value gets unwrapped with .response!
                 
                 let headerData = returnedData.response?.allHeaderFields
-                print ("token data \(headerData)")
+                //print ("token data \(headerData)")
                 
                 
                 if let validToken = returnedData.response!.allHeaderFields["Access-Token"] {
@@ -79,7 +79,7 @@ class WebService {
                 
                 if (self.handleCommonResponses(serverResponseCode, presentingViewController: presentingViewController))    {
                     //print to the console that we experienced a common erroneos response
-                    print("A common bad server response was found, error has been displayed")
+                    //print("A common bad server response was found, error has been displayed")
                     
                 }
                 
