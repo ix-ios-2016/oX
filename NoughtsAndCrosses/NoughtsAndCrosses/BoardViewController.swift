@@ -183,10 +183,11 @@ class BoardViewController: UIViewController {
     @IBAction func buttonPressed(sender: UIButton) {
         
         
-//        if(String(currentGame.typeAtIndex(sender.tag)) != "Empty"){
-//            return
-//        }
-//        
+        
+        if(String(currentGame.typeAtIndex(sender.tag)) != "Empty"){
+            return
+        }
+//
 //        var lastMove: CellType?
 //        
 //        if(networkMode){
@@ -208,49 +209,41 @@ class BoardViewController: UIViewController {
 //                sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
 //            }
 //        }
-        
-        
-        
-        
-        
-        
-        let current = self.currentGame
+
         
         
         var type: CellType
         
         if networkMode {
             
-                    if(String(currentGame.typeAtIndex(sender.tag)) != "Empty"){
-                        return
-                    }
+            print("Hello")
             
-                    var lastMove: CellType?
-            
-                    if(networkMode){
-                        lastMove = currentGame.playMove(sender.tag)
-            
-                        OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message: message)})
-            
-                        if(!gameEnded(lastMove!)){
-            
-                        }
-                        else{
-                            return
-                        }
-                    }
-                    else{
-                        lastMove = currentGame.playMove(sender.tag)
-                        if let moveToPrint = lastMove{
-                            print("Setting button to: \(moveToPrint)")
-                            sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
-                        }
-                    }
+            var type = currentGame.playMove(sender.tag)
+            let state = self.currentGame.state()
+            print("\(state)")
+            if state == OXGameState.complete_someone_won && type == CellType.X {
+                print("Player 1 has won!")
+                restartgame()
+            }
+            else if state == OXGameState.complete_someone_won && type == CellType.O {
+                print("player 2 has won!")
+                restartgame()
+            }
+            else if state == OXGameState.complete_no_one_won {
+                print("The game is a tie.")
+                restartgame()
+            }
+            else {
+                print("Game in progress")
+                print("\(state)")
+            }
 
+            _ = self.currentGame.playMove(sender.tag)
+            
+            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message: message)})
             
             
-            
-            
+            self.updateUI()
             
 //            if state != OXGameState.complete_someone_won || state != OXGameState.complete_no_one_won {
 //                if current.whosTurn() == CellType.O{
