@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328" : 0,
+    "CC1CB80635DAA6EE75D19EA4BDDA420AB94DBCEA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "51265F82-C7A8-4006-9537-3BFBBDAE8C25",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328" : "oX\/",
+    "CC1CB80635DAA6EE75D19EA4BDDA420AB94DBCEA" : "SwiftGif\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NoughtsAndCrosses",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "NoughtsAndCrosses\/NoughtsAndCrosses.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bahlo\/SwiftGif.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC1CB80635DAA6EE75D19EA4BDDA420AB94DBCEA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LukePetruzzi\/oX",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EasterEggViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJV-EI-GPh">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="Back to Game"/>
+                    <connections>
+                        <action selector="backToGameButtonPressed:" destination="-1" eventType="touchUpInside" id="Dyk-mK-lOO"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="The pain of discipline is easier than the pain of regret." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-ZL-g46">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jJV-EI-GPh" secondAttribute="bottom" constant="20" id="4J0-2k-gL8"/>
+                <constraint firstItem="jJV-EI-GPh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dr3-nh-c8w"/>
+                <constraint firstAttribute="trailing" secondItem="kQW-ZL-g46" secondAttribute="trailing" constant="5" id="RRr-sY-K1y"/>
+                <constraint firstItem="kQW-ZL-g46" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dAj-KI-10T"/>
+                <constraint firstItem="kQW-ZL-g46" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="nwI-uk-QPf"/>
+                <constraint firstItem="jJV-EI-GPh" firstAttribute="top" secondItem="kQW-ZL-g46" secondAttribute="bottom" constant="5" id="uf1-GJ-esA"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="jJV-EI-GPh"/>
+                    <exclude reference="kQW-ZL-g46"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="RRr-sY-K1y"/>
+                    <exclude reference="dAj-KI-10T"/>
+                    <exclude reference="nwI-uk-QPf"/>
+                    <exclude reference="4J0-2k-gL8"/>
+                    <exclude reference="Dr3-nh-c8w"/>
+                    <exclude reference="uf1-GJ-esA"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="jJV-EI-GPh"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="4J0-2k-gL8"/>
+                    <include reference="Dr3-nh-c8w"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="kQW-ZL-g46"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="RRr-sY-K1y"/>
+                    <include reference="dAj-KI-10T"/>
+                    <include reference="nwI-uk-QPf"/>
+                    <include reference="uf1-GJ-esA"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
