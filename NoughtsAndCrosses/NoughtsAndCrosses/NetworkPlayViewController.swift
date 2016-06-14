@@ -10,7 +10,7 @@ import UIKit
 
 class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var gamesList: [OXGame] = []
+    var gamesList: [OXGame]? = []
     
     //example games
     //var game1: OXGame
@@ -24,8 +24,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
 //            gamesList.append(game)
 //        }
         
-        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gamesList, message) in self.populateTable(gamesList, message: message)})
-        
 
         // Do any additional setup after loading the view.
     }
@@ -35,11 +33,18 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
         self.title = "Network Play"
         tableView.dataSource = self
         tableView.delegate = self
+        
+        OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gameListRecieved(gameList, message:message)})
+    }
+    
+    
+    @IBAction func createNewGame(sender: AnyObject) {
+        OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.getLoggedInUser()!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.newStartGame(game, message:message)})
     }
     
 
@@ -55,10 +60,13 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
         print("did select row \(indexPath.row)")
-        let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
-        self.navigationController?.pushViewController(bvc, animated: true)
-        bvc.networkGame = true
+        
+        OXGameController.sharedInstance.acceptGame(self.gamesList![indexPath.row].gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.acceptGameComplete(game, message: message)})
+        
+        
         
     }
     
@@ -67,12 +75,12 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gamesList.count
+        return gamesList!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let hostEmail = gamesList[indexPath.row].hostUser!.email
+        let hostEmail = gamesList![indexPath.row].hostUser!.email
         cell.textLabel?.text = hostEmail
         return cell
     }
@@ -81,14 +89,30 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         return "Available Online Games"
     }
     
-    func populateTable(games: [OXGame]?, message: String?) {
-        print("Populated table function")
-        print("message: \(message)")
+    func gameListRecieved(games: [OXGame]?, message: String?) {
+        print("Games recieved \(games)")
         
         if let newGames = games {
             self.gamesList = newGames
         }
         self.tableView.reloadData()
     }
-
+    
+    func acceptGameComplete(game: OXGame?, message: String?) {
+        if let acceptGameSuccess = game {
+            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            bvc.networkGame = true
+            bvc.currentGame = acceptGameSuccess
+            self.navigationController?.pushViewController(bvc, animated: true)
+        }
+    }
+    
+    func newStartGame(game: OXGame?, message: String?) {
+        if let newGame = game {
+            let bvc = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            bvc.networkGame = true
+            bvc.currentGame = newGame
+            self.navigationController?.pushViewController(bvc, animated: true)
+        }
+    }
 }

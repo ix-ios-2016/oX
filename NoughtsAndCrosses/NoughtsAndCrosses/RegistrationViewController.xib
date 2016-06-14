@@ -19,7 +19,9 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNz-BC-xZz">
                     <rect key="frame" x="159" y="319" width="57" height="30"/>
-                    <state key="normal" title="Register"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="cpP-O8-5N6"/>
                     </connections>
@@ -34,13 +36,21 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Noughts and Crosses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81C-z0-Tsa">
+                    <rect key="frame" x="50" y="157" width="280" height="37"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="31"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="EU2-N6-HqK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="3xj-3u-zCF"/>
                 <constraint firstItem="RnP-za-Xft" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="8Ip-3l-Sjs"/>
                 <constraint firstItem="RnP-za-Xft" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="H12-0l-Qgj"/>
+                <constraint firstItem="81C-z0-Tsa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Jye-k5-KPL"/>
                 <constraint firstItem="EU2-N6-HqK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MDA-nc-Dh3"/>
+                <constraint firstItem="EU2-N6-HqK" firstAttribute="top" secondItem="81C-z0-Tsa" secondAttribute="bottom" constant="50" id="UeR-Rb-8ir"/>
                 <constraint firstAttribute="trailing" secondItem="EU2-N6-HqK" secondAttribute="trailing" constant="50" id="XbE-oF-yGK"/>
                 <constraint firstAttribute="trailing" secondItem="RnP-za-Xft" secondAttribute="trailing" constant="50" id="a4f-hB-IHj"/>
                 <constraint firstItem="eNz-BC-xZz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kDV-hg-MLi"/>

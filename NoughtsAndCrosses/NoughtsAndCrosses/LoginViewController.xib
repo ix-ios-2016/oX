@@ -24,7 +24,9 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olr-41-zDl">
                     <rect key="frame" x="169" y="319" width="38" height="30"/>
-                    <state key="normal" title="Login"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="9sN-cl-Hnr"/>
                     </connections>
@@ -34,15 +36,23 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Noughts and Crosses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ece-DB-TPI">
+                    <rect key="frame" x="48" y="143" width="280" height="37"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="31"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.23529411759999999" green="0.60784313729999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bu7-md-Xra" secondAttribute="trailing" constant="50" id="0Bm-0y-BFe"/>
                 <constraint firstItem="olr-41-zDl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FnI-Ao-K98"/>
+                <constraint firstItem="HIv-Eh-15B" firstAttribute="top" secondItem="ece-DB-TPI" secondAttribute="bottom" constant="50" id="Mu0-ft-BsA"/>
                 <constraint firstItem="olr-41-zDl" firstAttribute="top" secondItem="bu7-md-Xra" secondAttribute="bottom" constant="20" id="Ndq-WJ-IIu"/>
                 <constraint firstItem="bu7-md-Xra" firstAttribute="top" secondItem="HIv-Eh-15B" secondAttribute="bottom" constant="20" id="PEJ-f6-4Um"/>
                 <constraint firstAttribute="trailing" secondItem="HIv-Eh-15B" secondAttribute="trailing" constant="50" id="VwK-KA-nKj"/>
                 <constraint firstItem="bu7-md-Xra" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ZgT-mG-wYO"/>
+                <constraint firstItem="ece-DB-TPI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Zr0-Ys-Smt"/>
                 <constraint firstItem="HIv-Eh-15B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="c5f-Bp-TtB"/>
                 <constraint firstItem="olr-41-zDl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="taD-g5-iBE"/>
             </constraints>

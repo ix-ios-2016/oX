@@ -29,7 +29,6 @@
 		7D11C9631D016FFF00E9A488 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D11C9611D016FFF00E9A488 /* NetworkPlayViewController.swift */; };
 		7D11C9641D016FFF00E9A488 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D11C9621D016FFF00E9A488 /* NetworkPlayViewController.xib */; };
 		7D33139D1D059A8F0010E0C4 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33139C1D059A8F0010E0C4 /* OXGameController.swift */; };
-		7D56AF891D05C37200338B41 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56AF881D05C37200338B41 /* OXGame.swift */; };
 		7D82AE8A1D05667C008B9DF7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7D82AE891D05667C008B9DF7 /* Podfile */; };
 		7DA664FD1D057A47000FCF3F /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA664FC1D057A47000FCF3F /* WebService.swift */; };
 		7DA664FF1D058830000FCF3F /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA664FE1D058830000FCF3F /* UIViewControllerExtensions.swift */; };
@@ -85,7 +84,6 @@
 		7D11C9611D016FFF00E9A488 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
 		7D11C9621D016FFF00E9A488 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
 		7D33139C1D059A8F0010E0C4 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
-		7D56AF881D05C37200338B41 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		7D82AE891D05667C008B9DF7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		7DA664FC1D057A47000FCF3F /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		7DA664FE1D058830000FCF3F /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = ../UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 			children = (
 				7D11C9561CFE3B1500E9A488 /* UserController.swift */,
 				7D33139C1D059A8F0010E0C4 /* OXGameController.swift */,
-				7D56AF881D05C37200338B41 /* OXGame.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -531,7 +528,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DA664FD1D057A47000FCF3F /* WebService.swift in Sources */,
-				7D56AF891D05C37200338B41 /* OXGame.swift in Sources */,
 				7D11C94E1CFE387C00E9A488 /* RegistrationViewController.swift in Sources */,
 				7D11C9601CFF245400E9A488 /* EasterEggController.swift in Sources */,
 				7D11C95D1CFF23F800E9A488 /* EasterEggViewController.swift in Sources */,

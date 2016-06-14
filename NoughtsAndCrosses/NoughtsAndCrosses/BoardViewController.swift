@@ -12,10 +12,15 @@ class BoardViewController: UIViewController {
     
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var refresh: UIButton!
     @IBOutlet var boardView: UIView!
     @IBOutlet weak var logoutButton: UIButton!
     
     var networkGame: Bool = false
+    var gameEnded: Bool = false
+    
+    var currentGame = OXGame()
     
     @IBOutlet var button0: UIButton!
     @IBOutlet var button1: UIButton!
@@ -28,45 +33,64 @@ class BoardViewController: UIViewController {
     @IBOutlet var button8: UIButton!
     
     @IBOutlet weak var networkPlayButton: UIButton!
-    var gameObject = OXGame()
+    //var gameObject = OXGame()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.updateUI()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func playMoveCompletionFunction(game: OXGame?, message: String?) {
+        if let gameBack = game {
+            self.currentGame = gameBack
+            self.updateUI()
+        }
+        else {
+            //failure
+        }
+        
     }
 
     @IBAction func boardTapped(sender: AnyObject) {
         
         print("board tapped \(sender.tag)")
         
-        
-        
-        //determine state
-        let status = String (gameObject.state())
-        
-        if status == "inProgress"{
-            //set to X or O
-            sender.setTitle("\(String (gameObject.playMove(sender.tag)))", forState: UIControlState.Normal)
+        //NETWORK GAME
+        if networkGame {
+            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveCompletionFunction(game, message:message)})
+        }
             
-            //check if finished
-            let new_status = String (gameObject.state())
-            if new_status == "complete_someone_won" {
-                let xo = String (gameObject.whosTurn())
-                if xo == "X" {
-                    print("O wins!")
-                }
-                else {
-                    print("X wins!")
-                }
+        //LOCAL GAME
+        else {
+            
+            //determine state
+            let status = String (currentGame.state())
+            
+            if status == "inProgress"{
+                //set to X or O
+                sender.setTitle("\(String (currentGame.playMove(sender.tag)))", forState: UIControlState.Normal)
                 
+                //check if finished
+                let new_status = String (currentGame.state())
+                if new_status == "complete_someone_won" {
+                    let xo = String (currentGame.whosTurn())
+                    if xo == "X" {
+                        print("O wins!")
+                    }
+                    else {
+                        print("X wins!")
+                    }
+                    
+                }
+                else if new_status == "complete_no_one_won"{
+                    print("tied game")
+                }
             }
-            else if new_status == "complete_no_one_won"{
-                print("tied game")
-            }
+            
         }
 
         
@@ -74,21 +98,12 @@ class BoardViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
-        
-        //if network game
-        if networkGame {
-            networkPlayButton.hidden = true
-            logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
-        }
-        else {
-            logoutButton.setTitle("Logout", forState: UIControlState.Normal)
-        }
     }
     
     @IBAction func newGameTapped(sender: AnyObject) {
         print("new game button tapped")
         restartGame()
-        gameObject.reset()
+        currentGame.reset()
     }
     
     func restartGame() {
@@ -113,7 +128,9 @@ class BoardViewController: UIViewController {
         }
         //in network play (cancel pressed)
         else {
+            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(bool,message) in self.cancelCurrentGame(bool, message:message)})
             self.navigationController?.popViewControllerAnimated(true)
+            //cancel api call goes here
             
         }
         
@@ -123,6 +140,68 @@ class BoardViewController: UIViewController {
         let nvc = NetworkPlayViewController(nibName:"NetworkPlayViewController",bundle:nil)
         self.navigationController?.pushViewController(nvc, animated: true)
         
+    }
+    
+    
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        OXGameController.sharedInstance.getGame(self.currentGame.gameId!, viewControllerCompletionFunction: {(game,message) in self.gameUpdateRecieved(game, message:message)})
+        
+        
+    }
+    
+    
+    func updateUI() {
+        
+        for view in boardView.subviews{
+            if let button = view as? UIButton {
+                button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
+            }
+        }
+        
+        //if network game
+        if networkGame {
+            networkPlayButton.hidden = true
+            logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
+            //someone has joined game
+            if currentGame.guestUser?.email != "" {
+                if currentGame.localUsersTurn() {
+                    self.newGameButton.setTitle("Your turn", forState: UIControlState.Normal)
+                    self.boardView.userInteractionEnabled = true
+                }
+                else {
+                    self.newGameButton.setTitle("Their turn", forState: UIControlState.Normal)
+                    self.boardView.userInteractionEnabled = false
+                }
+                
+            }
+                //open or abandoned
+            else {
+                self.newGameButton.setTitle("Waiting for opponent to join", forState: UIControlState.Normal)
+                self.boardView.userInteractionEnabled = false
+            }
+        }
+        else {
+            logoutButton.setTitle("Logout", forState: UIControlState.Normal)
+            refresh.hidden = true
+        }
+        
+        
+        
+    }
+    
+    func gameUpdateRecieved(game: OXGame?, message: String?) {
+        if let gameRecieved = game {
+            self.currentGame = gameRecieved
+        }
+        self.updateUI()
+        
+        
+    }
+    
+    func cancelCurrentGame(cancel: Bool?, message: String?) {
+
+            print("game canceled")
+
     }
     
 }

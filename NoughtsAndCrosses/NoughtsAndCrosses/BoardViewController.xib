@@ -21,6 +21,8 @@
                 <outlet property="button8" destination="98z-PQ-N63" id="DHe-ED-oPe"/>
                 <outlet property="logoutButton" destination="1cp-6n-plq" id="8BD-60-mhO"/>
                 <outlet property="networkPlayButton" destination="E16-yK-SWc" id="emK-cU-clF"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="SJa-6i-2o5"/>
+                <outlet property="refresh" destination="vvz-Xf-8BB" id="tKc-Ld-ch5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -430,9 +432,20 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E16-yK-SWc">
                     <rect key="frame" x="23" y="0.0" width="91" height="30"/>
-                    <state key="normal" title="Network Play"/>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="8PJ-z6-3fd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvz-Xf-8BB">
+                    <rect key="frame" x="539" y="8" width="53" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="XWz-Q8-FUM"/>
                     </connections>
                 </button>
             </subviews>
@@ -456,6 +469,8 @@
                     <variation key="heightClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
+                <constraint firstItem="vvz-Xf-8BB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="fvM-68-ldA"/>
+                <constraint firstAttribute="trailing" secondItem="vvz-Xf-8BB" secondAttribute="trailing" constant="30" id="guW-RU-nRm"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
