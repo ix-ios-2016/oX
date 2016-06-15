@@ -44,6 +44,17 @@ class BoardViewController: UIViewController {
                 currentGame.playMove(sender.tag)
                 OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMove(game, message: message)})
                 
+                let gameState = currentGame.state()
+                if (gameState == OXGameState.complete_someone_won) {
+                    print("The winner is \(String(currentGame.typeAtIndex(sender.tag)))!")
+                    restartGame()
+                } else if (gameState == OXGameState.complete_no_one_won) {
+                    print("There is a tie!")
+                    restartGame()
+                } else if (gameState == OXGameState.inProgress) {
+                    print("Game in progress")
+                }
+                
             }
             
         } else {
