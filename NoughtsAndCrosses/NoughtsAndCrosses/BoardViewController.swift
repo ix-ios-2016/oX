@@ -6,6 +6,8 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
+// to do - eliminate redundancy between playMoveComplete and gameUpdateReceived
+
 import UIKit
 
 class BoardViewController: UIViewController {
@@ -25,6 +27,8 @@ class BoardViewController: UIViewController {
     
     var networkGame = false
     
+    var timer: NSTimer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +40,10 @@ class BoardViewController: UIViewController {
         
         // update the UI
         self.updateUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.refreshGame), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,13 +99,11 @@ class BoardViewController: UIViewController {
     
     func playMoveComplete(game: OXGame?, message: String?) {
         if let newGame = game {
-            if newGame.guestUser == nil || newGame.hostUser == nil {
-                // someone cancelled
-            }
             self.currentGame = newGame
             self.updateUI()
             
             if self.gameEnded() {
+                self.timer?.invalidate()
                 // alert the user that the game is over and leave
                 var messageToUser: String
                 var opponentUsername: String
@@ -117,7 +123,7 @@ class BoardViewController: UIViewController {
                 let alertController = UIAlertController(title: "Game Over",
                                                         message: messageToUser, preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
-                    self.navigationController?.popViewControllerAnimated(true)
+                    self.leaveGame()
                 }
                 alertController.addAction(OKAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -141,7 +147,7 @@ class BoardViewController: UIViewController {
 //        OXGameController.sharedInstance.finishCurrentGame()
         self.resetBoard()
         if (self.networkGame) {
-            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(cancelled, message) in self.cancelGameComplete(cancelled, message: message)})
+            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(cancelled, message) in self.leaveGame()})
         } else {
             // persistence
             NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "loggedInUser")
@@ -152,9 +158,6 @@ class BoardViewController: UIViewController {
         }
     }
     
-    func cancelGameComplete(cancelled: Bool, message: String?) {
-        self.navigationController!.popViewControllerAnimated(true)
-    }
     
     // action for network play button
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
@@ -172,6 +175,8 @@ class BoardViewController: UIViewController {
         if let gameReceived = game {
             self.currentGame = gameReceived
             if self.currentGame.backendState == OXGameState.abandoned {
+                // stop the timer
+                self.timer?.invalidate()
                 var opponentUsername: String
                 
                 if UserController.sharedInstance.getLoggedInUser()!.email == self.currentGame.hostUser?.email {
@@ -185,7 +190,7 @@ class BoardViewController: UIViewController {
                 let alertController = UIAlertController(title: "Game Cancelled",
                                                         message: messageToUser, preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
-                    self.navigationController?.popViewControllerAnimated(true)
+                    self.leaveGame()
                 }
                 alertController.addAction(OKAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -197,6 +202,7 @@ class BoardViewController: UIViewController {
         
         // similar block as in playMoveComplete
         if self.gameEnded() {
+            self.timer?.invalidate()
             // alert the user that the game is over and leave
             var messageToUser: String
             var opponentUsername: String
@@ -216,7 +222,7 @@ class BoardViewController: UIViewController {
             let alertController = UIAlertController(title: "Game Over",
                                                     message: messageToUser, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
-                self.navigationController?.popViewControllerAnimated(true)
+                self.leaveGame()
             }
             alertController.addAction(OKAction)
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -268,6 +274,20 @@ class BoardViewController: UIViewController {
                 button.setTitle("", forState: UIControlState.Normal)
             }
         }
+    }
+    
+    // function for refreshing the game if it is in network mode
+    func refreshGame() {
+        if self.networkGame {
+            // in this case, we will not send the presenting view controller, so that no loading overlay is repeatedly shown
+            OXGameController.sharedInstance.getGame(self.currentGame.gameId!, presentingViewController: nil, viewControllerCompletionFunction: {(game, message) in self.gameUpdateReceived(game, message:message)})
+        }
+    }
+    
+    // universal function for leaving the game
+    private func leaveGame() {
+        self.navigationController?.popViewControllerAnimated(true)
+        self.timer?.invalidate()
     }
     
     
