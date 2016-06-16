@@ -26,7 +26,6 @@ struct User {
     
     //constructor from JSON
     init(json:JSON)  {
-//        print("json init")
         self.email = json["email"].stringValue
         self.client = json["client"].stringValue
         self.token = json["token"].stringValue
@@ -75,7 +74,6 @@ class UserController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-//            print(json)
             var user:User = User(email: "", password: "", token: "", client:"")
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
@@ -127,7 +125,6 @@ class UserController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-//            print(json)
             var user:User = User(email: "", password: "",token:"", client: "")
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)

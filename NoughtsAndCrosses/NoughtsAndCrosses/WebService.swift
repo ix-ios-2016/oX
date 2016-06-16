@@ -64,9 +64,6 @@ class WebService {
                 var json = JSON(returnedData.result.value!)
                 let serverResponseCode = returnedData.response!.statusCode //since the web service was a success, we know there is a .response value, so we can request the value gets unwrapped with .response!
                 
-                let headerData = returnedData.response?.allHeaderFields
-//                print("token data \(headerData)")
-                
                 
                 if let validToken = returnedData.response!.allHeaderFields["Access-Token"] {
                     let tokenJson:JSON = JSON(validToken)

@@ -56,7 +56,6 @@ extension UIViewController  {
     }
     
     func makeViewDropKeyboard()   {
-        print("makeViewDropTapped")
         self.view.endEditing(true);
         self.resignFirstResponder()
     }

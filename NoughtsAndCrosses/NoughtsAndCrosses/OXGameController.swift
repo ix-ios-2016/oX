@@ -49,7 +49,6 @@ class OXGame    {
     
     //constructor from JSON
     init(json:JSON)  {
-//        print("json init")
         self.gameId = json["id"].stringValue
         self.backendState = OXGameState(rawValue: json["state"].stringValue)
         self.board = deserialiseBoard(json["board"].stringValue)
@@ -62,7 +61,6 @@ class OXGame    {
         
         var newBoard:[CellType] = []
         for (_, char) in boardString.characters.enumerate() {
-//            print (char)
             
             if (char == "_")   {
                 //EMPTY
@@ -153,9 +151,6 @@ class OXGame    {
         //Check rows
         for i in 0...2 {
             if((board[3*i] == board[3*i + 1]) && (board[3*i] == board[3*i + 2]) && !(String(board[3*i]) == "EMPTY")){
-                print("Someone won at row i")
-                print(i)
-                print( board[i])
                 return true
             }
         }
@@ -163,20 +158,15 @@ class OXGame    {
         //Check columns
         for j in 0...2 {
             if((board[j] == board[j + 3]) && (board[j] == board[j + 6]) && !(String(board[j]) == "EMPTY")){
-                print("Someone won at column j")
-                print(j)
-                print( board[j])
                 return true
             }
         }
         
         //Check diagonals
         if((board[0] == board[4]) && (board[0] == board[8]) && !(String(board[0]) == "EMPTY")){
-            print("Someone won at diagonal 1")
             return true
         }
         if((board[2] == board[4]) && (board[2] == board[6]) && !(String(board[2]) == "EMPTY")){
-            print("Someone won at diagonal 2")
             return true
         }
         
@@ -249,7 +239,6 @@ class OXGameController: WebService {
             //json is the response data received
             
             print("game cancelled")
-            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -291,8 +280,6 @@ class OXGameController: WebService {
             //Not only is the code in this block executed, but we are given 2 input parameters, responseCode and json.
             //responseCode is the response code from the server.
             //json is the response data received
-//            
-//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -347,8 +334,6 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-//            print(json)
-            
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
                 let game = OXGame(json: json)
@@ -391,8 +376,6 @@ class OXGameController: WebService {
             //responseCode is the response code from the server.
             //json is the response data received
             
-//            print(json)
-            
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
                 let game = OXGame(json: json)
@@ -416,7 +399,6 @@ class OXGameController: WebService {
     }
     
     func playMove(index: Int) -> CellType{
-        //        print("PlayingMove on 'network'")
         let cellType: CellType = (currentGame.playMove(index))!
         return cellType
     }
@@ -456,8 +438,6 @@ class OXGameController: WebService {
             //Not only is the code in this block executed, but we are given 2 input parameters, responseCode and json.
             //responseCode is the response code from the server.
             //json is the response data received
-            
-//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 
@@ -500,8 +480,6 @@ class OXGameController: WebService {
             //Not only is the code in this block executed, but we are given 2 input parameters, responseCode and json.
             //responseCode is the response code from the server.
             //json is the response data received
-            
-//            print(json)
             
             if (responseCode / 100 == 2)   { //if the responseCode is 2xx (any responseCode in the 200's range is a success case. For example, some servers return 201 for successful object creation)
                 

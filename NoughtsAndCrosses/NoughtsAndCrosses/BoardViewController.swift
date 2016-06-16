@@ -6,8 +6,6 @@
 //  Copyright © 2016 Julian Hulme. All rights reserved.
 //
 
-// to do - eliminate redundancy between playMoveComplete and gameUpdateReceived
-
 import UIKit
 
 class BoardViewController: UIViewController {
@@ -43,7 +41,7 @@ class BoardViewController: UIViewController {
         self.navigationController?.navigationBarHidden = true
     }
     
-    // start timer when the view has appeared
+    // start refresh timer when the view has appeared (if in network mode)
     override func viewDidAppear(animated: Bool) {
         if self.networkGame {
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.refreshGame), userInfo: nil, repeats: true)
@@ -71,7 +69,7 @@ class BoardViewController: UIViewController {
     
     // action for pressing any of the game board buttons
     @IBAction func buttonTapped(sender: AnyObject) {
-        // if the button is already filled, don't do anything
+        // if the button is already filled, don't do anything and exit
         if (self.currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
             return
         }
@@ -82,6 +80,7 @@ class BoardViewController: UIViewController {
         // check if in network mode
         if self.networkGame {
             // send the move to the network
+            // will update the UI in the playMoveComplete function
             OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message:message)})
         } else {
             // update the UI
@@ -105,7 +104,8 @@ class BoardViewController: UIViewController {
                 self.leaveGame(true)
             }
         } else {
-            // display an error message
+            // to do: display the error message
+            print("playMoveComplete - the server did not return a game")
         }
     }
     
@@ -126,7 +126,9 @@ class BoardViewController: UIViewController {
             // stop timer
             self.timer?.invalidate()
             // if in network mode, we are cancelling the network game
-            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(cancelled, message) in self.navigationController?.popViewControllerAnimated(true)})
+            OXGameController.sharedInstance.cancelGame(self.currentGame.gameId!, presentingViewController: self,
+                                                       viewControllerCompletionFunction: {(cancelled, message) in
+                                                        self.navigationController?.popViewControllerAnimated(true)})
         } else {
             // if in local mode, we are signing out the user
             NSUserDefaults.standardUserDefaults().setValue(nil, forKeyPath: "loggedInUser") // persist the log out
@@ -137,8 +139,8 @@ class BoardViewController: UIViewController {
     
     
     // enter network mode
+    // this button is only active when the game is in local mode
     @IBAction func networkPlayButtonTapped(sender: UIButton) {
-        // note that this function only executes when the view is in local mode
         let networkPlayViewController = NetworkPlayViewController(nibName: "NetworkPlayViewController", bundle: nil)
         self.navigationController?.pushViewController(networkPlayViewController, animated: true)
     }
@@ -176,7 +178,7 @@ class BoardViewController: UIViewController {
         }
         // if not a network game, leave the UI as default
         
-        // update the game board
+        // update the game board based on internal game state
         for view in self.boardContainer.subviews {
             if let button = view as? UIButton {
                 let str = self.currentGame.board[button.tag].rawValue
@@ -196,6 +198,7 @@ class BoardViewController: UIViewController {
     }
     
     // function for refreshing the game if it is in network mode
+    // this function will be periodically called by the NSTimer
     func refreshGame() {
         if self.networkGame {
             // in this case, we will not send the presenting view controller, so that no loading overlay is repeatedly shown
@@ -206,6 +209,7 @@ class BoardViewController: UIViewController {
     // respond to a game update from the server
     func gameUpdateReceived(game: OXGame?, message: String?) {
         if let gameReceived = game {
+            // update internal game state
             self.currentGame = gameReceived
             // check if the game has been cancelled
             if self.currentGame.backendState == OXGameState.abandoned {
@@ -221,7 +225,7 @@ class BoardViewController: UIViewController {
                 }
                 let messageToUser = "Sorry! \(opponentUsername) cancelled the game."
                 
-                // set up alert
+                // set up and display alert
                 let alertController = UIAlertController(title: "Game Cancelled",
                                                         message: messageToUser, preferredStyle: .Alert)
                 let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in
@@ -234,24 +238,26 @@ class BoardViewController: UIViewController {
                 self.updateUI()
                 
                 if self.gameEnded() {
+                    // if game ended (and not tie), the local user lost
                     self.leaveGame(false)
                 }
             }
         } else {
             // to do: display error message from server to user
-            print("something went wrong")
+            print("gameUpdateReceived - server did not return a game")
         }
     }
     
     // helper function for leaving the game
     private func leaveGame(didWin: Bool) {
-        // end timer and display ending state
+        // end timer for refreshing
         self.timer?.invalidate()
+        
         // alert the user that the game is over
         var messageToUser: String
         var opponentUsername: String
         
-        // win or loss
+        // determine whether it is a win or loss
         var winOrLoss, defeated: String
         if didWin {
             winOrLoss = "won"
@@ -274,7 +280,7 @@ class BoardViewController: UIViewController {
             messageToUser = "You tied the game with \(opponentUsername)."
         }
         
-        // display alert
+        // set up and display alert
         let alertController = UIAlertController(title: "Game Over",
                                                 message: messageToUser, preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "Leave Game", style: .Default) {action in

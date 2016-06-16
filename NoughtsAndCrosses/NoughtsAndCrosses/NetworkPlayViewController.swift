@@ -42,9 +42,7 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.title = "Network Play"
         self.navigationController?.navigationBarHidden = false
-        
         OXGameController.sharedInstance.gameList(self, viewControllerCompletionFunction: {(gameList, message) in self.gameListReceived(gameList, message:message)})
         
     }
@@ -66,13 +64,11 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("did select row \(indexPath.row)")
         OXGameController.sharedInstance.acceptGame(self.gameList![indexPath.row].gameId!, presentingViewController: self, viewControllerCompletionFunction: {(gameList, message) in self.acceptGameComplete(gameList, message: message)})
         
     }
     
     func acceptGameComplete(game: OXGame?, message: String?) {
-        print("accept game complete")
         
         if let gameAcceptedSuccess = game {
             let networkBoardView = BoardViewController(nibName: "BoardViewController", bundle: nil)
