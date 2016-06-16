@@ -13,7 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var authorizationNavigationContoller: UINavigationController?
+    var loggedOutNavigationController: UINavigationController?
+    var easterEggNavigationController: UINavigationController?
 
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -21,14 +25,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.navigationController = UINavigationController(rootViewController: boardViewController)
         self.navigationController?.navigationBarHidden = true
         
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorizationNavigationContoller = UINavigationController(rootViewController: landingViewController)
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
         self.window?.makeKeyAndVisible()
         
+        let userIsLoggedIn = UserController.sharedInstance.getLoggedInUser()
+//        UserController.sharedInstance.getStoredUser
         
+        if let loggedIn = userIsLoggedIn {
+            
+            self.window?.rootViewController = self.navigationController
+
+        }
+        else{
+
+            
+            //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window?.rootViewController = self.authorizationNavigationContoller
+            //self.window?.makeKeyAndVisible()
+
+        }
+    
+        
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        self.window?.rootViewController = self.authorizationNavigationContoller
+//        self.window?.makeKeyAndVisible()
+        
+        var easterEggController: EasterEggController?
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         return true
     }
+    
+    func navigateToEasterEggScreen() {
+        window?.rootViewController = easterEggNavigationController
+    }
+    
+    func navigateToBoardNavigationController() {
+        window?.rootViewController = navigationController
+    }
+    
+    func navigateToLandingNavigationController() {
+        window?.rootViewController = authorizationNavigationContoller
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
