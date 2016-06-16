@@ -61,7 +61,8 @@ class BoardViewController: UIViewController {
         
         //NETWORK GAME
         if networkGame {
-            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveCompletionFunction(game, message:message)})
+                sender.setTitle("\(String (currentGame.playMove(sender.tag)))", forState: UIControlState.Normal)
+                OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveCompletionFunction(game, message:message)})
         }
             
         //LOCAL GAME
