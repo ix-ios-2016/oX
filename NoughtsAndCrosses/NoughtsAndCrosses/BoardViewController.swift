@@ -18,6 +18,7 @@ class BoardViewController: UIViewController {
     
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
+
     
     @IBOutlet weak var networkPlayButton: UIButton!
     @IBOutlet weak var target2: UIButton!
