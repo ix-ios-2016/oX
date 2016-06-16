@@ -183,123 +183,33 @@ class BoardViewController: UIViewController {
     @IBAction func buttonPressed(sender: UIButton) {
         
         
+        var buttons = [target, target2, target3, target4, target5, target6, target7, target8, target9]
         
-        if(String(currentGame.typeAtIndex(sender.tag)) != "Empty"){
+        let tag = sender.tag
+        
+        print ("Button: \(tag) was tapped")
+        
+        let gameState = self.currentGame
+        
+        //Ensure players can't change the previously made move
+        if (currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
             return
         }
-//
-//        var lastMove: CellType?
-//        
-//        if(networkMode){
-//            lastMove = currentGame.playMove(sender.tag)
-//            
-//            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message: message)})
-//            
-//            if(!gameEnded(lastMove!)){
-//                
-//            }
-//            else{
-//                return
-//            }
-//        }
-//        else{
-//            lastMove = currentGame.playMove(sender.tag)
-//            if let moveToPrint = lastMove{
-//                print("Setting button to: \(moveToPrint)")
-//                sender.setTitle("\(moveToPrint)", forState: UIControlState.Normal)
-//            }
-//        }
-
+        var lastMove : CellType?
         
-        
-        var type: CellType
-        
-        if networkMode {
-            
-            print("Hello")
-            
-            var type = currentGame.playMove(sender.tag)
-            let state = self.currentGame.state()
-            print("\(state)")
-            if state == OXGameState.complete_someone_won && type == CellType.X {
-                print("Player 1 has won!")
-                restartgame()
+        if (networkMode) {
+            lastMove = currentGame.playMove(sender.tag)
+            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId! , presentingViewController: self , viewControllerCompletionFunction: {(game , message) in self.playMoveComplete(game , message : message)})
+            if (gameEnded(lastMove!)) {
+                return
             }
-            else if state == OXGameState.complete_someone_won && type == CellType.O {
-                print("player 2 has won!")
-                restartgame()
-            }
-            else if state == OXGameState.complete_no_one_won {
-                print("The game is a tie.")
-                restartgame()
-            }
-            else {
-                print("Game in progress")
-                print("\(state)")
-            }
-
-            _ = self.currentGame.playMove(sender.tag)
-            
-            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!,presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveComplete(game, message: message)})
-            
-            
-            self.updateUI()
-            
-//            if state != OXGameState.complete_someone_won || state != OXGameState.complete_no_one_won {
-//                if current.whosTurn() == CellType.O{
-//                    var (newMove, place) = OXGameController.sharedInstance.playRandomMove()!
-//                    current.board[place] = newMove
-//                    places[place].setTitle(String("O"), forState: UIControlState.Normal)
-//                    let state = self.currentGame.state()
-//                    if state == OXGameState.complete_someone_won && type == CellType.X {
-//                        print("Player 1 has won!")
-//                        restartgame()
-//                    }
-//                    else if state == OXGameState.complete_someone_won && type == CellType.O {
-//                        print("player 2 has won!")
-//                        restartgame()
-//                    }
-//                    else if state == OXGameState.complete_no_one_won {
-//                        print("The game is a tie.")
-//                        restartgame()
-//                    }
-//                    else {
-//                        print("Game in progress")
-//                    }
-//                    
-//                }
-//            }
         } else {
-            type = currentGame.playMove(sender.tag)
-            print("Button \(sender.tag) pressed")
-            print(type)
-            sender.setTitle(String(type), forState: UIControlState.Normal)
-            
-            let state = self.currentGame.state()
-            print("\(state)")
-            if state == OXGameState.complete_someone_won && type == CellType.X {
-                print("Player 1 has won!")
-                restartgame()
-            }
-            else if state == OXGameState.complete_someone_won && type == CellType.O {
-                print("player 2 has won!")
-                restartgame()
-            }
-            else if state == OXGameState.complete_no_one_won {
-                print("The game is a tie.")
-                restartgame()
-            }
-            else {
-                print("Game in progress")
-                print("\(state)")
+            lastMove = currentGame.playMove(sender.tag)
+            if let moveToPrint = lastMove {
+                print("Setting button to: \(moveToPrint)")
+                buttons[tag].setTitle(String(lastMove!), forState: UIControlState.Normal)
             }
         }
-        
-        
-        
-        
-
-        //print(OXGameController.sharedInstance.gameList?.endIndex)
         
     }
     
