@@ -88,6 +88,32 @@ class BoardViewController: UIViewController {
         
     }
     @IBAction func buttonTapped(sender: AnyObject) {
+        
+        if networkGame {
+            sender.setTitle(String(currentGame.playMove(sender.tag)), forState: UIControlState.Normal)
+            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.playMoveComplete(game,message:message)})            
+        } else {
+            let gameState = String(gameObject.state())
+            if gameState == "inProgress" {
+                gameObject.playMove(sender.tag)
+                sender.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
+                let newState = String(gameObject.state())
+                if newState == "complete_someone_won" {
+                    if String(gameObject.whosTurn()) == "X" {
+                        print("Congrats O won!")
+                    } else if String(gameObject.whosTurn()) == "O" {
+                        print ("Congrats X won!")
+                    }
+                } else if newState == "complete_no_one_won" {
+                    print ("you tied")
+                }
+            }
+        }
+        
+        
+    }
+    
+    
 //        if String(currentGame.typeAtIndex(sender.tag)) != "EMPTY") {
 //            return
 //        }
@@ -109,23 +135,6 @@ class BoardViewController: UIViewController {
 //                }
 //            }
 //
-        
-        let gameState = String(gameObject.state())
-        if gameState == "inProgress" {
-            gameObject.playMove(sender.tag)
-            sender.setTitle(String(gameObject.typeAtIndex(sender.tag)), forState: UIControlState.Normal)
-            let newState = String(gameObject.state())
-            if newState == "complete_someone_won" {
-                if String(gameObject.whosTurn()) == "X" {
-                    print("Congrats O won!")
-                } else if String(gameObject.whosTurn()) == "O" {
-                    print ("Congrats X won!")
-                }
-            } else if newState == "complete_no_one_won" {
-                print ("you tied")
-            }
-        }
-    }
 
     @IBAction func newGame(sender: AnyObject) {
         self.restartGame()
