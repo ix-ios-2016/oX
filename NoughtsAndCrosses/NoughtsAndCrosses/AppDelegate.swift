@@ -12,20 +12,32 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    var boardNavigationController: UINavigationController?
+    var authorizationNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        // set up landing view controller
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        self.authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
         
+        // set up board view controller
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.boardNavigationController = UINavigationController(rootViewController: boardViewController)
+        self.boardNavigationController?.navigationBarHidden = true
+        
+        // set up window, and then set the window's root navigation controller to the appropriate nav controller
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("loggedInUser") { // check if logged in already
+                self.window?.rootViewController = self.boardNavigationController
+        } else {
+            self.window?.rootViewController = self.authorizationNavigationController
+        }
         self.window?.makeKeyAndVisible()
         
-        
+        // initiate the gesture recognizers for the Easter Egg Controller on the app window
+        EasterEggController.sharedInstance.initiate(self.window!)
         
         return true
     }
@@ -50,6 +62,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // set the app window's root view controller to be the board nav controller
+    func navigateToGame() {
+        self.window?.rootViewController = self.boardNavigationController
+    }
+    
+    // set the app window's root view controller to be the authorization nav controller
+    func navigateToLoggedOutNavigationController() {
+        self.window?.rootViewController = self.authorizationNavigationController
+    }
+    
+    // set the app window's root view controller to be the easter egg view controller
+    func navigateToEasterEggScreen() {
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        self.window?.rootViewController = easterEggViewController
+    }
+    
+    // set the app window's root view controller to be the previous navigation controller (before easter egg screen)
+    func navigateAwayFromEasterEggScreen() {
+        // check if logged in, and navigate back accordingly
+        if let _ = NSUserDefaults.standardUserDefaults().objectForKey("loggedInUser") {
+            self.window?.rootViewController = self.boardNavigationController
+        } else {
+            self.window?.rootViewController = self.authorizationNavigationController
+        }
+    }
+    
+    // once logged in, move to boardView
+    func navigateToLoggedInNavigationController() {
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        self.boardNavigationController = UINavigationController(rootViewController: boardViewController)
+        self.window?.rootViewController = self.boardNavigationController
     }
 
 

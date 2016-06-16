@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NetworkPlayViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
+            <connections>
+                <outlet property="networkTable" destination="Xio-fq-0b6" id="hd7-f9-bek"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xio-fq-0b6">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                    <color key="backgroundColor" red="0.49803921569999998" green="0.40784313729999999" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.80000000000000004" green="0.65490196078431373" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="1" green="0.81568627450980391" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="8" y="68" width="384" height="524"/>
+                    </variation>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-p6-glB">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.89411764709999997" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="New Network Game">
+                        <color key="titleColor" red="0.49803921569999998" green="0.44705882349999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="newGameButtonTapped:" destination="-1" eventType="touchUpInside" id="NQT-q6-xOS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Xio-fq-0b6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="68w-XC-T2b"/>
+                <constraint firstAttribute="bottom" secondItem="Oki-p6-glB" secondAttribute="bottom" id="8Xw-8I-n8i"/>
+                <constraint firstAttribute="bottom" secondItem="Xio-fq-0b6" secondAttribute="bottom" constant="50" id="9as-EB-Ey1"/>
+                <constraint firstItem="Xio-fq-0b6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="D83-Ha-G68"/>
+                <constraint firstAttribute="trailing" secondItem="Xio-fq-0b6" secondAttribute="trailing" id="GcZ-YV-rth"/>
+                <constraint firstAttribute="trailing" secondItem="Oki-p6-glB" secondAttribute="trailing" id="OOt-ez-M6A"/>
+                <constraint firstItem="Oki-p6-glB" firstAttribute="top" secondItem="Xio-fq-0b6" secondAttribute="bottom" id="PB9-ll-1cq"/>
+                <constraint firstItem="Oki-p6-glB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uwa-fD-KeS"/>
+                <constraint firstItem="Oki-p6-glB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vG1-Vn-kjd"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
