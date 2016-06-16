@@ -12,6 +12,7 @@
                 <outlet property="boardView" destination="qYi-hH-8b3" id="xkc-kZ-XrK"/>
                 <outlet property="logOutButton" destination="jew-nw-eFS" id="LIB-Sj-Yts"/>
                 <outlet property="networkPlayButton" destination="HF8-MZ-vbb" id="c4t-th-qUk"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="I2k-VH-WEp"/>
                 <outlet property="refresh" destination="L1g-4C-61B" id="7uc-FP-O3W"/>
                 <outlet property="target" destination="Lgl-eZ-ME1" id="wHh-qC-oEB"/>
                 <outlet property="target2" destination="N6c-yA-Xo4" id="bSA-4g-E24"/>
@@ -403,7 +404,7 @@
                         </mask>
                     </variation>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSP-P1-uv7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSP-P1-uv7">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <color key="backgroundColor" red="0.69803921570000005" green="0.1647058824" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -411,7 +412,7 @@
                         <constraint firstAttribute="height" constant="50" id="G4T-pM-bFj"/>
                     </constraints>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="New Game">
+                    <state key="normal" title="hell">
                         <attributedString key="attributedTitle">
                             <fragment content="New Game">
                                 <attributes>
@@ -452,24 +453,8 @@
                         <action selector="logOutPressed:" destination="-1" eventType="touchUpInside" id="iCh-Bk-j9d"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-4C-61B">
-                    <rect key="frame" x="293" y="30" width="53" height="30"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Refresh">
-                                <attributes>
-                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <font key="NSFont" size="15" name="Optima-Bold"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
-                    <connections>
-                        <action selector="refreshButton:" destination="-1" eventType="touchUpInside" id="6gN-VJ-eTD"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HF8-MZ-vbb">
-                    <rect key="frame" x="143" y="114" width="91" height="30"/>
+                    <rect key="frame" x="144" y="110" width="89" height="30"/>
                     <state key="normal">
                         <attributedString key="attributedTitle">
                             <fragment content="Network Play">
@@ -482,6 +467,22 @@
                     </state>
                     <connections>
                         <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="P5r-PY-4CD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1g-4C-61B">
+                    <rect key="frame" x="281" y="30" width="49" height="30"/>
+                    <state key="normal">
+                        <attributedString key="attributedTitle">
+                            <fragment content="Refresh">
+                                <attributes>
+                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="15" name="Optima-Bold"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <connections>
+                        <action selector="refreshButton:" destination="-1" eventType="touchUpInside" id="6gN-VJ-eTD"/>
                     </connections>
                 </button>
             </subviews>
@@ -515,7 +516,7 @@
                     <exclude reference="d8s-qj-E3B"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="292" y="339"/>
+            <point key="canvasLocation" x="291.5" y="338.5"/>
         </view>
     </objects>
 </document>
