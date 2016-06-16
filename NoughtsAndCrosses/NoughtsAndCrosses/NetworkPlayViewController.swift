@@ -22,7 +22,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         self.title = "Choose a Game"
         self.networkTable.dataSource = self
         self.networkTable.delegate = self
-//        self.gameList = OXGameController.sharedInstance.getListOfGames()
         
         // set up refresher controller
         refreshControl = UIRefreshControl()
@@ -33,7 +32,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func refreshTable() {
-//        self.gameList = OXGameController.sharedInstance.getListOfGames()
         self.networkTable.reloadData()
         refreshControl.endRefreshing()
     }
@@ -52,7 +50,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func gameListReceived(games:[OXGame]?, message: String?) {
-//        print("games received \(games)")
         if let newGames = games {
             self.gameList = newGames
         }
@@ -64,7 +61,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
         self.navigationController?.navigationBarHidden = false
         
         // refresh table
-//        self.gameList = OXGameController.sharedInstance.getListOfGames()
         self.networkTable.reloadData()
         refreshControl.endRefreshing()
     }
@@ -111,7 +107,6 @@ class NetworkPlayViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     @IBAction func newGameButtonTapped(sender: UIButton) {
-//        OXGameController.sharedInstance.createNewGame(user)
         OXGameController.sharedInstance.createNewGame(UserController.sharedInstance.getLoggedInUser()!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.newGameCompleted(game, message:message)})
         
     }
