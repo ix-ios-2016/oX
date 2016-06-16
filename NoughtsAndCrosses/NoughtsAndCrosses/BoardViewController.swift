@@ -184,13 +184,12 @@ class BoardViewController: UIViewController {
         
         
         var buttons = [target, target2, target3, target4, target5, target6, target7, target8, target9]
-        
         let tag = sender.tag
         
-        print ("Button: \(tag) was tapped")
+        print ("Button \(tag) was tapped")
         
-        let gameState = self.currentGame
-        
+        let gameState = self.currentGame.state()
+        print(gameState)
         //Ensure players can't change the previously made move
         if (currentGame.typeAtIndex(sender.tag) != CellType.EMPTY) {
             return
@@ -210,6 +209,31 @@ class BoardViewController: UIViewController {
                 buttons[tag].setTitle(String(lastMove!), forState: UIControlState.Normal)
             }
         }
+        
+        if self.gameEnded(currentGame.typeAtIndex(sender.tag))
+        {
+            // alert the user that the game is over and leave
+            var messageToUser: String
+            
+            
+            if self.currentGame.state() == OXGameState.complete_someone_won {
+                messageToUser = (String(currentGame.whoJustPlayed()) + " just beat " + String(currentGame.whosTurn()) + "s!")
+            } else {
+                messageToUser = "The game finished tied!"
+            }
+            
+            let alertController = UIAlertController(title: "Game Over",
+                                                    message: messageToUser, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Leave", style: .Default) {action in
+                self.navigationController?.popViewControllerAnimated(true)
+                // reset back end and view
+                self.restartgame()
+                self.currentGame.reset()
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+
         
     }
     
