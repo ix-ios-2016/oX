@@ -67,16 +67,25 @@ class BoardViewController: UIViewController {
                 button.setTitle(self.currentGame.board[button.tag].rawValue, forState: UIControlState.Normal)
             }
         }
-        
-        
         if networkGame {
             if currentGame.guestUser?.email != "" {
-                if (self.currentGame.localUsersTurn()) {
-                    self.newGameButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
-                    self.boardView.userInteractionEnabled = true
-                } else {
-                    self.newGameButton.setTitle("Awaiting Opponent Move...", forState: UIControlState.Normal)
-                    self.boardView.userInteractionEnabled = false
+                var gameState = String(currentGame.state())
+                if gameState == "inProgress" {
+                    if (self.currentGame.localUsersTurn()) {
+                        self.newGameButton.setTitle("Your turn to play...", forState: UIControlState.Normal)
+                        self.boardView.userInteractionEnabled = true
+                    } else {
+                        self.newGameButton.setTitle("Awaiting Opponent Move...", forState: UIControlState.Normal)
+                        self.boardView.userInteractionEnabled = false
+                    }
+                } else if gameState == "complete_someone_won" {
+                    if currentGame.localUsersTurn() {
+                        self.newGameButton.setTitle("You Lost!", forState: UIControlState.Normal)
+                    } else {
+                        self.newGameButton.setTitle("You Win!", forState: UIControlState.Normal)
+                    }
+                } else if gameState == "complete_no_one_won" {
+                    self.newGameButton.setTitle("You Tied!", forState: UIControlState.Normal)
                 }
             } else {
                 self.newGameButton.setTitle("Awaiting opponent to join...", forState: UIControlState.Normal)
@@ -90,8 +99,24 @@ class BoardViewController: UIViewController {
     @IBAction func buttonTapped(sender: AnyObject) {
         
         if networkGame {
-            sender.setTitle(String(currentGame.playMove(sender.tag)), forState: UIControlState.Normal)
-            OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.playMoveComplete(game,message:message)})            
+            var gameState = String(currentGame.state())
+            if gameState == "inProgress" {
+                sender.setTitle(String(currentGame.playMove(sender.tag)), forState: UIControlState.Normal)
+                OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.playMoveComplete(game,message:message)})
+                gameState = String(currentGame.state())
+            }
+            if gameState == "complete_someone_won" {
+                if currentGame.localUsersTurn() {
+                    self.newGameButton.setTitle("You Lost!", forState: UIControlState.Normal)
+                } else {
+                    self.newGameButton.setTitle("You Win!", forState: UIControlState.Normal)
+                }
+            }
+            if gameState == "complete_no_one_won" {
+                print ("you tied")
+            }
+      
+    
         } else {
             let gameState = String(gameObject.state())
             if gameState == "inProgress" {
@@ -100,12 +125,45 @@ class BoardViewController: UIViewController {
                 let newState = String(gameObject.state())
                 if newState == "complete_someone_won" {
                     if String(gameObject.whosTurn()) == "X" {
-                        print("Congrats O won!")
+                        let alertController = UIAlertController(title: "O Won!", message: "Want to play again?", preferredStyle: .Alert)
+                        let cancelAction = UIAlertAction(title: "Nah", style: .Cancel) { (action) in
+                            // ...
+                        }
+                        alertController.addAction(cancelAction)
+                        let OKAction = UIAlertAction(title: "Yes!", style: .Default) { (action) in
+                            self.restartGame()
+                        }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true) {
+                            // ...
+                        }
                     } else if String(gameObject.whosTurn()) == "O" {
-                        print ("Congrats X won!")
+                        let alertController = UIAlertController(title: "X Won!", message: "Want to play again?", preferredStyle: .Alert)
+                        let cancelAction = UIAlertAction(title: "Nah", style: .Cancel) { (action) in
+                            // ...
+                        }
+                        alertController.addAction(cancelAction)
+                        let OKAction = UIAlertAction(title: "Yes!", style: .Default) { (action) in
+                            self.restartGame()
+                        }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true) {
+                            // ...
+                        }
                     }
                 } else if newState == "complete_no_one_won" {
-                    print ("you tied")
+                    let alertController = UIAlertController(title: "You Tied!", message: "Want to play again?", preferredStyle: .Alert)
+                    let cancelAction = UIAlertAction(title: "Nah", style: .Cancel) { (action) in
+                        // ...
+                    }
+                    alertController.addAction(cancelAction)
+                    let OKAction = UIAlertAction(title: "Yes!", style: .Default) { (action) in
+                        self.restartGame()
+                    }
+                    alertController.addAction(OKAction)
+                    self.presentViewController(alertController, animated: true) {
+                        // ...
+                    }
                 }
             }
         }
@@ -192,6 +250,7 @@ class BoardViewController: UIViewController {
     
     @IBAction func refreshButtonTapped(sender: UIButton) {
         OXGameController.sharedInstance.getGame(self.currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game,message) in self.gameUpdateRecieved(game,message: message)})
+        self.updateUI()
     }
     
     func gameUpdateRecieved(game:OXGame?, message: String?) {
