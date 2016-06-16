@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,6 +9,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
             <connections>
+                <outlet property="Button2" destination="ouQ-ap-EjW" id="tdz-d4-t7T"/>
+                <outlet property="boardView" destination="qYi-hH-8b3" id="IC7-9B-xYM"/>
+                <outlet property="button0" destination="Lgl-eZ-ME1" id="JbD-XK-Yit"/>
+                <outlet property="button1" destination="N6c-yA-Xo4" id="S68-sn-q03"/>
+                <outlet property="button3" destination="KpC-Ia-fSQ" id="MGs-3O-Xad"/>
+                <outlet property="button4" destination="Uv9-k9-j6J" id="Ts7-SU-iA2"/>
+                <outlet property="button5" destination="l4o-we-hNW" id="AkO-ra-99O"/>
+                <outlet property="button6" destination="wqL-6N-dzo" id="Sfm-cn-MyB"/>
+                <outlet property="button7" destination="5oJ-IG-Rbw" id="fJj-72-2Lt"/>
+                <outlet property="button8" destination="98z-PQ-N63" id="DHe-ED-oPe"/>
+                <outlet property="logoutButton" destination="1cp-6n-plq" id="8BD-60-mhO"/>
+                <outlet property="networkPlayButton" destination="E16-yK-SWc" id="emK-cU-clF"/>
+                <outlet property="newGameButton" destination="qSP-P1-uv7" id="SJa-6i-2o5"/>
+                <outlet property="refresh" destination="vvz-Xf-8BB" id="tKc-Ld-ch5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,6 +50,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="Ts1-Kf-mNA"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6c-yA-Xo4">
                             <rect key="frame" x="187" y="0.0" width="187" height="179"/>
@@ -43,6 +60,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="Hvl-Ui-RuB"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouQ-ap-EjW">
                             <rect key="frame" x="379" y="0.0" width="181" height="179"/>
@@ -50,6 +70,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="czc-YH-JpR"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-Ia-fSQ">
                             <rect key="frame" x="0.0" y="184" width="182" height="186"/>
@@ -57,6 +80,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="lbP-aD-DOQ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-k9-j6J">
                             <rect key="frame" x="187" y="184" width="187" height="186"/>
@@ -78,6 +104,9 @@
                                     <exclude reference="oRF-Bl-x4s"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="d9C-0t-Hal"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4o-we-hNW">
                             <rect key="frame" x="379" y="184" width="181" height="186"/>
@@ -85,6 +114,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="LLi-6e-dD6"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqL-6N-dzo">
                             <rect key="frame" x="0.0" y="375" width="182" height="180"/>
@@ -92,6 +124,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="eQp-ou-hsO"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oJ-IG-Rbw">
                             <rect key="frame" x="187" y="375" width="187" height="180"/>
@@ -99,6 +134,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="bx7-Oj-cGF"/>
+                            </connections>
                         </button>
                         <button opaque="NO" tag="8" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98z-PQ-N63">
                             <rect key="frame" x="379" y="375" width="181" height="180"/>
@@ -106,6 +144,9 @@
                             <state key="normal">
                                 <color key="titleColor" red="0.89019607840000003" green="0.1215686275" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="boardTapped:" destination="-1" eventType="touchUpInside" id="edS-xX-RFN"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-39-2TU">
                             <rect key="frame" x="374" y="0.0" width="5" height="555"/>
@@ -376,10 +417,42 @@
                             <exclude reference="Br2-ix-UID"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="newGameTapped:" destination="-1" eventType="touchUpInside" id="Q0F-tt-gak"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvz-Xf-8BB">
+                    <rect key="frame" x="539" y="8" width="53" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="refreshButtonTapped:" destination="-1" eventType="touchUpInside" id="XWz-Q8-FUM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cp-6n-plq">
+                    <rect key="frame" x="30" y="50" width="48" height="30"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="6Hi-5E-HbV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E16-yK-SWc">
+                    <rect key="frame" x="362" y="8" width="91" height="30"/>
+                    <state key="normal" title="Network Play">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="networkPlayTapped:" destination="-1" eventType="touchUpInside" id="8PJ-z6-3fd"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.23529411764705882" green="0.60784313725490191" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="E16-yK-SWc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="07i-2X-O5p"/>
+                <constraint firstItem="1cp-6n-plq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="6DK-cG-lya"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="width" secondItem="qYi-hH-8b3" secondAttribute="height" multiplier="115:115" constant="5" id="HaJ-BB-quF"/>
                 <constraint firstAttribute="bottom" secondItem="qSP-P1-uv7" secondAttribute="bottom" id="Nne-tZ-nj8"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RNm-oP-Ohl"/>
@@ -390,13 +463,17 @@
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="qSP-P1-uv7" secondAttribute="trailing" id="W88-YP-PUV"/>
+                <constraint firstItem="1cp-6n-plq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Wsg-ff-9yD"/>
                 <constraint firstItem="k6O-si-s1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="cOI-dQ-zgP">
                     <variation key="heightClass=regular" constant="40"/>
                 </constraint>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="d8s-qj-E3B"/>
+                <constraint firstItem="vvz-Xf-8BB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="fvM-68-ldA"/>
+                <constraint firstAttribute="trailing" secondItem="vvz-Xf-8BB" secondAttribute="trailing" constant="30" id="guW-RU-nRm"/>
                 <constraint firstItem="qYi-hH-8b3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="20" id="t2d-On-XYB">
                     <variation key="heightClass=regular" constant="20"/>
                 </constraint>
+                <constraint firstItem="k6O-si-s1J" firstAttribute="bottom" secondItem="E16-yK-SWc" secondAttribute="top" constant="-15" id="uTe-02-3tN"/>
                 <constraint firstItem="qSP-P1-uv7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wYo-EN-HYZ"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

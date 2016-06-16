@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328" : 0,
+    "6C3F7569D58B082DDA7EEAD324E084A85FFBC306" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "530592CE-AD1C-4FA0-887D-BAF44484780E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328" : "NoughtsAndCrosses2\/",
+    "6C3F7569D58B082DDA7EEAD324E084A85FFBC306" : "OnboardingDemo\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NoughtsAndCrosses",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "NoughtsAndCrosses\/NoughtsAndCrosses.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/npolk\/Onboarding.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6C3F7569D58B082DDA7EEAD324E084A85FFBC306"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/npolk\/oX.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F0BC0299C8D4A14045018B4BE9A1E176C5AAA328"
+    }
+  ]
+}
