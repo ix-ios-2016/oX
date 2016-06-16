@@ -61,8 +61,14 @@ class BoardViewController: UIViewController {
         
         //NETWORK GAME
         if networkGame {
+            //determine state
+            let status = String (currentGame.state())
+            
+            if status == "inProgress"{
+                //set tapped button to X or O
                 sender.setTitle("\(String (currentGame.playMove(sender.tag)))", forState: UIControlState.Normal)
                 OXGameController.sharedInstance.playMove(currentGame.serialiseBoard(), gameId: currentGame.gameId!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.playMoveCompletionFunction(game, message:message)})
+            }
         }
             
         //LOCAL GAME
@@ -165,17 +171,46 @@ class BoardViewController: UIViewController {
             logoutButton.setTitle("Cancel", forState: UIControlState.Normal)
             //someone has joined game
             if currentGame.guestUser?.email != "" {
-                if currentGame.localUsersTurn() {
-                    self.newGameButton.setTitle("Your turn", forState: UIControlState.Normal)
-                    self.boardView.userInteractionEnabled = true
-                }
-                else {
-                    self.newGameButton.setTitle("Their turn", forState: UIControlState.Normal)
+            
+                //check if game over
+                let new_status = String (currentGame.state())
+                
+                //if complete someone won
+                if new_status == "complete_someone_won" {
+                    
+                    //make it so user can no longer tap bored
                     self.boardView.userInteractionEnabled = false
+                    
+                    //print winner at bottom of screen
+                    if currentGame.localUsersTurn() {
+                        self.newGameButton.setTitle("you suck!", forState: UIControlState.Normal)
+                    }
+                    else {
+                        self.newGameButton.setTitle("YOU WON!", forState: UIControlState.Normal)
+                    }
+                    
+                }
+                    
+                //if complete tied
+                else if new_status == "complete_no_one_won"{
+                    self.newGameButton.setTitle("O wins!", forState: UIControlState.Normal)
                 }
                 
+                //game in progress
+                else {
+                    if currentGame.localUsersTurn() {
+                        self.newGameButton.setTitle("Your turn", forState: UIControlState.Normal)
+                        self.boardView.userInteractionEnabled = true
+                    }
+                    else {
+                        self.newGameButton.setTitle("Their turn", forState: UIControlState.Normal)
+                        self.boardView.userInteractionEnabled = false
+                    }
+                }
+
+                
             }
-                //open or abandoned
+            //open or abandoned
             else {
                 self.newGameButton.setTitle("Waiting for opponent to join", forState: UIControlState.Normal)
                 self.boardView.userInteractionEnabled = false
