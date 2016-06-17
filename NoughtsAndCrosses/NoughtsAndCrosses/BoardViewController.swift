@@ -55,7 +55,6 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -90,6 +89,8 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 networkPlayButton.setTitle("\(OXGameController.sharedInstance.getCurrentGame()!.whosTurn().rawValue) Player's (\(s)) Turn", forState: UIControlState.Normal)
             }
+            OXGameController.sharedInstance.getGame((OXGameController.sharedInstance.getCurrentGame()?.gameId!)!, presentingViewController: self, viewControllerCompletionFunction: {(game, message) in self.refreshBoard(game, message: message)})
+            
         }
         
     }
@@ -312,7 +313,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                 button.enabled = true
             }
             
-            if let _ = OXGameController.sharedInstance.getCurrentGame()?.guestUser {
+            if OXGameController.sharedInstance.getCurrentGame()?.guestUser?.email != "" {
                 if (OXGameController.sharedInstance.getCurrentGame()!.whosTurn() == CellType.X && OXGameController.sharedInstance.getCurrentGame()?.hostUser!.email == UserController.sharedInstance.logged_in_user?.email) || (OXGameController.sharedInstance.getCurrentGame()!.whosTurn() == CellType.O && OXGameController.sharedInstance.getCurrentGame()?.guestUser!.email == UserController.sharedInstance.logged_in_user?.email) {
                     s = "Your"
                 }
@@ -348,7 +349,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                     OXGameController.sharedInstance.finishCurrentGame()
                     
                 }
-                else if gameState == OXGameState.complete_no_one_won {
+                else if gameState == OXGameState.tied {
                     let alert = UIAlertController(title: "Game Over!", message: "Tie Game, no winner!", preferredStyle: UIAlertControllerStyle.Alert)
                     let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                         action -> Void in
@@ -363,14 +364,19 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
                     let alert = UIAlertController(title: "Game Over!", message: "Game Cancelled!", preferredStyle: UIAlertControllerStyle.Alert)
                     let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) {
                         action -> Void in
-                        self.navigationController?.popViewControllerAnimated(true)
-                        self.networkGame = false
+                        self.cancelGame(nil, message: nil)
                     }
                     alert.addAction(closeAction)
                     self.presentViewController(alert, animated: true, completion: nil)
                     OXGameController.sharedInstance.finishCurrentGame()
                 }
+                else {
+                    OXGameController.sharedInstance.getGame((OXGameController.sharedInstance.getCurrentGame()?.gameId!)!, presentingViewController: nil, viewControllerCompletionFunction: {(game, message) in self.refreshBoard(game, message: message)})
+                }
                 
+            }
+            else {
+                OXGameController.sharedInstance.getGame((OXGameController.sharedInstance.getCurrentGame()?.gameId!)!, presentingViewController: nil, viewControllerCompletionFunction: {(game, message) in self.refreshBoard(game, message: message)})
             }
             
         }
@@ -389,7 +395,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func logoutButtonTapped(sender: UIButton) {
         
         if self.networkGame {
-            OXGameController.sharedInstance.cancelGame((OXGameController.sharedInstance.getCurrentGame()?.gameId)!, presentingViewController: self, viewControllerCompletionFunction: {(bool, message) in self.cancelGame(bool, message: message)})
+            OXGameController.sharedInstance.cancelGame((OXGameController.sharedInstance.getCurrentGame()?.gameId)!, presentingViewController: self, viewControllerCompletionFunction: {(bool, message) in })
 
         }
         else {
