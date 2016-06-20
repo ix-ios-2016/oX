@@ -395,7 +395,7 @@ class BoardViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func logoutButtonTapped(sender: UIButton) {
         
         if self.networkGame {
-            OXGameController.sharedInstance.cancelGame((OXGameController.sharedInstance.getCurrentGame()?.gameId)!, presentingViewController: self, viewControllerCompletionFunction: {(bool, message) in })
+            OXGameController.sharedInstance.cancelGame((OXGameController.sharedInstance.getCurrentGame()?.gameId)!, presentingViewController: self, viewControllerCompletionFunction: {(bool, message) in self.cancelGame(nil, message: nil)})
 
         }
         else {
