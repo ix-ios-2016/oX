@@ -49,7 +49,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
     func handleLongPress(sender: UILongPressGestureRecognizer? = nil) {
        if (easterEggMode == false && gesturePattern[gestureCount] == Gestures.longPress) {
             gestureCount += 1
-            print("long press detected")
             checkGesturePattern()
         } else {
             gestureCount = 0
@@ -60,7 +59,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         if sender?.rotation > 0 {
             if (easterEggMode == false && gesturePattern[gestureCount] == Gestures.clockWiseRotation) {
                 gestureCount += 1
-                print("clock wise rotation detected")
                 checkGesturePattern()
             } else {
                 gestureCount = 0
@@ -72,7 +70,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         if sender?.rotation < 0 {
             if (easterEggMode == false && gesturePattern[gestureCount] == Gestures.counterClockWiseRotation) {
                 gestureCount += 1
-                print("counter clock wise rotation detected")
                 checkGesturePattern()
             } else {
                 gestureCount = 0
@@ -84,7 +81,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         if (sender!.direction == UISwipeGestureRecognizerDirection.Right) {
             if (easterEggMode == false && gesturePattern[gestureCount] == Gestures.rightSwipe) {
                 gestureCount += 1
-                print("right swipe detected")
                 checkGesturePattern()
             } else {
                 gestureCount = 0
@@ -96,7 +92,6 @@ class EasterEggController: NSObject, UIGestureRecognizerDelegate {
         if (sender!.direction == UISwipeGestureRecognizerDirection.Down) {
             if (easterEggMode == false && gesturePattern[gestureCount] == Gestures.twoFingerSwipeDown) {
                 gestureCount += 1
-                print("swipe down detected")
                 checkGesturePattern()
             } else {
                 gestureCount = 0

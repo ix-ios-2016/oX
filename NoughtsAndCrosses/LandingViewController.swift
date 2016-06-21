@@ -12,24 +12,21 @@ class LandingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Landing View"
-        // Do any additional setup after loading the view.
+        self.title = "Home"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func loginButtonTapped(sender: AnyObject) {
-        
-        let LandingViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.navigationController?.pushViewController(LandingViewController, animated: true)
+        let loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        self.navigationController?.pushViewController(loginViewController, animated: true)
     }
 
     @IBAction func registerButtonTapped(sender: AnyObject) {
-        let LandingViewController = RegistrationViewController(nibName: "RegistrationViewController", bundle: nil)
-        self.navigationController?.pushViewController(LandingViewController, animated: true)
+        let registrationViewController = RegistrationViewController(nibName: "RegistrationViewController", bundle: nil)
+        self.navigationController?.pushViewController(registrationViewController, animated: true)
     }
     
 }

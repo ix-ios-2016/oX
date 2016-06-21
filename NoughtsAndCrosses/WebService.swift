@@ -15,15 +15,15 @@ class WebService {
     
     
     //MARK:- Utility request creation methods
-    //func createMutableRequest(url:NSURL!,method:String!,parameters:Dictionary<String, String>?) -> Request  {
+    func createMutableRequest(url:NSURL!,method:String!,parameters:Dictionary<String, String>?) -> Request  {
         
         // build request
-        //let headers = ["access-Token":UserController.sharedInstance.getLoggedInUser()!.token, "client": UserController.sharedInstance.getLoggedInUser()!.client, "uid":UserController.sharedInstance.getLoggedInUser()!.email, "token-type":"bearer"]
-        //let request = Alamofire.request(Method(rawValue:method)!, url, parameters: parameters, encoding: .URL, headers: headers)
+        let headers = ["access-Token":UserController.sharedInstance.getLoggedInUser()!.token, "client": UserController.sharedInstance.getLoggedInUser()!.client, "uid":UserController.sharedInstance.getLoggedInUser()!.email, "token-type":"bearer"]
+        let request = Alamofire.request(Method(rawValue:method)!, url, parameters: parameters, encoding: .URL, headers: headers)
         
         
-        //return request
-    //}
+        return request
+    }
     
     func createMutableAnonRequest(url:NSURL!,method:String!,parameters:Dictionary<String, String>?) -> Request  {
         
@@ -65,8 +65,6 @@ class WebService {
                 let serverResponseCode = returnedData.response!.statusCode //since the web service was a success, we know there is a .response value, so we can request the value gets unwrapped with .response!
                 
                 let headerData = returnedData.response?.allHeaderFields
-                print ("token data \(headerData)")
-                
                 
                 if let validToken = returnedData.response!.allHeaderFields["Access-Token"] {
                     let tokenJson:JSON = JSON(validToken)
@@ -79,7 +77,6 @@ class WebService {
                 
                 if (self.handleCommonResponses(serverResponseCode, presentingViewController: presentingViewController))    {
                     //print to the console that we experienced a common erroneos response
-                    print("A common bad server response was found, error has been displayed")
                     
                 }
                 

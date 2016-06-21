@@ -27,6 +27,6 @@ class EasterEggViewController: UIViewController {
         easterEggController.easterEggMode = false
         easterEggController.gestureCount = 0
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToGameScreen()
+        appDelegate.navigateToLoggedInNavigationController()
     }
 }

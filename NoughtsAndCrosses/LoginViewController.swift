@@ -14,55 +14,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var failureDisplay: UILabel!
     
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Log In View"
+        self.title = "Log In"
         emailField.delegate = self
         passwordField.delegate = self
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if textField == emailField {
-            print("emailField text: \(emailField.text!)")
-        } else if textField == passwordField {
-            print("password text: \(passwordField.text!)")
-        }
-        print("string: \(string)")
         return true
     }
     
     @IBAction func loginButtonTapped(sender: AnyObject) {
-        if emailField.valid() {
-            let email = emailField.text!
-            let password = passwordField.text!
-            UserController.sharedInstance.loginUser(email, password: password, presentingViewController: nil, viewControllerCompletionFunction: {(user, message) in self.loginCallComplete(user,message:message)})
-            /*
-            if (user != nil) {
-                print("User registered view registration view")
-                let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.navigateToLoggedInNavigationController()
-                failureDisplay.text = ""
-                NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
-            } else {
-                if (failureMessage != nil) {
-                    failureDisplay.text = failureMessage
-                }
-            emailField.validate()
-            }
-            */
-        } else {
-            failureDisplay.text = "Invalid Email"
-        }
+        UserController.sharedInstance.loginUser(emailField.text!, password: passwordField.text!, presentingViewController: self, viewControllerCompletionFunction: {(user,message) in self.loginCallComplete(user,message:message)})
+        
     }
     
-    func loginCallComplete(user:User?, message:String?) {
-        // We're getting this
+    func loginCallComplete(user: User?, message:String?) {
+        if (message == nil) {
+            appDelegate.navigateToLoggedInNavigationController()
+            NSUserDefaults.standardUserDefaults().setValue("TRUE", forKey: "userIsLoggedIn")
+        } else {
+            let alertController = UIAlertController(title: "Error", message: "\(message!)", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+            alertController.addAction(cancelAction)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true) {}
+        }
     }
 
 }

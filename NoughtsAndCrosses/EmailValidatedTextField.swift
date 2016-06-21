@@ -15,20 +15,16 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
     override func drawRect(rect: CGRect) {
         imageView = UIImageView(frame: CGRectMake(self.frame.width-30, 5, 22, 22))
         self.addSubview(imageView)
-        print("drawRect")
         self.delegate = self
     }
     
     func valid() -> Bool {
-        print("Validating email: \(self.text)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        print(emailTest.evaluateWithObject(self.text!))
         return emailTest.evaluateWithObject(self.text!)
     }
     
     func updateUI() {
-        print("updateUI")
         if self.valid() {
             imageView.image = UIImage(named: "input_valid")
         } else {
@@ -38,7 +34,6 @@ class EmailValidatedTextField: UITextField, UITextFieldDelegate {
     }
     
     func validate() -> Bool {
-        print("validate")
         self.updateUI()
         return self.valid()
     }

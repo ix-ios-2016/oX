@@ -14,27 +14,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationController: UINavigationController?
     var authenticationNavigationController: UINavigationController?
-    var loggedInNavigationController: UINavigationController?
     var easterEggNavigationController: UINavigationController?
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
+        self.navigationController?.navigationBarHidden = true
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController", bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
+        let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+
+        if userIsLoggedIn != nil {
+            navigateToLoggedInNavigationController()
+        }
+        else {
+            navigateToLogOutNavigationController()
+        }
+        
+        EasterEggController.sharedInstance.initiate(self.window!)
+        
+        return true
+    }
+    
+    func  navigateToLogOutNavigationController() {
+        
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.window?.rootViewController = self.authenticationNavigationController
+        
+    }
+    
+    func  navigateToLoggedInNavigationController() {
+        
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        navigationController = UINavigationController(rootViewController: boardViewController)
+        self.navigationController?.navigationBarHidden = true
+        self.window?.rootViewController = self.navigationController
+        
+    }
+    
+    func  navigateToEasterEggScreen() {
+        
+        let easterEggViewController = EasterEggViewController(nibName:"EasterEggViewController",bundle:nil)
+        easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        self.easterEggNavigationController?.navigationBarHidden = true
+        self.window?.rootViewController = self.easterEggNavigationController
+        
+    }
+        
+    /*
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = navigationController
+        self.navigationController?.navigationBarHidden = true
         
         let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
         
-        if let loggedIn = userIsLoggedIn {
-            self.navigationController?.navigationBarHidden = true
-            self.window?.rootViewController = self.navigationController
+        if userIsLoggedIn != nil {
+            navigateToLoggedInNavigationController()
         } else {
-            let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
-            authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
-            self.window?.rootViewController = self.authenticationNavigationController
+            navigateToLogOutNavigationController()
         }
         
         EasterEggController.sharedInstance.initiate(self.window!)
@@ -43,11 +82,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func navigateToLoggedInNavigationController() {
-        window?.rootViewController = navigationController
+        let boardViewController = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        navigationController = UINavigationController(rootViewController: boardViewController)
+        self.navigationController?.navigationBarHidden = true
+        self.window?.rootViewController = boardViewController
     }
     
     func navigateToLogOutNavigationController() {
-        window?.rootViewController = authenticationNavigationController
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authenticationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.authenticationNavigationController?.navigationBarHidden = false
+        self.window?.rootViewController = landingViewController
     }
     
     
@@ -56,17 +101,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
         self.navigationController = UINavigationController(rootViewController: easterEggViewController)
         self.window?.rootViewController = easterEggViewController
-        //self.navigationController?.pushViewController(easterEggViewController, animated: true)
     }
+     */
     
-    func navigateToGameScreen() {
-        let boardViewController = BoardViewController(nibName:"BoardViewController", bundle:nil)
-        loggedInNavigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.window?.rootViewController = boardViewController
-        //self.navigationController?.pushViewController(easterEggViewController, animated: true)
-    }
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
