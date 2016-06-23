@@ -96,8 +96,9 @@ class UserController: WebService {
         
         let user = ["email":email,"password":password]
         
-        let request = self.createMutableAnonRequest(NSURL(string: "https://ox-backend.herokuapp.com/auth"), method: "POST", parameters: user)
+        let request = self.createMutableAnonRequest(NSURL(string: "https:localhost:3000/user/register"), method: "POST", parameters: user)
         
+        //https://ox-backend.herokuapp.com/auth
         self.executeRequest(request, presentingViewController:presentingViewController, requestCompletionFunction: {(responseCode, json) in
             
             //Here is our completion closure for the web request. when the web service is done, this is what is executed.

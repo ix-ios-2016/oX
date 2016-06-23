@@ -14,6 +14,14 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         
         let _ = ClosureExperiment()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = (formatter.dateFromString("2016-06-24T04:48:59.158Z"))
+        formatter.dateFormat = "MMM d, yyyy; h:mm a"
+        formatter.timeZone = NSTimeZone.localTimeZone()
+        print(formatter.stringFromDate(date!))
+        
 
         // Do any additional setup after loading the view.
     }
