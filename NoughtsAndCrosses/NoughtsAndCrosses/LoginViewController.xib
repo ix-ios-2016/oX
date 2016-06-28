@@ -33,7 +33,7 @@
                         <constraint firstAttribute="width" constant="207" id="lVh-Dq-SpM"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6x-ib-EK9">
                     <rect key="frame" x="275" y="282" width="50" height="36"/>
