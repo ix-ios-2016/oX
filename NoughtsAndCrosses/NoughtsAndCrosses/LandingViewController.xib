@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4t-Mh-K2Y">
+                    <rect key="frame" x="271" y="180" width="57" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="57" id="EuB-v9-2OG"/>
+                        <constraint firstAttribute="height" constant="30" id="Twg-3E-jl4"/>
+                        <constraint firstAttribute="width" constant="57" id="jmo-gY-qdZ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="wb6-Mo-fUx"/>
+                    </constraints>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="L97-Ss-ui8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPb-d2-XGq">
+                    <rect key="frame" x="281" y="100" width="38" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="JpP-62-bgt"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="VcF-il-MGb"/>
+                        <constraint firstAttribute="width" constant="38" id="dYe-CO-3Ut"/>
+                        <constraint firstAttribute="height" constant="30" id="fSf-Rf-GKK"/>
+                    </constraints>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="hdZ-cx-UqG"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.4317135017" green="0.437029836" blue="0.43110245279999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="281" id="1HE-n3-DRO"/>
+                <constraint firstAttribute="trailing" secondItem="o4t-Mh-K2Y" secondAttribute="trailing" constant="272" id="MYy-R8-OpY"/>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RtI-m3-6Qc"/>
+                <constraint firstItem="o4t-Mh-K2Y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UUN-0X-Z0U"/>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="W9l-Tz-315"/>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="alS-g5-vUI"/>
+                <constraint firstItem="o4t-Mh-K2Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="271" id="dbO-Pr-xd6"/>
+                <constraint firstItem="o4t-Mh-K2Y" firstAttribute="top" secondItem="fPb-d2-XGq" secondAttribute="bottom" constant="50" id="epJ-dX-g3B"/>
+                <constraint firstItem="fPb-d2-XGq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="f5d-MB-aYu"/>
+                <constraint firstItem="o4t-Mh-K2Y" firstAttribute="top" secondItem="fPb-d2-XGq" secondAttribute="bottom" constant="22" id="fKe-ZO-bf4"/>
+                <constraint firstAttribute="trailing" secondItem="fPb-d2-XGq" secondAttribute="trailing" constant="281" id="qoa-gd-F64"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1HE-n3-DRO"/>
+                    <exclude reference="W9l-Tz-315"/>
+                    <exclude reference="alS-g5-vUI"/>
+                    <exclude reference="qoa-gd-F64"/>
+                    <exclude reference="MYy-R8-OpY"/>
+                    <exclude reference="dbO-Pr-xd6"/>
+                    <exclude reference="fKe-ZO-bf4"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

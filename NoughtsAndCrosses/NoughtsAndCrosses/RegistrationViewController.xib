@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="QEN-1D-D9k" id="dW5-B2-pA7"/>
+                <outlet property="passwordField" destination="a6Z-4Y-5hp" id="tp1-KR-wv4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a6Z-4Y-5hp">
+                    <rect key="frame" x="24" y="165" width="552" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1cw-w2-Oow"/>
+                        <constraint firstAttribute="height" constant="30" id="4He-Vh-TtC"/>
+                        <constraint firstAttribute="width" constant="552" id="FBp-TT-oPG"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ke0-a5-ouk"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="552" id="qnL-ne-oPD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="4He-Vh-TtC"/>
+                            <exclude reference="FBp-TT-oPG"/>
+                            <exclude reference="Ke0-a5-ouk"/>
+                            <exclude reference="qnL-ne-oPD"/>
+                        </mask>
+                    </variation>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZm-HS-lNN">
+                    <rect key="frame" x="271.5" y="223" width="57" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="57" id="RfW-IH-4eB"/>
+                        <constraint firstAttribute="height" constant="30" id="olN-6j-hn0"/>
+                    </constraints>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" red="0.86275216809999999" green="0.37827626619999999" blue="0.19797570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="registrationButtonTapped:" destination="-1" eventType="touchUpInside" id="mwf-fz-nEn"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEN-1D-D9k" customClass="EmailValidatedTextField" customModule="NoughtsAndCrosses" customModuleProvider="target">
+                    <rect key="frame" x="24" y="100" width="552" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="MbE-U9-Rua"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.4317135017" green="0.437029836" blue="0.43110245279999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="KZm-HS-lNN" firstAttribute="top" secondItem="a6Z-4Y-5hp" secondAttribute="bottom" constant="28" id="Ox0-zE-GEI"/>
+                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="top" secondItem="QEN-1D-D9k" secondAttribute="bottom" constant="35" id="RDf-gW-g6y"/>
+                <constraint firstItem="KZm-HS-lNN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UPc-Ez-Zr5"/>
+                <constraint firstAttribute="trailing" secondItem="QEN-1D-D9k" secondAttribute="trailing" constant="24" id="Y3q-1M-MIk"/>
+                <constraint firstAttribute="trailing" secondItem="a6Z-4Y-5hp" secondAttribute="trailing" constant="24" id="fxf-Mz-ejI"/>
+                <constraint firstItem="a6Z-4Y-5hp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="hTB-xt-ejM"/>
+                <constraint firstItem="QEN-1D-D9k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="lB9-Ny-oaR"/>
+                <constraint firstItem="QEN-1D-D9k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="zfH-7a-3Kk"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
