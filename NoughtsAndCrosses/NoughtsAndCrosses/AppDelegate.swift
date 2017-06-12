@@ -12,23 +12,121 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    
+    var boardNavigationController: UINavigationController?
+    
+    var authorisationNavigationController: UINavigationController?
+    
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    //var easterEggNavigationController: UINavigationController?
+    
+    
+    
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
+        
         // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        print("hey")
+        
+        // landing view
+        
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorisationNavigationController = UINavigationController(rootViewController: landingViewController)
+        
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        // changing so that we dont hav to log in everytime
+       
+        self.window?.rootViewController = self.authorisationNavigationController
+        //navigateToBoardNavigationController()
+
         self.window?.makeKeyAndVisible()
         
+        
+        EasterEggController.sharedInstance.initiate(self.window!)
+        
+        
+        //persistence
+        
+        //let userIsLoggedIn = NSUserDefaults.standardUserDefaults().objectForKey("userIsLoggedIn")
+        var userIsLoggedIn: String?
+        
+        if let _ = userIsLoggedIn
+        {
+            navigateToBoardNavigationController()
+        }
+        else
+        {
+            self.window?.rootViewController = self.authorisationNavigationController
+        }
         
         
         return true
     }
+    
+    
+    // navigation functions to assorted pages
+    
+    func navigateToBoardNavigationController()
+    {
+        
+        // board view
+        
+        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
+        boardNavigationController = UINavigationController(rootViewController: boardViewController)
+        
+        self.boardNavigationController?.navigationBarHidden = true
+        
+        
+        self.window?.rootViewController = self.boardNavigationController
+        
+    }
+    
+    func navigateToLoggedOutNavigationController()
+    {
+        
+        let loggedOutViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorisationNavigationController = UINavigationController(rootViewController: loggedOutViewController)
+        
+        self.window?.rootViewController = self.authorisationNavigationController
+        
+    }
+    
+    func navigateToEasterEggScreen()
+    {
+        
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController", bundle: nil)
+        //easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        
+        self.window?.rootViewController = easterEggViewController
+            
+            //self.easterEggNavigationController
+
+    }
+    
+    
+    func navigateEasterEggToOX()
+    {
+        
+        if (UserController.sharedInstance.logged_in_user == nil)
+        {
+            let backToGameController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+            authorisationNavigationController = UINavigationController(rootViewController: backToGameController)
+            self.window?.rootViewController = self.authorisationNavigationController
+        }
+        else
+        {
+            let backToGameController = BoardViewController(nibName: "BoardViewController", bundle: nil)
+            boardNavigationController = UINavigationController(rootViewController: backToGameController)
+            self.boardNavigationController?.navigationBarHidden = true
+            self.window?.rootViewController = self.boardNavigationController
+        }
+        
+    }
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

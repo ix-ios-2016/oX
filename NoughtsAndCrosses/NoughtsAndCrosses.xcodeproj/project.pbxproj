@@ -12,6 +12,24 @@
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
+		C10823931CFE95AB0075336E /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10823911CFE95AB0075336E /* LandingViewController.swift */; };
+		C10823941CFE95AB0075336E /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C10823921CFE95AB0075336E /* LandingViewController.xib */; };
+		C10823971CFE95C30075336E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10823951CFE95C30075336E /* LoginViewController.swift */; };
+		C10823981CFE95C30075336E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C10823961CFE95C30075336E /* LoginViewController.xib */; };
+		C108239B1CFE95D00075336E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10823991CFE95D00075336E /* RegistrationViewController.swift */; };
+		C108239C1CFE95D00075336E /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C108239A1CFE95D00075336E /* RegistrationViewController.xib */; };
+		C146666F1CFEA25600468757 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C146666E1CFEA25600468757 /* UserController.swift */; };
+		C15CCF201CFEDA540071E4DA /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CCF1F1CFEDA540071E4DA /* EmailValidatedTextField.swift */; };
+		C18AF0CF1CFF644500FDB16F /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AF0CD1CFF644500FDB16F /* EasterEggViewController.swift */; };
+		C18AF0D01CFF644500FDB16F /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18AF0CE1CFF644500FDB16F /* EasterEggViewController.xib */; };
+		C18AF0D21CFF645000FDB16F /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18AF0D11CFF645000FDB16F /* EasterEggController.swift */; };
+		C18B3A2B1D070FEA000C7574 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B3A2A1D070FEA000C7574 /* WebService.swift */; };
+		C18B3A2D1D071015000C7574 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18B3A2C1D071015000C7574 /* UIViewControllerExtensions.swift */; };
+		C18FA08B1D016F1300C0FBDB /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FA0891D016F1300C0FBDB /* NetworkPlayViewController.swift */; };
+		C18FA08C1D016F1300C0FBDB /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18FA08A1D016F1300C0FBDB /* NetworkPlayViewController.xib */; };
+		C190C7F01D053B2B001C9CBD /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C190C7EF1D053B2B001C9CBD /* OXGameController.swift */; };
+		C1F33A621CFD256200EF4EAE /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F33A611CFD256200EF4EAE /* OXGame.swift */; };
+		D3BA063EAFD587441BCB9A3E /* Pods_NoughtsAndCrosses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E830F93320C33E65E98BB4 /* Pods_NoughtsAndCrosses.framework */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -34,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EFB3F9FA11E40A95648F08F /* Pods-NoughtsAndCrosses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.debug.xcconfig"; sourceTree = "<group>"; };
+		36A835616F6E4D601FA83163 /* Pods-NoughtsAndCrosses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.release.xcconfig"; sourceTree = "<group>"; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +65,26 @@
 		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48E07FDC2AF118FE6E62AB55 /* Pods_NoughtsAndCrossesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D11AEA68E6EBFA150E550B3 /* Pods_NoughtsAndCrossesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8E830F93320C33E65E98BB4 /* Pods_NoughtsAndCrosses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrosses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C10823911CFE95AB0075336E /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		C10823921CFE95AB0075336E /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		C10823951CFE95C30075336E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C10823961CFE95C30075336E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C10823991CFE95D00075336E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		C108239A1CFE95D00075336E /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		C146666E1CFEA25600468757 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		C15CCF1F1CFEDA540071E4DA /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
+		C18AF0CD1CFF644500FDB16F /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
+		C18AF0CE1CFF644500FDB16F /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
+		C18AF0D11CFF645000FDB16F /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
+		C18B3A2A1D070FEA000C7574 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		C18B3A2C1D071015000C7574 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		C18FA0891D016F1300C0FBDB /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
+		C18FA08A1D016F1300C0FBDB /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
+		C190C7EF1D053B2B001C9CBD /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
+		C1F33A611CFD256200EF4EAE /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BA063EAFD587441BCB9A3E /* Pods_NoughtsAndCrosses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +115,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		127BC5FC481066DF8029A184 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8E830F93320C33E65E98BB4 /* Pods_NoughtsAndCrosses.framework */,
+				5D11AEA68E6EBFA150E550B3 /* Pods_NoughtsAndCrossesTests.framework */,
+				48E07FDC2AF118FE6E62AB55 /* Pods_NoughtsAndCrossesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		427A5B651CE0FF4A00328EE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C1F33A611CFD256200EF4EAE /* OXGame.swift */,
+				C190C7EF1D053B2B001C9CBD /* OXGameController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -88,6 +141,8 @@
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
+				127BC5FC481066DF8029A184 /* Frameworks */,
+				A0519E904A26D65ADE9E9C60 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,13 +159,18 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				C18AF0CC1CFF641E00FDB16F /* Easter Egg */,
+				C10823901CFE95880075336E /* Authorisation */,
+				C108238F1CFE95260075336E /* Game */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
-				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
 				427A5B651CE0FF4A00328EE7 /* Model */,
+				C146666E1CFEA25600468757 /* UserController.swift */,
+				C15CCF1F1CFEDA540071E4DA /* EmailValidatedTextField.swift */,
+				C18B3A2A1D070FEA000C7574 /* WebService.swift */,
+				C18B3A2C1D071015000C7574 /* UIViewControllerExtensions.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -133,6 +193,49 @@
 			path = NoughtsAndCrossesUITests;
 			sourceTree = "<group>";
 		};
+		A0519E904A26D65ADE9E9C60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EFB3F9FA11E40A95648F08F /* Pods-NoughtsAndCrosses.debug.xcconfig */,
+				36A835616F6E4D601FA83163 /* Pods-NoughtsAndCrosses.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C108238F1CFE95260075336E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				C18FA0891D016F1300C0FBDB /* NetworkPlayViewController.swift */,
+				C18FA08A1D016F1300C0FBDB /* NetworkPlayViewController.xib */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		C10823901CFE95880075336E /* Authorisation */ = {
+			isa = PBXGroup;
+			children = (
+				C10823911CFE95AB0075336E /* LandingViewController.swift */,
+				C10823921CFE95AB0075336E /* LandingViewController.xib */,
+				C10823951CFE95C30075336E /* LoginViewController.swift */,
+				C10823961CFE95C30075336E /* LoginViewController.xib */,
+				C10823991CFE95D00075336E /* RegistrationViewController.swift */,
+				C108239A1CFE95D00075336E /* RegistrationViewController.xib */,
+			);
+			name = Authorisation;
+			sourceTree = "<group>";
+		};
+		C18AF0CC1CFF641E00FDB16F /* Easter Egg */ = {
+			isa = PBXGroup;
+			children = (
+				C18AF0CD1CFF644500FDB16F /* EasterEggViewController.swift */,
+				C18AF0CE1CFF644500FDB16F /* EasterEggViewController.xib */,
+				C18AF0D11CFF645000FDB16F /* EasterEggController.swift */,
+			);
+			name = "Easter Egg";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrosses" */;
 			buildPhases = (
+				51BD5327CC23ACD7722BA51F /* [CP] Check Pods Manifest.lock */,
 				42D447C61CD765670070326E /* Sources */,
 				42D447C71CD765670070326E /* Frameworks */,
 				42D447C81CD765670070326E /* Resources */,
+				1EBCFD52AE639A1FB1CA9277 /* [CP] Embed Pods Frameworks */,
+				8C4F42CD4E45E68D0863F3D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,9 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F51CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesTests" */;
 			buildPhases = (
+				2B379A0B96090308A01E8ADB /* [CP] Check Pods Manifest.lock */,
 				42D447DA1CD765680070326E /* Sources */,
 				42D447DB1CD765680070326E /* Frameworks */,
 				42D447DC1CD765680070326E /* Resources */,
+				09BC8880ED646EAB56DAC6B3 /* [CP] Embed Pods Frameworks */,
+				7AEC48E5611EC08E2EA6D07F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,9 +284,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F81CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesUITests" */;
 			buildPhases = (
+				5218248CDFCDF819833A84EF /* [CP] Check Pods Manifest.lock */,
 				42D447E51CD765680070326E /* Sources */,
 				42D447E61CD765680070326E /* Frameworks */,
 				42D447E71CD765680070326E /* Resources */,
+				8AC458B396A092FFD6091FC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,8 +348,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10823981CFE95C30075336E /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				C18AF0D01CFF644500FDB16F /* EasterEggViewController.xib in Resources */,
+				C108239C1CFE95D00075336E /* RegistrationViewController.xib in Resources */,
+				C18FA08C1D016F1300C0FBDB /* NetworkPlayViewController.xib in Resources */,
+				C10823941CFE95AB0075336E /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,13 +375,148 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09BC8880ED646EAB56DAC6B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrossesTests/Pods-NoughtsAndCrossesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EBCFD52AE639A1FB1CA9277 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B379A0B96090308A01E8ADB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		51BD5327CC23ACD7722BA51F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5218248CDFCDF819833A84EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7AEC48E5611EC08E2EA6D07F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrossesTests/Pods-NoughtsAndCrossesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AC458B396A092FFD6091FC8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrossesUITests/Pods-NoughtsAndCrossesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C4F42CD4E45E68D0863F3D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		42D447C61CD765670070326E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C108239B1CFE95D00075336E /* RegistrationViewController.swift in Sources */,
+				C18AF0D21CFF645000FDB16F /* EasterEggController.swift in Sources */,
+				C18AF0CF1CFF644500FDB16F /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
+				C1F33A621CFD256200EF4EAE /* OXGame.swift in Sources */,
+				C18B3A2B1D070FEA000C7574 /* WebService.swift in Sources */,
+				C10823931CFE95AB0075336E /* LandingViewController.swift in Sources */,
+				C146666F1CFEA25600468757 /* UserController.swift in Sources */,
+				C18FA08B1D016F1300C0FBDB /* NetworkPlayViewController.swift in Sources */,
+				C10823971CFE95C30075336E /* LoginViewController.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				C190C7F01D053B2B001C9CBD /* OXGameController.swift in Sources */,
+				C18B3A2D1D071015000C7574 /* UIViewControllerExtensions.swift in Sources */,
+				C15CCF201CFEDA540071E4DA /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +650,7 @@
 		};
 		42D447F31CD765680070326E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EFB3F9FA11E40A95648F08F /* Pods-NoughtsAndCrosses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
@@ -411,6 +663,7 @@
 		};
 		42D447F41CD765680070326E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36A835616F6E4D601FA83163 /* Pods-NoughtsAndCrosses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
