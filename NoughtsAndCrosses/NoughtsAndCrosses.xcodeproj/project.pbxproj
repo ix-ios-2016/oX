@@ -7,11 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C953BF228D8D2B3A304B3E4 /* Pods_NoughtsAndCrossesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3920F39D3A01FFBF840DC2E /* Pods_NoughtsAndCrossesUITests.framework */; };
+		1C3F36B217C5C31DE5C4DA11 /* Pods_NoughtsAndCrossesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297D6E45BC6252722C45B717 /* Pods_NoughtsAndCrossesTests.framework */; };
+		3614E233D896899E76DE74BA /* Pods_NoughtsAndCrosses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9C89D04E18C08C8F8510E7 /* Pods_NoughtsAndCrosses.framework */; };
 		42D447CE1CD765670070326E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447CD1CD765670070326E /* AppDelegate.swift */; };
 		42D447D51CD765670070326E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D41CD765670070326E /* Assets.xcassets */; };
 		42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D447D61CD765670070326E /* LaunchScreen.storyboard */; };
 		42D447E31CD765680070326E /* NoughtsAndCrossesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447E21CD765680070326E /* NoughtsAndCrossesTests.swift */; };
 		42D447EE1CD765680070326E /* NoughtsAndCrossesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */; };
+		5602E81E1D055D5800A45214 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602E81D1D055D5800A45214 /* OXGameController.swift */; };
+		5611F1251CFF82A100773D57 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611F1241CFF82A100773D57 /* EmailValidatedTextField.swift */; };
+		5611F1361D00671D00773D57 /* EasterEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611F1341D00671D00773D57 /* EasterEggViewController.swift */; };
+		5611F1371D00671D00773D57 /* EasterEggViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611F1351D00671D00773D57 /* EasterEggViewController.xib */; };
+		5611F1391D00676200773D57 /* EasterEggController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611F1381D00676200773D57 /* EasterEggController.swift */; };
+		5611F13C1D016EBC00773D57 /* NetworkPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5611F13A1D016EBC00773D57 /* NetworkPlayViewController.swift */; };
+		5611F13D1D016EBC00773D57 /* NetworkPlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611F13B1D016EBC00773D57 /* NetworkPlayViewController.xib */; };
+		561C39881CFC7A64002F3637 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561C39871CFC7A64002F3637 /* OXGame.swift */; };
+		562A67FE1CFF2F36004D378E /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A67FC1CFF2F36004D378E /* LandingViewController.swift */; };
+		562A67FF1CFF2F36004D378E /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562A67FD1CFF2F36004D378E /* LandingViewController.xib */; };
+		562A68021CFF2F49004D378E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A68001CFF2F49004D378E /* LoginViewController.swift */; };
+		562A68031CFF2F49004D378E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562A68011CFF2F49004D378E /* LoginViewController.xib */; };
+		562A68061CFF2F6F004D378E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A68041CFF2F6F004D378E /* RegistrationViewController.swift */; };
+		562A68071CFF2F6F004D378E /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562A68051CFF2F6F004D378E /* RegistrationViewController.xib */; };
+		5641DC0A1D059B3A00258EAC /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641DC091D059B3A00258EAC /* WebServices.swift */; };
+		5641DC0C1D059B8E00258EAC /* UIViewControllweExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5641DC0B1D059B8E00258EAC /* UIViewControllweExtensions.swift */; };
+		564D08751CFF72EC00C46F88 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564D08741CFF72EC00C46F88 /* UserController.swift */; };
+		5697EF541D056FDA0010BF3B /* ClosureExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5697EF531D056FDA0010BF3B /* ClosureExperiment.swift */; };
+		56B8C2C31D06377F003FF641 /* UserController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B8C2C21D06377F003FF641 /* UserController2.swift */; };
 		FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDE70821CF87AD00025275C /* BoardViewController.swift */; };
 		FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBDE70831CF87AD00025275C /* BoardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -34,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0F7D83AD7EFA623701F4D8 /* Pods-NoughtsAndCrosses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.debug.xcconfig"; sourceTree = "<group>"; };
+		297D6E45BC6252722C45B717 /* Pods_NoughtsAndCrossesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CA1CD765670070326E /* NoughtsAndCrosses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoughtsAndCrosses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447CD1CD765670070326E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D447D41CD765670070326E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +69,32 @@
 		42D447E91CD765680070326E /* NoughtsAndCrossesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoughtsAndCrossesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D447ED1CD765680070326E /* NoughtsAndCrossesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesUITests.swift; sourceTree = "<group>"; };
 		42D447EF1CD765680070326E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5186156EEC7C8E34FBD8D4D2 /* Pods-NoughtsAndCrossesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrossesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrossesTests/Pods-NoughtsAndCrossesTests.release.xcconfig"; sourceTree = "<group>"; };
+		5602E81D1D055D5800A45214 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
+		5611F1241CFF82A100773D57 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
+		5611F1341D00671D00773D57 /* EasterEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggViewController.swift; sourceTree = "<group>"; };
+		5611F1351D00671D00773D57 /* EasterEggViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EasterEggViewController.xib; sourceTree = "<group>"; };
+		5611F1381D00676200773D57 /* EasterEggController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasterEggController.swift; sourceTree = "<group>"; };
+		5611F13A1D016EBC00773D57 /* NetworkPlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkPlayViewController.swift; sourceTree = "<group>"; };
+		5611F13B1D016EBC00773D57 /* NetworkPlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NetworkPlayViewController.xib; sourceTree = "<group>"; };
+		561C39871CFC7A64002F3637 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
+		562A67FC1CFF2F36004D378E /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		562A67FD1CFF2F36004D378E /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		562A68001CFF2F49004D378E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		562A68011CFF2F49004D378E /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		562A68041CFF2F6F004D378E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		562A68051CFF2F6F004D378E /* RegistrationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		5641DC091D059B3A00258EAC /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		5641DC0B1D059B8E00258EAC /* UIViewControllweExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllweExtensions.swift; sourceTree = "<group>"; };
+		564D08741CFF72EC00C46F88 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		5697EF531D056FDA0010BF3B /* ClosureExperiment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureExperiment.swift; sourceTree = "<group>"; };
+		56B8C2C21D06377F003FF641 /* UserController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController2.swift; sourceTree = "<group>"; };
+		77596BA0D43A4EEE7C246B06 /* Pods-NoughtsAndCrossesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrossesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrossesUITests/Pods-NoughtsAndCrossesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A3920F39D3A01FFBF840DC2E /* Pods_NoughtsAndCrossesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrossesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2FBF3D0BC5F645E45FDF15B /* Pods-NoughtsAndCrosses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrosses.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses.release.xcconfig"; sourceTree = "<group>"; };
+		BA9C89D04E18C08C8F8510E7 /* Pods_NoughtsAndCrosses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoughtsAndCrosses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C316EFC30F847B5D5E886893 /* Pods-NoughtsAndCrossesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrossesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrossesUITests/Pods-NoughtsAndCrossesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C59A1675FA56EB0C3A81E2E7 /* Pods-NoughtsAndCrossesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoughtsAndCrossesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NoughtsAndCrossesTests/Pods-NoughtsAndCrossesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FBDE70821CF87AD00025275C /* BoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		FBDE70831CF87AD00025275C /* BoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3614E233D896899E76DE74BA /* Pods_NoughtsAndCrosses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C3F36B217C5C31DE5C4DA11 /* Pods_NoughtsAndCrossesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,17 +120,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C953BF228D8D2B3A304B3E4 /* Pods_NoughtsAndCrossesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		427A5B651CE0FF4A00328EE7 /* Model */ = {
+		2799B2B67AA04DB55D6E0BFC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				1B0F7D83AD7EFA623701F4D8 /* Pods-NoughtsAndCrosses.debug.xcconfig */,
+				B2FBF3D0BC5F645E45FDF15B /* Pods-NoughtsAndCrosses.release.xcconfig */,
+				C59A1675FA56EB0C3A81E2E7 /* Pods-NoughtsAndCrossesTests.debug.xcconfig */,
+				5186156EEC7C8E34FBD8D4D2 /* Pods-NoughtsAndCrossesTests.release.xcconfig */,
+				77596BA0D43A4EEE7C246B06 /* Pods-NoughtsAndCrossesUITests.debug.xcconfig */,
+				C316EFC30F847B5D5E886893 /* Pods-NoughtsAndCrossesUITests.release.xcconfig */,
 			);
-			name = Model;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		42D447C11CD765670070326E = {
@@ -88,6 +147,8 @@
 				42D447E11CD765680070326E /* NoughtsAndCrossesTests */,
 				42D447EC1CD765680070326E /* NoughtsAndCrossesUITests */,
 				42D447CB1CD765670070326E /* Products */,
+				2799B2B67AA04DB55D6E0BFC /* Pods */,
+				51E68CA5AE24198D8476D727 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,13 +165,19 @@
 		42D447CC1CD765670070326E /* NoughtsAndCrosses */ = {
 			isa = PBXGroup;
 			children = (
+				5611F1401D018BBE00773D57 /* ModelControllers */,
+				5611F13F1D018B4900773D57 /* Screens */,
+				5611F1331D00662600773D57 /* EasterEgg */,
 				42D447CD1CD765670070326E /* AppDelegate.swift */,
-				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
-				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+				5611F1311D00633000773D57 /* Game */,
+				562A67FB1CFF2ED9004D378E /* OnBoarding */,
 				42D447D41CD765670070326E /* Assets.xcassets */,
 				42D447D61CD765670070326E /* LaunchScreen.storyboard */,
 				42D447D91CD765670070326E /* Info.plist */,
-				427A5B651CE0FF4A00328EE7 /* Model */,
+				5611F1241CFF82A100773D57 /* EmailValidatedTextField.swift */,
+				5697EF531D056FDA0010BF3B /* ClosureExperiment.swift */,
+				5641DC091D059B3A00258EAC /* WebServices.swift */,
+				5641DC0B1D059B8E00258EAC /* UIViewControllweExtensions.swift */,
 			);
 			path = NoughtsAndCrosses;
 			sourceTree = "<group>";
@@ -133,6 +200,68 @@
 			path = NoughtsAndCrossesUITests;
 			sourceTree = "<group>";
 		};
+		51E68CA5AE24198D8476D727 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA9C89D04E18C08C8F8510E7 /* Pods_NoughtsAndCrosses.framework */,
+				297D6E45BC6252722C45B717 /* Pods_NoughtsAndCrossesTests.framework */,
+				A3920F39D3A01FFBF840DC2E /* Pods_NoughtsAndCrossesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5611F1311D00633000773D57 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				5611F13A1D016EBC00773D57 /* NetworkPlayViewController.swift */,
+				5611F13B1D016EBC00773D57 /* NetworkPlayViewController.xib */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		5611F1331D00662600773D57 /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				5611F1341D00671D00773D57 /* EasterEggViewController.swift */,
+				5611F1351D00671D00773D57 /* EasterEggViewController.xib */,
+				5611F1381D00676200773D57 /* EasterEggController.swift */,
+			);
+			name = EasterEgg;
+			sourceTree = "<group>";
+		};
+		5611F13F1D018B4900773D57 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FBDE70821CF87AD00025275C /* BoardViewController.swift */,
+				FBDE70831CF87AD00025275C /* BoardViewController.xib */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		5611F1401D018BBE00773D57 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				561C39871CFC7A64002F3637 /* OXGame.swift */,
+				564D08741CFF72EC00C46F88 /* UserController.swift */,
+				5602E81D1D055D5800A45214 /* OXGameController.swift */,
+				56B8C2C21D06377F003FF641 /* UserController2.swift */,
+			);
+			name = ModelControllers;
+			sourceTree = "<group>";
+		};
+		562A67FB1CFF2ED9004D378E /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				562A67FC1CFF2F36004D378E /* LandingViewController.swift */,
+				562A67FD1CFF2F36004D378E /* LandingViewController.xib */,
+				562A68001CFF2F49004D378E /* LoginViewController.swift */,
+				562A68011CFF2F49004D378E /* LoginViewController.xib */,
+				562A68041CFF2F6F004D378E /* RegistrationViewController.swift */,
+				562A68051CFF2F6F004D378E /* RegistrationViewController.xib */,
+			);
+			name = OnBoarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F21CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrosses" */;
 			buildPhases = (
+				D9196A2A495B0C3D8416A88C /* [CP] Check Pods Manifest.lock */,
 				42D447C61CD765670070326E /* Sources */,
 				42D447C71CD765670070326E /* Frameworks */,
 				42D447C81CD765670070326E /* Resources */,
+				718BA703C07884D45CBEC765 /* [CP] Embed Pods Frameworks */,
+				763E81C30EA26653F6F7A10D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,9 +289,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F51CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesTests" */;
 			buildPhases = (
+				B3AE90AC6110A9833D76CA23 /* [CP] Check Pods Manifest.lock */,
 				42D447DA1CD765680070326E /* Sources */,
 				42D447DB1CD765680070326E /* Frameworks */,
 				42D447DC1CD765680070326E /* Resources */,
+				0527C1819FE9E32A31B9B329 /* [CP] Embed Pods Frameworks */,
+				2574E1CCDD35D6892A5FA088 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42D447F81CD765680070326E /* Build configuration list for PBXNativeTarget "NoughtsAndCrossesUITests" */;
 			buildPhases = (
+				55FF58AA2AB21B09FF329245 /* [CP] Check Pods Manifest.lock */,
 				42D447E51CD765680070326E /* Sources */,
 				42D447E61CD765680070326E /* Frameworks */,
 				42D447E71CD765680070326E /* Resources */,
+				E621BC34A0D5440CFB9451EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +338,7 @@
 				TargetAttributes = {
 					42D447C91CD765670070326E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VFEGC95F3P;
 					};
 					42D447DD1CD765680070326E = {
 						CreatedOnToolsVersion = 7.3;
@@ -237,8 +375,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562A68031CFF2F49004D378E /* LoginViewController.xib in Resources */,
 				42D447D81CD765670070326E /* LaunchScreen.storyboard in Resources */,
 				42D447D51CD765670070326E /* Assets.xcassets in Resources */,
+				5611F1371D00671D00773D57 /* EasterEggViewController.xib in Resources */,
+				562A68071CFF2F6F004D378E /* RegistrationViewController.xib in Resources */,
+				5611F13D1D016EBC00773D57 /* NetworkPlayViewController.xib in Resources */,
+				562A67FF1CFF2F36004D378E /* LandingViewController.xib in Resources */,
 				FBDE70851CF87AD00025275C /* BoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,13 +402,150 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0527C1819FE9E32A31B9B329 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrossesTests/Pods-NoughtsAndCrossesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2574E1CCDD35D6892A5FA088 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrossesTests/Pods-NoughtsAndCrossesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55FF58AA2AB21B09FF329245 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		718BA703C07884D45CBEC765 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		763E81C30EA26653F6F7A10D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrosses/Pods-NoughtsAndCrosses-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3AE90AC6110A9833D76CA23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D9196A2A495B0C3D8416A88C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E621BC34A0D5440CFB9451EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NoughtsAndCrossesUITests/Pods-NoughtsAndCrossesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		42D447C61CD765670070326E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562A68061CFF2F6F004D378E /* RegistrationViewController.swift in Sources */,
+				5611F1391D00676200773D57 /* EasterEggController.swift in Sources */,
+				5641DC0A1D059B3A00258EAC /* WebServices.swift in Sources */,
+				5611F1361D00671D00773D57 /* EasterEggViewController.swift in Sources */,
 				42D447CE1CD765670070326E /* AppDelegate.swift in Sources */,
+				56B8C2C31D06377F003FF641 /* UserController2.swift in Sources */,
+				561C39881CFC7A64002F3637 /* OXGame.swift in Sources */,
+				562A67FE1CFF2F36004D378E /* LandingViewController.swift in Sources */,
+				564D08751CFF72EC00C46F88 /* UserController.swift in Sources */,
+				5611F13C1D016EBC00773D57 /* NetworkPlayViewController.swift in Sources */,
+				562A68021CFF2F49004D378E /* LoginViewController.swift in Sources */,
+				5697EF541D056FDA0010BF3B /* ClosureExperiment.swift in Sources */,
 				FBDE70841CF87AD00025275C /* BoardViewController.swift in Sources */,
+				5602E81E1D055D5800A45214 /* OXGameController.swift in Sources */,
+				5611F1251CFF82A100773D57 /* EmailValidatedTextField.swift in Sources */,
+				5641DC0C1D059B8E00258EAC /* UIViewControllweExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,30 +679,39 @@
 		};
 		42D447F31CD765680070326E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B0F7D83AD7EFA623701F4D8 /* Pods-NoughtsAndCrosses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
+				PRODUCT_BUNDLE_IDENTIFIER = chris.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		42D447F41CD765680070326E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2FBF3D0BC5F645E45FDF15B /* Pods-NoughtsAndCrosses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NoughtsAndCrosses/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AS.NoughtsAndCrosses;
+				PRODUCT_BUNDLE_IDENTIFIER = chris.NoughtsAndCrosses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		42D447F61CD765680070326E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C59A1675FA56EB0C3A81E2E7 /* Pods-NoughtsAndCrossesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = NoughtsAndCrossesTests/Info.plist;
@@ -435,6 +724,7 @@
 		};
 		42D447F71CD765680070326E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5186156EEC7C8E34FBD8D4D2 /* Pods-NoughtsAndCrossesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = NoughtsAndCrossesTests/Info.plist;
@@ -447,6 +737,7 @@
 		};
 		42D447F91CD765680070326E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77596BA0D43A4EEE7C246B06 /* Pods-NoughtsAndCrossesUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = NoughtsAndCrossesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -458,6 +749,7 @@
 		};
 		42D447FA1CD765680070326E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C316EFC30F847B5D5E886893 /* Pods-NoughtsAndCrossesUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = NoughtsAndCrossesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
