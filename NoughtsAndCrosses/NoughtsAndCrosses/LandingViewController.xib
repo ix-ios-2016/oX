@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController" customModule="NoughtsAndCrosses" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlX-pl-FQS">
+                    <rect key="frame" x="271" y="359" width="57" height="30"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Register"/>
+                    <connections>
+                        <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="lbP-Ks-Ot7"/>
+                    </connections>
+                </button>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUi-ba-oXC" customClass="EmailValidated">
+                    <rect key="frame" x="280" y="298" width="38" height="30"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="Mw3-Gf-Nfd"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Noughts and Crosses from iX iOS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXH-b0-8x6">
+                    <rect key="frame" x="125" y="150" width="351" height="94"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.97885307590000004" green="0.19072253980000001" blue="0.41490796670000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="YlX-pl-FQS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2bX-Qx-451"/>
+                <constraint firstItem="YlX-pl-FQS" firstAttribute="top" secondItem="bUi-ba-oXC" secondAttribute="bottom" constant="31" id="CQ8-UQ-ulJ"/>
+                <constraint firstItem="KXH-b0-8x6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="Ecl-ac-5rJ"/>
+                <constraint firstItem="YlX-pl-FQS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="74" id="YCT-cy-bO9"/>
+                <constraint firstItem="KXH-b0-8x6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iCU-uh-oxO"/>
+                <constraint firstItem="bUi-ba-oXC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="13" id="puQ-Gx-jTc"/>
+                <constraint firstItem="bUi-ba-oXC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-1" id="sIR-lH-Jxc"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="254" y="183"/>
+        </view>
+    </objects>
+</document>

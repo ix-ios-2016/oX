@@ -12,24 +12,60 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navigationController: UINavigationController?
+    
+    var gameNavigationController : UINavigationController?
+    
+    var authorizationNavigationController : UINavigationController?
+    
+    var easterEggNavigationController : UINavigationController?
+    
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
-        let boardViewController = BoardViewController(nibName:"BoardViewController",bundle:nil)
-        self.navigationController = UINavigationController(rootViewController: boardViewController)
-        self.navigationController?.navigationBarHidden = true
+        self.gameNavigationController?.navigationBarHidden = true
+        //Always have this line at the top of the application function to confirm that a window does exist
+        self.window = UIWindow(frame : UIScreen.mainScreen().bounds)
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.navigationController
+        //set to stored persistent value
+        let userIsLoggedIn = UserController.sharedInstance.getLoggedInUser()
+        if let _ = (userIsLoggedIn) {
+            navigateToGame()
+        } else {
+            //This is for if there is no value for the objectForKey which means this is the first time this has run
+            navigateToLandingViewController()
+        }
+        
+        //This gets you to the Easter Egg page from every page in the entire app!!! From Julian.
+        EasterEggController.sharedInstance.initiate(self.window!)
+        
+        //Have this at the end of the application() method to ensure that everything is set up
         self.window?.makeKeyAndVisible()
-        
-        
-        
         return true
-    }
+        }
+    
+    
+    func navigateToLandingViewController() {
+        let landingViewController = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        authorizationNavigationController = UINavigationController(rootViewController: landingViewController)
+        self.window?.rootViewController = self.authorizationNavigationController
+        
 
+    }
+    
+    func navigateToGame() {
+        
+        let gameBoard = BoardViewController(nibName: "BoardViewController", bundle: nil)
+        self.gameNavigationController = UINavigationController(rootViewController: gameBoard)
+        self.window?.rootViewController = self.gameNavigationController
+    }
+    
+    func navigateToEasterEggScreen() {
+        let easterEggViewController = EasterEggViewController(nibName: "EasterEggViewController",bundle: nil)
+        easterEggNavigationController = UINavigationController(rootViewController: easterEggViewController)
+        self.window?.rootViewController = easterEggNavigationController
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -51,7 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
