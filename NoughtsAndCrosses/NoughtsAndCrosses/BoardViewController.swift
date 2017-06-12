@@ -10,12 +10,85 @@ import UIKit
 
 class BoardViewController: UIViewController {
     
+    @IBOutlet weak var boardView: UIView!
+    @IBOutlet weak var nineButtons: UIButton!
+    var gameObject = OXGame()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let rotation: UIRotationGestureRecognizer = UIRotationGestureRecognizer(target: self, action:#selector(BoardViewController.handleRotation(_:)))
+        self.boardView.addGestureRecognizer(rotation)
+        
+        let pinch: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action:#selector(BoardViewController.handlePinch(_:)))
+        self.boardView.addGestureRecognizer(pinch)
+        
+    }
+    func handlePinch(sender: UIPinchGestureRecognizer? = nil) {
+        print("pinch detected")
+    }
+    
+    func handleRotation(sender: UIRotationGestureRecognizer? = nil) {
+        print("Rotation detected")
+        
+        self.boardView.transform = CGAffineTransformMakeRotation(sender!.rotation)
+        
+        if sender!.state == UIGestureRecognizerState.Ended {
+            print("rotation \(sender!.rotation)")
+            
+            
+            if sender!.rotation > CGFloat(M_PI)/6 {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))})
+            } else /*if sender!.rotation < CGFloat(M_PI)/6*/ {
+                UIView.animateWithDuration(NSTimeInterval(1), animations: {self.boardView.transform = CGAffineTransformMakeRotation(0)})
+                
+            }
+            
+            
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    
+    
+    func restartGame(){
+        let restart = String(gameObject.reset())
+        for button in boardView.subviews {
+            if let vari = button as? UIButton {
+                vari.setTitle(restart, forState: UIControlState.Normal)
+            }
+        }
+    }
+    
+    func disableButtons() {
+        nineButtons.enabled = false
+    }
+    
+    @IBAction func buttonPressed(sender: AnyObject) {
+        let tag = sender.tag
+        print("Button Pressed \(tag)")
+        let player = String(gameObject.playMove(tag))
+        sender.setTitle(player, forState: UIControlState.Normal)
+        
+        if gameObject.winDetection() {
+            print( "The Winner is \(player)")
+            nineButtons.enabled = false
+        }
+        
+    }
+    
+    @IBAction func newGame(sender: AnyObject) {
+        print("New Game Pressed")
+        restartGame()
+    }
+    
+    @IBAction func backButton(sender: UIButton) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
 }
